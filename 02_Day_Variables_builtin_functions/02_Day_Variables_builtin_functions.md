@@ -1,4 +1,36 @@
-[<< Day 1](../README.md#-exercises---day-1) | [Day 3 >>](../03_Day_Operators/03_operators.md)
+# 📘 Day 2
+
+## Built in functions
+
+In Python we have lots of built-in functions. Built-in functions are globally available for your use that mean you can make use of the built-in functions without importing or configuring. Some of the most commonly used Python built-in functions are the following: _print()_, _len()_, _type()_, _int()_, _float()_, _str()_, _input()_, _list()_, _dict()_, _min()_, _max()_, _sum()_, _sorted()_, _open()_, _file()_, _help()_, and _dir()_. In the following table you will see an exhaustive list of Python built-in functions taken from [python documentation](https://docs.python.org/3.9/library/functions.html).
+
+![Built-in Functions](../images/builtin-functions.png)
+
+Let us open the Python shell and start using some of the most common built-in functions.
+
+![Built-in functions](../images/builtin-functions_practice.png)
+
+Let us practice more by using different built-in functions
+
+![Help and Dir Built in Functions](../images/help_and_dir_builtin.png)
+
+As you can see from the terminal above, Python has got reserved words. We do not use reserved words to declare variables or functions. We will cover variables in the next section.
+
+I believe, by now you are familiar with built-in functions. Let us do one more practice of built-in functions and we will move on to the next section.
+
+![Min Max Sum](../images/builtin-functional-final.png)
+
+## Variables
+
+Variables store data in a computer memory. Mnemonic variables are recommended to use in many programming languages. A mnemonic variable is a variable name that can be easily remembered and associated. A variable refers to a memory address in which data is stored.
+Number at the beginning, special character, hyphen are not allowed when naming a variable. A variable can have a short name (like x, y, z), but a more descriptive name (firstname, lastname, age, country) is highly recommended.
+
+Python Variable Name Rules
+
+- A variable name must start with a letter or the underscore character
+- A variable name cannot start with a number
+- A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and \_ )
+- Variable names are case-sensitive (firstname, Firstname, FirstName and FIRSTNAME) are different variables)
 
 ## 💻 Exercises - Day 2
 
@@ -37,3 +69,5 @@
     3. Take radius as user input and calculate the area.
 1. Use the built-in input function to get first name, last name, country and age from a user and store the value to their corresponding variable names
 1. Run help('keywords') in Python shell or in your file to check for the Python reserved words or keywords
+
+[<< Day 1](../README.md#-exercises---day-1) | [Day 3 >>](../03_Day_Operators/03_operators.md)
