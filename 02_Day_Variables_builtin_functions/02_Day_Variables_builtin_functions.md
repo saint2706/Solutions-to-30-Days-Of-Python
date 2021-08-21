@@ -1,4 +1,4 @@
-[<< Day 1](./README.md#-exercises---day-1) | [Day 3 >>](../03_Day_Operators/03_operators.md)
+[<< Day 1](../README.md#-exercises---day-1) | [Day 3 >>](../03_Day_Operators/03_operators.md)
 
 ## 💻 Exercises - Day 2
 
