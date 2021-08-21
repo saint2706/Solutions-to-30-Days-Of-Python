@@ -2,7 +2,7 @@
 
  Following Asabeneh's curriculum to revive my python coding skills from 2 years ago.
 
-# 🐍 30 Days Of Python
+## 🐍 30 Days Of Python
 
 |# Day | Topics                                                    |
 |------|:---------------------------------------------------------:|
