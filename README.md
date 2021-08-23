@@ -1,6 +1,6 @@
 # 30-Days-Of-Python-Restart
 
- Following Asabeneh's curriculum to revive my python coding skills from 2 years ago.
+ Following [Asabeneh's curriculum](https://github.com/Asabeneh/30-Days-Of-Python) to revive my python coding skills from 2 years ago.
 
 ## 🐍 30 Days Of Python
 
