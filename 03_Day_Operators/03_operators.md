@@ -32,7 +32,7 @@ Assignment operators are used to assign values to variables. Let us take = as an
 
 ![Arithmetic Operators](../images/arithmetic_operators.png)
 
-**Example:Integers**
+## **Example:Integers**
 
 ```py
 # Arithmetic Operations in Python
@@ -50,7 +50,7 @@ print('Modulus: ', 3 % 2)         # 1, Gives the remainder
 print('Exponentiation: ', 2 ** 3) # 9 it means 2 * 2 * 2
 ```
 
-**Example:Floats**
+## **Example:Floats**
 
 ```py
 # Floating numbers
@@ -58,7 +58,7 @@ print('Floating Point Number, PI', 3.14)
 print('Floating Point Number, gravity', 9.81)
 ```
 
-**Example:Complex numbers**
+## **Example:Complex numbers**
 
 ```py
 # Complex numbers
@@ -68,7 +68,7 @@ print('Multiplying complex numbers: ',(1 + 1j) * (1 - 1j))
 
 Let's declare a variable and assign a number data type. I am going to use single character variable but remember do not develop a habit of declaring such types of variables. Variable names should be all the time mnemonic.
 
-**Example:**
+## **Example:**
 
 ```python
 # Declaring the variable at the top first
@@ -96,7 +96,7 @@ print('a // b = ', floor_division)
 print('a ** b = ', exponentiation)
 ```
 
-**Example:**
+## **Examples:**
 
 ```py
 print('== Addition, Subtraction, Multiplication, Division, Modulus ==')
@@ -122,7 +122,7 @@ print('remainder: ', remainder)
 
 Let us start start connecting the dots and start making use of what we already know to calculate (area, volume,density,  weight, perimeter, distance, force).
 
-**Example:**
+## **More Examples:**
 
 ```py
 # Calculating area of a circle
@@ -229,20 +229,20 @@ print(not not False) # False
 3. Declare a variable that store a complex number
 4. Write a script that prompts the user to enter base and height of the triangle and calculate an area of this triangle (area = 0.5 x b x h).
 
-```py
-    Enter base: 20
-    Enter height: 10
-    The area of the triangle is 100
-```
+    ```py
+        Enter base: 20
+        Enter height: 10
+        The area of the triangle is 100
+    ```
 
 5. Write a script that prompts the user to enter side a, side b, and side c of the triangle. Calculate the perimeter of the triangle (perimeter = a + b + c).
 
-```py
-Enter side a: 5
-Enter side b: 4
-Enter side c: 3
-The perimeter of the triangle is 12
-```
+    ```py
+    Enter side a: 5
+    Enter side b: 4
+    Enter side c: 3
+    The perimeter of the triangle is 12
+    ```
 
 6. Get length and width of a rectangle using prompt. Calculate its area (area = length x width) and perimeter (perimeter = 2 x (length + width))
 7. Get radius of a circle using prompt. Calculate the area (area = pi x r x r) and circumference (c = 2 x pi x r) where pi = 3.14.
@@ -261,18 +261,18 @@ The perimeter of the triangle is 12
 20. Check if int('9.8') is equal to 10
 21. Writ a script that prompts the user to enter hours and rate per hour. Calculate pay of the person?
 
-```py
-Enter hours: 40
-Enter rate per hour: 28
-Your weekly earning is 1120
-```
+    ```py
+    Enter hours: 40
+    Enter rate per hour: 28
+    Your weekly earning is 1120
+    ```
 
 22. Write a script that prompts the user to enter number of years. Calculate the number of seconds a person can live. Assume a person can live hundred years
 
-```py
-Enter number of years you have lived: 100
-You have lived for 3153600000 seconds.
-```
+    ```py
+    Enter number of years you have lived: 100
+    You have lived for 3153600000 seconds.
+    ```
 
 23. Write a Python script that displays the following table
 
