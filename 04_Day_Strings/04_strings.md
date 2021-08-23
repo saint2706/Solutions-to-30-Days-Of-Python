@@ -551,14 +551,14 @@ print(challenge.startswith('thirty')) # False
 
 36. Make the following using string formatting methods:
 
-```sh
-8 + 6 = 14
-8 - 6 = 2
-8 * 6 = 48
-8 / 6 = 1.33
-8 % 6 = 2
-8 // 6 = 1
-8 ** 6 = 262144
-```
+    ```sh
+    8 + 6 = 14
+    8 - 6 = 2
+    8 * 6 = 48
+    8 / 6 = 1.33
+    8 % 6 = 2
+    8 // 6 = 1
+    8 ** 6 = 262144
+    ```
 
 [<< Day 3](../03_Day_Operators/03_operators.md) | [Day 5 >>](../05_Day_Lists/05_lists.md)
