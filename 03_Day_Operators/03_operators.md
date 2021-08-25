@@ -1,5 +1,20 @@
 # 📘 Day 3
 
+- [📘 Day 3](#-day-3)
+  - [Boolean](#boolean)
+  - [Operators](#operators)
+    - [Assignment Operators](#assignment-operators)
+    - [Arithmetic Operators](#arithmetic-operators)
+  - [**Example:Integers**](#exampleintegers)
+  - [**Example:Floats**](#examplefloats)
+  - [**Example:Complex numbers**](#examplecomplex-numbers)
+  - [**Example:**](#example)
+  - [**Examples:**](#examples)
+  - [**More Examples:**](#more-examples)
+    - [Comparison Operators](#comparison-operators)
+    - [Logical Operators](#logical-operators)
+  - [💻 Exercises - Day 3](#-exercises---day-3)
+
 ## Boolean
 
 A boolean data type represents one of the two values: _True_ or _False_. The use of these data types will be clear once we start using the comparison operator. The first letter **T** for True and **F** for False should be capital unlike JavaScript.
