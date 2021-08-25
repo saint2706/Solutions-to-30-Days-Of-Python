@@ -41,12 +41,11 @@ remainder = num_two % num_one
 exp = num_one ** num_two
 floor_division = num_one // num_two
 
-radius = 30
-area_of_circle = 3.14*radius*radius
-circum_of_circle = 3.14*2*radius
 radius = int(input('Enter radius:'))
 area_of_circle = 3.14*radius*radius
-circum_of_circle = 3.14*2*radius
+circumference_of_circle = 3.14 * 2 * radius
+print(area_of_circle)
+print(circumference_of_circle)
 
 first = input('Enter first name:')
 last = input('Enter last name:')

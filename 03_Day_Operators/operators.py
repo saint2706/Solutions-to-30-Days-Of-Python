@@ -42,7 +42,7 @@ print(2 if 2 < (y2 - y1) / (x2 - x1) else (y2 - y1) / (x2 - x1))
 # 11
 for x in range(0, 10):
     print(x ** 2 + 6 * x + 9)
-print(3 , -3, "is where y is 0")
+print(3, -3, "is where y is 0")
 
 # 12
 print(not len('python') == len('dragon'))

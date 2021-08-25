@@ -104,7 +104,7 @@ print('-'.join(['Django', 'Flask', 'Bottle', 'Pyramid', 'Falcon']))
 print('I am enjoying this challenge.\nI just wonder what is next.')
 
 # 34
-print('Name\tAge\tCountry\tCity\nAsabeneh\t250\tFinland\tHelsinki')
+print('Name\tAge\tCountry\tCity\nRishabh\t250\tFinland\tHelsinki')
 
 # 35
 print('radius =', 10)
