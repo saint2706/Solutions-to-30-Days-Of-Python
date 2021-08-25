@@ -297,3 +297,12 @@ countries = [
 
 print([countries[i] for i in range((len(countries)/2) - (1 if float(len(countries)) % 2 == 0 else 0), len(countries)/2+1)])
 
+length = len(countries)
+if length%2==0:
+    first_half = countries[:length//2]
+    second_half = countries[length//2:]
+else:
+    first_half = countries[:length//2 + 1]
+    second_half = countries[length//2+1:]
+    
+scandic_countries = ['China', 'Russia', 'USA', 'Finland', 'Sweden', 'Norway', 'Denmark'][3:]
