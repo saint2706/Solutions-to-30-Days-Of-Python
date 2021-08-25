@@ -39,6 +39,8 @@
 
 - [30-Days-Of-Python-Restart](#30-days-of-python-restart)
   - [🐍 30 Days Of Python](#-30-days-of-python)
+  - [📘 Day 1](#-day-1)
+  - [Welcome](#welcome)
   - [Introduction](#introduction)
   - [Why Python ?](#why-python-)
   - [Environment Setup](#environment-setup)
@@ -66,6 +68,14 @@
     - [Exercise: Level 1](#exercise-level-1)
     - [Exercise: Level 2](#exercise-level-2)
     - [Exercise: Level 3](#exercise-level-3)
+
+## 📘 Day 1
+
+## Welcome
+
+**Congratulations** for deciding to participate in a _30 days of Python_ programming challenge . In this challenge you will learn everything you need to be a python programmer and the whole concept of programming. In the end of the challenge you will get a _30DaysOfPython_ programming challenge certificate.
+
+If you would like to actively engage in the challenge, you may join the [30DaysOfPython challenge](https://t.me/ThirtyDaysOfPython) telegram group.
 
 ## Introduction
 
