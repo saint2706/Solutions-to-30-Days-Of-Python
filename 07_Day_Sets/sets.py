@@ -24,7 +24,7 @@ del B
 del it_companies
 
 # Level 3
-print(len(set(age)) < len(age)) # len of list is bigger
+print(len(set(age)) < len(age))  # len of list is bigger
 
 '''
 List is a non-homogeneous data structure which stores the elements in single row and multiple rows and columns

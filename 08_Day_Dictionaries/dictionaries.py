@@ -1,6 +1,8 @@
 dog = dict()
-dog = {'name':'Bruno', 'color':'Black', 'breed':'pug', 'legs':4, 'age':4}
-student_dictionary = {'first_name':'Rishabh', 'last_name':'Agrawal', 'gender':'M', 'age':19, 'marital_status':'unmarried', 'skills':['procrastinating'], 'country':'India', 'city':'Mumbai', 'address':'lol'}
+dog = {'name': 'Bruno', 'color': 'Black', 'breed': 'pug', 'legs': 4, 'age': 4}
+student_dictionary = {'first_name': 'Rishabh', 'last_name': 'Agrawal', 'gender': 'M', 'age': 19,
+                      'marital_status': 'unmarried', 'skills': ['procrastinating'], 'country': 'India',
+                      'city': 'Mumbai', 'address': 'lol'}
 print(len(student_dictionary))
 print(student_dictionary['skills'])
 print(type(student_dictionary['skills']))
