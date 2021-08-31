@@ -84,5 +84,7 @@ print(rev)
 
 # 3
 list_data = countries_data.data
-
-
+total_langs = []
+for i in list_data:
+    total_langs.append(i["languages"])
+print("Languages = ", len(list(set(total_langs))))
