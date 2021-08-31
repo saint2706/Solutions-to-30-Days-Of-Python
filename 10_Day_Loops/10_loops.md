@@ -426,7 +426,7 @@ for number in range(6):
 
 ### Exercises: Level 3
 
-1. Go to the data folder and use the [countries.py](data\countries.py) file. Loop through the countries and extract all the countries containing the word _land_.
+1. Go to the data folder and use the [countries.py](https://github.com/saintwithataint/30-Days-Of-Python-Restart/blob/71690abd477259ae9a6026aa4a055c3ec1150c95/data/countries.py) file. Loop through the countries and extract all the countries containing the word _land_.
 2. This is a fruit list, ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop.
 3. Go to the data folder and use the [countries_data.py](data\countries-data.py) file.
    1. What are the total number of languages in the data
