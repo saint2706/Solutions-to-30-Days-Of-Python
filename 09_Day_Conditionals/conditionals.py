@@ -1,10 +1,10 @@
 # Level 1
 # 1
 age = int(input('Enter age: '))
-if age>= 18:
+if age >= 18:
     print("You are old enough to drive.")
 else:
-    print("You need to wait", 18-age, "years.")
+    print("You need to wait", 18 - age, "years.")
 
 # 2
 my_age = 18
@@ -14,7 +14,7 @@ if age == my_age:
 elif age > my_age:
     print("You are", age - my_age, "years older than me")
 else:
-    print("I am", my_age-age, "years older than you")
+    print("I am", my_age - age, "years older than you")
 
 # 3
 a = int(input("Enter number: "))
@@ -62,21 +62,21 @@ print('That fruit already exists in the list' if fruit in fruits else fruits.app
 print(fruits)
 
 # Level 3
-person={
-'first_name': 'Asabeneh',
-'last_name': 'Yetayeh',
-'age': 250,
-'country': 'Finland',
-'is_marred': True,
-'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
-'address': {
-    'street': 'Space street',
-    'zipcode': '02210'
-}
+person = {
+    'first_name': 'Asabeneh',
+    'last_name': 'Yetayeh',
+    'age': 250,
+    'country': 'Finland',
+    'is_marred': True,
+    'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
+    'address': {
+        'street': 'Space street',
+        'zipcode': '02210'
+    }
 }
 
 if person['skills']:
-    print(person['skills'][len(person['skills'])//2])
+    print(person['skills'][len(person['skills']) // 2])
     print("Python" in person['skills'])
     if ['Javascript', 'React'] == person['skills']:
         print('Front End Developer')
