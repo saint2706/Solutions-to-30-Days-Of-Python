@@ -42,4 +42,21 @@ for i in range(50, 60):
 for i in range(0, 50):
     grades[i] = 'F'
 
-print("Grade: ", grades[score])
+print("Grade:", grades[score])
+
+# 2
+month = input('Enter month: ').title()
+if month in ["September", "October", "November"]:
+    print("Autumn")
+if month in ["December", "January", "February"]:
+    print("Winter")
+if month in ["March", "April", "May"]:
+    print("Spring")
+else:
+    print("Summer")
+
+# 3
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruit = input('Enter fruit: ')
+print('That fruit already exists in the list' if fruit in fruits else fruits.append(fruit))
+print(fruits)
