@@ -16,3 +16,12 @@ elif age > my_age:
 else:
     print("I am", my_age-age, "years older than you")
 
+# 3
+a = int(input("Enter number: "))
+b = int(input("Enter number: "))
+if a > b:
+    print(a, "is greater than", b)
+elif a < b:
+    print(a, "is lesser than", b)
+else:
+    print("Both numbers are equal")
