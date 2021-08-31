@@ -75,5 +75,14 @@ for country in list_c:
     if "land" in country:
         print(country)
 
+# 2
+fruity_list = ['banana', 'orange', 'mango', 'lemon']
+rev = []
+for i in range(3, -1, -1):
+    rev.append(fruity_list[i])
+print(rev)
+
+# 3
 list_data = countries_data.data
-print(list_data)
+
+
