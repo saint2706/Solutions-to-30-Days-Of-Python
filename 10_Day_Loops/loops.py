@@ -1,3 +1,7 @@
+import sys
+sys.path.append('data')
+import countries
+import countries_data
 # Level 1
 # 1
 for i in range(0, 11):
@@ -64,3 +68,12 @@ for i in range(0, 101):
 print("The sum of all even numbers is", even_sum)
 print("The sum of all odd numbers is", odd_sum)
 
+# Level 3
+# 1
+list_c = countries.countries
+for country in list_c:
+    if "land" in country:
+        print(country)
+
+list_data = countries_data.data
+print(list_data)
