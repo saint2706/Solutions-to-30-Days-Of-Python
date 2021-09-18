@@ -29,3 +29,7 @@ def concatenate_list():
     names = [[('Asabeneh', 'Yetayeh')], [('David', 'Smith')], [('Donald', 'Trump')], [('Bill', 'Gates')]]
     conc = [x for sub in names for sub2 in sub for x in sub2]
     return [conc[i]+' '+conc[i+1] for i in range(0, len(conc),2)]
+
+
+slope = lambda x1,y1,x2,y2 : (y2-y1)/(x2-x1)
+y_intercept = lambda x1,y1,x2,y2 : y1 - slope(x1,y1,x2,y2)*x1
