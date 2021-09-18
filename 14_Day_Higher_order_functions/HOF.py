@@ -2,7 +2,8 @@ from functools import reduce
 import sys
 sys.path.append('data')
 from countries import country_list
-
+from countries_data import data
+import pprint
 countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
 names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -103,3 +104,25 @@ def get_first_ten():
 
 def get_last_ten():
     return country_list[-1:-11:-1]
+
+# Level 3
+
+# pprint.pprint(sorted(data, key=lambda x: x['name']))
+# pprint.pprint(sorted(data, key=lambda x: x['capital']))
+# pprint.pprint(sorted(data, key=lambda x: x['population']))
+
+total_languages_initial = []
+for i in data:
+    total_languages_initial.extend(i["languages"])
+counts = {}
+for i in total_languages_initial:
+    counts[i] = counts.get(i, 0) + 1
+def sort_dict_by_value(d, reverse=False):
+    return dict(sorted(d.items(), key=lambda x: x[1], reverse=reverse))
+counts = sort_dict_by_value(counts, True)
+final_dict_1 = {}
+for i in list(counts.items())[:10]:
+    final_dict_1[list(i)[0]] = list(i)[1]
+pprint.pprint(sorted(final_dict_1))
+
+pprint.pprint(list(sorted(data, key=lambda x: x['population'], reverse=True))[:10])
