@@ -33,3 +33,10 @@ for i in numbers:
     print(i)
 
 # Level 2
+def upper(string):
+    return string.upper()
+def square(num):
+    return num ** 2
+cap_countries = list(map(upper, countries))
+square_nums = list(map(square, numbers))
+upper_names = list(map(upper, names))
