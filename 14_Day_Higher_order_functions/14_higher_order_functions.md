@@ -11,13 +11,14 @@
     - [Accepting Parameters in Decorator Functions](#accepting-parameters-in-decorator-functions)
   - [Built-in Higher Order Functions](#built-in-higher-order-functions)
     - [Python - Map Function](#python---map-function)
-  - [Example:1](#example1)
-  - [Example:2](#example2)
-  - [Example:3](#example3)
+  - [Example: 1](#example-1)
+  - [Example: 2](#example-2)
+  - [Example: 3](#example-3)
     - [Python - Filter Function](#python---filter-function)
-  - [Example:4](#example4)
-  - [Example:5](#example5)
+  - [Example: 4](#example-4)
+  - [Example: 5](#example-5)
     - [Python - Reduce Function](#python---reduce-function)
+  - [Example: 6](#example-6)
   - [💻 Exercises: Day 14](#-exercises-day-14)
     - [Exercises: Level 1](#exercises-level-1)
     - [Exercises: Level 2](#exercises-level-2)
@@ -206,7 +207,7 @@ The map() function is a built-in function that takes a function and iterable as 
     map(function, iterable)
 ```
 
-## Example:1
+## Example: 1
 
 ```py
 numbers = [1, 2, 3, 4, 5] # iterable
@@ -219,7 +220,7 @@ numbers_squared = map(lambda x : x ** 2, numbers)
 print(list(numbers_squared))    # [1, 4, 9, 16, 25]
 ```
 
-## Example:2
+## Example: 2
 
 ```py
 numbers_str = ['1', '2', '3', '4', '5']  # iterable
@@ -227,7 +228,7 @@ numbers_int = map(int, numbers_str)
 print(list(numbers_int))    # [1, 2, 3, 4, 5]
 ```
 
-## Example:3
+## Example: 3
 
 ```py
 names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']  # iterable
@@ -254,7 +255,7 @@ The filter() function calls the specified function which returns boolean for eac
     filter(function, iterable)
 ```
 
-## Example:4
+## Example: 4
 
 ```py
 # Lets filter only even nubers
@@ -269,7 +270,7 @@ even_numbers = filter(is_even, numbers)
 print(list(even_numbers))       # [2, 4]
 ```
 
-## Example:5
+## Example: 5
 
 ```py
 numbers = [1, 2, 3, 4, 5]  # iterable
@@ -298,7 +299,8 @@ print(list(long_names))         # ['Asabeneh']
 ### Python - Reduce Function
 
 The _reduce()_ function is defined in the functools module and we should import it from this module. Like map and filter it takes two parameters, a function and an iterable. However, it does not return another iterable, instead it returns a single value.
-**Example:1**
+
+## Example: 6
 
 ```py
 numbers_str = ['1', '2', '3', '4', '5']  # iterable
