@@ -87,3 +87,19 @@ def concatenate_countries(x, y):
 print(reduce(concatenate_countries, countries) + " are north European countries")
 
 print(list(filter(land, country_list)))
+
+keys = []
+keys = [i[0] for i in country_list if i[0] not in keys]
+
+def countCountry(csv1):
+    return sum([True for i in country_list if i[0].startswith(csv1)])
+
+vals = [countCountry(l) for l in keys]
+
+print(dict(zip(keys, vals)))
+
+def get_first_ten():
+    return country_list[:10]
+
+def get_last_ten():
+    return country_list[-1:-11:-1]
