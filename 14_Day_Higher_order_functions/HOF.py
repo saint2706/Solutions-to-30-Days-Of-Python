@@ -17,6 +17,7 @@ def cube(num):
 def vowel_name(name):
     if name[0] in 'aeiouAEIOU':
         return True
+    return False
 def sum_of_cubes(num1, num2):
     return num1 + num2
 print(list(filter(vowel_name, names)))
@@ -40,3 +41,25 @@ def square(num):
 cap_countries = list(map(upper, countries))
 square_nums = list(map(square, numbers))
 upper_names = list(map(upper, names))
+
+def land(string):
+    if 'land' in string:
+        return True
+    return False
+def six(string):
+    if len(string) == 6:
+        return True
+    return False
+def six_or_more(string):
+    if len(string) >= 6:
+        return True
+    return False
+def E(string):
+    if string[0] == 'E':
+        return True
+    return False
+print(list(filter(land, countries)))
+print(list(filter(six, countries)))
+print(list(filter(six_or_more, countries)))
+print(list(filter(E, countries)))
+
