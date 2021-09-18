@@ -4,21 +4,23 @@ chars = 'abcdefghijklmnopqrstuvwxyz1234567890'
 char_list = []
 char_list[:0] = chars
 
+
 # Level 1
 
 def random_user_id():
-    id = ''
-    for i in range(6):
-        id += random.choice(char_list)
-    return id
+    identity = ''
+    for _ in range(6):
+        identity += random.choice(char_list)
+    return identity
+
 
 def user_id_gen_by_user():
     charsize = int(input('Enter Character Size: '))
     charlimit = int(input('Enter how many user ids to generate: '))
-    id = ''
-    for i in range(charlimit):
-        id = ''.join([random.choice(char_list) for _ in range(charsize)])
-        print(id)
+    for _ in range(charlimit):
+        identity = ''.join([random.choice(char_list) for _ in range(charsize)])
+        print(identity)
+
 
 def rgb_color_gen():
     r = str(random.randint(0, 255))
@@ -26,24 +28,27 @@ def rgb_color_gen():
     b = str(random.randint(0, 255))
     return "rgb(" + r + "," + g + "," + b + ")"
 
+
 # Level 2
 
-def list_of_hexa_colors(many = 0):
+def list_of_hexa_colors(many=0):
     if many == 0:
         many = random.randint(1, 10)
     hexas = "1,2,3,4,5,6,7,8,9,0,a,b,c,d,e,f".split(",")
-    hex = []
-    for i in range(many):
-        hex.append("#" + ''.join([random.choice(hexas) for _ in range(6)]))
-    return hex
+    hexCodes = []
+    for _ in range(many):
+        hexCodes.append("#" + ''.join([random.choice(hexas) for _ in range(6)]))
+    return hexCodes
 
-def list_of_rgb_colors(many = 0):
+
+def list_of_rgb_colors(many=0):
     if many == 0:
         many = random.randint(1, 10)
     rgbs = []
-    for i in range(many):
+    for _ in range(many):
         rgbs.append(rgb_color_gen())
     return rgbs
+
 
 def generate_colors(type_of_col, many):
     if type_of_col == 'hexa':
@@ -53,10 +58,12 @@ def generate_colors(type_of_col, many):
     else:
         return "Invalid Input"
 
+
 # Level 3
 
 def shuffled_list(array):
     return random.sample(array, len(array))
+
 
 def seven_random():
     arr = []

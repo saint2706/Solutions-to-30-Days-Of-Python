@@ -1,7 +1,9 @@
 import sys
 
 sys.path.append('data')
+# noinspection PyUnresolvedReferences
 import countries
+# noinspection PyUnresolvedReferences
 import countries_data
 
 # Level 1
@@ -85,6 +87,7 @@ for i in range(3, -1, -1):
 print(rev)
 
 # 3
+# noinspection DuplicatedCode
 list_data = countries_data.data
 total_languages_initial = []
 for i in list_data:
