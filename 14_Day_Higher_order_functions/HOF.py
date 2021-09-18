@@ -63,3 +63,15 @@ print(list(filter(six, countries)))
 print(list(filter(six_or_more, countries)))
 print(list(filter(E, countries)))
 
+print(list(filter(land, list(filter(six, countries)))))
+
+def toString(string):
+    return str(string)
+def get_string_lists(arr):
+    return list(map(toString, numbers))
+print(get_string_lists())
+
+def sum2(x, y):
+    return int(x) + int(y)
+print(list(reduce(sum2, numbers)))
+
