@@ -1,4 +1,8 @@
 from functools import reduce
+import sys
+sys.path.append('data')
+from countries import country_list
+
 countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
 names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -68,10 +72,18 @@ print(list(filter(land, list(filter(six, countries)))))
 def toString(string):
     return str(string)
 def get_string_lists(arr):
-    return list(map(toString, numbers))
-print(get_string_lists())
+    return list(map(toString, arr))
+print(get_string_lists(numbers))
 
 def sum2(x, y):
     return int(x) + int(y)
-print(list(reduce(sum2, numbers)))
+print(reduce(sum2, numbers))
 
+def concatenate_countries(x, y):
+    if x == "Estonia, Finland, Sweden, Denmark, Norway" and y == "Iceland":
+        return x + ", and " + y
+    else:
+        return x + ", " + y
+print(reduce(concatenate_countries, countries) + " are north European countries")
+
+print(list(filter(land, country_list)))
