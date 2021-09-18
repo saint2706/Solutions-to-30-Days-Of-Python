@@ -22,3 +22,14 @@ def sum_of_cubes(num1, num2):
 print(list(filter(vowel_name, names)))
 print(list(map(cube, numbers)))
 print(reduce(sum_of_cubes, list(map(cube, numbers))))
+
+for i in countries:
+    print(i)
+
+for i in names:
+    print(i)
+
+for i in numbers:
+    print(i)
+
+# Level 2
