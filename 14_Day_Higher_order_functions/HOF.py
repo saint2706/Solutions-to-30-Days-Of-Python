@@ -1,3 +1,4 @@
+from functools import reduce
 countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
 names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -11,3 +12,13 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 '''A decorator in Python is (typically) an example of a higher-order function, but there are decorators that aren't (class decorators**, and decorators that aren't functions), and there are higher-order functions that aren't decorators, for example those that take two required arguments that are functions.'''
 '''A Closure is a function object that remembers values in enclosing scopes even if they are not present in memory.'''
 
+def cube(num):
+    return num ** 3
+def vowel_name(name):
+    if name[0] in 'aeiouAEIOU':
+        return True
+def sum_of_cubes(num1, num2):
+    return num1 + num2
+print(list(filter(vowel_name, names)))
+print(list(map(cube, numbers)))
+print(reduce(sum_of_cubes, list(map(cube, numbers))))
