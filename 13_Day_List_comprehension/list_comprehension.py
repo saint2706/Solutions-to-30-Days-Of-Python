@@ -25,3 +25,7 @@ def list_to_list_dict():
     keys = ["country", "city"]
     return [{keys[0]: countries[idx], keys[1]: countries[idx+1]} for idx in range(0, len(countries), 2)]
 
+def concatenate_list():
+    names = [[('Asabeneh', 'Yetayeh')], [('David', 'Smith')], [('Donald', 'Trump')], [('Bill', 'Gates')]]
+    conc = [x for sub in names for sub2 in sub for x in sub2]
+    return [conc[i]+' '+conc[i+1] for i in range(0, len(conc),2)]
