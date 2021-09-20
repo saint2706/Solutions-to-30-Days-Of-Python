@@ -17,7 +17,7 @@
     - [TypeError](#typeerror)
   - [Example 1: TypeError](#example-1-typeerror)
     - [ImportError](#importerror)
-  - [Example 1: TypeError](#example-1-typeerror-1)
+  - [Example 1: ImportError](#example-1-importerror)
     - [ValueError](#valueerror)
     - [ZeroDivisionError](#zerodivisionerror)
   - [💻 Exercises: Day 15](#-exercises-day-15)
@@ -273,7 +273,7 @@ Error removed and we got the result we expected.
 
 ### ImportError
 
-## Example 1: TypeError
+## Example 1: ImportError
 
 ```py
 asabeneh@Asabeneh:~$ python
