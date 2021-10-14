@@ -28,7 +28,7 @@ A function is a reusable block of code or programming statements designed to per
 
 ### Declaring and Calling a Function
 
-When we make a function, we call it declaring a function. When we start using the it,  we call it *calling* or *invoking* a function. Function can be declared with or without parameters.
+When we make a function, we call it declaring a function. When we start using the it, we call it _calling_ or _invoking_ a function. Function can be declared with or without parameters.
 
 ```py
 # syntax
@@ -205,7 +205,7 @@ print(add_two_numbers(num2 = 3, num1 = 2)) # Order does not matter
 If we do not return a value with a function, then our function is returning _None_ by default. To return a value with a function we use the keyword _return_ followed by the variable we are returning. We can return any kind of data types from a function.
 
 - Returning a string:
-**Example:**
+  **Example:**
 
 ```py
 def print_name(firstname):
@@ -242,7 +242,7 @@ print('Age: ', calculate_age(2019, 1819))
 def is_even (n):
     if n % 2 == 0:
         print('even')
-        return True    # return stops further execution of the function, similar to break 
+        return True    # return stops further execution of the function, similar to break
     return False
 print(is_even(10)) # True
 print(is_even(7)) # False
@@ -325,7 +325,7 @@ function_name(param1, param2, param3,..)
 def sum_all_nums(*nums):
     total = 0
     for num in nums:
-        total += num     # same as total = total + num 
+        total += num     # same as total = total + num
     return total
 print(sum_all_nums(2, 3, 5)) # 10
 ```
@@ -365,12 +365,12 @@ print(do_something(square_number, 3)) # 27
 8. Declare a function named print_list. It takes a list as a parameter and it prints out each element of the list.
 9. Declare a function named reverse_list. It takes an array as a parameter and it returns the reverse of the array (use loops).
 
-    ```py
-    print(reverse_list([1, 2, 3, 4, 5]))
-    # [5, 4, 3, 2, 1]
-    print(reverse_list1(["A", "B", "C"]))
-    # ["C", "B", "A"]
-    ```
+   ```py
+   print(reverse_list([1, 2, 3, 4, 5]))
+   # [5, 4, 3, 2, 1]
+   print(reverse_list1(["A", "B", "C"]))
+   # ["C", "B", "A"]
+   ```
 
 10. Declare a function named capitalize_list_items. It takes a list as a parameter and it returns a capitalized list of items
 11. Declare a function named add_item. It takes a list and an item parameters. It returns a list with the item added at the end.
@@ -406,11 +406,11 @@ print(do_something(square_number, 3)) # 27
 
 1. Declare a function named evens_and_odds . It takes a positive integer as parameter and it counts number of evens and odds in the number.
 
-    ```py
-        print(evens_and_odds(100))
-        # The number of odds are 50.
-        # The number of evens are 51.
-    ```
+   ```py
+       print(evens_and_odds(100))
+       # The number of odds are 50.
+       # The number of evens are 51.
+   ```
 
 2. Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
 3. Call your function _is_empty_, it takes a parameter and it checks if it is empty or not

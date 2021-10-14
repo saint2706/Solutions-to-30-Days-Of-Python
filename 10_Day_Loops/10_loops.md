@@ -14,7 +14,7 @@
     - [Exercises: Level 1](#exercises-level-1)
     - [Exercises: Level 2](#exercises-level-2)
     - [Exercises: Level 3](#exercises-level-3)
-  
+
 ## Loops
 
 Life is full of routines. In programming we also do lots of repetitive tasks. In order to handle repetitive task programming languages use loops. Python programming language also provides the following types of two loops:
@@ -264,7 +264,7 @@ for number in numbers:
 print('outside the loop')
 ```
 
-In the example above, if the number equals 3, the step *after* the condition (but inside the loop) is skipped and the execution of the loop continues if there are any iterations left.
+In the example above, if the number equals 3, the step _after_ the condition (but inside the loop) is skipped and the execution of the loop continues if there are any iterations left.
 
 ### The Range Function
 
@@ -272,7 +272,7 @@ The _range()_ function is used list of numbers. The _range(start, end, step)_ ta
 Creating sequences using range
 
 ```py
-lst = list(range(11)) 
+lst = list(range(11))
 print(lst) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 st = set(range(1, 11))    # 2 arguments indicate start and end of the sequence, step set to default 1
 print(st) # {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
@@ -420,9 +420,9 @@ for number in range(6):
 
 1. Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.
 
-    ```sh
-    The sum of all evens is 2550. And the sum of all odds is 2500.
-    ```
+   ```sh
+   The sum of all evens is 2550. And the sum of all odds is 2500.
+   ```
 
 ### Exercises: Level 3
 

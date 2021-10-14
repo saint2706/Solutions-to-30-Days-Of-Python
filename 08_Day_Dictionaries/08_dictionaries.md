@@ -16,14 +16,14 @@
     - [Getting Dictionary Keys as a List](#getting-dictionary-keys-as-a-list)
     - [Getting Dictionary Values as a List](#getting-dictionary-values-as-a-list)
   - [💻 Exercises: Day 8](#-exercises-day-8)
-  
+
 ## Dictionaries
 
 A dictionary is a collection of unordered, modifiable(mutable) paired (key: value) data type.
 
 ### Creating a Dictionary
 
-To create a dictionary we use curly brackets, {} or the *dict()* built-in function.
+To create a dictionary we use curly brackets, {} or the _dict()_ built-in function.
 
 ```py
 # syntax
@@ -304,7 +304,7 @@ print(values)     # dict_values(['value1', 'value2', 'value3', 'value4'])
 
 ## 💻 Exercises: Day 8
 
-1. Create  an empty dictionary called dog
+1. Create an empty dictionary called dog
 2. Add name, color, breed, legs, age to the dog dictionary
 3. Create a student dictionary and add first_name, last_name, gender, age, marital status, skills, country, city and address as keys for the dictionary
 4. Get the length of the student dictionary
