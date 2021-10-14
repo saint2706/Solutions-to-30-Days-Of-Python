@@ -394,11 +394,13 @@ We can convert the data types of numpy array
 
 1. Int to Float
 
-    ```py
+```py
+
+
 
 numpy_int_arr = np.array([1,2,3,4], dtype = 'float')
 numpy_int_arr
-    ```
+```
 
 ```py
     array([1., 2., 3., 4.])
