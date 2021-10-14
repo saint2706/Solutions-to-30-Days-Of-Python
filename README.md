@@ -23,7 +23,7 @@
 | 15  |  [Python Type Errors](./15_Day_Python_type_errors/15_python_type_errors.md)|
 | 16 |  [Python Date time](./16_Day_Python_date_time/16_python_datetime.md) |
 | 17 |  [Exception Handling](./17_Day_Exception_handling/17_exception_handling.md)|
-| 18 |  [Regular Expressions](./18_Day_Regular_expressions/18_regular_expressions.md)|
+| 18 |  [Regular Expressions](./18_Day_Regular_Expressions/18_regular_expressions.md)|
 | 19 |  [File Handling](./19_Day_File_handling/19_file_handling.md)|
 | 20 |  [Python Package Manager](./20_Day_Python_package_manager/20_python_package_manager.md)|
 | 21 |  [Classes and Objects](./21_Day_Classes_and_objects/21_classes_and_objects.md)|
