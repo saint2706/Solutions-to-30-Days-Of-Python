@@ -21,14 +21,14 @@
     - [Exercises: Level 1](#exercises-level-1)
     - [Exercises: Level 2](#exercises-level-2)
     - [Exercises: Level 3](#exercises-level-3)
-  
+
 ## Sets
 
 Set is a collection of items. Let me take you back to your elementary or high school Mathematics lesson. The Mathematics definition of a set can be applied also in Python. Set is a collection of unordered and un-indexed distinct elements. In Python set is used to store unique items, and it is possible to find the _union_, _intersection_, _difference_, _symmetric difference_, _subset_, _super set_ and _disjoint set_ among sets.
 
 ### Creating a Set
 
-We use curly brackets, {} to create a set or the *set()* built-in function.
+We use curly brackets, {} to create a set or the _set()_ built-in function.
 
 - Creating an empty set
 
@@ -111,7 +111,7 @@ fruits.add('lime')
 ```
 
 - Add multiple items using _update()_
-  The *update()* allows to add multiple items to a set. The *update()* takes a list argument.
+  The _update()_ allows to add multiple items to a set. The _update()_ takes a list argument.
 
 ```py
 # syntax
@@ -151,7 +151,7 @@ If we are interested in the removed item.
 
 ```py
 fruits = {'banana', 'orange', 'mango', 'lemon'}
-removed_item = fruits.pop() 
+removed_item = fruits.pop()
 ```
 
 ### Clearing Items in a Set

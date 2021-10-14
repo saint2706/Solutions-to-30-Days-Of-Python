@@ -219,7 +219,7 @@ print(fruits)        #  ['avocado', 'apple', 'mango', 'lime']
 
 ### Checking Items in a List
 
-Checking an item if it is a member of a list using *in* operator. See the example below.
+Checking an item if it is a member of a list using _in_ operator. See the example below.
 
 ```py
 fruits = ['banana', 'orange', 'mango', 'lemon']
@@ -231,7 +231,7 @@ print(does_exist)  # False
 
 ### Adding Items to a List
 
-To add item to the end of an existing list we use the method *append()*.
+To add item to the end of an existing list we use the method _append()_.
 
 ```py
 # syntax
@@ -249,7 +249,7 @@ print(fruits)
 
 ### Inserting Items into a List
 
-We can use *insert()* method to insert a single item at a specified index in a list. Note that other items are shifted to the right. The *insert()* methods takes two arguments:index and an item to insert.
+We can use _insert()_ method to insert a single item at a specified index in a list. Note that other items are shifted to the right. The _insert()_ methods takes two arguments:index and an item to insert.
 
 ```py
 # syntax
@@ -285,7 +285,7 @@ print(fruits)  # ['orange', 'mango', 'banana']
 
 ### Removing Items Using Pop
 
-The *pop()* method removes the specified index, (or the last item if index is not specified):
+The _pop()_ method removes the specified index, (or the last item if index is not specified):
 
 ```py
 # syntax
@@ -305,7 +305,7 @@ print(fruits)       # ['orange', 'mango']
 
 ### Removing Items Using Del
 
-The *del* keyword removes the specified index and it can also be used to delete items within index range. It can also delete the list completely
+The _del_ keyword removes the specified index and it can also be used to delete items within index range. It can also delete the list completely
 
 ```py
 # syntax
@@ -328,7 +328,7 @@ print(fruits)       # This should give: NameError: name 'fruits' is not defined
 
 ### Clearing List Items
 
-The *clear()* method empties the list:
+The _clear()_ method empties the list:
 
 ```py
 # syntax
@@ -382,7 +382,7 @@ print(fruits_and_vegetables ) # ['banana', 'orange', 'mango', 'lemon', 'Tomato',
 ```
 
 - Joining using extend() method
-  The *extend()* method allows to append list in a list. See the example below.
+  The _extend()_ method allows to append list in a list. See the example below.
 
 ```py
 # syntax
@@ -411,7 +411,7 @@ print('Fruits and vegetables:', fruits ) # Fruits and vegetables: ['banana', 'or
 
 ### Counting Items in a List
 
-The *count()* method returns the number of times an item appears in a list:
+The _count()_ method returns the number of times an item appears in a list:
 
 ```py
 # syntax
@@ -428,7 +428,7 @@ print(ages.count(24))           # 3
 
 ### Finding Index of an Item
 
-The *index()* method returns the index of an item in the list:
+The _index()_ method returns the index of an item in the list:
 
 ```py
 # syntax
@@ -445,7 +445,7 @@ print(ages.index(24))           # 2, the first occurrence
 
 ### Reversing a List
 
-The *reverse()* method reverses the order of a list.
+The _reverse()_ method reverses the order of a list.
 
 ```py
 # syntax
@@ -487,7 +487,7 @@ To sort lists we can use _sort()_ method or _sorted()_ built-in functions. The _
   ages = [22, 19, 24, 25, 26, 24, 25, 24]
   ages.sort()
   print(ages) #  [19, 22, 24, 24, 24, 25, 25, 26]
- 
+
   ages.sort(reverse=True)
   print(ages) #  [26, 25, 25, 24, 24, 24, 22, 19]
   ```

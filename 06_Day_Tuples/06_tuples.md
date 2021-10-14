@@ -13,7 +13,7 @@
   - [💻 Exercises: Day 6](#-exercises-day-6)
     - [Exercises: Level 1](#exercises-level-1)
     - [Exercises: Level 2](#exercises-level-2)
-  
+
 ## Tuples
 
 A tuple is a collection of different data types which is ordered and unchangeable (immutable). Tuples are written with round brackets, (). Once a tuple is created, we cannot change its values. We cannot use add, insert, remove methods in a tuple because it is not modifiable (mutable). Unlike list, tuple has few methods. Methods related to tuples:
@@ -26,7 +26,7 @@ A tuple is a collection of different data types which is ordered and unchangeabl
 ### Creating a Tuple
 
 - Empty tuple: Creating an empty tuple
-  
+
   ```py
   # syntax
   empty_tuple = ()
@@ -35,7 +35,7 @@ A tuple is a collection of different data types which is ordered and unchangeabl
   ```
 
 - Tuple with initial values
-  
+
   ```py
   # syntax
   tpl = ('item1', 'item2','item3')
@@ -215,11 +215,11 @@ del fruits
 
 1. Unpack siblings and parents from family_members
 1. Create fruits, vegetables and animal products tuples. Join the three tuples and assign it to a variable called food_stuff_tp.
-1. Change the about food_stuff_tp  tuple to a food_stuff_lt list
+1. Change the about food_stuff_tp tuple to a food_stuff_lt list
 1. Slice out the middle item or items from the food_stuff_tp tuple or food_stuff_lt list.
 1. Slice out the first three items and the last three items from food_stuff_lt list
 1. Delete the food_stuff_tp tuple completely
-1. Check if an item exists in  tuple:
+1. Check if an item exists in tuple:
 
 - Check if 'Estonia' is a nordic country
 - Check if 'Iceland' is a nordic country

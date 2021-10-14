@@ -81,7 +81,7 @@ Now, let us see the use of the above escape sequences with examples.
 
 ```py
 print('I hope everyone is enjoying the Python Challenge.\nAre you ?') # line break
-print('Days\tTopics\tExercises') # adding tab space or 4 spaces 
+print('Days\tTopics\tExercises') # adding tab space or 4 spaces
 print('Day 1\t3\t5')
 print('Day 2\t3\t5')
 print('Day 3\t3\t5')
@@ -284,7 +284,7 @@ print(challenge.capitalize()) # 'Thirty days of python'
 ```py
 challenge = 'thirty days of python'
 print(challenge.count('y')) # 3
-print(challenge.count('y', 7, 14)) # 1, 
+print(challenge.count('y', 7, 14)) # 1,
 print(challenge.count('th')) # 2`
 ```
 

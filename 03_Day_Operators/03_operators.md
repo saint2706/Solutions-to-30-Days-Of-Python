@@ -39,7 +39,7 @@ Assignment operators are used to assign values to variables. Let us take = as an
 
 - Addition(+): a + b
 - Subtraction(-): a - b
-- Multiplication(*): a* b
+- Multiplication(_): a_ b
 - Division(/): a / b
 - Modulus(%): a % b
 - Floor division(//): a // b
@@ -57,7 +57,7 @@ print('Addition: ', 1 + 2)        # 3
 print('Subtraction: ', 2 - 1)     # 1
 print('Multiplication: ', 2 * 3)  # 6
 print ('Division: ', 4 / 2)       # 2.0  Division in Python gives floating number
-print('Division: ', 6 / 2)        # 3.0         
+print('Division: ', 6 / 2)        # 3.0
 print('Division: ', 7 / 2)        # 3.5
 print('Division without the remainder: ', 7 // 2)   # 3,  gives without the floating number or without the remaining
 print ('Division without the remainder: ',7 // 3)   # 2
@@ -135,7 +135,7 @@ print('division: ', div)
 print('remainder: ', remainder)
 ```
 
-Let us start start connecting the dots and start making use of what we already know to calculate (area, volume,density,  weight, perimeter, distance, force).
+Let us start start connecting the dots and start making use of what we already know to calculate (area, volume,density, weight, perimeter, distance, force).
 
 ## **More Examples:**
 
@@ -244,20 +244,20 @@ print(not not False) # False
 3. Declare a variable that store a complex number
 4. Write a script that prompts the user to enter base and height of the triangle and calculate an area of this triangle (area = 0.5 x b x h).
 
-    ```py
-        Enter base: 20
-        Enter height: 10
-        The area of the triangle is 100
-    ```
+   ```py
+       Enter base: 20
+       Enter height: 10
+       The area of the triangle is 100
+   ```
 
 5. Write a script that prompts the user to enter side a, side b, and side c of the triangle. Calculate the perimeter of the triangle (perimeter = a + b + c).
 
-    ```py
-    Enter side a: 5
-    Enter side b: 4
-    Enter side c: 3
-    The perimeter of the triangle is 12
-    ```
+   ```py
+   Enter side a: 5
+   Enter side b: 4
+   Enter side c: 3
+   The perimeter of the triangle is 12
+   ```
 
 6. Get length and width of a rectangle using prompt. Calculate its area (area = length x width) and perimeter (perimeter = 2 x (length + width))
 7. Get radius of a circle using prompt. Calculate the area (area = pi x r x r) and circumference (c = 2 x pi x r) where pi = 3.14.
