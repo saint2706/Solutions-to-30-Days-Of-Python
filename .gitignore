@@ -139,4 +139,4 @@ cython_debug/
 /.vscode
 /09_Day_Conditionals/tempCodeRunnerFile.py
 /data/__pycache__
-/16_Day_Python_date_time/__pycache__/datetime.cpython-39.pyc
+/16_Day_Python_date_time/__pycache__/datetime.cpython-39.pyc!/.vscode/
