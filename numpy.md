@@ -5,7 +5,7 @@
   - [Statistics](#statistics)
   - [Data](#data)
   - [Statistics Module](#statistics-module)
-- [NumPy](#numpy)
+  - [NumPy](#numpy)
   - [Importing NumPy](#importing-numpy)
   - [Creating numpy array using](#creating-numpy-array-using)
     - [Creating int numpy arrays](#creating-int-numpy-arrays)
@@ -33,7 +33,7 @@
     - [How to reverse the rows and the whole array?](#how-to-reverse-the-rows-and-the-whole-array)
     - [Reverse the row and column positions](#reverse-the-row-and-column-positions)
   - [How to represent missing values ?](#how-to-represent-missing-values-)
-      - [Generating Random Numbers](#generating-random-numbers)
+    - [Generating Random Numbers](#generating-random-numbers)
     - [Generationg random numbers](#generationg-random-numbers)
   - [Numpy and Statistics](#numpy-and-statistics)
     - [Matrix in numpy](#matrix-in-numpy)
@@ -45,7 +45,7 @@
     - [How to generate random numbers?](#how-to-generate-random-numbers)
     - [Linear Algebra](#linear-algebra)
     - [NumPy Matrix Multiplication with np.matmul()](#numpy-matrix-multiplication-with-npmatmul)
-- [Summery](#summery)
+  - [Summary](#summary)
   - [💻 Exercises: Day 24](#-exercises-day-24)
 
 ## Python for Statistical Analysis
@@ -68,7 +68,7 @@ Data can be found as small or big data format. Most of the data types we will ge
 
 The python _statistics_ module provides functions for calculating mathematical statistics of numeric data. The module is not intended to be a competitor to third-party libraries such as NumPy, SciPy, or proprietary full-featured statistics packages aimed at professional statisticians such as Minitab, SAS and Matlab. It is aimed at the level of graphing and scientific calculators.
 
-# NumPy
+## NumPy
 
 In the first section we defined python as a great general-purpose programming language on its own, but with the help of other popular libraries (numpy, scipy, matplotlib, pandas etc) it becomes a powerful environment for scientific computing.
 
@@ -394,14 +394,17 @@ We can convert the data types of numpy array
 
 1. Int to Float
 
-```py
+    ```py
+
 numpy_int_arr = np.array([1,2,3,4], dtype = 'float')
 numpy_int_arr
+    ```
+
+```py
+    array([1., 2., 3., 4.])
 ```
 
-    array([1., 2., 3., 4.])
-
-2. Float to Int
+1. Float to Int
 
 ```py
 numpy_int_arr = np.array([1., 2., 3., 4.], dtype = 'int')
@@ -412,7 +415,7 @@ numpy_int_arr
     array([1, 2, 3, 4])
 ```
 
-3. Int ot boolean
+1. Int ot boolean
 
 ```py
 np.array([-3, -2, 0, 1,2,3], dtype='bool')
@@ -423,7 +426,7 @@ np.array([-3, -2, 0, 1,2,3], dtype='bool')
     array([ True,  True, False,  True,  True,  True])
 ```
 
-4. Int to str
+1. Int to str
 
 ```py
 numpy_float_list.astype('int').astype('str')
@@ -633,7 +636,7 @@ flattened
      [4 5 6]]
 ```
 
-#### Generating Random Numbers
+### Generating Random Numbers
 
 ```py
     # Generate a random float  number
@@ -862,7 +865,7 @@ np.linspace(1.0, 5.0, num=10)
 np.linspace(1.0, 5.0, num=5, endpoint=False)
 ```
 
-```
+```sh
 array([1. , 1.8, 2.6, 3.4, 4.2])
 ```
 
@@ -965,12 +968,13 @@ print('max: ', two_dimension_array.max())
 print('mean: ',two_dimension_array.mean())
 # print('median: ', two_dimension_array.median())
 print('sd: ', two_dimension_array.std())
-```
+
 
     min:  1
     max:  55
     mean:  14.777777777777779
     sd:  18.913709183069525
+```
 
 ```python
 min:  1
@@ -986,7 +990,7 @@ print('Column with maximum: ', np.amax(two_dimension_array,axis=0))
 print('=== Row ==')
 print('Row with minimum: ', np.amin(two_dimension_array,axis=1))
 print('Row with maximum: ', np.amax(two_dimension_array,axis=1))
-```
+
 
     [[ 1  2  3]
      [ 4 55 44]
@@ -996,6 +1000,7 @@ print('Row with maximum: ', np.amax(two_dimension_array,axis=1))
     === Row ==
     Row with minimum:  [1 4 7]
     Row with maximum:  [ 3 55  9]
+```
 
 ### How to create repeating sequences?
 
@@ -1008,10 +1013,11 @@ print('Tile:   ', np.tile(a, 2))
 # Repeat each element of 'a' two times
 print('Repeat: ', np.repeat(a, 2))
 
-```
+
 
     Tile:    [1 2 3 1 2 3]
     Repeat:  [1 1 2 2 3 3]
+```
 
 ### How to generate random numbers?
 
@@ -1020,66 +1026,74 @@ print('Repeat: ', np.repeat(a, 2))
 one_random_num = np.random.random()
 one_random_in = np.random
 print(one_random_num)
-```
+
 
     0.6149403282678213
+```
 
 ```python
 0.4763968133790438
-```
+
 
     0.4763968133790438
+```
 
 ```python
 # Random numbers between [0,1) of shape 2,3
 r = np.random.random(size=[2,3])
 print(r)
-```
+
 
     [[0.13031737 0.4429537  0.1129527 ]
      [0.76811539 0.88256594 0.6754075 ]]
+```
 
 ```python
 print(np.random.choice(['a', 'e', 'i', 'o', 'u'], size=10))
-```
+
 
     ['u' 'o' 'o' 'i' 'e' 'e' 'u' 'o' 'u' 'a']
+```
 
 ```python
 ['i' 'u' 'e' 'o' 'a' 'i' 'e' 'u' 'o' 'i']
-```
+
 
     ['iueoaieuoi']
+```
 
 ```python
 ## Random numbers between [0, 1] of shape 2, 2
 rand = np.random.rand(2,2)
 rand
-```
+
 
     array([[0.97992598, 0.79642484],
            [0.65263629, 0.55763145]])
+```
 
 ```python
 rand2 = np.random.randn(2,2)
 rand2
 
-```
 
     array([[ 1.65593322, -0.52326621],
            [ 0.39071179, -2.03649407]])
+
+```
 
 ```python
 # Random integers between [0, 10) of shape 2,5
 rand_int = np.random.randint(0, 10, size=[5,3])
 rand_int
-```
+
 
     array([[0, 7, 5],
            [4, 1, 4],
            [3, 5, 3],
            [4, 3, 8],
            [4, 6, 7]])
+```
 
 ```py
 from scipy import stats
@@ -1158,9 +1172,10 @@ np.matmul(h, i)
 
 ```python
 np.linalg.det(i)
-```
+
 
     -1.999999999999999
+```
 
 ```python
 Z = np.zeros((8,8))
@@ -1170,7 +1185,7 @@ Z[::2,1::2] = 1
 
 ```python
 Z
-```
+
 
     array([[0., 1., 0., 1., 0., 1., 0., 1.],
            [1., 0., 1., 0., 1., 0., 1., 0.],
@@ -1180,6 +1195,7 @@ Z
            [1., 0., 1., 0., 1., 0., 1., 0.],
            [0., 1., 0., 1., 0., 1., 0., 1.],
            [1., 0., 1., 0., 1., 0., 1., 0.]])
+```
 
 ```python
 new_list = [ x + 2 for x in range(0, 11)]
@@ -1187,15 +1203,17 @@ new_list = [ x + 2 for x in range(0, 11)]
 
 ```python
 new_list
-```
+
 
     [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+```
 
 ```python
 [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-```
+
 
     [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+```
 
 ```python
 np_arr = np.array(range(0, 11))
@@ -1240,7 +1258,7 @@ plt.show()
 
 ![png](test_files/test_143_0.png)
 
-# Summery
+## Summary
 
 To summarise, the main differences with python lists are:
 
