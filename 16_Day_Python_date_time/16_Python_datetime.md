@@ -1,17 +1,17 @@
 # 📘 Day 16
 
 - [📘 Day 16](#-day-16)
-  - [Python *datetime*](#python-datetime)
-    - [Getting *datetime* Information](#getting-datetime-information)
-    - [Formatting Date Output Using *strftime*](#formatting-date-output-using-strftime)
-    - [String to Time Using *strptime*](#string-to-time-using-strptime)
-    - [Using *date* from *datetime*](#using-date-from-datetime)
+  - [Python _datetime_](#python-datetime)
+    - [Getting _datetime_ Information](#getting-datetime-information)
+    - [Formatting Date Output Using _strftime_](#formatting-date-output-using-strftime)
+    - [String to Time Using _strptime_](#string-to-time-using-strptime)
+    - [Using _date_ from _datetime_](#using-date-from-datetime)
     - [Time Objects to Represent Time](#time-objects-to-represent-time)
     - [Difference Between Two Points in Time Using](#difference-between-two-points-in-time-using)
-    - [Difference Between Two Points in Time Using *timedelata*](#difference-between-two-points-in-time-using-timedelata)
+    - [Difference Between Two Points in Time Using _timedelata_](#difference-between-two-points-in-time-using-timedelata)
   - [💻 Exercises: Day 16](#-exercises-day-16)
 
-## Python *datetime*
+## Python _datetime_
 
 Python has got _datetime_ module to handle date and time.
 
@@ -23,7 +23,7 @@ print(dir(datetime))
 
 With dir or help built-in commands it is possible to know the available functions in a certain module. As you can see, in the datetime module there are many functions, but we will focus on _date_, _datetime_, _time_ and _timedelta_. Let se see them one by one.
 
-### Getting *datetime* Information
+### Getting _datetime_ Information
 
 ```py
 from datetime import datetime
@@ -43,7 +43,7 @@ print(f'{day}/{month}/{year}, {hour}:{minute}')  # 8/7/2021, 7:38
 
 Timestamp or Unix timestamp is the number of seconds elapsed from 1st of January 1970 UTC.
 
-### Formatting Date Output Using *strftime*
+### Formatting Date Output Using _strftime_
 
 ```py
 from datetime import datetime
@@ -60,7 +60,7 @@ print(f'{day}/{month}/{year}, {hour}:{minute}')  # 1/1/2020, 0:0
 
 ```
 
-Formatting date time using *strftime* method and the documentation can be found [here](https://strftime.org/).
+Formatting date time using _strftime_ method and the documentation can be found [here](https://strftime.org/).
 
 ```py
 from datetime import datetime
@@ -86,7 +86,7 @@ Here are all the _strftime_ symbols we use to format time. An example of all the
 
 ![strftime](../images/strftime.png)
 
-### String to Time Using *strptime*
+### String to Time Using _strptime_
 
 Here is a [documentation](https://www.programiz.com/python-programming/datetime/strptimet) hat helps to understand the format.
 
@@ -103,7 +103,7 @@ date_string = 5 December, 2019
 date_object = 2019-12-05 00:00:00
 ```
 
-### Using *date* from *datetime*
+### Using _date_ from _datetime_
 
 ```py
 from datetime import date
@@ -156,7 +156,7 @@ diff = t2 - t1
 print('Time left for new year:', diff) # Time left for new year: 26 days, 23: 01: 00
 ```
 
-### Difference Between Two Points in Time Using *timedelata*
+### Difference Between Two Points in Time Using _timedelata_
 
 ```py
 from datetime import timedelta
