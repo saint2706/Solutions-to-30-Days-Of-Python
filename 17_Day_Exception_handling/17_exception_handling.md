@@ -240,7 +240,7 @@ print(nordic_countries)  # ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
 
 ## Enumerate
 
-If we are interested in an index of a list, we use *enumerate* built-in function to get the index of each item in the list.
+If we are interested in an index of a list, we use _enumerate_ built-in function to get the index of each item in the list.
 
 ```py
 for index, item in enumerate([20, 30, 40]):
@@ -263,7 +263,7 @@ The country Finland has been found at index 1.
 Sometimes we would like to combine lists when looping through them. See the example below:
 
 ```py
-fruits = ['banana', 'orange', 'mango', 'lemon', 'lime']                    
+fruits = ['banana', 'orange', 'mango', 'lemon', 'lime']
 vegetables = ['Tomato', 'Potato', 'Cabbage','Onion', 'Carrot']
 fruits_and_veges = []
 for f, v in zip(fruits, vegetables):
