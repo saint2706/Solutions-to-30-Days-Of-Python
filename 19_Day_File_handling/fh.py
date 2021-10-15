@@ -1,6 +1,7 @@
 import os
 import json
 import re
+from collections import Counter
 
 
 def counter(fname):
@@ -113,3 +114,20 @@ def extract_emails(fname):
 
 
 # print(extract_emails("data\email_exchanges_big.txt"))
+
+
+def find_most_common_words(fname, value):
+    text = open(fname).read()
+    split_it = text.split()
+    Cnter = [(sub[1], sub[0]) for sub in Counter(split_it).most_common()]
+
+    return Cnter[:value]
+
+
+"""
+print(find_most_common_words(r'data\romeo_and_juliet.txt', 10))
+print(find_most_common_words(r'data\donald_speech.txt', 10))
+print(find_most_common_words(r'data\melina_trump_speech.txt', 10))
+print(find_most_common_words(r'data\michelle_obama_speech.txt', 10))
+print(find_most_common_words(r'data\obama_speech.txt', 10))
+"""
