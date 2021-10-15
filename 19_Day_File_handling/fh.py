@@ -1,7 +1,13 @@
+import sys
+
+sys.path.append("data")
 import os
 import json
 import re
 from collections import Counter
+import string
+from stop_words import stop_words as sw
+import math
 
 
 def counter(fname):
@@ -131,3 +137,94 @@ print(find_most_common_words(r'data\melina_trump_speech.txt', 10))
 print(find_most_common_words(r'data\michelle_obama_speech.txt', 10))
 print(find_most_common_words(r'data\obama_speech.txt', 10))
 """
+
+
+def clean_text(text):
+    text = text.lower()
+    text = re.sub("\[.*?\]", "", text)
+    text = re.sub("https?://\S+|www\.\S+", "", text)
+    text = re.sub("<.*?>+", "", text)
+    text = re.sub("[%s]" % re.escape(string.punctuation), "", text)
+    text = re.sub("\n", "", text)
+    text = re.sub("\w*\d\w*", "", text)
+    return text
+
+
+def remove_support_words(text):
+    return [word for word in text.split() if word not in sw]
+
+
+def read_file(fname):
+    try:
+        with open(fname, "r", encoding="UTF8") as f:
+            data = remove_support_words(clean_text(f.read()))
+        return data
+    except IOError:
+        print("Error opening or reading input file: ", fname)
+        sys.exit()
+
+
+translation_table = str.maketrans(
+    string.punctuation + string.ascii_uppercase,
+    " " * len(string.punctuation) + string.ascii_lowercase,
+)
+
+
+def count_frequency(word_list):
+
+    D = {}
+
+    for new_word in word_list:
+
+        if new_word in D:
+            D[new_word] = D[new_word] + 1
+
+        else:
+            D[new_word] = 1
+
+    return D
+
+
+def word_frequencies_for_file(filename):
+
+    word_list = read_file(filename)
+    freq_mapping = count_frequency(word_list)
+
+    print(
+        "File",
+        filename,
+        ":",
+    )
+    print(len(freq_mapping), "distinct words")
+
+    return freq_mapping
+
+
+def dotProduct(D1, D2):
+    Sum = 0.0
+
+    for key in D1:
+
+        if key in D2:
+            Sum += D1[key] * D2[key]
+
+    return Sum
+
+
+def vector_angle(D1, D2):
+    numerator = dotProduct(D1, D2)
+    denominator = math.sqrt(dotProduct(D1, D1) * dotProduct(D2, D2))
+
+    return math.acos(numerator / denominator)
+
+
+def documentSimilarity(filename_1, filename_2):
+
+    sorted_word_list_1 = word_frequencies_for_file(filename_1)
+    sorted_word_list_2 = word_frequencies_for_file(filename_2)
+    distance = (vector_angle(sorted_word_list_1, sorted_word_list_2) * 180) / math.pi
+
+    print("The distance between the documents is: % 0.2f (degrees)" % distance)
+
+
+# documentSimilarity("data\michelle_obama_speech.txt", "data\melina_trump_speech.txt")
