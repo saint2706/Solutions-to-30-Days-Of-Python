@@ -1,7 +1,9 @@
 import requests
 from collections import Counter
+# noinspection PyUnresolvedReferences
 from pprint import pprint
 import numpy
+# noinspection PyUnresolvedReferences
 from bs4 import BeautifulSoup
 
 response = requests.get('https://www.gutenberg.org/files/1112/1112.txt')
