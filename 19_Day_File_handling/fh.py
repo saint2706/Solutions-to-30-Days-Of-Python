@@ -142,7 +142,7 @@ print(find_most_common_words(r'data\obama_speech.txt', 10))
 
 def clean_text(text):
     text = text.lower()
-    text = re.sub("\[.*?\]", "", text)
+    text = re.sub("\[.*?]", "", text)
     text = re.sub("https?://\S+|www\.\S+", "", text)
     text = re.sub("<.*?>+", "", text)
     text = re.sub("[%s]" % re.escape(string.punctuation), "", text)
@@ -172,7 +172,6 @@ translation_table = str.maketrans(
 
 
 def count_frequency(word_list):
-
     D = {}
 
     for new_word in word_list:
@@ -187,7 +186,6 @@ def count_frequency(word_list):
 
 
 def word_frequencies_for_file(filename):
-
     word_list = read_file(filename)
     freq_mapping = count_frequency(word_list)
 
@@ -201,6 +199,7 @@ def word_frequencies_for_file(filename):
     return freq_mapping
 
 
+# noinspection PyPep8Naming
 def dotProduct(D1, D2):
     Sum = 0.0
 
@@ -212,6 +211,7 @@ def dotProduct(D1, D2):
     return Sum
 
 
+# noinspection PyPep8Naming
 def vector_angle(D1, D2):
     numerator = dotProduct(D1, D2)
     denominator = math.sqrt(dotProduct(D1, D1) * dotProduct(D2, D2))
@@ -220,7 +220,6 @@ def vector_angle(D1, D2):
 
 
 def documentSimilarity(filename_1, filename_2):
-
     sorted_word_list_1 = word_frequencies_for_file(filename_1)
     sorted_word_list_2 = word_frequencies_for_file(filename_2)
     distance = (vector_angle(sorted_word_list_1, sorted_word_list_2) * 180) / math.pi
@@ -241,14 +240,13 @@ def hacker_count(fname):
         if "python" in plain_text_line or "Python" in plain_text_line:
             count_a += 1
         if (
-            "JavaScript" in plain_text_line
-            or "Javascript" in plain_text_line
-            or "javascript" in plain_text_line
+                "JavaScript" in plain_text_line
+                or "Javascript" in plain_text_line
+                or "javascript" in plain_text_line
         ):
             count_b += 1
-        if "Java" in plain_text_line and not "Javascript" in plain_text_line:
+        if not (not ("Java" in plain_text_line) or "Javascript" in plain_text_line):
             count_c += 1
     print(count_a, count_b, count_c)
-
 
 # hacker_count('data\hacker_news.csv')
