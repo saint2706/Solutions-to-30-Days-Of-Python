@@ -57,3 +57,5 @@ def freq_origin(data):
         origins.append(breed['origin'])
     print(sort_dict_by_value(dict(Counter(origins)), True))
 
+country_api = requests.get('https://restcountries.eu/rest/v2/all')
+pprint(country_api.json())
