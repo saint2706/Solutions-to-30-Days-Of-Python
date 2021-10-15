@@ -2,7 +2,7 @@ import math
 import re
 import sys
 
-sys.path.append('data')
+sys.path.append("data")
 import countries_data
 
 
@@ -168,8 +168,7 @@ def mode(dataset):
 
     most_frequent = max(frequency.values())
 
-    modes = [key for key, value in frequency.items()
-             if value == most_frequent]
+    modes = [key for key, value in frequency.items() if value == most_frequent]
 
     return modes
 
