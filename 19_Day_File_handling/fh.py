@@ -1,6 +1,6 @@
 import os
 import json
-from pprint import pprint
+
 
 def counter(fname):
     num_words = 0
@@ -54,7 +54,29 @@ def most_spoken_languages(fname, value):
     for i in list(counts.items())[:value]:
         output_list.append(i)
 
+    f.close()
+
     return [(sub[1], sub[0]) for sub in output_list]
 
 
-pprint(most_spoken_languages(fname="data\countries_data.json", value=10))
+def most_populated_countries(fname, value):
+    f = open(fname, encoding="UTF8")
+    list_data = json.load(f)
+    populations = {}
+    final = []
+
+    for i in list_data:
+        populations[i["name"]] = i["population"]
+
+    populations = sort_dict_by_value(populations, True)
+
+    for data in list(populations.items())[:value]:
+        final.append({"Country": data[0], "Population": data[1]})
+
+    f.close()
+
+    return final
+
+
+print(most_spoken_languages(fname="data\countries_data.json", value=3))
+print(most_populated_countries(fname="data\countries_data.json", value=3))
