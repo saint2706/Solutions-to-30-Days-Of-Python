@@ -2,6 +2,7 @@ import requests
 from collections import Counter
 from pprint import pprint
 import numpy
+from bs4 import BeautifulSoup
 response = requests.get('http://www.gutenberg.org/files/1112/1112.txt')
 def most_common_words(text):
     split_it = text.split()
@@ -56,3 +57,9 @@ def freq_origin(data):
     for breed in data:
         origins.append(breed['origin'])
     print(sort_dict_by_value(dict(Counter(origins)), True))
+'''
+r = requests.get('https://archive.ics.uci.edu/ml/datasets.php')
+
+soup = BeautifulSoup(r.content, features='lxml')
+print(soup.prettify())
+'''
