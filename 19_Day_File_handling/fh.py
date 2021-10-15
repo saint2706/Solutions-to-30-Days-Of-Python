@@ -10,6 +10,7 @@ from stop_words import stop_words as sw
 import math
 import csv
 
+
 def counter(fname):
     num_words = 0
     num_lines = 0
@@ -231,18 +232,23 @@ def documentSimilarity(filename_1, filename_2):
 
 
 def hacker_count(fname):
-    csvFile = csv.reader(open(fname, mode ='r'))
+    csvFile = csv.reader(open(fname, mode="r"))
     count_a = 0
     count_b = 0
     count_c = 0
     for lines in csvFile:
-        plain_text_line = ' '.join(lines)
+        plain_text_line = " ".join(lines)
         if "python" in plain_text_line or "Python" in plain_text_line:
             count_a += 1
-        if "JavaScript" in plain_text_line or "Javascript" in plain_text_line or "javascript" in plain_text_line:
+        if (
+            "JavaScript" in plain_text_line
+            or "Javascript" in plain_text_line
+            or "javascript" in plain_text_line
+        ):
             count_b += 1
         if "Java" in plain_text_line and not "Javascript" in plain_text_line:
             count_c += 1
     print(count_a, count_b, count_c)
+
 
 # hacker_count('data\hacker_news.csv')
