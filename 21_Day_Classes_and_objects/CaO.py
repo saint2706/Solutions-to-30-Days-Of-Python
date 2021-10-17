@@ -30,7 +30,7 @@ class Statistics:
     def freq_dist(self):
         return sorted([(self.array.count(i)*4.0,i) for i in set(self.array)], reverse=True)
     def describe(self):
-        return 'Count: %d\nSum: %d\nMin: %d\nMax: %d\nRange: %d\nMean: %d\nMedian: %d\nMode: %s\nStandard Deviation: %.2f\nVariance: %.2f\nFrequency Distribution: %s' % (data.count(), data.sum(), data.min(), data.max(), data.range(), data.mean(), data.median(), data.mode(), data.std(), data.var(), data.freq_dist())
+        return 'Count: %d\nSum: %d\nMin: %d\nMax: %d\nRange: %d\nMean: %d\nMedian: %d\nMode: %s\nStandard Deviation: %.2f\nVariance: %.2f\nFrequency Distribution: %s' % (self.count(), self.sum(), self.min(), self.max(), self.range(), self.mean(), self.median(), self.mode(), self.std(), self.var(), self.freq_dist())
 
 
     
