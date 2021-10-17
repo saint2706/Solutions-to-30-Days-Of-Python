@@ -1,5 +1,5 @@
 import statistics as stat
-from math import floor, ceil
+
 
 class Statistics:
     def __init__(self, ages):
@@ -29,16 +29,10 @@ class Statistics:
         return stat.variance(self.array)
     def freq_dist(self):
         return sorted([(self.array.count(i)*4.0,i) for i in set(self.array)], reverse=True)
+    def describe(self):
+        return 'Count: %d\nSum: %d\nMin: %d\nMax: %d\nRange: %d\nMean: %d\nMedian: %d\nMode: %s\nStandard Deviation: %.2f\nVariance: %.2f\nFrequency Distribution: %s' % (data.count(), data.sum(), data.min(), data.max(), data.range(), data.mean(), data.median(), data.mode(), data.std(), data.var(), data.freq_dist())
+
+
     
 data = Statistics(ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26])
-print('Count:', data.count())
-print('Sum:', data.sum())
-print('Min:', data.min())
-print('Max:', data.max())
-print('Range:', data.range())
-print('Mean:', data.mean())
-print('Median:', data.median())
-print('Mode:', data.mode())
-print('Standard Deviation: %.2f' % data.std())
-print('Variance: %.2f' % data.var())
-print('Frequency Distribution:', data.freq_dist())
+print(data.describe())
