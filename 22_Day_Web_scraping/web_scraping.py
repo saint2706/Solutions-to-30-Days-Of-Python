@@ -40,5 +40,5 @@ for i in tables:
     list_of_tables.append(temp_dict)
     
 # pprint(list_of_tables)
-with open(r"22_Day_Web_scraping\scrapped_json.json", 'w') as fp:
+with open(r"22_Day_Web_scraping\scrapped_exercise_1.json", 'w') as fp:
     json.dump(list_of_tables, fp)
