@@ -74,7 +74,7 @@ class PersonAccount:
         return dict(sorted(self.expenses.items(), key = lambda x:x[1], reverse=True))
     def account_balance(self):
         return self.total_income() - self.total_expense()
-
+'''
 me = PersonAccount('Rishabh', 'Agrawal', {'Salary': 150000, 'Bonus': 5500}, {'Rent': 20000, 'General': 4500})
 print(me.total_income())
 print(me.total_expense())
@@ -82,3 +82,4 @@ print(me.account_info())
 print(me.add_income({'Diwali': 2500, 'Birthday': 5000}))
 print(me.add_expense({'Tax': 2500, 'Fuel': 5000}))
 print(me.account_balance())
+'''
