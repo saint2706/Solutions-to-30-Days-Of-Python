@@ -1,7 +1,7 @@
+import json
+
 import requests
 from bs4 import BeautifulSoup
-from pprint import pprint
-import json
 
 url1 = "https://www.bu.edu/president/boston-university-facts-stats/"
 response1 = requests.get(url1)
@@ -35,8 +35,8 @@ for i in tables:
     for m in range(len(all_values_end_indexes)):
         values.append(i[all_values_start_indexes[m]:all_values_end_indexes[m]])
 
-    for i in range(len(keys)):
-        temp_dict[keys[i]] = values[i]
+    for r in range(len(keys)):
+        temp_dict[keys[r]] = values[r]
     list_of_tables.append(temp_dict)
     
 # pprint(list_of_tables)
