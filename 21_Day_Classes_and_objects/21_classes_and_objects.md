@@ -311,7 +311,7 @@ print('Count:', data.count()) # 25
 print('Sum: ', data.sum()) # 744
 print('Min: ', data.min()) # 24
 print('Max: ', data.max()) # 38
-print('Range: ', data.range() # 14
+print('Range: ', data.range()) # 14
 print('Mean: ', data.mean()) # 30
 print('Median: ', data.median()) # 29
 print('Mode: ', data.mode()) # {'mode': 26, 'count': 5}
