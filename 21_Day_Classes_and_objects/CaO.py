@@ -49,6 +49,7 @@ class Statistics:
                    self.mode(),
                    self.std(), self.var(), self.freq_dist())
 
+
 # data = Statistics(ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24,
 # 33, 29, 26]) print(data.describe())
 
@@ -58,22 +59,31 @@ class PersonAccount:
         self.lastname = lastname
         self.incomes = incomes
         self.expenses = expenses
+
     def total_income(self):
         return sum(self.incomes.values())
+
     def total_expense(self):
         return sum(self.expenses.values())
+
     def account_info(self):
-        return "%s %s is the person's name. Their income is %d and their expense is %d." % (self.firstname, self.lastname, self.total_income(), self.total_expense())
+        return "%s %s is the person's name. Their income is %d and their expense is %d." % (
+            self.firstname, self.lastname, self.total_income(), self.total_expense())
+
     def add_income(self, data):
-        for k,v in data.items():
+        for k, v in data.items():
             self.incomes[k] = v
-        return dict(sorted(self.incomes.items(), key=lambda x:x[1], reverse=True))
+        return dict(sorted(self.incomes.items(), key=lambda x: x[1], reverse=True))
+
     def add_expense(self, data):
-        for k,v in data.items():
+        for k, v in data.items():
             self.expenses[k] = v
-        return dict(sorted(self.expenses.items(), key = lambda x:x[1], reverse=True))
+        return dict(sorted(self.expenses.items(), key=lambda x: x[1], reverse=True))
+
     def account_balance(self):
         return self.total_income() - self.total_expense()
+
+
 '''
 me = PersonAccount('Rishabh', 'Agrawal', {'Salary': 150000, 'Bonus': 5500}, {'Rent': 20000, 'General': 4500})
 print(me.total_income())
