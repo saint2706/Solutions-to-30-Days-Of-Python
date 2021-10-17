@@ -67,11 +67,11 @@ class PersonAccount:
     def add_income(self, data):
         for k,v in data.items():
             self.incomes[k] = v
-        return self.incomes
+        return dict(sorted(self.incomes.items(), key=lambda x:x[1], reverse=True))
     def add_expense(self, data):
         for k,v in data.items():
             self.expenses[k] = v
-        return self.expenses
+        return dict(sorted(self.expenses.items(), key = lambda x:x[1], reverse=True))
     def account_balance(self):
         return self.total_income() - self.total_expense()
 
