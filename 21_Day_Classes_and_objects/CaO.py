@@ -53,5 +53,8 @@ class Statistics:
 # 33, 29, 26]) print(data.describe())
 
 class PersonAccount:
-    def __init__(self):
-        pass
+    def __init__(self, firstname, lastname, incomes, expenses):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.incomes = incomes
+        self.expenses = expenses
