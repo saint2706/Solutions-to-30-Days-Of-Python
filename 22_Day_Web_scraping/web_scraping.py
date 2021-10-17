@@ -40,10 +40,5 @@ for i in tables:
     list_of_tables.append(temp_dict)
     
 # pprint(list_of_tables)
-with open(r"22_Day_Web_scraping\scrapped_json.json", 'a+') as fp:
+with open(r"22_Day_Web_scraping\scrapped_json.json", 'w') as fp:
     json.dump(list_of_tables, fp)
-
-url2 = "https://archive.ics.uci.edu/ml/datasets.php"
-response2 = requests.get(url2)
-content2 = response2.content
-soup2 = BeautifulSoup(content2, 'html.parser')
