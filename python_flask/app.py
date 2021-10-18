@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
+import re
+import string
 
 app = Flask(__name__)
 # to stop caching static file
@@ -32,6 +34,16 @@ def post():
     if request.method == 'POST':
         # noinspection PyUnusedLocal
         content = request.form['content']
+        def clean_text(text):
+            text = text.lower()
+            text = re.sub("\[.*?]", "", text)
+            text = re.sub("https?://\S+|www\.\S+", "", text)
+            text = re.sub("<.*?>+", "", text)
+            text = re.sub("[%s]" % re.escape(string.punctuation), "", text)
+            text = re.sub("\n", "", text)
+            text = re.sub("\w*\d\w*", "", text)
+            return text
+        clean_content = clean_text(content)
         return redirect(url_for('result'))
 
 
