@@ -1,4 +1,8 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+
 print('numpy:', np.__version__)
 print(dir(np))
 
@@ -110,3 +114,117 @@ print(numpy_int_arr.dtype)
 print(numpy_float_arr.dtype)
 print(numpy_bool_arr.dtype)
 
+two_dimension_array = np.array([(1,2,3),(4,5,6), (7,8,9)])
+print(type (two_dimension_array))
+print(two_dimension_array)
+print('Shape: ', two_dimension_array.shape)
+print('Size:', two_dimension_array.size)
+print('Data type:', two_dimension_array.dtype)
+
+two_dimension_array = np.array([[1,2,3],[4,5,6], [7,8,9]])
+first_row = two_dimension_array[0]
+second_row = two_dimension_array[1]
+third_row = two_dimension_array[2]
+print('First row:', first_row)
+print('Second row:', second_row)
+print('Third row: ', third_row)
+
+first_column= two_dimension_array[:,0]
+second_column = two_dimension_array[:,1]
+third_column = two_dimension_array[:,2]
+print('First column:', first_column)
+print('Second column:', second_column)
+print('Third column: ', third_column)
+print(two_dimension_array)
+
+two_dimension_array = np.array([[1,2,3],[4,5,6], [7,8,9]])
+first_two_rows_and_columns = two_dimension_array[0:2, 0:2]
+print(first_two_rows_and_columns)
+
+two_dimension_array = np.array([[1,2,3],[4,5,6], [7,8,9]])
+print(two_dimension_array[::-1,::-1])
+
+print(two_dimension_array)
+two_dimension_array[1,1] = 55
+two_dimension_array[1,2] =44
+print(two_dimension_array)
+
+numpy_ones = np.ones((3,3),dtype=int,order='C')
+print(numpy_ones)
+
+first_shape  = np.array([(1,2,3), (4,5,6)])
+print(first_shape)
+reshaped = first_shape.reshape(3,2)
+print(reshaped)
+
+np_list_one = np.array([1,2,3])
+np_list_two = np.array([4,5,6])
+
+print(np_list_one + np_list_two)
+
+print('Horizontal Append:', np.hstack((np_list_one, np_list_two)))
+
+print('Vertical Append:', np.vstack((np_list_one, np_list_two)))
+
+
+sns.set()
+plt.hist(normal_array, color="grey", bins=50)
+plt.show()
+np_normal_dis = np.random.normal(5, 0.5, 100)
+print('min: ', two_dimension_array.min())
+print('max: ', two_dimension_array.max())
+print('mean: ',two_dimension_array.mean())
+print('sd: ', two_dimension_array.std())
+
+print(two_dimension_array)
+print('Column with minimum: ', np.amin(two_dimension_array,axis=0))
+print('Column with maximum: ', np.amax(two_dimension_array,axis=0))
+print('=== Row ==')
+print('Row with minimum: ', np.amin(two_dimension_array,axis=1))
+print('Row with maximum: ', np.amax(two_dimension_array,axis=1))
+
+a = [1,2,3]
+
+print('Tile:   ', np.tile(a, 2))
+
+print('Repeat: ', np.repeat(a, 2))
+
+one_random_num = np.random.random()
+one_random_in = np.random
+print(one_random_num)
+
+r = np.random.random(size=[2,3])
+print(r)
+
+print(np.random.choice(['a', 'e', 'i', 'o', 'u'], size=10))
+
+np_normal_dis = np.random.normal(5, 0.5, 1000)
+
+print('min: ', np.min(np_normal_dis))
+print('max: ', np.max(np_normal_dis))
+print('mean: ', np.mean(np_normal_dis))
+print('median: ', np.median(np_normal_dis))
+print('mode: ', stats.mode(np_normal_dis))
+print('sd: ', np.std(np_normal_dis))
+
+plt.hist(np_normal_dis, color="grey", bins=21)
+plt.show()
+
+temp = np.array([1,2,3,4,5])
+pressure = temp * 2 + 5
+
+plt.plot(temp,pressure)
+plt.xlabel('Temperature in oC')
+plt.ylabel('Pressure in atm')
+plt.title('Temperature vs Pressure')
+plt.xticks(np.arange(0, 6, step=0.5))
+plt.show()
+
+mu = 28
+sigma = 15
+samples = 100000
+
+x = np.random.normal(mu, sigma, samples)
+ax = sns.distplot(x);
+ax.set(xlabel="x", ylabel='y')
+plt.show()
