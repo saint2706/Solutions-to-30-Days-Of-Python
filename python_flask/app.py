@@ -4,9 +4,12 @@ import re
 import string
 from collections import Counter
 from lexical_diversity import lex_div as ld
+
 app = Flask(__name__)
 # to stop caching static file
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+content = ''
+
 
 def clean_text(text):
     text = text.lower()
@@ -17,12 +20,18 @@ def clean_text(text):
     text = re.sub("\n", "", text)
     text = re.sub("\w*\d\w*", "", text)
     return text
+
+
 def most_common_word(text):
     split_it = text.split()
     Cnter = Counter(split_it).most_common()
     return Cnter
+
+
 def lex_div_calc(text):
-    return '%.1f'% (ld.ttr(ld.flemmatize(text)) * 100)
+    return '%.1f' % (ld.ttr(ld.flemmatize(text)) * 100)
+
+
 @app.route('/')  # this decorator create the home route
 def home():
     techs = ['CSS', 'Flask', 'HTML', 'Python']
@@ -44,7 +53,9 @@ def result():
     total_words = len(clean_content.split())
     number_of_chars = len(clean_content)
     lexical_diversity_text = lex_div_calc(clean_content)
-    return render_template('result.html', clean_content=clean_content, most_used_word=most_used_word, most_used_words=most_used_words, total_words=total_words, number_of_chars=number_of_chars, lexical_diversity_text=lexical_diversity_text)
+    return render_template('result.html', clean_content=clean_content, most_used_word=most_used_word,
+                           most_used_words=most_used_words, total_words=total_words, number_of_chars=number_of_chars,
+                           lexical_diversity_text=lexical_diversity_text)
 
 
 @app.route('/post', methods=['GET', 'POST'])
