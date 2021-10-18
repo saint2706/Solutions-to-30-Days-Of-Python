@@ -67,3 +67,46 @@ two_dimensional_list = np.array([[0, 1, 2],
 print('The size:', numpy_array_from_list.size)
 print('The size:', two_dimensional_list.size)
 
+numpy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', numpy_array_from_list)
+ten_plus_original = numpy_array_from_list  + 10
+print(ten_plus_original)
+
+numpy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', numpy_array_from_list)
+ten_minus_original = numpy_array_from_list  - 10
+print(ten_minus_original)
+
+numpy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list * 10
+print(ten_times_original)
+
+numpy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list / 10
+print(ten_times_original)
+
+numpy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list % 3
+print(ten_times_original)
+
+numpy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list // 10
+print(ten_times_original)
+
+numpy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list  ** 2
+print(ten_times_original)
+
+numpy_int_arr = np.array([1,2,3,4])
+numpy_float_arr = np.array([1.1, 2.0,3.2])
+numpy_bool_arr = np.array([-3, -2, 0, 1,2,3], dtype='bool')
+
+print(numpy_int_arr.dtype)
+print(numpy_float_arr.dtype)
+print(numpy_bool_arr.dtype)
+
