@@ -6,7 +6,9 @@
     box-sizing: border-box;
 }
 
+
 /* === css variables === */
+
 :root {
     --header-bg-color: #4a7799;
     --textarea-bg-color: rgb(250, 246, 246);
@@ -14,28 +16,50 @@
     --nav-link-color: #bbb;
 }
 
+
 /* === body style === */
+
 body {
     background: var(--body-bg-color);
     margin: auto;
     line-height: 1.75;
     font-weight: 900;
     word-spacing: 1.5px;
-    font-family: 'Lato',sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: 300;
 }
 
+body:after {
+    content: "";
+    background-color: #8f8f8f;
+    background-image: url("http://www.transparenttextures.com/patterns/black-paper.png");
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    position: fixed;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+
 /* === header style === */
+
 header {
     background: var(--header-bg-color);
 }
+
+
 /* === title and subtitle style === */
+
 h1,
 h2 {
     margin: 20px;
     font-weight: 300;
     font-family: Nunito;
 }
+
 
 /* === header menu style === */
 
@@ -69,17 +93,23 @@ h2 {
     font-size: 28px;
     font-weight: bolder;
 }
+
+
 /* === paragraph text style === */
+
 p {
     font-size: 22px;
     font-weight: 300;
 }
 
+
 /* === main style === */
+
 main {
     width: 90%;
     margin: auto;
 }
+
 
 /* === container div inside main style === */
 
@@ -94,10 +124,14 @@ main {
     text-align: left;
     font-size: 20px;
 }
+
 .tech {
     list-style: none;
 }
+
+
 /* === button style === */
+
 .btn {
     width: 150px;
     height: 50px;
@@ -114,7 +148,10 @@ main {
     outline: 2px solid #2a70a5;
     cursor: pointer;
 }
+
+
 /* === textarea style === */
+
 textarea {
     width: 65%;
     margin: auto;
@@ -134,26 +171,23 @@ textarea:focus {
     caret-color: var(--header-bg-color);
     font-family: Lato;
     font-weight: 300;
-
 }
 
-/* === responsiveness === */
-@media (max-width:600px) {
 
+/* === responsiveness === */
+
+@media (max-width:600px) {
     .menu-container {
         flex-direction: column;
         justify-content: space-between;
     }
-    h1{
+    h1 {
         font-size: 22px;
     }
-
     .nav-lists {
         flex-direction: column;
     }
-
     textarea {
         width: 100%;
     }
-
 }
