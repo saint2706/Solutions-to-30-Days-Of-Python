@@ -1,6 +1,5 @@
-# let's import the flask
 from flask import Flask, render_template, request, redirect, url_for
-import os  # importing operating system module
+import os
 
 app = Flask(__name__)
 # to stop caching static file
@@ -9,8 +8,8 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/')  # this decorator create the home route
 def home():
-    techs = ['HTML', 'CSS', 'Flask', 'Python']
-    name = '30 Days Of Python Programming'
+    techs = ['CSS', 'Flask', 'HTML', 'Python']
+    name = 'Text Analyzer'
     return render_template('home.html', techs=techs, name=name, title='Home')
 
 
