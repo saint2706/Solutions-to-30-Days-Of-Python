@@ -10,10 +10,10 @@
 /* === css variables === */
 
 :root {
-    --header-bg-color: #4a7799;
+    --header-bg-color: #f8b195;
     --textarea-bg-color: rgb(250, 246, 246);
-    --body-bg-color: rgb(210, 214, 210);
-    --nav-link-color: #bbb;
+    --body-bg-color: #355c7d;
+    --nav-link-color: #c06c84;
 }
 
 
@@ -68,7 +68,7 @@ h2 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: rgb(221, 215, 215);
+    color: #6c5b7b;
     padding: 25px;
 }
 
@@ -114,7 +114,7 @@ main {
 /* === container div inside main style === */
 
 .container {
-    background: rgb(210, 214, 210);
+    background: #6c5b7b;
     padding: 20px;
     margin: auto;
 }
