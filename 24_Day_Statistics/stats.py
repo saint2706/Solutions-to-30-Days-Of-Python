@@ -166,7 +166,7 @@ print('Horizontal Append:', np.hstack((np_list_one, np_list_two)))
 
 print('Vertical Append:', np.vstack((np_list_one, np_list_two)))
 
-
+normal_array = np.random.normal(79, 15, 80)
 sns.set()
 plt.hist(normal_array, color="grey", bins=50)
 plt.show()
