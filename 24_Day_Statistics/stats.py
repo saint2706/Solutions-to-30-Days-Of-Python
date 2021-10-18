@@ -225,6 +225,6 @@ sigma = 15
 samples = 100000
 
 x = np.random.normal(mu, sigma, samples)
-ax = sns.distplot(x);
+ax = sns.displot(x)
 ax.set(xlabel="x", ylabel='y')
 plt.show()
