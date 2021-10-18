@@ -40,7 +40,6 @@ def about():
 def result():
     clean_content = clean_text(content)
     most_used_words = most_common_word(clean_content)
-    print(most_used_words)
     most_used_word = most_used_words[0][0]
     total_words = len(clean_content.split())
     number_of_chars = len(clean_content)
@@ -57,15 +56,7 @@ def post():
         # noinspection PyUnusedLocal
         global content
         content = request.form['content']
-        '''
-        clean_content = clean_text(content)
-        most_used_word = most_common_word(clean_content)[0][0]
-        most_used_words = most_common_word(clean_content)
-        total_words = len(clean_content.split())
-        number_of_chars = len(clean_content)
-        lexical_diversity_text = lex_div_calc(clean_content)
-        print(clean_content, most_used_word, most_used_words, number_of_chars, total_words, lexical_diversity_text)
-        '''
+
         return redirect(url_for('result'))
 
 
