@@ -56,7 +56,8 @@ def post():
         total_words = len(clean_content.split())
         number_of_chars = len(clean_content)
         lexical_diversity_text = lex_div_calc(clean_content)
-        return redirect(url_for('result'))
+        print(clean_content, most_used_word, most_used_words, number_of_chars, total_words, lexical_diversity_text)
+        return redirect(url_for('result', clean_content, most_used_word, most_used_words, total_words, number_of_chars, lexical_diversity_text))
 
 
 if __name__ == '__main__':
