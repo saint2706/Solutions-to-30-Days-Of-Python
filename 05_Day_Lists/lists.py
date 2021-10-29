@@ -38,7 +38,7 @@ it_companies.append('Facebook')
 it_companies = it_companies[0:len(it_companies) // 2] + ['Dell'] + it_companies[len(it_companies) // 2:]
 
 # 13
-it_companies = it_companies[0].upper()
+it_companies[0] = it_companies[0].upper()
 
 # 14
 it_companies_hash = '#'.join(it_companies)
@@ -83,7 +83,7 @@ front_end.append(back_end)
 
 # 27
 full_stack = front_end
-indx = full_stack.find('Redux')
+indx = full_stack.index('Redux')
 full_stack = full_stack[:indx] + ['Python', 'SQL'] + full_stack[indx:]
 
 # Level 2
@@ -95,7 +95,7 @@ print(ages)
 print(ages[0])
 print(ages[-1])
 # noinspection PyTypeChecker
-print([ages[i] for i in range((len(ages) / 2) - (1 if float(len(ages)) % 2 == 0 else 0), len(ages) / 2 + 1)])
+print([ages[i] for i in range((len(ages) // 2) - (1 if float(len(ages)) % 2 == 0 else 0), len(ages) / 2 + 1)])
 print(sum(ages) / len(ages))
 print(ages[-1] - ages[0])
 print(abs(ages[0] - sum(ages) / len(ages)))
