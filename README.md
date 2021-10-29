@@ -6,6 +6,8 @@ Following [Asabeneh's curriculum](https://github.com/Asabeneh/30-Days-Of-Python)
 
 - Day 15
   - The exercises state to simply retry already given code.
+- Day 23
+  - Simply follow the code given in the markdown.
 - Day 26
   - Solution in the [python_flask](https://github.com/saintwithataint/30-Days-Of-Python-Restart/tree/main/python_flask) folder.
 - Day 27
