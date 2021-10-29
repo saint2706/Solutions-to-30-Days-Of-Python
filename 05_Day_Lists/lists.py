@@ -95,8 +95,8 @@ print(ages)
 print(ages[0])
 print(ages[-1])
 # noinspection PyTypeChecker
-print([ages[i] for i in range((len(ages) // 2) - (1 if float(len(ages)) % 2 == 0 else 0), len(ages) / 2 + 1)])
-print(sum(ages) / len(ages))
+print('0.2f'.format((ages[len(ages)//2] + ages[~(len(ages)//2)])/2))
+print('0.2f'.format(sum(ages) / len(ages)))
 print(ages[-1] - ages[0])
 print(abs(ages[0] - sum(ages) / len(ages)))
 print(abs(ages[-1] - sum(ages) / len(ages)))
@@ -298,7 +298,7 @@ countries = [
 
 # noinspection PyTypeChecker
 print([countries[i]
-       for i in range((len(countries) / 2) - (1 if float(len(countries)) % 2 == 0 else 0), len(countries) / 2 + 1)])
+       for i in range((len(countries) // 2) - (1 if int(len(countries)) % 2 == 0 else 0), len(countries) // 2 + 1)])
 
 length = len(countries)
 if length % 2 == 0:
