@@ -15,7 +15,7 @@ Following [Asabeneh's curriculum](https://github.com/Asabeneh/30-Days-Of-Python)
 - Day 29
   - The API link shown in the exercise isn't working anymore. Nothing to build the exercise off of.
 - Day 30
-  - Congrats
+  - Congrats.
 
 ## 🐍 30 Days Of Python
 
