@@ -24,7 +24,7 @@ customers = [
     {"name": "InnovateCorp", "total_spent": 5500},
     {"name": "DataDriven Inc.", "total_spent": 1200},
     {"name": "Analytics LLC", "total_spent": 2100},
-    {"name": "Global Solutions", "total_spent": 850}
+    {"name": "Global Solutions", "total_spent": 850},
 ]
 high_priority_customers = []
 
@@ -60,8 +60,10 @@ years = 0
 
 # The 'while' loop continues as long as the condition is true.
 while investment < target:
-    investment *= (1 + interest_rate)  # Apply 7% annual interest
-    years += 1                         # Increment the year count
+    investment *= 1 + interest_rate  # Apply 7% annual interest
+    years += 1  # Increment the year count
 
-print(f"It will take {years} years for the initial investment of $10,000 to double at a {interest_rate*100}% interest rate.")
+print(
+    f"It will take {years} years for the initial investment of $10,000 to double at a {interest_rate*100}% interest rate."
+)
 print("-" * 20)

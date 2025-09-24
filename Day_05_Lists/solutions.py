@@ -36,7 +36,9 @@ print(f"Lowest monthly expense: ${lowest_expense}")
 new_expense = 2400
 monthly_expenses.append(new_expense)
 updated_total_expenses = sum(monthly_expenses)
-print(f"After adding a new expense of ${new_expense}, the new total is: ${updated_total_expenses}")
+print(
+    f"After adding a new expense of ${new_expense}, the new total is: ${updated_total_expenses}"
+)
 print("-" * 20)
 
 

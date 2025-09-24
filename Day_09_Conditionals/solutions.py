@@ -23,6 +23,8 @@ print("-" * 20)
 
 # --- Exercise 2: Shipping Cost Calculator ---
 print("--- Solution to Exercise 2 ---")
+
+
 # We can wrap this in a function to easily test different scenarios
 def get_shipping_cost(country, order_weight_kg):
     cost = 0
@@ -41,6 +43,7 @@ def get_shipping_cost(country, order_weight_kg):
 
     return f"Shipping cost: ${cost}"
 
+
 # Test cases
 print(f"USA, 60kg -> {get_shipping_cost('USA', 60)}")
 print(f"Canada, 40kg -> {get_shipping_cost('Canada', 40)}")
@@ -50,6 +53,8 @@ print("-" * 20)
 
 # --- Exercise 3: Employee Bonus Calculation ---
 print("--- Solution to Exercise 3 ---")
+
+
 def calculate_bonus(rating, department, salary):
     bonus_rate = 0
     if rating >= 4:
@@ -64,10 +69,17 @@ def calculate_bonus(rating, department, salary):
     bonus_amount = salary * bonus_rate
     return bonus_amount
 
+
 # Test cases
 salary = 90000
-print(f"Sales employee with rating 5 gets bonus: ${calculate_bonus(5, 'Sales', salary):,.2f}")
-print(f"Engineering employee with rating 4 gets bonus: ${calculate_bonus(4, 'Engineering', salary):,.2f}")
-print(f"Sales employee with rating 3 gets bonus: ${calculate_bonus(3, 'Sales', salary):,.2f}")
+print(
+    f"Sales employee with rating 5 gets bonus: ${calculate_bonus(5, 'Sales', salary):,.2f}"
+)
+print(
+    f"Engineering employee with rating 4 gets bonus: ${calculate_bonus(4, 'Engineering', salary):,.2f}"
+)
+print(
+    f"Sales employee with rating 3 gets bonus: ${calculate_bonus(3, 'Sales', salary):,.2f}"
+)
 print(f"HR employee with rating 2 gets bonus: ${calculate_bonus(2, 'HR', salary):,.2f}")
 print("-" * 20)

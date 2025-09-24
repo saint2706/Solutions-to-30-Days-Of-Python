@@ -21,7 +21,7 @@ customers = [
     {"id": 1, "status": "active"},
     {"id": 2, "status": "inactive"},
     {"id": 3, "status": "active"},
-    {"id": 4, "status": "cancelled"}
+    {"id": 4, "status": "cancelled"},
 ]
 print(f"Original customers: {customers}")
 
@@ -39,7 +39,7 @@ products = [
     {"name": "Laptop", "price": 1200},
     {"name": "Mouse", "price": 25},
     {"name": "Keyboard", "price": 75},
-    {"name": "Monitor", "price": 300}
+    {"name": "Monitor", "price": 300},
 ]
 print(f"Original product list: {products}")
 

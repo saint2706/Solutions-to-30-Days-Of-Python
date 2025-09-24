@@ -3,8 +3,10 @@ import string
 from collections import Counter
 from pprint import pprint
 
-paragraph = "I love teaching. If you do not love teaching what else can you love. I love Python if you do not love " \
-            "something which can give you all the capabilities to develop an application what else can you love. "
+paragraph = (
+    "I love teaching. If you do not love teaching what else can you love. I love Python if you do not love "
+    "something which can give you all the capabilities to develop an application what else can you love. "
+)
 
 
 def most_common_words(text):
@@ -43,12 +45,12 @@ mo@tivate yo@u to be a tea@cher!? """
 # noinspection DuplicatedCode
 def clean_text(text):
     text = text.lower()
-    text = re.sub("\[.*?]", "", text)
-    text = re.sub("https?://\S+|www\.\S+", "", text)
+    text = re.sub(r"\[.*?]", "", text)
+    text = re.sub(r"https?://\S+|www\.\S+", "", text)
     text = re.sub("<.*?>+", "", text)
     text = re.sub("[%s]" % re.escape(string.punctuation), "", text)
     text = re.sub("\n", "", text)
-    text = re.sub("\w*\d\w*", "", text)
+    text = re.sub(r"\w*\d\w*", "", text)
     return text
 
 

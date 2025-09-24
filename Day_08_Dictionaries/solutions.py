@@ -9,7 +9,7 @@ product = {
     "product_name": "SuperWidget",
     "price": 199.99,
     "in_stock": True,
-    "tags": ["electronics", "gadget"]
+    "tags": ["electronics", "gadget"],
 }
 
 # Accessing the values using their keys
@@ -24,11 +24,8 @@ employee = {
     "employee_id": "EMP-042",
     "name": "Jane Smith",
     "department": "Marketing",
-    "contact_info": {
-        "email": "jane.smith@example.com",
-        "phone_ext": 112
-    },
-    "projects": ["Q1 Campaign", "Website Redesign"]
+    "contact_info": {"email": "jane.smith@example.com", "phone_ext": 112},
+    "projects": ["Q1 Campaign", "Website Redesign"],
 }
 print(f"Original Employee Record: {employee}")
 
@@ -47,11 +44,7 @@ print("--- Solution to Exercise 3 ---")
 company = {
     "company_name": "InnovateCorp",
     "year_founded": 2015,
-    "headquarters": {
-        "city": "New York",
-        "state": "NY",
-        "country": "USA"
-    }
+    "headquarters": {"city": "New York", "state": "NY", "country": "USA"},
 }
 
 # Accessing the nested dictionary and then the values within it

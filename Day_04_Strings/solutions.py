@@ -33,7 +33,7 @@ sku = "PROD-GADGET-001"
 
 # .split('-') breaks the string into a list of substrings,
 # using the hyphen as the separator.
-sku_parts = sku.split('-')
+sku_parts = sku.split("-")
 
 # We can access the parts of the list by their index.
 product_type = sku_parts[0]

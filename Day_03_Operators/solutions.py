@@ -41,10 +41,14 @@ print("-" * 20)
 # --- Exercise 3: Sales Bonus Eligibility ---
 print("--- Solution to Exercise 3 ---")
 
+
 def check_bonus_eligibility(sales, years_of_service, top_performer_last_quarter):
     """A helper function to test different scenarios easily."""
     is_eligible = (sales > 10000 and years_of_service > 2) or top_performer_last_quarter
-    print(f"Scenario: Sales=${sales}, Service={years_of_service}yrs, Top Performer={top_performer_last_quarter} -> Eligible? {is_eligible}")
+    print(
+        f"Scenario: Sales=${sales}, Service={years_of_service}yrs, Top Performer={top_performer_last_quarter} -> Eligible? {is_eligible}"
+    )
+
 
 # Scenario 1: High sales but new employee
 check_bonus_eligibility(12000, 1, False)

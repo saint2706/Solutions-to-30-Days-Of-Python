@@ -41,10 +41,12 @@ elif country == "Canada":
     else:
         shipping_cost = 65
 else:
-    shipping_cost = -1 # Using -1 to indicate not available
+    shipping_cost = -1  # Using -1 to indicate not available
 
 if shipping_cost != -1:
-    print(f"Shipping to {country} for a {order_weight_kg}kg package costs: ${shipping_cost}")
+    print(
+        f"Shipping to {country} for a {order_weight_kg}kg package costs: ${shipping_cost}"
+    )
 else:
     print(f"Sorry, shipping to {country} is not available.")
 print("-" * 20)
@@ -55,7 +57,7 @@ print("--- Employee Bonus Calculator ---")
 performance_rating = 5  # Scale of 1-5
 department = "Sales"
 salary = 80000
-bonus = 0 # Default bonus is 0
+bonus = 0  # Default bonus is 0
 
 if performance_rating >= 4:
     print("Performance: Excellent")
@@ -70,5 +72,7 @@ else:
     print("Performance: Needs Improvement")
     bonus = 0
 
-print(f"Employee in {department} with rating {performance_rating} gets a bonus of: ${bonus:.2f}")
+print(
+    f"Employee in {department} with rating {performance_rating} gets a bonus of: ${bonus:.2f}"
+)
 print("-" * 20)

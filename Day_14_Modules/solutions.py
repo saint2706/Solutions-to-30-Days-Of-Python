@@ -12,13 +12,17 @@ import finance_tools as ft
 investment = 150000
 profit = 25000
 roi = ft.calculate_roi(investment, profit)
-print(f"ROI for a ${investment:,.2f} investment with ${profit:,.2f} profit is: {roi:.2f}%")
+print(
+    f"ROI for a ${investment:,.2f} investment with ${profit:,.2f} profit is: {roi:.2f}%"
+)
 
 principal = 10000
 rate = 0.05
 years = 10
 future_value = ft.calculate_future_value(principal, rate, years)
-print(f"Future value of ${principal:,.2f} after {years} years at a {rate*100}% rate is: ${future_value:,.2f}")
+print(
+    f"Future value of ${principal:,.2f} after {years} years at a {rate*100}% rate is: ${future_value:,.2f}"
+)
 print("-" * 20)
 
 
@@ -47,5 +51,7 @@ marketing_budget = 100000
 # Use the sqrt function from the math module
 growth_factor = math.sqrt(marketing_budget)
 
-print(f"The growth factor for a marketing budget of ${marketing_budget:,.2f} is {growth_factor:.2f}.")
+print(
+    f"The growth factor for a marketing budget of ${marketing_budget:,.2f} is {growth_factor:.2f}."
+)
 print("-" * 20)

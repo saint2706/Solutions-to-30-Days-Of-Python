@@ -17,13 +17,17 @@ print("--- Using Custom Business Logic Module ---")
 investment_amount = 50000
 profit_amount = 12000
 roi = bl.calculate_roi(investment_amount, profit_amount)
-print(f"A project with an investment of {bl.format_as_currency(investment_amount)} and profit of {bl.format_as_currency(profit_amount)} has an ROI of {roi:.2f}%.")
+print(
+    f"A project with an investment of {bl.format_as_currency(investment_amount)} and profit of {bl.format_as_currency(profit_amount)} has an ROI of {roi:.2f}%."
+)
 
 # Check promotion eligibility for an employee
 years = 4
 rating = 5
 is_eligible = bl.is_eligible_for_promotion(years, rating)
-print(f"An employee with {years} years of service and a rating of {rating} is eligible for promotion: {is_eligible}")
+print(
+    f"An employee with {years} years of service and a rating of {rating} is eligible for promotion: {is_eligible}"
+)
 print("-" * 20)
 
 
@@ -42,5 +46,7 @@ print()
 marketing_budget = 100000
 # Let's say sales are proportional to the square root of the marketing budget.
 growth_factor = math.sqrt(marketing_budget)
-print(f"The growth factor for a marketing budget of {bl.format_as_currency(marketing_budget)} is {growth_factor:.2f}.")
+print(
+    f"The growth factor for a marketing budget of {bl.format_as_currency(marketing_budget)} is {growth_factor:.2f}."
+)
 print("-" * 20)

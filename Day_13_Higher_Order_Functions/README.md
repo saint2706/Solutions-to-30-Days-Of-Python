@@ -5,8 +5,9 @@ Today, we're going to explore a more advanced—but incredibly powerful—concep
 ## What is a Higher-Order Function?
 
 A higher-order function is a function that does at least one of the following:
-1.  Takes one or more functions as arguments.
-2.  Returns a function as its result.
+
+1. Takes one or more functions as arguments.
+2. Returns a function as its result.
 
 In a business context, this allows you to create flexible, generic tools. Imagine a function that can apply *any* calculation to a list of numbers. You could pass it a `calculate_tax` function or a `calculate_bonus` function. The core logic of applying the calculation is separated from the calculation itself.
 
@@ -73,17 +74,19 @@ project_rois = [12, 20, 8, 25, 14]
 # The lambda function `lambda r: r > 15` does the same as our is_high_yield function
 high_yield_projects = list(filter(lambda r: r > 15, project_rois))
 ```
+
 This syntax is extremely common in data analysis libraries like Pandas.
 
 ## 💻 Exercises: Day 14
 
-1.  **Standardize Department Names:**
-    *   You have a list of department names in various formats: `departments = ["Sales", " marketing ", "  Engineering", "HR  "]`.
-    *   Use `map` and a `lambda` function to create a new list where each department name is cleaned (whitespace stripped) and converted to lowercase.
+1. **Standardize Department Names:**
+    * You have a list of department names in various formats: `departments = ["Sales", " marketing ", "  Engineering", "HR  "]`.
+    * Use `map` and a `lambda` function to create a new list where each department name is cleaned (whitespace stripped) and converted to lowercase.
 
-2.  **Filter Active Subscriptions:**
-    *   You have a list of customer dictionaries.
-    *   Use `filter` and a `lambda` function to create a new list containing only the customers whose `"subscription_status"` is `"active"`.
+2. **Filter Active Subscriptions:**
+    * You have a list of customer dictionaries.
+    * Use `filter` and a `lambda` function to create a new list containing only the customers whose `"subscription_status"` is `"active"`.
+
         ```python
         customers = [
             {"id": 1, "status": "active"},
@@ -93,10 +96,11 @@ This syntax is extremely common in data analysis libraries like Pandas.
         ]
         ```
 
-3.  **Sort Complex Data:**
-    *   Python's `sorted()` function is a higher-order function that can take a `key` function.
-    *   You have a list of product dictionaries. You want to sort them by `price` from lowest to highest.
-    *   Use `sorted()` with a `lambda` function as the `key` to achieve this. The lambda function should extract the price from each dictionary.
+3. **Sort Complex Data:**
+    * Python's `sorted()` function is a higher-order function that can take a `key` function.
+    * You have a list of product dictionaries. You want to sort them by `price` from lowest to highest.
+    * Use `sorted()` with a `lambda` function as the `key` to achieve this. The lambda function should extract the price from each dictionary.
+
         ```python
         products = [
             {"name": "Laptop", "price": 1200},

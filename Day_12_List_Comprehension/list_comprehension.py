@@ -50,7 +50,7 @@ employees = [
     {"name": "Alice", "department": "Sales", "quarterly_sales": 12000},
     {"name": "Bob", "department": "Engineering", "quarterly_sales": 0},
     {"name": "Charlie", "department": "Sales", "quarterly_sales": 8000},
-    {"name": "David", "department": "Sales", "quarterly_sales": 15000}
+    {"name": "David", "department": "Sales", "quarterly_sales": 15000},
 ]
 sales_target = 10000
 

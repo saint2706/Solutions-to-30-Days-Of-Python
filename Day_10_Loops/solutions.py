@@ -8,7 +8,7 @@ employees = [
     {"name": "Alice", "age": 30},
     {"name": "Bob", "age": 45},
     {"name": "Charlie", "age": 35},
-    {"name": "Diana", "age": 28}
+    {"name": "Diana", "age": 28},
 ]
 
 total_age = 0
@@ -30,7 +30,7 @@ customers = [
     {"name": "InnovateCorp", "total_spent": 5500},
     {"name": "DataDriven Inc.", "total_spent": 1200},
     {"name": "Analytics LLC", "total_spent": 2100},
-    {"name": "Key Insights", "total_spent": 1800}
+    {"name": "Key Insights", "total_spent": 1800},
 ]
 
 high_priority_customers = []

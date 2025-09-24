@@ -8,7 +8,15 @@ and perform segmentation analysis on business data.
 # --- Using a Set to Find Unique Items ---
 print("--- Finding Unique Customer Cities ---")
 # This list contains duplicate city names.
-order_cities = ["New York", "Los Angeles", "Chicago", "New York", "Boston", "Los Angeles", "Chicago"]
+order_cities = [
+    "New York",
+    "Los Angeles",
+    "Chicago",
+    "New York",
+    "Boston",
+    "Los Angeles",
+    "Chicago",
+]
 print(f"Original list of cities: {order_cities}")
 
 # Converting a list to a set automatically removes all duplicates.

@@ -5,6 +5,7 @@ from typing import Dict, Union, List
 
 ## Exercise 1 & 2: Create a `Car` class with a `get_age` method
 
+
 class Car:
     def __init__(self, make: str, model: str, year: int):
         self.make = make
@@ -18,35 +19,42 @@ class Car:
         current_year = datetime.now().year
         return current_year - self.year
 
+
 # Example usage:
 my_car = Car("Toyota", "Camry", 2020)
 my_car.display_info()
 print(f"The car is {my_car.get_age()} years old.")
 
 
+from typing import Dict, Union, List
+
+# Import PersonAccount from CaO.py
+from CaO import PersonAccount
+
 ## Exercise 3: Extend the `PersonAccount` class
 
-# We need to import the PersonAccount class from the CaO.py file
-# For this to work, make sure the files are in the same directory.
-try:
-    from CaO import PersonAccount
-except ImportError:
-    # If the import fails, we define a simplified version of the class here
-    # so the solution can be run independently.
-    class PersonAccount:
-        def __init__(self, firstname: str, lastname: str, incomes: Dict[str, Union[int, float]], expenses: Dict[str, Union[int, float]]):
-            self.firstname = firstname
-            self.lastname = lastname
-            self.incomes = incomes
-            self.expenses = expenses
-
-        def get_income_sources(self) -> List[str]:
-            return list(self.incomes.keys())
-
-        def get_expense_sources(self) -> List[str]:
-            return list(self.expenses.keys())
+# Create an enhanced PersonAccount instance with additional methods
+# The PersonAccount class is imported from CaO.py
 
 # Example usage:
-person = PersonAccount('John', 'Doe', {'Salary': 5000, 'Bonus': 1000}, {'Rent': 1500, 'Food': 500})
-print(f"Income sources: {person.get_income_sources()}")
-print(f"Expense sources: {person.get_expense_sources()}")
+person = PersonAccount(
+    "John", "Doe", {"Salary": 5000, "Bonus": 1000}, {"Rent": 1500, "Food": 500}
+)
+
+
+# Additional methods that could be added to PersonAccount class:
+def get_income_sources(account: PersonAccount) -> List[str]:
+    """Get all income source names for a PersonAccount."""
+    return list(account.incomes.keys())
+
+
+def get_expense_sources(account: PersonAccount) -> List[str]:
+    """Get all expense source names for a PersonAccount."""
+    return list(account.expenses.keys())
+
+
+print(f"Income sources: {get_income_sources(person)}")
+print(f"Expense sources: {get_expense_sources(person)}")
+print(f"Total income: {person.total_income()}")
+print(f"Total expenses: {person.total_expense()}")
+print(f"Account balance: {person.account_balance()}")

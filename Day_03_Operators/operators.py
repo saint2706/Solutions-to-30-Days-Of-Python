@@ -12,13 +12,15 @@ print("--- Financial Calculations ---")
 # Formula: A = P(1 + r/n)^(nt)
 # For simplicity, we'll do annual compounding (n=1)
 principal = 10000  # Initial investment
-rate = 0.05        # Annual interest rate (5%)
-time = 3           # Number of years
+rate = 0.05  # Annual interest rate (5%)
+time = 3  # Number of years
 
 # The ** operator is used for exponents
 final_amount = principal * (1 + rate) ** time
 
-print(f"Investment of ${principal} after {time} years at {rate*100}% interest will be: ${final_amount:.2f}")
+print(
+    f"Investment of ${principal} after {time} years at {rate*100}% interest will be: ${final_amount:.2f}"
+)
 print("-" * 20)
 
 

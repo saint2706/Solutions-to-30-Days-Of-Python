@@ -4,7 +4,14 @@ Day 7: Solutions to Exercises
 
 # --- Exercise 1: Find Unique Customer Cities ---
 print("--- Solution to Exercise 1 ---")
-order_cities = ["New York", "Los Angeles", "Chicago", "New York", "Boston", "Los Angeles"]
+order_cities = [
+    "New York",
+    "Los Angeles",
+    "Chicago",
+    "New York",
+    "Boston",
+    "Los Angeles",
+]
 print(f"Original list of cities: {order_cities}")
 
 # Converting the list to a set automatically removes duplicates

@@ -14,7 +14,7 @@ customer = {
     "email": "john.doe@example.com",
     "company": "InnovateCorp",
     "is_premium_member": True,
-    "total_spent": 2500.75
+    "total_spent": 2500.75,
 }
 print(f"Original customer record: {customer}")
 
@@ -34,7 +34,7 @@ customer["phone"] = "555-123-4567"
 print(f"Added phone number: {customer['phone']}")
 
 # Update total spent
-customer["total_spent"] += 500.25 # Customer made another purchase
+customer["total_spent"] += 500.25  # Customer made another purchase
 print(f"Updated total spent: ${customer['total_spent']:.2f}")
 
 # Remove a key-value pair
@@ -49,11 +49,8 @@ employee = {
     "employee_id": "EMP-042",
     "name": "Jane Smith",
     "department": "Marketing",
-    "contact_info": {
-        "email": "jane.smith@example.com",
-        "phone_ext": 112
-    },
-    "projects": ["Q1 Campaign", "Website Redesign"]
+    "contact_info": {"email": "jane.smith@example.com", "phone_ext": 112},
+    "projects": ["Q1 Campaign", "Website Redesign"],
 }
 
 # Accessing nested data

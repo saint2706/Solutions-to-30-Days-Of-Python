@@ -2,17 +2,17 @@
 
 ## Exercise 1: Handling a `ValueError`
 
-```python
+
 try:
     age = int(input("Enter your age: "))
     print(f"You are {age} years old.")
 except ValueError:
     print("Invalid input. Please enter a numeric value for your age.")
-```
+
 
 ## Exercise 2: Handling a `ZeroDivisionError`
 
-```python
+
 try:
     num1 = float(input("Enter the first number: "))
     num2 = float(input("Enter the second number: "))
@@ -22,14 +22,12 @@ except ZeroDivisionError:
     print("Error: Cannot divide by zero.")
 except ValueError:
     print("Invalid input. Please enter numeric values.")
-```
+
 
 ## Exercise 3: Refactor `exception.py`
 
-If the `country_names` list has fewer than two elements, a `ValueError` will be raised with the message "not enough values to unpack". We can handle this specifically.
 
-```python
-country_names = ['Finland']
+country_names = ["Finland"]
 
 try:
     *nordic_countries, estonia, russia = country_names
@@ -40,9 +38,10 @@ try:
 
 except ValueError as e:
     if "not enough values to unpack" in str(e):
-        print(f"Error: The list of countries must have at least two elements. Details: {e}")
+        print(
+            f"Error: The list of countries must have at least two elements. Details: {e}"
+        )
     else:
         print(f"A ValueError occurred: {e}")
 except Exception as e:
     print(f"An unexpected error occurred: {e}")
-```

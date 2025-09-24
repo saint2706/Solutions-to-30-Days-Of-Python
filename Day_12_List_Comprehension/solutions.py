@@ -23,16 +23,14 @@ products = [
     {"name": "T-Shirt", "category": "apparel"},
     {"name": "Keyboard", "category": "electronics"},
     {"name": "Coffee Mug", "category": "homeware"},
-    {"name": "Webcam", "category": "electronics"}
+    {"name": "Webcam", "category": "electronics"},
 ]
 
 # [expression for item in iterable if condition]
 # The expression is the product's name.
 # The condition checks if the product's category is 'electronics'.
 electronic_products = [
-    product["name"]
-    for product in products
-    if product["category"] == "electronics"
+    product["name"] for product in products if product["category"] == "electronics"
 ]
 
 print(f"All products: {products}")

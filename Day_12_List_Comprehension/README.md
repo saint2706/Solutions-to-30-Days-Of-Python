@@ -18,6 +18,7 @@ for sale in sales:
         large_sales.append(sale)
 # large_sales is now [1200, 1500]
 ```
+
 This takes 4 lines of code. It works, but we can do better.
 
 **The list comprehension way:**
@@ -27,6 +28,7 @@ sales = [500, 1200, 800, 1500, 300]
 large_sales = [sale for sale in sales if sale > 1000]
 # large_sales is now [1200, 1500]
 ```
+
 This does the exact same thing in a single, highly readable line.
 
 ## The Syntax of List Comprehension
@@ -35,9 +37,9 @@ A list comprehension is made of a few parts inside square brackets `[]`:
 
 `new_list = [expression for item in iterable if condition]`
 
-1.  **Expression:** What to do with each item. This could be the item itself (`sale`), or a calculation (`sale * 1.1`).
-2.  **`for item in iterable`:** The loop part, which iterates through the original list (the `iterable`).
-3.  **`if condition` (Optional):** A filter that decides whether or not to include the item in the new list.
+1. **Expression:** What to do with each item. This could be the item itself (`sale`), or a calculation (`sale * 1.1`).
+2. **`for item in iterable`:** The loop part, which iterates through the original list (the `iterable`).
+3. **`if condition` (Optional):** A filter that decides whether or not to include the item in the new list.
 
 ### Example: Applying a Price Increase
 
@@ -69,16 +71,17 @@ sales_team_names = [employee["name"] for employee in employees if employee["depa
 
 ## 💻 Exercises: Day 13
 
-1.  **Calculate Sales Commissions:**
-    *   You have a list of sales figures: `sales = [2500, 8000, 12000, 5500]`.
-    *   The commission rate is 10%.
-    *   Use a list comprehension to create a new list called `commissions` where each element is 10% of the corresponding sale.
-    *   Print the `commissions` list.
+1. **Calculate Sales Commissions:**
+    * You have a list of sales figures: `sales = [2500, 8000, 12000, 5500]`.
+    * The commission rate is 10%.
+    * Use a list comprehension to create a new list called `commissions` where each element is 10% of the corresponding sale.
+    * Print the `commissions` list.
 
-2.  **Filter Products by Category:**
-    *   You have a list of product dictionaries.
-    *   Use a list comprehension to create a new list containing only the names of products that are in the "electronics" category.
-    *   Print the resulting list.
+2. **Filter Products by Category:**
+    * You have a list of product dictionaries.
+    * Use a list comprehension to create a new list containing only the names of products that are in the "electronics" category.
+    * Print the resulting list.
+
         ```python
         products = [
             {"name": "Laptop", "category": "electronics"},
@@ -88,10 +91,10 @@ sales_team_names = [employee["name"] for employee in employees if employee["depa
         ]
         ```
 
-3.  **Format Prices for Display:**
-    *   You have a list of prices as floats: `prices = [49.99, 199.99, 19.95, 24.50]`.
-    *   Use a list comprehension to create a new list called `display_prices`.
-    *   Each item in the new list should be a string, formatted as currency (e.g., `"$49.99"`).
-    *   Hint: The expression part can include calling a function or using an f-string.
+3. **Format Prices for Display:**
+    * You have a list of prices as floats: `prices = [49.99, 199.99, 19.95, 24.50]`.
+    * Use a list comprehension to create a new list called `display_prices`.
+    * Each item in the new list should be a string, formatted as currency (e.g., `"$49.99"`).
+    * Hint: The expression part can include calling a function or using an f-string.
 
 🎉 **Excellent!** List comprehensions are a powerful tool for writing clean, efficient, and professional Python code. They are heavily used in data analysis for quick and readable data transformations.

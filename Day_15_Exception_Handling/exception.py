@@ -5,7 +5,15 @@ This script demonstrates the use of extended iterable unpacking and a try-except
 """
 
 # A list of country names
-country_names = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland', 'Estonia', 'Russia']
+country_names = [
+    "Finland",
+    "Sweden",
+    "Norway",
+    "Denmark",
+    "Iceland",
+    "Estonia",
+    "Russia",
+]
 
 try:
     # This is an example of extended iterable unpacking.

@@ -22,7 +22,9 @@ print("--- Solution to Exercise 2 ---")
 package_dimensions = (25, 15, 10)
 
 # Accessing the tuple elements by their index for the print statement.
-print(f"Package Dimensions (LxWxH): {package_dimensions[0]}cm x {package_dimensions[1]}cm x {package_dimensions[2]}cm")
+print(
+    f"Package Dimensions (LxWxH): {package_dimensions[0]}cm x {package_dimensions[1]}cm x {package_dimensions[2]}cm"
+)
 print("-" * 20)
 
 
@@ -35,13 +37,19 @@ print("Scenario A (Monthly Sales): Use a LIST because the data may need to be ch
 
 # Scenario B: Storing the RGB color code for your company's official logo.
 # Choice: Tuple. A brand color is a constant and should not be accidentally changed. A tuple is immutable.
-print("Scenario B (Brand Color): Use a TUPLE because the data is constant and should not change.")
+print(
+    "Scenario B (Brand Color): Use a TUPLE because the data is constant and should not change."
+)
 
 # Scenario C: Storing the names of employees in a department.
 # Choice: List. The roster of employees in a department changes frequently. A list is mutable.
-print("Scenario C (Employee Roster): Use a LIST because the roster of employees changes over time.")
+print(
+    "Scenario C (Employee Roster): Use a LIST because the roster of employees changes over time."
+)
 
 # Scenario D: Storing the name, founding year, and stock ticker symbol for a company.
 # Choice: Tuple. This is core, identifying information that is fixed and should not change. A tuple is immutable.
-print("Scenario D (Company Profile): Use a TUPLE because this core information is fixed.")
+print(
+    "Scenario D (Company Profile): Use a TUPLE because this core information is fixed."
+)
 print("-" * 20)

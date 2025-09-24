@@ -11,17 +11,21 @@ print(formatted_date)
 
 ## Exercise 2: Calculate the number of days until your next birthday
 
+
 def days_until_next_birthday(birthday_month: int, birthday_day: int) -> int:
     today = date.today()
     next_birthday_year = today.year
 
     # Check if the birthday has already passed this year
-    if today.month > birthday_month or (today.month == birthday_month and today.day > birthday_day):
+    if today.month > birthday_month or (
+        today.month == birthday_month and today.day > birthday_day
+    ):
         next_birthday_year += 1
 
     next_birthday = date(next_birthday_year, birthday_month, birthday_day)
     delta = next_birthday - today
     return delta.days
+
 
 # Example usage (replace with your own birthday)
 days_left = days_until_next_birthday(10, 25)

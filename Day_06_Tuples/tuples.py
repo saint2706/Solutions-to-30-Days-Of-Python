@@ -40,21 +40,29 @@ print("--- Choosing Between a List and a Tuple ---")
 
 # Scenario A: Storing the monthly sales figures for the past year.
 # Choice: List. Sales data is likely to be updated or amended.
-monthly_sales = [45000, 52000, 48000, 55000] # ... and so on
-print(f"Scenario A (Monthly Sales): Use a list. Data might change. Example: {monthly_sales}")
+monthly_sales = [45000, 52000, 48000, 55000]  # ... and so on
+print(
+    f"Scenario A (Monthly Sales): Use a list. Data might change. Example: {monthly_sales}"
+)
 
 # Scenario B: Storing the RGB color code for your company's official logo.
 # Choice: Tuple. The brand color is a fixed constant and should not change.
 brand_color_rgb = (45, 85, 150)
-print(f"Scenario B (Brand Color): Use a tuple. Data is constant. Example: {brand_color_rgb}")
+print(
+    f"Scenario B (Brand Color): Use a tuple. Data is constant. Example: {brand_color_rgb}"
+)
 
 # Scenario C: Storing the names of employees in a department.
 # Choice: List. Employees can be added or removed from the department.
 marketing_team = ["Alice", "Bob", "Charlie"]
-print(f"Scenario C (Team Roster): Use a list. Roster changes. Example: {marketing_team}")
+print(
+    f"Scenario C (Team Roster): Use a list. Roster changes. Example: {marketing_team}"
+)
 
 # Scenario D: Storing the name, founding year, and stock ticker symbol for a company.
 # Choice: Tuple. This core identifying information for a company is fixed.
 company_profile = ("InnovateCorp", 2015, "INVC")
-print(f"Scenario D (Company Profile): Use a tuple. Core info is fixed. Example: {company_profile}")
+print(
+    f"Scenario D (Company Profile): Use a tuple. Core info is fixed. Example: {company_profile}"
+)
 print("-" * 20)

@@ -1,12 +1,13 @@
 # 🛡️ Day 15: Exception Handling
 
-## Welcome to Day 15!
+## Welcome to Day 15
 
 Today, we'll explore a fundamental concept in programming: **exception handling**. This is a crucial skill for building robust and reliable applications.
 
 ## Why is Exception Handling Important for Business Analytics?
 
 In the world of business analytics, you'll often be working with data from various sources, which can be unpredictable and messy. Your scripts might encounter errors like:
+
 - Trying to read a file that doesn't exist.
 - Performing calculations on missing or invalid data.
 - Connecting to a database that is temporarily unavailable.
@@ -54,17 +55,17 @@ except Exception as e:
 
 ## 💻 Exercises: Day 15
 
-1.  **Handling a `ValueError`**:
-    *   Write a script that asks the user to enter their age.
-    *   Use a `try...except` block to handle the `ValueError` that might occur if the user enters a non-numeric value.
-    *   Print a user-friendly error message if a `ValueError` occurs.
+1. **Handling a `ValueError`**:
+    - Write a script that asks the user to enter their age.
+    - Use a `try...except` block to handle the `ValueError` that might occur if the user enters a non-numeric value.
+    - Print a user-friendly error message if a `ValueError` occurs.
 
-2.  **Handling a `ZeroDivisionError`**:
-    *   Write a script that asks the user for two numbers and divides the first number by the second number.
-    *   Use a `try...except` block to handle the `ZeroDivisionError` that might occur if the user enters 0 as the second number.
+2. **Handling a `ZeroDivisionError`**:
+    - Write a script that asks the user for two numbers and divides the first number by the second number.
+    - Use a `try...except` block to handle the `ZeroDivisionError` that might occur if the user enters 0 as the second number.
 
-3.  **Refactor `exception.py`**:
-    *   Modify the `exception.py` script to handle the case where the `country_names` list has fewer than two elements. What kind of error do you get? How can you handle it specifically?
+3. **Refactor `exception.py`**:
+    - Modify the `exception.py` script to handle the case where the `country_names` list has fewer than two elements. What kind of error do you get? How can you handle it specifically?
 
 ### Solutions
 

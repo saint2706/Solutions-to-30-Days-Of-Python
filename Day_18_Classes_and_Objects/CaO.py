@@ -1,5 +1,5 @@
 import statistics as stat
-from typing import List, Dict, Union, Tuple
+from typing import Sequence, List, Dict, Union, Tuple
 
 
 class Statistics:
@@ -10,7 +10,7 @@ class Statistics:
     mean, median, mode, variance, and standard deviation.
 
     Attributes:
-        data (List[Union[int, float]]): A list of numbers to perform calculations on.
+        data (Sequence[Union[int, float]]): A sequence of numbers to perform calculations on.
 
     Example:
         ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
@@ -18,21 +18,21 @@ class Statistics:
         print(stats.describe())
     """
 
-    def __init__(self, data: List[Union[int, float]]):
+    def __init__(self, data: Sequence[Union[int, float]]):
         """
         Initializes the Statistics class with a list of numbers.
 
         Args:
-            data (List[Union[int, float]]): A list of numbers.
+            data (Sequence[Union[int, float]]): A sequence of numbers.
         """
         self.data = data
 
-    def get_data(self) -> List[Union[int, float]]:
+    def get_data(self) -> Sequence[Union[int, float]]:
         """
         Returns the original data.
 
         Returns:
-            List[Union[int, float]]: The list of numbers.
+            Sequence[Union[int, float]]: The sequence of numbers.
         """
         return self.data
 
@@ -107,7 +107,7 @@ class Statistics:
             Dict[str, Union[int, float]]: A dictionary containing the mode and its count.
         """
         mode_value = stat.mode(self.data)
-        return {'mode': mode_value, 'count': self.data.count(mode_value)}
+        return {"mode": mode_value, "count": self.data.count(mode_value)}
 
     def std(self) -> float:
         """
@@ -140,7 +140,10 @@ class Statistics:
         if not self.data:
             return []
         total = len(self.data)
-        return sorted([(self.data.count(i) * 100 / total, i) for i in set(self.data)], reverse=True)
+        return sorted(
+            [(self.data.count(i) * 100 / total, i) for i in set(self.data)],
+            reverse=True,
+        )
 
     def describe(self) -> str:
         """
@@ -165,9 +168,36 @@ class Statistics:
 
 
 # Example usage:
-ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+ages = [
+    31,
+    26,
+    34,
+    37,
+    27,
+    26,
+    32,
+    32,
+    26,
+    27,
+    27,
+    24,
+    32,
+    33,
+    27,
+    25,
+    26,
+    38,
+    37,
+    31,
+    34,
+    24,
+    33,
+    29,
+    26,
+]
 data = Statistics(ages)
 print(data.describe())
+
 
 class PersonAccount:
     """
@@ -190,7 +220,13 @@ class PersonAccount:
         print(f"Account Balance: {person.account_balance()}")
     """
 
-    def __init__(self, firstname: str, lastname: str, incomes: Dict[str, Union[int, float]], expenses: Dict[str, Union[int, float]]):
+    def __init__(
+        self,
+        firstname: str,
+        lastname: str,
+        incomes: Dict[str, Union[int, float]],
+        expenses: Dict[str, Union[int, float]],
+    ):
         """
         Initializes the PersonAccount class.
 
@@ -261,12 +297,17 @@ class PersonAccount:
 
 
 # Example usage:
-me = PersonAccount('Rishabh', 'Agrawal', {'Salary': 150000, 'Bonus': 5500}, {'Rent': 20000, 'General': 4500})
+me = PersonAccount(
+    "Rishabh",
+    "Agrawal",
+    {"Salary": 150000, "Bonus": 5500},
+    {"Rent": 20000, "General": 4500},
+)
 print(me.total_income())
 print(me.total_expense())
 print(me.account_info())
-me.add_income({'Diwali': 2500, 'Birthday': 5000})
+me.add_income({"Diwali": 2500, "Birthday": 5000})
 print(f"Incomes after adding: {me.incomes}")
-me.add_expense({'Tax': 2500, 'Fuel': 5000})
+me.add_expense({"Tax": 2500, "Fuel": 5000})
 print(f"Expenses after adding: {me.expenses}")
 print(f"Final Account Balance: {me.account_balance()}")

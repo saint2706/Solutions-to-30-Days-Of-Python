@@ -21,6 +21,6 @@ print("--- Solution to Exercise 3 ---")
 # Using the type() function to inspect each data point.
 print("Data point: 1500, Type:", type(1500))
 print("Data point: 1500.75, Type:", type(1500.75))
-print("Data point: 'InnovateCorp', Type:", type('InnovateCorp'))
+print("Data point: 'InnovateCorp', Type:", type("InnovateCorp"))
 print("Data point: True, Type:", type(True))
 print("-" * 20)

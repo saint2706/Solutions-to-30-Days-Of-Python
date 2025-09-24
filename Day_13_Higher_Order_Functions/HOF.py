@@ -10,9 +10,11 @@ print("--- Applying a Bonus to All Salaries ---")
 salaries = [50000, 80000, 120000, 65000]
 print(f"Original salaries: {salaries}")
 
+
 # We can define a function to use with map
 def apply_bonus(salary):
     return salary * 1.10
+
 
 # But it's often quicker to use a lambda function directly in the map call
 # lambda s: s * 1.10 is a short, anonymous function that does the same thing.
@@ -38,14 +40,20 @@ print("-" * 20)
 print("--- Analyzing High-Value Customer Data ---")
 customers = [
     {"name": "InnovateCorp", "subscription_status": "active", "monthly_spend": 550},
-    {"name": "DataDriven Inc.", "subscription_status": "inactive", "monthly_spend": 120},
-    {"name": "Analytics LLC", "subscription_status": "active", "monthly_spend": 210}
+    {
+        "name": "DataDriven Inc.",
+        "subscription_status": "inactive",
+        "monthly_spend": 120,
+    },
+    {"name": "Analytics LLC", "subscription_status": "active", "monthly_spend": 210},
 ]
 
 # Goal: Get the names of all 'active' customers.
 
 # Step 1: Filter the list to get only active customers.
-active_customers = list(filter(lambda c: c["subscription_status"] == "active", customers))
+active_customers = list(
+    filter(lambda c: c["subscription_status"] == "active", customers)
+)
 
 # Step 2: Map the filtered list to get just the names.
 active_customer_names = list(map(lambda c: c["name"], active_customers))
@@ -62,7 +70,7 @@ products = [
     {"name": "Laptop", "price": 1200},
     {"name": "Mouse", "price": 25},
     {"name": "Keyboard", "price": 75},
-    {"name": "Monitor", "price": 300}
+    {"name": "Monitor", "price": 300},
 ]
 print(f"Original product list: {products}")
 
