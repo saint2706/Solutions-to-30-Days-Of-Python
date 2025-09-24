@@ -9,7 +9,7 @@ import seaborn as sns
 # --- Step 1 & 2: Load and Clean the Data ---
 print("--- Step 1 & 2: Loading and Cleaning Data ---")
 try:
-    df = pd.read_csv('case_study_sales.csv', parse_dates=['Date'])
+    df = pd.read_csv("case_study_sales.csv", parse_dates=["Date"])
     print("Data loaded successfully.")
 
     # Check for missing values
@@ -18,7 +18,7 @@ try:
         df.dropna(inplace=True)
 
     # Add a 'Revenue' column for analysis
-    df['Revenue'] = df['Price'] * df['Units Sold']
+    df["Revenue"] = df["Price"] * df["Units Sold"]
 
     print("Data cleaned and 'Revenue' column created.")
 
@@ -31,52 +31,52 @@ if not df.empty:
     print("\n--- Step 3: Answering Key Business Questions ---")
 
     # 1. Top 5 products by total revenue
-    top_products = df.groupby('Product')['Revenue'].sum().sort_values(ascending=False).head(5)
+    top_products = (
+        df.groupby("Product")["Revenue"].sum().sort_values(ascending=False).head(5)
+    )
     print("\n1. Top 5 Products by Revenue:")
     print(top_products)
 
     # 2. Top sales region by revenue
-    top_region = df.groupby('Region')['Revenue'].sum().sort_values(ascending=False)
+    top_region = df.groupby("Region")["Revenue"].sum().sort_values(ascending=False)
     print("\n2. Revenue by Region:")
     print(top_region)
 
     # 3. Correlation between Price and Units Sold
-    correlation = df[['Price', 'Units Sold']].corr()
+    correlation = df[["Price", "Units Sold"]].corr()
     print("\n3. Correlation between Price and Units Sold:")
     print(correlation)
-
 
     # --- Step 4: Visualize Your Findings ---
     print("\n--- Step 4: Generating Visualizations ---")
 
     # Plot 1: Top 5 Products by Revenue
     plt.figure(figsize=(10, 6))
-    top_products.plot(kind='bar')
-    plt.title('Top 5 Products by Total Revenue', fontsize=16)
-    plt.ylabel('Total Revenue ($)')
-    plt.xlabel('Product')
+    top_products.plot(kind="bar")
+    plt.title("Top 5 Products by Total Revenue", fontsize=16)
+    plt.ylabel("Total Revenue ($)")
+    plt.xlabel("Product")
     plt.xticks(rotation=45)
     print("Displaying plot 1...")
     plt.show()
 
     # Plot 2: Revenue by Region
     plt.figure(figsize=(10, 6))
-    top_region.plot(kind='pie', autopct='%1.1f%%', startangle=90)
-    plt.title('Revenue Contribution by Region', fontsize=16)
-    plt.ylabel('') # Hide the y-label for pie charts
+    top_region.plot(kind="pie", autopct="%1.1f%%", startangle=90)
+    plt.title("Revenue Contribution by Region", fontsize=16)
+    plt.ylabel("")  # Hide the y-label for pie charts
     print("Displaying plot 2...")
     plt.show()
 
     # Plot 3: Daily Revenue Trend
-    daily_revenue = df.groupby('Date')['Revenue'].sum()
+    daily_revenue = df.groupby("Date")["Revenue"].sum()
     plt.figure(figsize=(12, 6))
-    daily_revenue.plot(kind='line')
-    plt.title('Daily Revenue Trend', fontsize=16)
-    plt.ylabel('Total Revenue ($)')
-    plt.xlabel('Date')
+    daily_revenue.plot(kind="line")
+    plt.title("Daily Revenue Trend", fontsize=16)
+    plt.ylabel("Total Revenue ($)")
+    plt.xlabel("Date")
     print("Displaying plot 3...")
     plt.show()
-
 
     # --- Step 5: Summary and Recommendations ---
     print("\n--- Step 5: Summary and Recommendations ---")

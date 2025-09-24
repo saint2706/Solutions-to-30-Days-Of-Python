@@ -39,7 +39,7 @@ total_sales = sales_data.sum()
 average_sales = sales_data.mean()
 best_day = sales_data.max()
 worst_day = sales_data.min()
-sales_std_dev = sales_data.std() # Standard deviation
+sales_std_dev = sales_data.std()  # Standard deviation
 
 print(f"Total weekly sales: ${total_sales:.2f}")
 print(f"Average daily sales: ${average_sales:.2f}")

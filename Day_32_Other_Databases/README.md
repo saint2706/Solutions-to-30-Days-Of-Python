@@ -9,8 +9,9 @@ The great news is that the patterns and skills you just learned are directly tra
 To connect to other SQL databases, the only thing that changes is the library you use to make the connection. The SQL queries you write and the way you use Pandas to interact with the database remain almost identical.
 
 You would first need to install the appropriate library:
-*   For MySQL: `pip install mysql-connector-python`
-*   For PostgreSQL: `pip install psycopg2-binary`
+
+* For MySQL: `pip install mysql-connector-python`
+* For PostgreSQL: `pip install psycopg2-binary`
 
 Then, your connection code would look slightly different, requiring credentials like a username, password, and host address.
 
@@ -36,6 +37,7 @@ conn.close()
 
 print(north_sales_df.head())
 ```
+
 **Key Takeaway:** As an analyst, your main tool, `pandas.read_sql_query`, works the same way. You just need to get the correct connection details from your IT or data engineering team.
 
 ## A Brief Introduction to NoSQL: MongoDB
@@ -80,7 +82,7 @@ client.close()
 
 This was a conceptual lesson to show you that while the specific connection details may change, the skills you've learned are broadly applicable.
 
-*   For any **SQL database**, you will use a specific library to connect, but your interaction will primarily be writing SQL queries and using `pandas.read_sql_query`.
-*   For **NoSQL databases** like MongoDB, you'll use a different library (`pymongo`) and query language, but the goal is the same: get the data into a format that can be loaded into a Pandas DataFrame for analysis.
+* For any **SQL database**, you will use a specific library to connect, but your interaction will primarily be writing SQL queries and using `pandas.read_sql_query`.
+* For **NoSQL databases** like MongoDB, you'll use a different library (`pymongo`) and query language, but the goal is the same: get the data into a format that can be loaded into a Pandas DataFrame for analysis.
 
 There are no coding exercises for this day. The goal is to understand the concepts so you are prepared when you encounter these different database systems in the workplace.

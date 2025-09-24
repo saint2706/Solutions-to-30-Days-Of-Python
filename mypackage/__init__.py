@@ -10,10 +10,10 @@ Modules:
 Example Usage:
     from mypackage.arithmetics import add_numbers, multiply
     from mypackage.greet import greet_person
-    
+
     # Calculate quarterly revenue total
     total_revenue = add_numbers(125000, 150000, 175000, 200000)
-    
+
     # Generate customer greeting
     welcome_message = greet_person("Jane", "Smith")
 """
@@ -26,11 +26,11 @@ from .arithmetics import add_numbers, subtract, multiply, divide, remainder, pow
 from .greet import greet_person
 
 __all__ = [
-    "add_numbers", 
-    "subtract", 
-    "multiply", 
-    "divide", 
-    "remainder", 
+    "add_numbers",
+    "subtract",
+    "multiply",
+    "divide",
+    "remainder",
     "power",
-    "greet_person"
+    "greet_person",
 ]

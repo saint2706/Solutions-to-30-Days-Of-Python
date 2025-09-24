@@ -69,7 +69,7 @@ sales_team_names = [employee["name"] for employee in employees if employee["depa
 # sales_team_names is now ["Alice", "Charlie"]
 ```
 
-## 💻 Exercises: Day 13
+## 💻 Exercises: Day 12
 
 1. **Calculate Sales Commissions:**
     * You have a list of sales figures: `sales = [2500, 8000, 12000, 5500]`.

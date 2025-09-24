@@ -10,7 +10,7 @@ import sqlite3
 import pandas as pd
 import os
 
-DB_FILE = 'company_data.db'
+DB_FILE = "company_data.db"
 
 # --- 1. Create and Populate a SQLite Database ---
 print(f"--- 1. Creating and populating the database: {DB_FILE} ---")
@@ -22,22 +22,24 @@ with sqlite3.connect(DB_FILE) as conn:
     cursor.execute("DROP TABLE IF EXISTS employees")
 
     # Create a table
-    cursor.execute("""
+    cursor.execute(
+        """
     CREATE TABLE employees (
         employee_id INTEGER PRIMARY KEY,
         name TEXT NOT NULL,
         department TEXT NOT NULL,
         salary REAL NOT NULL
     )
-    """)
+    """
+    )
 
     # Insert some data
     employees_to_add = [
-        (101, 'Alice', 'Sales', 80000),
-        (102, 'Bob', 'Engineering', 120000),
-        (103, 'Charlie', 'Sales', 85000),
-        (104, 'Diana', 'HR', 70000),
-        (105, 'Eve', 'Engineering', 130000)
+        (101, "Alice", "Sales", 80000),
+        (102, "Bob", "Engineering", 120000),
+        (103, "Charlie", "Sales", 85000),
+        (104, "Diana", "HR", 70000),
+        (105, "Eve", "Engineering", 130000),
     ]
     cursor.executemany("INSERT INTO employees VALUES (?, ?, ?, ?)", employees_to_add)
 
@@ -71,7 +73,7 @@ print("-" * 20)
 # --- 3. The Pandas Way: `read_sql_query` ---
 print("--- 3. Querying all 'Engineering' employees with Pandas ---")
 try:
-    with sqlite3.connect(DB_BİLE) as conn:
+    with sqlite3.connect(DB_FILE) as conn:
         # The SQL query to execute
         sql_query = "SELECT * FROM employees WHERE department = 'Engineering'"
 
@@ -82,7 +84,7 @@ try:
         print(engineering_df)
 
         # Now you can use all your Pandas skills on this DataFrame
-        avg_eng_salary = engineering_df['salary'].mean()
+        avg_eng_salary = engineering_df["salary"].mean()
         print(f"\nAverage Engineering Salary: ${avg_eng_salary:,.2f}")
 
 except sqlite3.Error as e:

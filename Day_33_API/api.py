@@ -11,7 +11,7 @@ import pandas as pd
 # --- 1. Making a Basic GET Request ---
 print("--- 1. Fetching a list of users ---")
 # The endpoint for a list of users
-users_url = 'https://jsonplaceholder.typicode.com/users'
+users_url = "https://jsonplaceholder.typicode.com/users"
 
 try:
     # Make the request
@@ -36,7 +36,7 @@ print("-" * 20)
 # --- 2. Making a Request for a Specific Resource ---
 print("--- 2. Fetching a single post (ID = 1) ---")
 # The endpoint for a single post
-post_url = 'https://jsonplaceholder.typicode.com/posts/1'
+post_url = "https://jsonplaceholder.typicode.com/posts/1"
 
 try:
     response = requests.get(post_url)
@@ -57,13 +57,11 @@ print("-" * 20)
 # --- 3. Making a Request with Parameters ---
 print("--- 3. Fetching all posts by a specific user (userId = 2) ---")
 # The base endpoint for posts
-all_posts_url = 'https://jsonplaceholder.typicode.com/posts'
+all_posts_url = "https://jsonplaceholder.typicode.com/posts"
 
 # A dictionary of query parameters to filter the results
 # This will be converted to ?userId=2 in the URL
-params = {
-    'userId': 2
-}
+params = {"userId": 2}
 
 try:
     response = requests.get(all_posts_url, params=params)

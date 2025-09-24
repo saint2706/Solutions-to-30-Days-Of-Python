@@ -1,12 +1,13 @@
 """
 Day 28: Solutions to Exercises
 """
+
 import requests
 import pandas as pd
 
 # --- Exercise 1: Fetch All Posts ---
 print("--- Solution to Exercise 1 ---")
-posts_url = 'https://jsonplaceholder.typicode.com/posts'
+posts_url = "https://jsonplaceholder.typicode.com/posts"
 try:
     response = requests.get(posts_url)
     response.raise_for_status()
@@ -22,13 +23,13 @@ print("-" * 20)
 # --- Exercise 2: Fetch a Specific User's Data ---
 print("--- Solution to Exercise 2 ---")
 user_id = 5
-user_url = f'https://jsonplaceholder.typicode.com/users/{user_id}'
+user_url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
 try:
     response = requests.get(user_url)
     response.raise_for_status()
     user_data = response.json()
     # The 'company' value is a nested dictionary
-    company_name = user_data.get('company', {}).get('name', 'N/A')
+    company_name = user_data.get("company", {}).get("name", "N/A")
     print(f"Data for User ID {user_id}:")
     print(f"  Name: {user_data.get('name', 'N/A')}")
     print(f"  Company: {company_name}")
@@ -39,8 +40,8 @@ print("-" * 20)
 
 # --- Exercise 3: Fetch Comments for a Specific Post ---
 print("--- Solution to Exercise 3 ---")
-comments_url = 'https://jsonplaceholder.typicode.com/comments'
-params = {'postId': 3}
+comments_url = "https://jsonplaceholder.typicode.com/comments"
+params = {"postId": 3}
 try:
     response = requests.get(comments_url, params=params)
     response.raise_for_status()

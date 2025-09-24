@@ -77,7 +77,7 @@ high_yield_projects = list(filter(lambda r: r > 15, project_rois))
 
 This syntax is extremely common in data analysis libraries like Pandas.
 
-## 💻 Exercises: Day 14
+## 💻 Exercises: Day 13
 
 1. **Standardize Department Names:**
     * You have a list of department names in various formats: `departments = ["Sales", " marketing ", "  Engineering", "HR  "]`.

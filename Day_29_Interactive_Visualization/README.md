@@ -26,6 +26,7 @@ region_revenue = df.groupby('Region')['Revenue'].sum().reset_index()
 fig = px.bar(region_revenue, x='Region', y='Revenue', title='Total Revenue by Region')
 fig.show()
 ```
+
 **Interaction:** Hover over the bars to see the exact revenue for each region.
 
 ### 2. Interactive Line Chart
@@ -35,6 +36,7 @@ fig.show()
 fig = px.line(daily_revenue, x='Date', y='Revenue', title='Daily Revenue Trend')
 fig.show()
 ```
+
 **Interaction:** Hover along the line to see the date and revenue for any point. Click and drag to zoom into a specific time period. Double-click to zoom back out.
 
 ### 3. Interactive Scatter Plot
@@ -44,6 +46,7 @@ fig.show()
 fig = px.scatter(df, x='Price', y='Units Sold', color='Product', hover_data=['Region'], title='Price vs. Units Sold')
 fig.show()
 ```
+
 **Interaction:** Hover over any point to see the Price, Units Sold, Product, and Region for that specific transaction. Click on items in the legend to toggle product categories on and off.
 
 ## Saving Your Plot
@@ -59,18 +62,18 @@ fig.write_html("interactive_revenue_chart.html")
 
 For these exercises, you will use the cleaned `sales_data.csv` from Day 17.
 
-1.  **Interactive Sales by Product:**
-    *   Load the cleaned sales data.
-    *   Group the data by `Product` to get the sum of `Revenue` for each product.
-    *   Create an interactive bar chart using `plotly.express` that shows the total `Revenue` for each `Product`.
-    *   Give your chart a descriptive title.
-    *   When you hover over a bar, it should show the Product and its total Revenue.
+1. **Interactive Sales by Product:**
+    * Load the cleaned sales data.
+    * Group the data by `Product` to get the sum of `Revenue` for each product.
+    * Create an interactive bar chart using `plotly.express` that shows the total `Revenue` for each `Product`.
+    * Give your chart a descriptive title.
+    * When you hover over a bar, it should show the Product and its total Revenue.
 
-2.  **Interactive Revenue vs. Units Sold:**
-    *   Load the cleaned sales data.
-    *   Create an interactive scatter plot showing `Revenue` on the y-axis and `Units Sold` on the x-axis.
-    *   Color the points on the scatter plot by `Region`.
-    *   Give the plot a title.
-    *   Save the resulting chart to an HTML file named `revenue_scatterplot.html`.
+2. **Interactive Revenue vs. Units Sold:**
+    * Load the cleaned sales data.
+    * Create an interactive scatter plot showing `Revenue` on the y-axis and `Units Sold` on the x-axis.
+    * Color the points on the scatter plot by `Region`.
+    * Give the plot a title.
+    * Save the resulting chart to an HTML file named `revenue_scatterplot.html`.
 
 🎉 **Incredible!** You've now stepped into the world of interactive data visualization. Being able to create and share plots that allow stakeholders to explore the data for themselves is a highly valuable skill for any modern analyst.

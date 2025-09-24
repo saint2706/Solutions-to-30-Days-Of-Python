@@ -1,11 +1,12 @@
 """
 Day 26: Solutions to Exercises
 """
+
 import sqlite3
 import pandas as pd
 import os
 
-DB_FILE = 'company.db'
+DB_FILE = "company.db"
 
 # --- Exercise 1: Create and Populate a Database ---
 print("--- Solution to Exercise 1 ---")
@@ -16,23 +17,28 @@ try:
 
     # Create the 'products' table
     # "IF NOT EXISTS" prevents an error if the script is run multiple times
-    cursor.execute("""
+    cursor.execute(
+        """
     CREATE TABLE IF NOT EXISTS products (
         product_id INTEGER PRIMARY KEY,
         name TEXT NOT NULL,
         price REAL NOT NULL
-    )""")
+    )"""
+    )
 
     # Insert sample data
     # Using a list of tuples for the data
     products_to_insert = [
-        (101, 'Laptop', 1200.00),
-        (102, 'Mouse', 25.50),
-        (103, 'Keyboard', 75.00),
-        (104, 'Monitor', 350.00)
+        (101, "Laptop", 1200.00),
+        (102, "Mouse", 25.50),
+        (103, "Keyboard", 75.00),
+        (104, "Monitor", 350.00),
     ]
     # executemany is efficient for inserting multiple rows
-    cursor.executemany("INSERT INTO products (product_id, name, price) VALUES (?, ?, ?)", products_to_insert)
+    cursor.executemany(
+        "INSERT INTO products (product_id, name, price) VALUES (?, ?, ?)",
+        products_to_insert,
+    )
 
     # Commit the changes to save them to the database file
     conn.commit()
@@ -42,7 +48,7 @@ except sqlite3.Error as e:
     print(f"An error occurred: {e}")
 finally:
     # Always close the connection
-    if conn:
+    if conn:  # pyright: ignore[reportPossiblyUnboundVariable]
         conn.close()
 print("-" * 20)
 
@@ -67,7 +73,7 @@ try:
 except sqlite3.Error as e:
     print(f"An error occurred: {e}")
 finally:
-    if conn:
+    if conn:  # pyright: ignore[reportPossiblyUnboundVariable]
         conn.close()
 print("-" * 20)
 
@@ -91,7 +97,7 @@ except sqlite3.Error as e:
 except Exception as e:
     print(f"An error occurred: {e}")
 finally:
-    if conn:
+    if conn:  # pyright: ignore[reportPossiblyUnboundVariable]
         conn.close()
     # Clean up the database file after the script is done
     if os.path.exists(DB_FILE):

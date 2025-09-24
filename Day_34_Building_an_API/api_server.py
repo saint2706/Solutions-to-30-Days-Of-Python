@@ -15,28 +15,29 @@ app = Flask(__name__)
 # --- Sample Data ---
 # In a real application, this data would come from a database.
 PRODUCTS = [
-    {'id': 1, 'name': 'Laptop', 'price': 1200, 'category': 'Electronics'},
-    {'id': 2, 'name': 'Mouse', 'price': 25, 'category': 'Peripherals'},
-    {'id': 3, 'name': 'Keyboard', 'price': 75, 'category': 'Peripherals'}
+    {"id": 1, "name": "Laptop", "price": 1200, "category": "Electronics"},
+    {"id": 2, "name": "Mouse", "price": 25, "category": "Peripherals"},
+    {"id": 3, "name": "Keyboard", "price": 75, "category": "Peripherals"},
 ]
 
 EMPLOYEES = [
-    {'id': 101, 'name': 'Alice', 'department': 'Sales'},
-    {'id': 102, 'name': 'Bob', 'department': 'Engineering'}
+    {"id": 101, "name": "Alice", "department": "Sales"},
+    {"id": 102, "name": "Bob", "department": "Engineering"},
 ]
 
 
 # --- API Routes ---
 
+
 # 2. Define a "route" for the home/root URL
 # This is the function that runs when someone visits the main page.
-@app.route('/')
+@app.route("/")
 def home():
     return "<h1>Welcome to the Company Data API</h1><p>Use endpoints like /api/products to get data.</p>"
 
 
 # Route to get all products
-@app.route('/api/v1/products', methods=['GET'])
+@app.route("/api/v1/products", methods=["GET"])
 def get_all_products():
     """Returns the full list of products as JSON."""
     return jsonify(PRODUCTS)
@@ -44,11 +45,11 @@ def get_all_products():
 
 # Route to get a single product by its ID
 # The <int:product_id> part is a dynamic variable in the URL.
-@app.route('/api/v1/products/<int:product_id>', methods=['GET'])
+@app.route("/api/v1/products/<int:product_id>", methods=["GET"])
 def get_single_product(product_id):
     """Returns a single product matching the given ID."""
     # Use a generator expression to find the product. Returns None if not found.
-    product = next((p for p in PRODUCTS if p['id'] == product_id), None)
+    product = next((p for p in PRODUCTS if p["id"] == product_id), None)
 
     if product:
         return jsonify(product)
@@ -58,7 +59,7 @@ def get_single_product(product_id):
 
 
 # Route to get all employees
-@app.route('/api/v1/employees', methods=['GET'])
+@app.route("/api/v1/employees", methods=["GET"])
 def get_all_employees():
     """Returns the full list of employees as JSON."""
     return jsonify(EMPLOYEES)
@@ -68,8 +69,8 @@ def get_all_employees():
 # The __name__ == '__main__' block ensures this code only runs when
 # you execute this script directly. It won't run if the script is imported
 # as a module into another script.
-if __name__ == '__main__':
+if __name__ == "__main__":
     # debug=True will auto-reload the server when you make changes.
     # In a production environment, you would use a proper web server (like Gunicorn).
     # Host '0.0.0.0' makes it accessible from other devices on the network.
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

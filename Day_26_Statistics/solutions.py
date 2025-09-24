@@ -1,16 +1,17 @@
 """
 Day 24: Solutions to Exercises
 """
+
 import pandas as pd
 from scipy.stats import ttest_ind
 
 # --- Exercise 1: Descriptive Statistics of Sales ---
 print("--- Solution to Exercise 1 ---")
 try:
-    df = pd.read_csv('../17_Day_Pandas_Adv/sales_data.csv')
-    df.dropna(inplace=True) # Clean the data first
+    df = pd.read_csv(r"Day_24_Pandas_Advanced\sales_data.csv")
+    df.dropna(inplace=True)  # Clean the data first
 
-    revenue = df['Revenue']
+    revenue = df["Revenue"]
 
     print(f"Mean Revenue: ${revenue.mean():,.2f}")
     print(f"Median Revenue: ${revenue.median():,.2f}")
@@ -28,14 +29,16 @@ print("-" * 20)
 print("--- Solution to Exercise 2 ---")
 if not df.empty:
     # Select only the numerical columns
-    numerical_cols = df[['Units Sold', 'Price', 'Revenue']]
+    numerical_cols = df[["Units Sold", "Price", "Revenue"]]
 
     # Calculate the correlation matrix
     correlation_matrix = numerical_cols.corr()
 
     print("Correlation Matrix:")
     print(correlation_matrix)
-    print("\nAnswer: 'Units Sold' and 'Revenue' have the strongest positive correlation (0.93).")
+    print(
+        "\nAnswer: 'Units Sold' and 'Revenue' have the strongest positive correlation (0.93)."
+    )
 else:
     print("DataFrame not available for this exercise.")
 print("-" * 20)
@@ -55,8 +58,12 @@ t_stat, p_value = ttest_ind(group_a_durations, group_b_durations)
 print(f"\nP-value: {p_value:.4f}")
 
 # Conclusion based on the p-value
-if p_value < 0.05:
-    print("Conclusion: The result is statistically significant. The two headlines likely have different effects on session duration.")
+if p_value < 0.05:  # pyright: ignore[reportOperatorIssue]
+    print(
+        "Conclusion: The result is statistically significant. The two headlines likely have different effects on session duration."
+    )
 else:
-    print("Conclusion: The result is not statistically significant. We cannot conclude there is a difference between the headlines.")
+    print(
+        "Conclusion: The result is not statistically significant. We cannot conclude there is a difference between the headlines."
+    )
 print("-" * 20)

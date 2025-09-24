@@ -6,9 +6,11 @@ app = Flask(__name__)
 
 ## Exercise 1: Create a new route
 
-@app.route('/about-solution')
+
+@app.route("/about-solution")
 def about_solution():
     return "This is the about page."
+
 
 ## Exercise 2: Create a new template
 
@@ -28,9 +30,10 @@ def about_solution():
 #
 # 2. Add a new route to app.py that renders this template.
 
-@app.route('/contact')
+
+@app.route("/contact")
 def contact():
-    return render_template('contact.html')
+    return render_template("contact.html")
 
 
 ## Exercise 3: Pass data to a template
@@ -49,10 +52,12 @@ def contact():
 #
 # 2. Modify the '/about' route to pass your name to the template.
 
-@app.route('/about-me')
+
+@app.route("/about-me")
 def about_me():
     my_name = "Jules"  # You can replace this with your name
-    return render_template('about.html', name=my_name)
+    return render_template("about.html", name=my_name)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)

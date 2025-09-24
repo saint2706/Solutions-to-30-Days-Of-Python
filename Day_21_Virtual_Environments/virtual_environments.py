@@ -16,4 +16,6 @@ The key commands are:
 """
 
 print("This Python script is a placeholder.")
-print("Please follow the instructions in README.md to practice using virtual environments in your terminal.")
+print(
+    "Please follow the instructions in README.md to practice using virtual environments in your terminal."
+)

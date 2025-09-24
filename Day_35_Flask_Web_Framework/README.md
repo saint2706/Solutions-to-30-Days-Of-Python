@@ -1,12 +1,13 @@
 # 🌐 Day 35: Flask Web Framework
 
-## Welcome to Day 35!
+## Welcome to Day 35
 
 Today, we're going to learn about **Flask**, a lightweight and popular web framework for Python. A web framework provides a set of tools and libraries to help you build web applications more easily.
 
 ## Why is Flask Important for Business Analytics?
 
 While you might not be building full-fledged web applications as a business analyst, understanding the basics of web frameworks like Flask can be very useful for:
+
 - **Creating interactive dashboards**: You can use Flask to build simple web-based dashboards to display your analysis and visualizations.
 - **Building APIs**: You can create APIs (Application Programming Interfaces) to serve your data and models to other applications.
 - **Prototyping ideas**: Flask is great for quickly building prototypes of data-driven products and services.
@@ -23,31 +24,33 @@ The `app.py` script in this folder contains a simple Flask application that demo
 
 ### How to Run the Application
 
-1.  **Install Flask**: If you haven't already, install Flask using pip:
+1. **Install Flask**: If you haven't already, install Flask using pip:
+
     ```bash
     pip install Flask
     ```
 
-2.  **Run the application**: Open your terminal, navigate to this directory, and run the following command:
+2. **Run the application**: Open your terminal, navigate to this directory, and run the following command:
+
     ```bash
     python app.py
     ```
 
-3.  **Open your browser**: Open your web browser and go to `http://127.0.0.1:5000/`. You should see the home page of the application.
+3. **Open your browser**: Open your web browser and go to `http://127.0.0.1:5000/`. You should see the home page of the application.
 
 ## 💻 Exercises: Day 35
 
-1.  **Create a new route**:
-    *   Add a new route to the `app.py` script at the URL `/about`.
-    *   Create a view function that returns a simple string, like "This is the about page."
+1. **Create a new route**:
+    - Add a new route to the `app.py` script at the URL `/about`.
+    - Create a view function that returns a simple string, like "This is the about page."
 
-2.  **Create a new template**:
-    *   Create a new HTML file named `contact.html` in the `templates` directory.
-    *   Add a new route to the `app.py` script at the URL `/contact` that renders the `contact.html` template.
+2. **Create a new template**:
+    - Create a new HTML file named `contact.html` in the `templates` directory.
+    - Add a new route to the `app.py` script at the URL `/contact` that renders the `contact.html` template.
 
-3.  **Pass data to a template**:
-    *   Modify the `/about` route to pass your name to a new `about.html` template.
-    *   In the `about.html` template, display the name that was passed from the view function.
+3. **Pass data to a template**:
+    - Modify the `/about` route to pass your name to a new `about.html` template.
+    - In the `about.html` template, display the name that was passed from the view function.
 
 ### Solutions
 

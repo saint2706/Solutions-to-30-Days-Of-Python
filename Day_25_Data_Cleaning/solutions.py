@@ -1,26 +1,27 @@
 """
 Day 18: Solutions to Exercises
 """
+
 import pandas as pd
 
 # --- Exercise 1: Load and Initial Clean ---
 print("--- Solution to Exercise 1 ---")
 try:
     # Load the data
-    df = pd.read_csv('messy_sales_data.csv')
+    df = pd.read_csv(r"Day_25_Data_Cleaning\messy_sales_data.csv")
     print("Original DataFrame info:")
     df.info()
 
     # Convert 'Order Date' to datetime
-    df['Order Date'] = pd.to_datetime(df['Order Date'])
+    df["Order Date"] = pd.to_datetime(df["Order Date"])
     print("\n'Order Date' column converted to datetime.")
 
     # Clean and convert 'Price' to float
-    df['Price'] = df['Price'].str.replace('$', '').str.replace(',', '').astype(float)
+    df["Price"] = df["Price"].str.replace("$", "").str.replace(",", "").astype(float)
     print("'Price' column cleaned and converted to float.")
 
     # Clean 'Region' column whitespace
-    df['Region'] = df['Region'].str.strip()
+    df["Region"] = df["Region"].str.strip()
     print("'Region' column whitespace stripped.")
 
     print("\nDataFrame info after initial cleaning:")
@@ -36,12 +37,12 @@ print("-" * 20)
 print("--- Solution to Exercise 2 ---")
 if not df.empty:
     # Standardize 'Product' column to lowercase
-    df['Product'] = df['Product'].str.lower()
+    df["Product"] = df["Product"].str.lower()
     print("'Product' column standardized to lowercase.")
     print(f"Unique product values: {df['Product'].unique()}")
 
     # Standardize 'Region' column to 'USA'
-    df['Region'] = df['Region'].replace({'United States': 'USA'})
+    df["Region"] = df["Region"].replace({"United States": "USA"})
     print("'Region' column standardized to 'USA'.")
     print(f"Unique region values: {df['Region'].unique()}")
 else:
@@ -62,11 +63,11 @@ if not df.empty:
     print(f"Shape after dropping duplicates (df_cleaned): {df_cleaned.shape}")
 
     # Check for duplicate Order IDs
-    num_duplicate_ids = df_cleaned.duplicated(subset=['Order ID']).sum()
+    num_duplicate_ids = df_cleaned.duplicated(subset=["Order ID"]).sum()
     print(f"\nNumber of duplicate Order IDs found: {num_duplicate_ids}")
 
     # Create df_final by removing duplicate Order IDs
-    df_final = df_cleaned.drop_duplicates(subset=['Order ID'], keep='first')
+    df_final = df_cleaned.drop_duplicates(subset=["Order ID"], keep="first")
     print(f"Shape after dropping duplicate Order IDs (df_final): {df_final.shape}")
 
     print("\nFinal cleaned DataFrame head:")

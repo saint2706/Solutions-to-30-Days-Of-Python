@@ -14,10 +14,16 @@ import pandas as pd
 # The keys of the dictionary become the column names.
 # The lists of values become the data in those columns.
 data = {
-    'Product Name': ["Laptop", "Mouse", "Keyboard", "Monitor", "Webcam"],
-    'Category': ["Electronics", "Electronics", "Electronics", "Electronics", "Peripherals"],
-    'Price': [1200, 25, 75, 300, 50],
-    'Units Sold': [150, 300, 220, 180, 250]
+    "Product Name": ["Laptop", "Mouse", "Keyboard", "Monitor", "Webcam"],
+    "Category": [
+        "Electronics",
+        "Electronics",
+        "Electronics",
+        "Electronics",
+        "Peripherals",
+    ],
+    "Price": [1200, 25, 75, 300, 50],
+    "Units Sold": [150, 300, 220, 180, 250],
 }
 
 # Create the DataFrame
@@ -49,14 +55,14 @@ print("--- Selecting Columns ---")
 
 # To select a single column, use its name in square brackets.
 # This returns a Pandas Series.
-price_column = df['Price']
+price_column = df["Price"]
 print("The 'Price' column (a Pandas Series):")
 print(price_column)
 print()
 
 # To select multiple columns, pass a list of column names.
 # This returns a new, smaller DataFrame.
-product_and_sales = df[['Product Name', 'Units Sold']]
+product_and_sales = df[["Product Name", "Units Sold"]]
 print("The 'Product Name' and 'Units Sold' columns (a new DataFrame):")
 print(product_and_sales)
 print("-" * 20)
@@ -66,7 +72,7 @@ print("-" * 20)
 print("--- Creating a New 'Revenue' Column ---")
 # Like NumPy, Pandas allows for vectorized operations.
 # We can multiply two columns together without a loop.
-df['Revenue'] = df['Price'] * df['Units Sold']
+df["Revenue"] = df["Price"] * df["Units Sold"]
 
 print("DataFrame after adding 'Revenue' column (df.head()):")
 print(df.head())

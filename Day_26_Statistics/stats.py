@@ -11,11 +11,11 @@ from scipy.stats import ttest_ind
 # --- 1. Descriptive Statistics with Pandas ---
 print("--- 1. Descriptive Statistics of Sales Data ---")
 try:
-    df = pd.read_csv('../17_Day_Pandas_Adv/sales_data.csv')
-    df.dropna(inplace=True) # Clean the data first
+    df = pd.read_csv(r"Day_24_Pandas_Advanced\sales_data.csv")
+    df.dropna(inplace=True)  # Clean the data first
 
     # Select the 'Revenue' column to analyze
-    revenue = df['Revenue']
+    revenue = df["Revenue"]
 
     print(f"Mean Revenue: ${revenue.mean():,.2f}")
     print(f"Median Revenue: ${revenue.median():,.2f}")
@@ -36,16 +36,20 @@ print("-" * 20)
 print("--- 2. Correlation Analysis ---")
 if not df.empty:
     # Select only the numerical columns for correlation calculation
-    numerical_df = df[['Units Sold', 'Price', 'Revenue']]
+    numerical_df = df[["Units Sold", "Price", "Revenue"]]
 
     # .corr() calculates the correlation matrix
     correlation_matrix = numerical_df.corr()
 
     print("Correlation Matrix:")
     print(correlation_matrix)
-    print("\nAnalysis: 'Units Sold' and 'Revenue' have a strong positive correlation (0.93).")
+    print(
+        "\nAnalysis: 'Units Sold' and 'Revenue' have a strong positive correlation (0.93)."
+    )
     print("'Price' and 'Revenue' also have a strong positive correlation (0.83).")
-    print("'Price' and 'Units Sold' have a weak negative correlation (-0.23), which might be expected (higher price can sometimes mean fewer units).")
+    print(
+        "'Price' and 'Units Sold' have a weak negative correlation (-0.23), which might be expected (higher price can sometimes mean fewer units)."
+    )
 else:
     print("DataFrame not available for this exercise.")
 print("-" * 20)
@@ -69,10 +73,14 @@ print(f"P-value: {p_value:.4f}")
 # Interpret the result
 # A small p-value (typically < 0.05) indicates strong evidence against the null hypothesis.
 alpha = 0.05
-if p_value < alpha:
+if p_value < alpha:  # pyright: ignore[reportOperatorIssue]
     print("\nConclusion: The difference is statistically significant.")
-    print("We can conclude that the new headline (Group B) likely leads to longer session durations.")
+    print(
+        "We can conclude that the new headline (Group B) likely leads to longer session durations."
+    )
 else:
     print("\nConclusion: The difference is not statistically significant.")
-    print("We cannot conclude that the new headline had a real effect on session duration.")
+    print(
+        "We cannot conclude that the new headline had a real effect on session duration."
+    )
 print("-" * 20)

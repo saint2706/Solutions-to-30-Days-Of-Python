@@ -71,7 +71,7 @@ Python comes with a huge **Standard Library** of built-in modules that you can u
 * `random`: For generating random numbers, useful for sampling data or running simulations.
 * `csv`: For reading and writing data in the common Comma-Separated Values (CSV) format.
 
-## 💻 Exercises: Day 12
+## 💻 Exercises: Day 14
 
 1. **Create a Finance Module:**
     * Create a new file named `finance_tools.py`.

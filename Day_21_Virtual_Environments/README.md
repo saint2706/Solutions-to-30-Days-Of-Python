@@ -16,9 +16,9 @@ This is a **critical best practice** for any serious Python development.
 
 Python comes with a built-in module called `venv` for creating virtual environments. The process involves three steps:
 
-1.  **Creation:** Create the virtual environment folder.
-2.  **Activation:** "Turn on" the environment for your current terminal session.
-3.  **Installation:** Install packages into the active environment.
+1. **Creation:** Create the virtual environment folder.
+2. **Activation:** "Turn on" the environment for your current terminal session.
+3. **Installation:** Install packages into the active environment.
 
 ### Step 1: Creating the Environment
 
@@ -70,25 +70,25 @@ When you are finished working on the project, you can deactivate the environment
 
 Your terminal prompt will return to normal.
 
-## 💻 Exercises: Day 23
+## 💻 Exercises: Day 21
 
 These exercises are to be performed in your computer's terminal, not just in a Python script.
 
-1.  **Create a Project and Environment:**
-    *   Create a new folder on your computer called `my_analytics_project`.
-    *   Navigate into this folder using `cd`.
-    *   Create a new virtual environment inside it named `venv`.
+1. **Create a Project and Environment:**
+    * Create a new folder on your computer called `my_analytics_project`.
+    * Navigate into this folder using `cd`.
+    * Create a new virtual environment inside it named `venv`.
 
-2.  **Activate and Install:**
-    *   Activate the virtual environment you just created.
-    *   Install the `pandas` and `scipy` libraries into this environment.
-    *   Verify they are installed by running `pip list`.
+2. **Activate and Install:**
+    * Activate the virtual environment you just created.
+    * Install the `pandas` and `scipy` libraries into this environment.
+    * Verify they are installed by running `pip list`.
 
-3.  **Create a Requirements File:**
-    *   While the environment is active, run the command to save your installed packages into a `requirements.txt` file.
-    *   Open the `requirements.txt` file in a text editor to see its contents. It should list pandas, scipy, and their dependencies.
+3. **Create a Requirements File:**
+    * While the environment is active, run the command to save your installed packages into a `requirements.txt` file.
+    * Open the `requirements.txt` file in a text editor to see its contents. It should list pandas, scipy, and their dependencies.
 
-4.  **Deactivate:**
-    *   Deactivate the virtual environment.
+4. **Deactivate:**
+    * Deactivate the virtual environment.
 
 🎉 **Congratulations!** You've just learned one of the most important skills for professional Python development. Using virtual environments will save you from countless headaches with package management and make your projects more robust and shareable.
