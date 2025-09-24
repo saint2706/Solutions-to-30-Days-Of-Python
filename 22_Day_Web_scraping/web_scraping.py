@@ -38,7 +38,7 @@ for i in tables:
     for r in range(len(keys)):
         temp_dict[keys[r]] = values[r]
     list_of_tables.append(temp_dict)
-    
+
 # pprint(list_of_tables)
 with open(r"22_Day_Web_scraping\scrapped_exercise_1.json", 'w') as fp:
     json.dump(list_of_tables, fp)

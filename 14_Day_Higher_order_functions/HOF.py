@@ -1,180 +1,74 @@
-from functools import reduce
-import sys
-
-sys.path.append('data')
-# noinspection PyUnresolvedReferences
-from countries import country_list
-# noinspection PyUnresolvedReferences
-from countries_data import data
-import pprint
-
-countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
-names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-# Level 1
-'''If you already have a list of values and you want to do the exact same operation on each of the elements in the 
-array and return the same amount of items in the list, in these type of situations it is better to use the map 
-method. '''
-'''If you already have list of values but you only want to have items in the array that match certain criteria, 
-in these type of situations it is better to use the filter method. '''
-'''If you already have list of values, but you want to use the values in that list to create something completely 
-new, in these type of situations it is better to use the reduce method '''
-
-'''A higher order function is a function that takes a function as an argument OR* returns a function.'''
-'''A decorator in Python is (typically) an example of a higher-order function, but there are decorators that aren't (
-class decorators**, and decorators that aren't functions), and there are higher-order functions that aren't 
-decorators, for example those that take two required arguments that are functions. '''
-'''A Closure is a function object that remembers values in enclosing scopes even if they are not present in memory.'''
-
-
-def cube(num):
-    return num ** 3
-
-
-def vowel_name(name):
-    if name[0] in 'aeiouAEIOU':
-        return True
-    return False
-
-
-def sum_of_cubes(num1, num2):
-    return num1 + num2
-
-
-print(list(filter(vowel_name, names)))
-print(list(map(cube, numbers)))
-print(reduce(sum_of_cubes, list(map(cube, numbers))))
-
-for i in countries:
-    print(i)
-
-for i in names:
-    print(i)
-
-for i in numbers:
-    print(i)
-
-
-# Level 2
-def upper(string):
-    return string.upper()
-
-
-def square(num):
-    return num ** 2
-
-
-cap_countries = list(map(upper, countries))
-square_nums = list(map(square, numbers))
-upper_names = list(map(upper, names))
-
-
-def land(string):
-    if 'land' in string:
-        return True
-    return False
-
-
-def six(string):
-    if len(string) == 6:
-        return True
-    return False
-
-
-def six_or_more(string):
-    if len(string) >= 6:
-        return True
-    return False
-
-
-def E(string):
-    if string[0] == 'E':
-        return True
-    return False
-
-
-print(list(filter(land, countries)))
-print(list(filter(six, countries)))
-print(list(filter(six_or_more, countries)))
-print(list(filter(E, countries)))
-
-print(list(filter(land, list(filter(six, countries)))))
-
-
-def toString(string):
-    return str(string)
-
-
-def get_string_lists(arr):
-    return list(map(toString, arr))
-
-
-print(get_string_lists(numbers))
-
-
-def sum2(x, y):
-    return int(x) + int(y)
-
-
-print(reduce(sum2, numbers))
-
-
-def concatenate_countries(x, y):
-    if x == "Estonia, Finland, Sweden, Denmark, Norway" and y == "Iceland":
-        return x + ", and " + y
-    else:
-        return x + ", " + y
-
-
-print(reduce(concatenate_countries, countries) + " are north European countries")
-
-print(list(filter(land, country_list)))
-
-keys = []
-keys = [i[0] for i in country_list if i[0] not in keys]
-
-
-def countCountry(csv1):
-    return sum([True for i in country_list if i[0].startswith(csv1)])
-
-
-vals = [countCountry(l) for l in keys]
-
-print(dict(zip(keys, vals)))
-
-
-def get_first_ten():
-    return country_list[:10]
-
-
-def get_last_ten():
-    return country_list[-1:-11:-1]
-
-
-# Level 3
-
-pprint.pprint(sorted(data, key=lambda x: x['name']))
-pprint.pprint(sorted(data, key=lambda x: x['capital']))
-pprint.pprint(sorted(data, key=lambda x: x['population']))
-
-total_languages_initial = []
-for i in data:
-    total_languages_initial.extend(i["languages"])
-# noinspection DuplicatedCode
-counts = {}
-for i in total_languages_initial:
-    counts[i] = counts.get(i, 0) + 1
-
-
-def sort_dict_by_value(d, reverse=False):
-    return dict(sorted(d.items(), key=lambda x: x[1], reverse=reverse))
-
-
-counts = sort_dict_by_value(counts, True)
-final_dict_1 = {}
-for i in list(counts.items())[:10]:
-    final_dict_1[list(i)[0]] = list(i)[1]
-pprint.pprint(sorted(final_dict_1))
-
-pprint.pprint(list(sorted(data, key=lambda x: x['population'], reverse=True))[:10])
+"""
+Day 14: Advanced Data Processing with Higher-Order Functions
+
+This script demonstrates using map, filter, and lambda functions
+for concise and powerful data manipulation.
+"""
+
+# --- Using map() to transform a list ---
+print("--- Applying a Bonus to All Salaries ---")
+salaries = [50000, 80000, 120000, 65000]
+print(f"Original salaries: {salaries}")
+
+# We can define a function to use with map
+def apply_bonus(salary):
+    return salary * 1.10
+
+# But it's often quicker to use a lambda function directly in the map call
+# lambda s: s * 1.10 is a short, anonymous function that does the same thing.
+new_salaries = list(map(lambda s: s * 1.10, salaries))
+print(f"Salaries after 10% bonus: {new_salaries}")
+print("-" * 20)
+
+
+# --- Using filter() to select data ---
+print("--- Filtering for High-Yield Projects ---")
+# A list of tuples, where each tuple is (project_name, roi_percentage)
+projects = [("Project A", 12), ("Project B", 20), ("Project C", 8), ("Project D", 25)]
+print(f"All projects: {projects}")
+
+# We want to find projects where the ROI (the second item, index 1) is > 15%
+# lambda p: p[1] > 15 is a function that returns True or False for each project
+high_yield_projects = list(filter(lambda p: p[1] > 15, projects))
+print(f"High-yield projects (ROI > 15%): {high_yield_projects}")
+print("-" * 20)
+
+
+# --- Combining map() and filter() ---
+print("--- Analyzing High-Value Customer Data ---")
+customers = [
+    {"name": "InnovateCorp", "subscription_status": "active", "monthly_spend": 550},
+    {"name": "DataDriven Inc.", "subscription_status": "inactive", "monthly_spend": 120},
+    {"name": "Analytics LLC", "subscription_status": "active", "monthly_spend": 210}
+]
+
+# Goal: Get the names of all 'active' customers.
+
+# Step 1: Filter the list to get only active customers.
+active_customers = list(filter(lambda c: c["subscription_status"] == "active", customers))
+
+# Step 2: Map the filtered list to get just the names.
+active_customer_names = list(map(lambda c: c["name"], active_customers))
+
+print(f"Original customer data: {customers}")
+print(f"Filtered active customers: {active_customers}")
+print(f"Names of active customers: {active_customer_names}")
+print("-" * 20)
+
+
+# --- Using sorted() with a lambda key ---
+print("--- Sorting Products by Price ---")
+products = [
+    {"name": "Laptop", "price": 1200},
+    {"name": "Mouse", "price": 25},
+    {"name": "Keyboard", "price": 75},
+    {"name": "Monitor", "price": 300}
+]
+print(f"Original product list: {products}")
+
+# sorted() is a higher-order function. The 'key' argument takes a function.
+# We provide a lambda function that tells sorted() to look at the 'price'
+# of each dictionary when it's comparing them.
+products_sorted_by_price = sorted(products, key=lambda p: p["price"])
+print(f"Products sorted by price: {products_sorted_by_price}")
+print("-" * 20)

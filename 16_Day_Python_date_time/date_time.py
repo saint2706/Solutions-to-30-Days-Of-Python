@@ -21,6 +21,6 @@ new_year = date(year = 2022, month = 1, day = 1)
 today = date(year = 2021, month = 9, day = 20)
 jan_1970 = date(year = 1970, month = 1, day = 1)
 diff = new_year - today
-diff2 =-(today - jan_1970) 
+diff2 =-(today - jan_1970)
 print(diff)
 print(diff2)

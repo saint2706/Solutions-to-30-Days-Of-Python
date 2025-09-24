@@ -15,7 +15,7 @@ def most_common_words(text):
 
 
 pprint(most_common_words(paragraph))
-para = """The position of some particles on the horizontal x-axis are -12, -4, -3 and -1 in the negative direction, 
+para = """The position of some particles on the horizontal x-axis are -12, -4, -3 and -1 in the negative direction,
 0 at origin, 4 and 8 in the positive direction. """
 
 num_list = list(map(int, re.findall(r"[-+]?[.]?[\d]+", para)))
@@ -35,8 +35,8 @@ def is_valid_variable(potential_variable):
 pprint(is_valid_variable("first_name"))
 pprint(is_valid_variable("first-name"))
 
-sentence = """%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as 
-educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s 
+sentence = """%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as
+educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s
 mo@tivate yo@u to be a tea@cher!? """
 
 
@@ -54,4 +54,3 @@ def clean_text(text):
 
 pprint(clean_text(sentence))
 pprint(most_common_words(clean_text(sentence))[:3])
-
