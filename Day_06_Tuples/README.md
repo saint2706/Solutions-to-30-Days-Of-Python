@@ -18,9 +18,9 @@ transaction = (1001, "2024-03-15", 499.99)
 
 ## Why Use a Tuple Instead of a List?
 
-1.  **Data Integrity:** This is the main reason. If you have data that should remain constant, using a tuple prevents accidental modification by you or someone else using your code. It's a safeguard.
-2.  **Performance:** Tuples are slightly more memory-efficient and faster to access than lists. For very large datasets, this can make a difference.
-3.  **Dictionary Keys:** As we'll see later, you can use tuples as keys in a dictionary (another data structure), but you cannot use lists. This is useful for complex data mapping.
+1. **Data Integrity:** This is the main reason. If you have data that should remain constant, using a tuple prevents accidental modification by you or someone else using your code. It's a safeguard.
+2. **Performance:** Tuples are slightly more memory-efficient and faster to access than lists. For very large datasets, this can make a difference.
+3. **Dictionary Keys:** As we'll see later, you can use tuples as keys in a dictionary (another data structure), but you cannot use lists. This is useful for complex data mapping.
 
 ## Working with Tuples
 
@@ -47,26 +47,27 @@ print(f"Transaction ID: {trans_id}")
 print(f"Date: {date}")
 print(f"Amount: ${amount}")
 ```
+
 This is much cleaner than accessing each item by its index.
 
 ## 💻 Exercises: Day 6
 
-1.  **Store Geographic Coordinates:**
-    *   A company's headquarters is located at latitude 40.7128 and longitude -74.0060.
-    *   Store these coordinates in a tuple called `hq_location`.
-    *   "Unpack" the tuple into `latitude` and `longitude` variables.
-    *   Print the latitude and longitude.
+1. **Store Geographic Coordinates:**
+    * A company's headquarters is located at latitude 40.7128 and longitude -74.0060.
+    * Store these coordinates in a tuple called `hq_location`.
+    * "Unpack" the tuple into `latitude` and `longitude` variables.
+    * Print the latitude and longitude.
 
-2.  **Define Product Dimensions:**
-    *   You are defining the dimensions (length, width, height) in centimeters for a product package. These dimensions are fixed.
-    *   Create a tuple `package_dimensions` with the values `25`, `15`, `10`.
-    *   Write a print statement that uses f-string formatting and indexing to display: "Package Dimensions (LxWxH): 25cm x 15cm x 10cm".
+2. **Define Product Dimensions:**
+    * You are defining the dimensions (length, width, height) in centimeters for a product package. These dimensions are fixed.
+    * Create a tuple `package_dimensions` with the values `25`, `15`, `10`.
+    * Write a print statement that uses f-string formatting and indexing to display: "Package Dimensions (LxWxH): 25cm x 15cm x 10cm".
 
-3.  **List vs. Tuple - The Right Tool for the Job:**
-    *   For each of the following scenarios, decide if a **list** or a **tuple** would be the more appropriate data structure. Write a comment in your Python script explaining your choice.
-        *   Scenario A: Storing the monthly sales figures for the past year.
-        *   Scenario B: Storing the RGB color code for your company's official logo.
-        *   Scenario C: Storing the names of employees in a department.
-        *   Scenario D: Storing the name, founding year, and stock ticker symbol for a company.
+3. **List vs. Tuple - The Right Tool for the Job:**
+    * For each of the following scenarios, decide if a **list** or a **tuple** would be the more appropriate data structure. Write a comment in your Python script explaining your choice.
+        * Scenario A: Storing the monthly sales figures for the past year.
+        * Scenario B: Storing the RGB color code for your company's official logo.
+        * Scenario C: Storing the names of employees in a department.
+        * Scenario D: Storing the name, founding year, and stock ticker symbol for a company.
 
 🎉 **Excellent!** You've now learned about immutability and how to use tuples to ensure your data remains constant and secure. Knowing when to use a tuple versus a list is a sign of a thoughtful analyst.

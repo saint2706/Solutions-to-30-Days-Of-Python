@@ -21,6 +21,7 @@ for sale in monthly_sales:
 print(f"Total Revenue: ${total_revenue}")
 # This is much better than writing: 2340 + 3100 + 2900 + 4500
 ```
+
 In this example, the variable `sale` takes on the value of each item in `monthly_sales` one by one.
 
 ## Looping with a Condition
@@ -74,8 +75,9 @@ print(f"It will take {years} years for the investment to double.")
 
 ## 💻 Exercises: Day 10
 
-1.  **Calculate Average Employee Age:**
-    *   You have a list of employee dictionaries:
+1. **Calculate Average Employee Age:**
+    * You have a list of employee dictionaries:
+
         ```python
         employees = [
             {"name": "Alice", "age": 30},
@@ -83,14 +85,16 @@ print(f"It will take {years} years for the investment to double.")
             {"name": "Charlie", "age": 35}
         ]
         ```
-    *   Use a `for` loop to calculate the sum of all employee ages.
-    *   Calculate and print the average age of the employees.
 
-2.  **Filter High-Priority Customers:**
-    *   You have a list of customer dictionaries.
-    *   Use a `for` loop to iterate through the list.
-    *   If a customer has `"total_spent"` greater than 2000, add their `"name"` to a new list called `high_priority_customers`.
-    *   Print the `high_priority_customers` list at the end.
+    * Use a `for` loop to calculate the sum of all employee ages.
+    * Calculate and print the average age of the employees.
+
+2. **Filter High-Priority Customers:**
+    * You have a list of customer dictionaries.
+    * Use a `for` loop to iterate through the list.
+    * If a customer has `"total_spent"` greater than 2000, add their `"name"` to a new list called `high_priority_customers`.
+    * Print the `high_priority_customers` list at the end.
+
         ```python
         customers = [
             {"name": "InnovateCorp", "total_spent": 5500},
@@ -99,11 +103,11 @@ print(f"It will take {years} years for the investment to double.")
         ]
         ```
 
-3.  **Inventory Stock Alert:**
-    *   You have a dictionary of product inventory counts: `inventory = {"Laptops": 15, "Mice": 150, "Keyboards": 45}`.
-    *   The low stock threshold is 50.
-    *   Use a `for` loop to iterate through the inventory dictionary's items.
-    *   For each product, use an `if` statement to check if the count is below the threshold.
-    *   If a product is low on stock, print an alert message, e.g., "Alert: Laptops are low on stock (15 units remaining)."
+3. **Inventory Stock Alert:**
+    * You have a dictionary of product inventory counts: `inventory = {"Laptops": 15, "Mice": 150, "Keyboards": 45}`.
+    * The low stock threshold is 50.
+    * Use a `for` loop to iterate through the inventory dictionary's items.
+    * For each product, use an `if` statement to check if the count is below the threshold.
+    * If a product is low on stock, print an alert message, e.g., "Alert: Laptops are low on stock (15 units remaining)."
 
 🎉 **Incredible!** Loops are the key to unlocking automation and working with datasets of any size. The combination of loops and conditionals is the foundation of almost all data processing and analysis tasks. You've completed the core structures of Python!

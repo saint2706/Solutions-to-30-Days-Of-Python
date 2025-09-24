@@ -55,23 +55,23 @@ Lists are dynamic. You can add, remove, and change items.
 
 ## 💻 Exercises: Day 5
 
-1.  **Manage a Product List:**
-    *   Create a list of product names: `["Laptop", "Mouse", "Keyboard", "Monitor"]`.
-    *   A new product, "Webcam", is now in stock. Add it to the end of the list.
-    *   The "Mouse" is sold out. Remove it from the list.
-    *   Print the final list of available products.
+1. **Manage a Product List:**
+    * Create a list of product names: `["Laptop", "Mouse", "Keyboard", "Monitor"]`.
+    * A new product, "Webcam", is now in stock. Add it to the end of the list.
+    * The "Mouse" is sold out. Remove it from the list.
+    * Print the final list of available products.
 
-2.  **Analyze Monthly Expenses:**
-    *   You have a list of monthly expenses: `[2200, 2350, 2600, 2130, 2190]`.
-    *   Find the total expenses for the period (`sum()`).
-    *   Find the month with the highest and lowest expenses (`min()`, `max()`).
-    *   A new expense of $2400 was incurred. Add it to the list.
-    *   Print the updated total expenses.
+2. **Analyze Monthly Expenses:**
+    * You have a list of monthly expenses: `[2200, 2350, 2600, 2130, 2190]`.
+    * Find the total expenses for the period (`sum()`).
+    * Find the month with the highest and lowest expenses (`min()`, `max()`).
+    * A new expense of $2400 was incurred. Add it to the list.
+    * Print the updated total expenses.
 
-3.  **Select Top Sales Performers:**
-    *   You have a list of sales figures for your team: `[5000, 8000, 4500, 12000, 6000, 11000]`.
-    *   Sort the list in descending order to identify the top performers.
-    *   "Slice" the list to get the top 3 sales figures.
-    *   Print the top 3 sales figures.
+3. **Select Top Sales Performers:**
+    * You have a list of sales figures for your team: `[5000, 8000, 4500, 12000, 6000, 11000]`.
+    * Sort the list in descending order to identify the top performers.
+    * "Slice" the list to get the top 3 sales figures.
+    * Print the top 3 sales figures.
 
 🎉 **Great job!** Lists are the workhorse for storing collections of data in Python. Understanding how to access, manage, and analyze data within lists is a fundamental skill for any data analyst.

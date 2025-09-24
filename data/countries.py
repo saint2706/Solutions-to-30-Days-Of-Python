@@ -1,4 +1,26 @@
-country_list = [
+"""
+Countries Data Module for Business Analytics
+
+This module contains a comprehensive list of world countries,
+useful for international business analysis, market research,
+and geographic data processing in business applications.
+
+Usage:
+    from data.countries import country_list
+    
+    # Check if a market exists in our data
+    if "Germany" in country_list:
+        print("Germany is a potential market for expansion")
+        
+    # Get total number of countries for market analysis
+    total_markets = len(country_list)
+    print(f"Total potential international markets: {total_markets}")
+"""
+
+from typing import List
+
+# Complete list of world countries for business and analytics applications
+country_list: List[str] = [
     'Afghanistan',
     'Albania',
     'Algeria',

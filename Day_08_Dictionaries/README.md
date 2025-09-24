@@ -8,8 +8,8 @@ A dictionary is the most important data structure for handling structured data i
 
 A dictionary is an **unordered** collection of **key-value pairs**.
 
-*   **Key:** A unique identifier for a piece of data (must be an immutable type, usually a string).
-*   **Value:** The data itself (can be any data type, including another dictionary).
+* **Key:** A unique identifier for a piece of data (must be an immutable type, usually a string).
+* **Value:** The data itself (can be any data type, including another dictionary).
 
 You create a dictionary using curly braces `{}` with `key: value` pairs separated by commas.
 
@@ -29,12 +29,14 @@ customer = {
 ## Working with Dictionary Data
 
 ### Accessing Data
+
 You access a value by using its key in square brackets `[]`.
 
 ```python
 customer_email = customer["email"]  # Accesses "john.doe@example.com"
 company_name = customer["company"]  # Accesses "InnovateCorp"
 ```
+
 Using a key that doesn't exist will cause an error. A safer way is to use the `.get()` method, which returns `None` (or a default value you provide) if the key is not found.
 
 ```python
@@ -44,6 +46,7 @@ phone_number_default = customer.get("phone", "N/A") # Returns "N/A"
 ```
 
 ### Adding and Modifying Data
+
 You can add a new key-value pair or modify an existing one using simple assignment.
 
 ```python
@@ -55,6 +58,7 @@ customer["is_premium_member"] = False
 ```
 
 ### Removing Data
+
 You can remove a key-value pair using the `del` keyword.
 
 ```python
@@ -84,24 +88,24 @@ first_project = employee["projects"][0]
 
 ## 💻 Exercises: Day 8
 
-1.  **Create a Product Dictionary:**
-    *   Create a dictionary to represent a product with the following information:
-        *   `product_id`: "PROD-123"
-        *   `product_name`: "SuperWidget"
-        *   `price`: 199.99
-        *   `in_stock`: True
-        *   `tags`: A list containing `"electronics"` and `"gadget"`.
-    *   Print the product's name and its price.
+1. **Create a Product Dictionary:**
+    * Create a dictionary to represent a product with the following information:
+        * `product_id`: "PROD-123"
+        * `product_name`: "SuperWidget"
+        * `price`: 199.99
+        * `in_stock`: True
+        * `tags`: A list containing `"electronics"` and `"gadget"`.
+    * Print the product's name and its price.
 
-2.  **Modify Employee Information:**
-    *   Start with the `employee` dictionary from the lesson above.
-    *   The employee has been promoted. Update the `department` to "Marketing Director".
-    *   They've been assigned a new project. Add "2025 Strategy" to the `projects` list.
-    *   Print the updated `employee` dictionary.
+2. **Modify Employee Information:**
+    * Start with the `employee` dictionary from the lesson above.
+    * The employee has been promoted. Update the `department` to "Marketing Director".
+    * They've been assigned a new project. Add "2025 Strategy" to the `projects` list.
+    * Print the updated `employee` dictionary.
 
-3.  **Access Nested Data:**
-    *   Create a dictionary representing a `company` with keys for `company_name`, `year_founded`, and `headquarters`.
-    *   The value for `headquarters` should be another dictionary with keys for `city`, `state`, and `country`.
-    *   Write a script that creates this dictionary and then prints a sentence like: "[Company Name] is headquartered in [City], [State]."
+3. **Access Nested Data:**
+    * Create a dictionary representing a `company` with keys for `company_name`, `year_founded`, and `headquarters`.
+    * The value for `headquarters` should be another dictionary with keys for `city`, `state`, and `country`.
+    * Write a script that creates this dictionary and then prints a sentence like: "[Company Name] is headquartered in [City], [State]."
 
 🎉 **Amazing work!** Dictionaries are the cornerstone of handling structured data in Python. Almost every time you get data from an API, a database, or a complex file, it will come in the form of dictionaries. Mastering them is a huge step forward.

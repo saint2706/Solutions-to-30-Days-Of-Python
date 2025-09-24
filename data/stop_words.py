@@ -1,4 +1,32 @@
-stop_words = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd",
+"""
+English Stop Words Collection for Text Analytics
+
+This module provides a comprehensive list of common English stop words
+used in business text analysis, sentiment analysis, and natural language
+processing tasks. Stop words are frequently used words that are typically
+filtered out during text preprocessing to focus on meaningful content.
+
+Business Use Cases:
+- Customer review sentiment analysis
+- Social media monitoring and brand sentiment
+- Content analysis of business documents
+- Market research text mining
+- Competitor analysis from web content
+
+Usage:
+    from data.stop_words import stop_words
+    
+    # Filter out stop words from business text
+    business_text = "The company has great customer service"
+    filtered_words = [word for word in business_text.lower().split() 
+                      if word not in stop_words]
+    print(filtered_words)  # ['company', 'great', 'customer', 'service']
+"""
+
+from typing import List
+
+# Comprehensive English stop words list for business text analysis
+stop_words: List[str] = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd",
               'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers',
               'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what',
               'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were',

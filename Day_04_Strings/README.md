@@ -30,6 +30,7 @@ revenue = 500000
 cogs = 350000
 report_summary = f"Company: {company_name}, Revenue: ${revenue}, COGS: ${cogs}"
 ```
+
 This is the standard and most readable way to build strings from variables.
 
 ## String Methods: Your Text-Editing Toolkit
@@ -49,22 +50,22 @@ Strings come with many built-in **methods**, which are functions attached to the
 
 ## 💻 Exercises: Day 4
 
-1.  **Generate a Report Header:**
-    *   Create variables for `report_title` ("Quarterly Sales Report") and `fiscal_year` (2024).
-    *   Using an f-string, create a header that looks like: `*** QUARTERLY SALES REPORT - FY2024 ***`
-    *   Print the header. (Hint: you can use `.upper()` on the title).
+1. **Generate a Report Header:**
+    * Create variables for `report_title` ("Quarterly Sales Report") and `fiscal_year` (2024).
+    * Using an f-string, create a header that looks like: `*** QUARTERLY SALES REPORT - FY2024 ***`
+    * Print the header. (Hint: you can use `.upper()` on the title).
 
-2.  **Clean Up Customer Data:**
-    *   You receive a customer name as a string: `customer_name = "  john doe  "`.
-    *   Write a script that cleans this name by:
-        *   Removing leading/trailing whitespace.
-        *   Capitalizing it to "John Doe". (Hint: there's a `.title()` method, or you can get creative with `.upper()` and slicing).
-    *   Print the cleaned name.
+2. **Clean Up Customer Data:**
+    * You receive a customer name as a string: `customer_name = "  john doe  "`.
+    * Write a script that cleans this name by:
+        * Removing leading/trailing whitespace.
+        * Capitalizing it to "John Doe". (Hint: there's a `.title()` method, or you can get creative with `.upper()` and slicing).
+    * Print the cleaned name.
 
-3.  **Parse Product SKU:**
-    *   A product Stock Keeping Unit (SKU) is given as a string: `sku = "PROD-G_ADGET-001"`.
-    *   The SKU format is `TYPE-PRODUCT-ID`.
-    *   Use the `.split()` method to break the SKU into its three components.
-    *   Print the product type, product name, and ID on separate lines.
+3. **Parse Product SKU:**
+    * A product Stock Keeping Unit (SKU) is given as a string: `sku = "PROD-G_ADGET-001"`.
+    * The SKU format is `TYPE-PRODUCT-ID`.
+    * Use the `.split()` method to break the SKU into its three components.
+    * Print the product type, product name, and ID on separate lines.
 
 🎉 **Fantastic!** You can now manipulate text data, which is a massive part of any real-world data analysis task. Cleaning, formatting, and parsing strings are skills you'll use every single day.

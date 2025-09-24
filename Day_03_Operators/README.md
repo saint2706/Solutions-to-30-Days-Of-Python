@@ -52,25 +52,25 @@ Logical operators are used to combine conditional statements. They allow you to 
 
 ## 💻 Exercises: Day 3
 
-1.  **Calculate Net Profit Margin:**
-    *   A company has a `revenue` of 1,200,000 and `total_expenses` of 850,000.
-    *   Calculate the `profit` (`revenue - total_expenses`).
-    *   Calculate the `net_profit_margin` (`profit / revenue`).
-    *   Print the net profit margin as a percentage, rounded to two decimal places.
+1. **Calculate Net Profit Margin:**
+    * A company has a `revenue` of 1,200,000 and `total_expenses` of 850,000.
+    * Calculate the `profit` (`revenue - total_expenses`).
+    * Calculate the `net_profit_margin` (`profit / revenue`).
+    * Print the net profit margin as a percentage, rounded to two decimal places.
 
-2.  **Inventory Check:**
-    *   You have `inventory_count` of 45 units for a product.
-    *   The `low_stock_threshold` is 50 units.
-    *   The `reorder_threshold` is 25 units.
-    *   Write a Python script that prints:
-        *   `True` or `False` if the inventory is considered low stock.
-        *   `True` or `False` if a reorder is required.
+2. **Inventory Check:**
+    * You have `inventory_count` of 45 units for a product.
+    * The `low_stock_threshold` is 50 units.
+    * The `reorder_threshold` is 25 units.
+    * Write a Python script that prints:
+        * `True` or `False` if the inventory is considered low stock.
+        * `True` or `False` if a reorder is required.
 
-3.  **Sales Bonus Eligibility:**
-    *   A salesperson is eligible for a bonus if they meet one of two conditions:
-        *   Condition A: They made over $10,000 in `sales` **and** have been with the company for more than 2 `years_of_service`.
-        *   Condition B: They are the `top_performer_last_quarter` (a Boolean variable).
-    *   Create variables for `sales`, `years_of_service`, and `top_performer_last_quarter`.
-    *   Test your logic with a few different scenarios (e.g., high sales but new employee, low sales but top performer, etc.). Print whether the salesperson is eligible for a bonus (`True` or `False`).
+3. **Sales Bonus Eligibility:**
+    * A salesperson is eligible for a bonus if they meet one of two conditions:
+        * Condition A: They made over $10,000 in `sales` **and** have been with the company for more than 2 `years_of_service`.
+        * Condition B: They are the `top_performer_last_quarter` (a Boolean variable).
+    * Create variables for `sales`, `years_of_service`, and `top_performer_last_quarter`.
+    * Test your logic with a few different scenarios (e.g., high sales but new employee, low sales but top performer, etc.). Print whether the salesperson is eligible for a bonus (`True` or `False`).
 
 🎉 **Excellent work!** You're now equipped with the operators needed to perform the vast majority of business calculations and logical checks you'll encounter. These are the verbs of data analysis.

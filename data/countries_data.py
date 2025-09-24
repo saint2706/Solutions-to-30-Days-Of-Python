@@ -1,4 +1,44 @@
-data = [
+"""
+Comprehensive World Countries Database for Business Analytics
+
+This module contains detailed information about world countries including
+population, capital cities, languages, and economic data. This dataset is
+particularly valuable for:
+
+- International market analysis and expansion planning
+- Demographic research for global business strategies
+- Economic analysis and country comparison studies
+- Localization and internationalization planning
+- Supply chain and logistics analysis by geographic region
+
+Data Structure:
+Each country entry contains:
+- name: Official country name
+- capital: Capital city
+- languages: List of official/major languages spoken
+- population: Current population estimate
+- flag: URL to country flag image
+- currency: Official currency name
+
+Usage Example:
+    from data.countries_data import data
+    
+    # Find countries with large markets (population > 50M)
+    large_markets = [country for country in data 
+                     if country['population'] > 50000000]
+    
+    # Analyze language distribution for localization strategy
+    english_speaking = [country for country in data 
+                        if 'English' in country['languages']]
+"""
+
+from typing import List, Dict, Any
+
+# Type alias for better code documentation
+CountryData = Dict[str, Any]
+
+# Comprehensive world countries dataset for business analysis
+data: List[CountryData] = [
     {
         "name": "Afghanistan",
         "capital": "Kabul",

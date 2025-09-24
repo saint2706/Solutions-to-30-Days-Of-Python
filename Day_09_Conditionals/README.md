@@ -50,6 +50,7 @@ else:
 
 print(f"Customer Tier: {customer_tier}")
 ```
+
 Python checks the conditions from top to bottom and executes the *first* block where the condition is `True`. It then skips the rest.
 
 ## Combining Conditions
@@ -69,36 +70,36 @@ else:
 
 ## 💻 Exercises: Day 9
 
-1.  **Discount Policy Automation:**
-    *   Write a script that determines a customer's discount based on their purchase amount.
-    *   `purchase_amount = 120` (you can change this value to test).
-    *   The rules are:
-        *   If the purchase is over $100, the discount is 10%.
-        *   If the purchase is over $50 but not over $100, the discount is 5%.
-        *   Otherwise, the discount is 0%.
-    *   Calculate the final price and print it.
+1. **Discount Policy Automation:**
+    * Write a script that determines a customer's discount based on their purchase amount.
+    * `purchase_amount = 120` (you can change this value to test).
+    * The rules are:
+        * If the purchase is over $100, the discount is 10%.
+        * If the purchase is over $50 but not over $100, the discount is 5%.
+        * Otherwise, the discount is 0%.
+    * Calculate the final price and print it.
 
-2.  **Shipping Cost Calculator:**
-    *   Create a script that calculates shipping cost based on the customer's location and order weight.
-    *   Create variables for `country` ("USA" or "Canada") and `order_weight_kg`.
-    *   The rules are:
-        *   If the country is "USA":
-            *   If the weight is over 50kg, shipping is $75.
-            *   Otherwise, shipping is $50.
-        *   If the country is "Canada":
-            *   If the weight is over 50kg, shipping is $100.
-            *   Otherwise, shipping is $65.
-        *   For any other country, print "Shipping not available."
-    *   Print the calculated shipping cost.
+2. **Shipping Cost Calculator:**
+    * Create a script that calculates shipping cost based on the customer's location and order weight.
+    * Create variables for `country` ("USA" or "Canada") and `order_weight_kg`.
+    * The rules are:
+        * If the country is "USA":
+            * If the weight is over 50kg, shipping is $75.
+            * Otherwise, shipping is $50.
+        * If the country is "Canada":
+            * If the weight is over 50kg, shipping is $100.
+            * Otherwise, shipping is $65.
+        * For any other country, print "Shipping not available."
+    * Print the calculated shipping cost.
 
-3.  **Employee Bonus Calculation:**
-    *   An employee's bonus is based on their `performance_rating` (a number from 1 to 5) and their `department`.
-    *   The rules:
-        *   If the rating is 4 or 5, they get a bonus.
-            *   If their department is "Sales", the bonus is 15% of their `salary`.
-            *   For any other department, the bonus is 10% of their `salary`.
-        *   If the rating is 3, the bonus is 5% of their `salary`, regardless of department.
-        *   If the rating is 1 or 2, the bonus is 0.
-    *   Write a script that calculates and prints the bonus amount.
+3. **Employee Bonus Calculation:**
+    * An employee's bonus is based on their `performance_rating` (a number from 1 to 5) and their `department`.
+    * The rules:
+        * If the rating is 4 or 5, they get a bonus.
+            * If their department is "Sales", the bonus is 15% of their `salary`.
+            * For any other department, the bonus is 10% of their `salary`.
+        * If the rating is 3, the bonus is 5% of their `salary`, regardless of department.
+        * If the rating is 1 or 2, the bonus is 0.
+    * Write a script that calculates and prints the bonus amount.
 
 🎉 **Fantastic progress!** You can now translate complex business rules into code that makes decisions automatically. This is a fundamental skill for automating reports, classifying data, and building analytical models.
