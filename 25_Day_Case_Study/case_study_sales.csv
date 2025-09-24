@@ -1,0 +1,21 @@
+OrderID,Date,Region,Product,Price,Units Sold
+1001,2024-01-05,North,Laptop,1250.00,8
+1002,2024-01-05,South,Keyboard,75.00,20
+1003,2024-01-06,North,Mouse,25.50,30
+1004,2024-01-07,West,Monitor,320.00,12
+1005,2024-01-08,South,Laptop,1250.00,5
+1006,2024-01-08,East,Webcam,50.00,25
+1007,2024-01-09,North,Keyboard,75.00,18
+1008,2024-01-10,West,Mouse,25.50,40
+1009,2024-01-11,South,Monitor,320.00,10
+1010,2024-01-12,East,Laptop,1300.00,10
+1011,2024-01-12,North,Webcam,50.00,22
+1012,2024-01-13,West,Keyboard,80.00,15
+1013,2024-01-14,South,Mouse,25.50,35
+1014,2024-01-15,North,Laptop,1250.00,12
+1015,2024-01-15,East,Monitor,310.00,8
+1016,2024-01-16,West,Webcam,55.00,15
+1017,2024-01-17,South,Keyboard,75.00,25
+1018,2024-01-18,North,Mouse,25.50,50
+1019,2024-01-18,East,Laptop,1300.00,7
+1020,2024-01-19,West,Monitor,320.00,14

@@ -1,113 +1,67 @@
-import sys
+"""
+Day 10: Automating Tasks with Loops
 
-sys.path.append('data')
-# noinspection PyUnresolvedReferences
-import countries
-# noinspection PyUnresolvedReferences
-import countries_data
+This script demonstrates how to use for and while loops to
+process collections of business data automatically.
+"""
 
-# Level 1
-# 1
-for i in range(0, 11):
-    print(i)
+# --- Using a for loop to aggregate data ---
+print("--- Calculating Total Monthly Revenue ---")
+monthly_sales = [2340.50, 3100.25, 2900.00, 4500.75]
+total_revenue = 0
 
-k = 0
-while k <= 10:
-    print(k)
-    k += 1
+# The 'for' loop iterates through each 'sale' in the 'monthly_sales' list.
+for sale in monthly_sales:
+    total_revenue += sale
 
-# 2
-for i in range(10, -1, -1):
-    print(i)
-
-k = 10
-while k >= 0:
-    print(k)
-    k -= 1
-
-# 3
-hash_string = '#'
-for i in range(1, 8):
-    print(hash_string * i)
-
-# 4
-for i in range(1, 9):
-    for j in range(1, 9):
-        print("#", end=' ')
-    print()
-
-# 5
-for i in range(0, 11):
-    print(i, "x", i, "=", i * i)
-
-# 6
-for lang in ['Python', 'Numpy', 'Pandas', 'Django', 'Flask']:
-    print(lang)
-
-# 7
-for i in range(0, 101):
-    if i % 2 == 0:
-        print(i)
-
-# 8
-for i in range(0, 101):
-    if i % 2 != 0:
-        print(i)
-
-# Level 2
-# 1
-sum_nums = 0
-for i in range(0, 101):
-    sum_nums += i
-print("The sum of all numbers is", sum_nums)
-
-# 2
-even_sum = 0
-odd_sum = 0
-for i in range(0, 101):
-    if i % 2 == 0:
-        even_sum += i
-    else:
-        odd_sum += i
-print("The sum of all even numbers is", even_sum)
-print("The sum of all odd numbers is", odd_sum)
-
-# Level 3
-# 1
-list_c = countries.country_list
-for country in list_c:
-    if "land" in country:
-        print(country)
-
-# 2
-fruity_list = ['banana', 'orange', 'mango', 'lemon']
-rev = []
-for i in range(3, -1, -1):
-    rev.append(fruity_list[i])
-print(rev)
-
-# 3
-# noinspection DuplicatedCode
-list_data = countries_data.data
-total_languages_initial = []
-for i in list_data:
-    total_languages_initial.extend(i["languages"])
-print("Languages = ", len(set(total_languages_initial)))
-counts = {}
-for i in total_languages_initial:
-    counts[i] = counts.get(i, 0) + 1
+print(f"Total Revenue for the month: ${total_revenue:.2f}")
+print("-" * 20)
 
 
-def sort_dict_by_value(d, reverse=False):
-    return dict(sorted(d.items(), key=lambda x: x[1], reverse=reverse))
+# --- Using a for loop with a conditional to filter data ---
+print("--- Filtering High-Value Customers ---")
+customers = [
+    {"name": "InnovateCorp", "total_spent": 5500},
+    {"name": "DataDriven Inc.", "total_spent": 1200},
+    {"name": "Analytics LLC", "total_spent": 2100},
+    {"name": "Global Solutions", "total_spent": 850}
+]
+high_priority_customers = []
+
+# We loop through each customer dictionary in the list.
+for customer in customers:
+    # Check if the value for the "total_spent" key meets our condition.
+    if customer["total_spent"] > 2000:
+        # If it does, add the customer's name to our new list.
+        high_priority_customers.append(customer["name"])
+
+print(f"High-priority customers to contact: {high_priority_customers}")
+print("-" * 20)
 
 
-counts = sort_dict_by_value(counts, True)
-for i in list(counts.items())[:10]:
-    print(i)
-populations = {}
-for i in list_data:
-    populations[i["name"]] = i["population"]
-populations = sort_dict_by_value(populations, True)
-for i in list(populations.items())[:10]:
-    print(i)
+# --- Looping through a dictionary for inventory alerts ---
+print("--- Inventory Stock Level Alerts ---")
+inventory = {"Laptops": 15, "Mice": 150, "Keyboards": 45, "Monitors": 25}
+low_stock_threshold = 50
+
+# .items() lets us get both the key (product) and value (count) in each loop.
+for product, count in inventory.items():
+    if count < low_stock_threshold:
+        print(f"ALERT: {product} are low on stock ({count} units remaining).")
+print("-" * 20)
+
+
+# --- Using a while loop for financial simulation ---
+print("--- Investment Growth Simulation ---")
+investment = 10000
+target = 20000
+interest_rate = 0.07
+years = 0
+
+# The 'while' loop continues as long as the condition is true.
+while investment < target:
+    investment *= (1 + interest_rate)  # Apply 7% annual interest
+    years += 1                         # Increment the year count
+
+print(f"It will take {years} years for the initial investment of $10,000 to double at a {interest_rate*100}% interest rate.")
+print("-" * 20)

@@ -1,76 +1,46 @@
-import random
+"""
+Day 12: Using Modules to Organize Code
 
-chars = 'abcdefghijklmnopqrstuvwxyz1234567890'
-char_list = []
-char_list[:0] = chars
+This script demonstrates how to import and use functions from
+both custom-built modules and Python's built-in modules.
+"""
 
+# --- Importing a custom module ---
+# We are importing the functions we created in the 'business_logic.py' file.
+# We use an alias 'bl' to keep our code clean and concise.
+import business_logic as bl
+import datetime
+import math
 
-# Level 1
+print("--- Using Custom Business Logic Module ---")
+# Now we can use the functions from our module using the 'bl.' prefix.
+investment_amount = 50000
+profit_amount = 12000
+roi = bl.calculate_roi(investment_amount, profit_amount)
+print(f"A project with an investment of {bl.format_as_currency(investment_amount)} and profit of {bl.format_as_currency(profit_amount)} has an ROI of {roi:.2f}%.")
 
-def random_user_id():
-    identity = ''
-    for _ in range(6):
-        identity += random.choice(char_list)
-    return identity
-
-
-def user_id_gen_by_user():
-    charsize = int(input('Enter Character Size: '))
-    charlimit = int(input('Enter how many user ids to generate: '))
-    for _ in range(charlimit):
-        identity = ''.join([random.choice(char_list) for _ in range(charsize)])
-        print(identity)
-
-
-def rgb_color_gen():
-    r = str(random.randint(0, 255))
-    g = str(random.randint(0, 255))
-    b = str(random.randint(0, 255))
-    return "rgb(" + r + "," + g + "," + b + ")"
+# Check promotion eligibility for an employee
+years = 4
+rating = 5
+is_eligible = bl.is_eligible_for_promotion(years, rating)
+print(f"An employee with {years} years of service and a rating of {rating} is eligible for promotion: {is_eligible}")
+print("-" * 20)
 
 
-# Level 2
+# --- Using Python's Built-in Modules ---
+print("--- Using Built-in 'datetime' and 'math' Modules ---")
 
-def list_of_hexa_colors(many=0):
-    if many == 0:
-        many = random.randint(1, 10)
-    hexas = "1,2,3,4,5,6,7,8,9,0,a,b,c,d,e,f".split(",")
-    hexCodes = []
-    for _ in range(many):
-        hexCodes.append("#" + ''.join([random.choice(hexas) for _ in range(6)]))
-    return hexCodes
+# The 'datetime' module is essential for working with dates and times.
+current_datetime = datetime.datetime.now()
+print(f"Current Date and Time: {current_datetime}")
+print(f"Current Year: {current_datetime.year}")
+print(f"Current Month: {current_datetime.month}")
+print(f"Current Day: {current_datetime.day}")
+print()
 
-
-def list_of_rgb_colors(many=0):
-    if many == 0:
-        many = random.randint(1, 10)
-    rgbs = []
-    for _ in range(many):
-        rgbs.append(rgb_color_gen())
-    return rgbs
-
-
-def generate_colors(type_of_col, many):
-    if type_of_col == 'hexa':
-        return list_of_hexa_colors(many)
-    elif type_of_col == 'rgb':
-        return list_of_rgb_colors(many)
-    else:
-        return "Invalid Input"
-
-
-# Level 3
-
-def shuffled_list(array):
-    return random.sample(array, len(array))
-
-
-def seven_random():
-    arr = []
-    length = -1
-    while length <= 7:
-        num = random.randint(0, 9)
-        if num not in arr:
-            arr.append(num)
-            length = len(arr)
-    return arr
+# The 'math' module provides access to more advanced mathematical functions.
+marketing_budget = 100000
+# Let's say sales are proportional to the square root of the marketing budget.
+growth_factor = math.sqrt(marketing_budget)
+print(f"The growth factor for a marketing budget of {bl.format_as_currency(marketing_budget)} is {growth_factor:.2f}.")
+print("-" * 20)

@@ -1,83 +1,84 @@
-# 1
-age = 19
+"""
+Day 3: Operators in Action for Business Analysis
 
-# 2 
-height = float(174)
+This script demonstrates how different Python operators can be used
+to perform business calculations and logical checks.
+"""
 
-# 3
-c_number = complex(3, 4)
+# --- Arithmetic Operators for Financial Calculations ---
+print("--- Financial Calculations ---")
 
-# 4
-print("Area of the triangle:", int(input('Base: ')) * int(input('Height: ')))
+# Example: Calculating compound interest
+# Formula: A = P(1 + r/n)^(nt)
+# For simplicity, we'll do annual compounding (n=1)
+principal = 10000  # Initial investment
+rate = 0.05        # Annual interest rate (5%)
+time = 3           # Number of years
 
-# 5
-print("Perimeter of the triangle:", int(input('a: ')) + int(input('b: ')) + int(input('c: ')))
+# The ** operator is used for exponents
+final_amount = principal * (1 + rate) ** time
 
-# 6
-length = int(input('Enter length: '))
-width = int(input('Enter width: '))
-print('Area: ', length * width)
-print('Perimeter: ', 2 * (length + width))
+print(f"Investment of ${principal} after {time} years at {rate*100}% interest will be: ${final_amount:.2f}")
+print("-" * 20)
 
-# 7
-radius = int(input('Enter radius: '))
-print('Area: ', 3.14 * radius * radius)
-print('Circumference: ', 2 * 3.14 * radius)
 
-# 8
-print("X intercept: ", 1)
-print("Y intercept: ", -2)
-print("Slope: ", 2)
+# --- Assignment Operators for Accumulating Data ---
+print("--- Accumulating Daily Sales ---")
+total_sales = 0
+daily_sale_day1 = 1500
+daily_sale_day2 = 2200
+daily_sale_day3 = 1850
 
-# 9
-x1, x2, y1, y2 = 2, 6, 2, 10
-print('Distance: ')
-print('{0:.2f}'.format(((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5))
-print('Slope:')
-print((y2 - y1) / (x2 - x1))
+# The += operator is a shorthand to add a value to a variable
+total_sales += daily_sale_day1
+total_sales += daily_sale_day2
+total_sales += daily_sale_day3
 
-# 10
-print(2 if 2 < (y2 - y1) / (x2 - x1) else (y2 - y1) / (x2 - x1))
+print(f"Total sales after 3 days: ${total_sales}")
+print("-" * 20)
 
-# 11
-for x in range(0, 10):
-    print(x ** 2 + 6 * x + 9)
-print(3, -3, "is where y is 0")
 
-# 12
-print(not len('python') == len('dragon'))
+# --- Comparison Operators for Business Rules ---
+print("--- Inventory and Sales Target Checks ---")
+inventory_count = 45
+low_stock_threshold = 50
 
-# 13
-print('on' in 'python' and 'on' in 'dragon')
+# The < operator checks if a value is less than another
+is_low_stock = inventory_count < low_stock_threshold
+print(f"Is inventory low? {is_low_stock}")
 
-# 14
-print('jargon' in "I hope this course is not full of jargon")
+sales_target = 250000
+current_sales = 265000
 
-# 15
-print('on' not in 'python' and 'on' in 'dragon')
+# The >= operator checks for "greater than or equal to"
+target_met = current_sales >= sales_target
+print(f"Has the sales target been met? {target_met}")
+print("-" * 20)
 
-# 16
-print(str(float(len('python'))))
 
-# 18
-number = int(input('Enter number:'))
-print("Even" if number % 2 == 0 else "Odd")
+# --- Logical Operators for Complex Eligibility Rules ---
+print("--- Sales Bonus Eligibility Test ---")
 
-# 19
-print(type('10') == type(10))
+# Scenario 1: High sales, but new employee
+sales = 12000
+years_of_service = 1
+top_performer_last_quarter = False
 
-# 20
-print(int('9.8') == 10)
+# The 'and' requires both conditions to be true
+# The 'or' allows either condition to be true
+is_eligible = (sales > 10000 and years_of_service > 2) or top_performer_last_quarter
+print(f"Scenario 1 (High Sales, New Employee): Eligible? {is_eligible}")
 
-# 21
-hours = int(input('Enter hours:'))
-rph = int(input('Enter rate per hour:'))
-print("Weekly Earning:", hours * rph)
+# Scenario 2: Lower sales, but a top performer
+sales = 8000
+years_of_service = 3
+top_performer_last_quarter = True
+is_eligible = (sales > 10000 and years_of_service > 2) or top_performer_last_quarter
+print(f"Scenario 2 (Top Performer): Eligible? {is_eligible}")
 
-# 22
-years = int(input('Enter years:'))
-print(years * 365 * 24 * 60 * 60 * 60)
-
-# 23
-for i in range(1, 6):
-    print(i, i ** 0, i ** 1, i ** 2, i ** 3)
+# Scenario 3: Not eligible on either count
+sales = 9000
+years_of_service = 1
+top_performer_last_quarter = False
+is_eligible = (sales > 10000 and years_of_service > 2) or top_performer_last_quarter
+print(f"Scenario 3 (Not Eligible): Eligible? {is_eligible}")

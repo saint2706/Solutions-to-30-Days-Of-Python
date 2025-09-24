@@ -1,40 +1,67 @@
-# Level 1
+"""
+Day 13: Elegant Data Manipulation with List Comprehensions
 
-def filter_list():
-    numbers = [-4, -3, -2, -1, 0, 2, 4, 6]
-    return [x for x in numbers if x <= 0]
+This script demonstrates how to use list comprehensions to
+efficiently transform and filter lists of business data.
+"""
 
+# --- Example 1: Transforming Data (Applying a Price Increase) ---
+print("--- Applying a Price Increase ---")
+prices = [100.00, 150.50, 200.00, 80.25]
+print(f"Original prices: {prices}")
 
-def flatten_list():
-    list_of_lists = [[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]]]
-    return [x for sub in list_of_lists for sub2 in sub for x in sub2]
+# The 'for' loop way (for comparison)
+new_prices_loop = []
+for price in prices:
+    new_prices_loop.append(price * 1.1)
 
+# The list comprehension way
+# [expression for item in iterable]
+new_prices_comp = [price * 1.1 for price in prices]
 
-def generate_list_of_tuples():
-    list_of_tuples = []
-    for i in range(11):
-        list_of_tuples.append((i, i ** 0, i ** 1, i ** 2, i ** 3, i ** 4, i ** 5))
-    return list_of_tuples
-
-
-def flatten_list_of_tuples():
-    countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', 'Oslo')]]
-    return [[sub2[0].upper(), sub2[0].upper()[:3], sub2[1].upper()] for sub in countries for sub2 in sub]
-
-
-def list_to_list_dict():
-    countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', 'Oslo')]]
-    countries = [[sub2[0].upper(), sub2[1].upper()] for sub in countries for sub2 in sub]
-    countries = [x for sub in countries for x in sub]
-    keys = ["country", "city"]
-    return [{keys[0]: countries[idx], keys[1]: countries[idx + 1]} for idx in range(0, len(countries), 2)]
+print(f"New prices (from loop): {[f'${p:.2f}' for p in new_prices_loop]}")
+print(f"New prices (from comprehension): {[f'${p:.2f}' for p in new_prices_comp]}")
+print("-" * 20)
 
 
-def concatenate_list():
-    names = [[('Asabeneh', 'Yetayeh')], [('David', 'Smith')], [('Donald', 'Trump')], [('Bill', 'Gates')]]
-    conc = [x for sub in names for sub2 in sub for x in sub2]
-    return [conc[i] + ' ' + conc[i + 1] for i in range(0, len(conc), 2)]
+# --- Example 2: Filtering Data (Finding Large Sales) ---
+print("--- Filtering for Large Sales Transactions ---")
+sales = [500, 1200, 800, 1500, 300, 2500]
+print(f"All sales: {sales}")
+
+# The 'for' loop way (for comparison)
+large_sales_loop = []
+for sale in sales:
+    if sale > 1000:
+        large_sales_loop.append(sale)
+
+# The list comprehension way with a condition
+# [expression for item in iterable if condition]
+large_sales_comp = [sale for sale in sales if sale > 1000]
+
+print(f"Large sales (from loop): {large_sales_loop}")
+print(f"Large sales (from comprehension): {large_sales_comp}")
+print("-" * 20)
 
 
-slope = lambda x1, y1, x2, y2: (y2 - y1) / (x2 - x1)
-y_intercept = lambda x1, y1, x2, y2: y1 - slope(x1, y1, x2, y2) * x1
+# --- Example 3: Filtering and Transforming (Complex Example) ---
+print("--- Extracting Names of High-Performing Sales Staff ---")
+employees = [
+    {"name": "Alice", "department": "Sales", "quarterly_sales": 12000},
+    {"name": "Bob", "department": "Engineering", "quarterly_sales": 0},
+    {"name": "Charlie", "department": "Sales", "quarterly_sales": 8000},
+    {"name": "David", "department": "Sales", "quarterly_sales": 15000}
+]
+sales_target = 10000
+
+# We want to get the names of sales staff who exceeded the target.
+# The expression transforms the item (employee dict) into just the name.
+# The condition filters for the correct department AND sales amount.
+top_performers = [
+    employee["name"]
+    for employee in employees
+    if employee["department"] == "Sales" and employee["quarterly_sales"] > sales_target
+]
+
+print(f"Top performing sales staff (sales > ${sales_target}): {top_performers}")
+print("-" * 20)

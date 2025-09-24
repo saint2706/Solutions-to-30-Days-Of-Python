@@ -1,0 +1,14 @@
+Date,Region,Product,Units Sold,Price,Revenue
+2024-01-05,North,Laptop,80,1200,96000
+2024-01-12,South,Keyboard,120,75,9000
+2024-01-19,North,Mouse,200,25,5000
+2024-01-26,West,Monitor,90,300,27000
+2024-02-02,South,Laptop,60,1200,72000
+2024-02-09,East,Webcam,180,50,
+2024-02-16,North,Keyboard,150,75,11250
+2024-02-23,West,Mouse,220,25,5500
+2024-03-01,South,Monitor,75,300,22500
+2024-03-08,East,Laptop,110,1200,132000
+2024-03-15,North,Webcam,210,50,10500
+2024-03-22,West,Keyboard,100,75,
+2024-03-29,South,Mouse,180,25,4500

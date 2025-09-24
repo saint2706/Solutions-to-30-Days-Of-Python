@@ -1,91 +1,74 @@
-# Level 1
-# 1
-age = int(input('Enter age: '))
-if age >= 18:
-    print("You are old enough to drive.")
+"""
+Day 9: Implementing Business Logic with Conditionals
+
+This script demonstrates how to use if, elif, and else statements
+to create business rules and make decisions in code.
+"""
+
+# --- Example 1: Customer Discount Policy ---
+print("--- Customer Discount Calculator ---")
+purchase_amount = 125.50
+
+if purchase_amount > 100.00:
+    discount_percent = 0.10  # 10% discount
+elif purchase_amount > 50.00:
+    discount_percent = 0.05  # 5% discount
 else:
-    print("You need to wait", 18 - age, "years.")
+    discount_percent = 0.00  # 0% discount
 
-# 2
-my_age = 18
+discount_amount = purchase_amount * discount_percent
+final_price = purchase_amount - discount_amount
 
-if age == my_age:
-    print("We are the same age")
-elif age > my_age:
-    print("You are", age - my_age, "years older than me")
-else:
-    print("I am", my_age - age, "years older than you")
+print(f"Original Price: ${purchase_amount:.2f}")
+print(f"Discount ({discount_percent*100}%): ${discount_amount:.2f}")
+print(f"Final Price: ${final_price:.2f}")
+print("-" * 20)
 
-# 3
-a = int(input("Enter number: "))
-b = int(input("Enter number: "))
-if a > b:
-    print(a, "is greater than", b)
-elif a < b:
-    print(a, "is lesser than", b)
-else:
-    print("Both numbers are equal")
 
-# Level 2
-# 1
-score = int(input("Enter score: "))
+# --- Example 2: Nested Conditionals for Shipping Costs ---
+print("--- Shipping Cost Calculator ---")
+country = "Canada"
+order_weight_kg = 60
 
-grades = {}
-for i in range(90, 101):
-    grades[i] = 'A'
-for i in range(70, 90):
-    grades[i] = 'B'
-for i in range(60, 70):
-    grades[i] = 'C'
-for i in range(50, 60):
-    grades[i] = 'D'
-for i in range(0, 50):
-    grades[i] = 'F'
-
-print("Grade:", grades[score])
-
-# 2
-month = input('Enter month: ').title()
-if month in ["September", "October", "November"]:
-    print("Autumn")
-if month in ["December", "January", "February"]:
-    print("Winter")
-if month in ["March", "April", "May"]:
-    print("Spring")
-else:
-    print("Summer")
-
-# 3
-fruits = ['banana', 'orange', 'mango', 'lemon']
-fruit = input('Enter fruit: ')
-print('That fruit already exists in the list' if fruit in fruits else fruits.append(fruit))
-print(fruits)
-
-# Level 3
-person = {
-    'first_name': 'Asabeneh',
-    'last_name': 'Yetayeh',
-    'age': 250,
-    'country': 'Finland',
-    'is_marred': True,
-    'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
-    'address': {
-        'street': 'Space street',
-        'zipcode': '02210'
-    }
-}
-
-if person['skills']:
-    print(person['skills'][len(person['skills']) // 2])
-    print("Python" in person['skills'])
-    if ['Javascript', 'React'] == person['skills']:
-        print('Front End Developer')
-    elif ['Node', 'MongoDB', 'React'] == person['skills']:
-        print('Full Stack Developer')
+if country == "USA":
+    if order_weight_kg > 50:
+        shipping_cost = 75
     else:
-        print("Unknown Title")
-
-if person['is_marred']:
-    print(person['first_name'], person['last_name'], "lives in", person['country'], ". He is married")
+        shipping_cost = 50
+elif country == "Canada":
+    if order_weight_kg > 50:
+        shipping_cost = 100
+    else:
+        shipping_cost = 65
 else:
-    print(person['first_name'], person['last_name'], "lives in", person['country'], ". He is not married")
+    shipping_cost = -1 # Using -1 to indicate not available
+
+if shipping_cost != -1:
+    print(f"Shipping to {country} for a {order_weight_kg}kg package costs: ${shipping_cost}")
+else:
+    print(f"Sorry, shipping to {country} is not available.")
+print("-" * 20)
+
+
+# --- Example 3: Complex Bonus Calculation ---
+print("--- Employee Bonus Calculator ---")
+performance_rating = 5  # Scale of 1-5
+department = "Sales"
+salary = 80000
+bonus = 0 # Default bonus is 0
+
+if performance_rating >= 4:
+    print("Performance: Excellent")
+    if department == "Sales":
+        bonus = salary * 0.15
+    else:
+        bonus = salary * 0.10
+elif performance_rating == 3:
+    print("Performance: Met Expectations")
+    bonus = salary * 0.05
+else:
+    print("Performance: Needs Improvement")
+    bonus = 0
+
+print(f"Employee in {department} with rating {performance_rating} gets a bonus of: ${bonus:.2f}")
+print("-" * 20)

@@ -1,117 +1,68 @@
-# 1
-print('Thirty' + ' Days' + ' Of' + ' Python')
+"""
+Day 4: Manipulating Business Text Data with Strings
 
-# 2
-print(' '.join(['Coding', 'For', 'All']))
+This script demonstrates common string manipulations and methods
+applied to business-related text data.
+"""
 
-# 3
-company = 'Coding For All'
+# --- Formatting Strings for Reports ---
+print("--- Generating Report Headers ---")
+report_title = "Quarterly Sales Report"
+fiscal_year = 2024
 
-# 4
-print(company)
+# Using an f-string and the .upper() method to create a clean, formatted header.
+header = f"*** {report_title.upper()} - FY{fiscal_year} ***"
+print(header)
+print("-" * 20)
 
-# 5
-print(len(company))
 
-# 6
-print(company.upper())
+# --- Cleaning Customer and Product Data ---
+print("--- Data Cleaning Examples ---")
 
-# 7
-print(company.lower())
+# .strip() is essential for cleaning user input or messy data.
+raw_customer_name = "  john doe  "
+cleaned_name = raw_customer_name.strip()
+print(f"Raw name: '{raw_customer_name}', Cleaned name: '{cleaned_name}'")
 
-# 8
-print(company.capitalize())
-print(company.title())
-print(company.swapcase())
+# .title() is a handy method for capitalizing names correctly.
+formatted_name = cleaned_name.title()
+print(f"Final formatted name: '{formatted_name}'")
+print()
 
-# 9
-print(company[7:])
+# .replace() is great for standardizing data.
+raw_date = "2023-Jan-15"
+formatted_date = raw_date.replace("-", "/")
+print(f"Original date: {raw_date}, Formatted date: {formatted_date}")
+print("-" * 20)
 
-# 10
-print(company[company.index('Coding'):8])
-print(company[company.find('Coding'):8])
 
-# 11
-print(company.replace('Coding ', 'Not '))
+# --- Parsing and Extracting Information from Strings ---
+print("--- Parsing Product and Transaction IDs ---")
 
-# 12
-print('Python For Everyone'.replace('Everyone', 'All'))
+# .split() is used to break a string into a list of smaller strings.
+sku = "PROD-GADGET-001"
+parts = sku.split("-")
+print(f"SKU: {sku}")
+print(f"  Product Type: {parts[0]}")
+print(f"  Product Name: {parts[1]}")
+print(f"  Product ID: {parts[2]}")
+print()
 
-# 13
-print(company.split())
+# .startswith() helps in identifying or validating data.
+transaction_id = "INV-2024-03-15-998"
+is_invoice = transaction_id.startswith("INV")
+print(f"Transaction '{transaction_id}' is an invoice: {is_invoice}")
 
-# 14
-print("Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon".split(','))
+# .endswith() is great for checking file types.
+report_file = "q1_sales_report.pdf"
+is_pdf = report_file.endswith(".pdf")
+print(f"Report file '{report_file}' is a PDF: {is_pdf}")
+print("-" * 20)
 
-# 15
-print(company[0])
-
-# 16
-print(len(company) - 1)
-
-# 17
-print(company[10])
-
-# 18
-words = "Python For Everyone".split()
-print(words[0][0] + words[1][0] + words[2][0])
-
-# 19
-words = 'Coding For All'.split()
-print(words[0][0] + words[1][0] + words[2][0])
-
-# 20
-print("Coding For All".index('C'))
-
-# 21
-print("Coding For All".index('F'))
-
-# 22
-print("Coding For All People".rfind('l'))
-
-# 23
-print('You cannot end a sentence with because because because is a conjunction'.find('because'))
-
-# 24
-print('You cannot end a sentence with because because because is a conjunction'.rfind('because'))
-
-# 25
-print('You cannot end a sentence with because because because is a conjunction'.replace('because because because', ''))
-
-# 26
-print('You cannot end a sentence with because because because is a conjunction'.find('because'))
-
-# 27
-print('You cannot end a sentence with because because because is a conjunction'.replace('because because because', ''))
-
-# 28
-print('Coding For All'.startswith('Coding'))
-
-# 29
-print('Coding For All'.endswith('coding'))
-
-# 30
-print('   Coding For All      '.rstrip().lstrip())
-
-# 31
-print('30DaysOfPython'.isidentifier())
-print('thirty_days_of_python'.isidentifier())
-
-# 32
-print('-'.join(['Django', 'Flask', 'Bottle', 'Pyramid', 'Falcon']))
-
-# 33
-print('I am enjoying this challenge.\nI just wonder what is next.')
-
-# 34
-print('Name\tAge\tCountry\tCity\nRishabh\t250\tFinland\tHelsinki')
-
-# 35
-print('radius =', 10)
-print('area =', 3.14, '* radius **', 2)
-print('The area of a circle with radius', 10, 'is', 314, 'meters square.')
-
-# 36
-print('8 + 6 = 14')
-print('8 - 6 = 2')
-print('8 * 6 = 48\n8 / 6 = 1.33\n8 % 6 = 2\n8 // 6 = 1\n8 ** 6 = 262144')
+# .find() can be used to locate substrings
+customer_feedback = "The new CRM is great, but the reporting feature is slow."
+# find returns the starting index of the word, or -1 if not found
+if customer_feedback.find("slow") != -1:
+    print("Feedback contains the word 'slow'. Action may be required.")
+else:
+    print("Feedback does not contain the word 'slow'.")
