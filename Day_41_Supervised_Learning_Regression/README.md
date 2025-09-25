@@ -2,6 +2,8 @@
 
 Welcome to Day 41! Today, we focus on **Regression**, a type of supervised learning where the goal is to predict a continuous numerical value.
 
+> **Prerequisites:** Install scikit-learn with `pip install scikit-learn` before working through the exercises. If you need a refresher on using `pip`, revisit the Day 20 Python Package Manager lesson.
+
 ## Key Concepts
 
 ### What is Regression?

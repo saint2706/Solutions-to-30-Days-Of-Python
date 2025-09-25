@@ -2,6 +2,8 @@
 
 Welcome to Day 40! Today, we'll introduce the field of Machine Learning (ML) and discuss some of the core concepts that are essential for understanding how ML models are trained and evaluated.
 
+> **Prerequisites:** Install scikit-learn with `pip install scikit-learn` before running today's code samples. Need a refresher on package management? Revisit the Day 20 Python Package Manager lesson.
+
 ## What is Machine Learning?
 
 Machine Learning is a subfield of artificial intelligence that gives computers the ability to learn from data without being explicitly programmed. Instead of writing rules, we provide an algorithm with a large amount of data and let it learn the patterns itself.

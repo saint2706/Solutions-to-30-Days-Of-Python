@@ -2,6 +2,8 @@
 
 Welcome to Day 43! We continue our journey into classification algorithms by exploring two more powerful and widely used models: **Support Vector Machines (SVMs)** and **Decision Trees**.
 
+> **Prerequisites:** Install scikit-learn with `pip install scikit-learn` before diving into the code examples. For a quick refresher on `pip`, revisit the Day 20 Python Package Manager lesson.
+
 ## Key Concepts
 
 ### 1. Support Vector Machines (SVM)

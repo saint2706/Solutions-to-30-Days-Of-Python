@@ -2,6 +2,8 @@
 
 Welcome to Day 46! Today, we begin our exploration of **Deep Learning** by introducing the fundamental building block: the **Artificial Neural Network (ANN)**. We'll also discuss the major frameworks used to build these powerful models.
 
+> **Prerequisites:** Install TensorFlow with `pip install tensorflow` to run today's neural-network examples (this installs the CPU build; GPU acceleration requires following TensorFlow's CUDA setup). You'll also need scikit-learn for data prep with `pip install scikit-learn`. Need a refresher on using `pip`? Revisit the Day 20 Python Package Manager lesson.
+
 ## Key Concepts
 
 ### What is a Neural Network?
