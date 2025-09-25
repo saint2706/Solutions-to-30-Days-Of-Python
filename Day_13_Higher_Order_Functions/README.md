@@ -1,4 +1,4 @@
-# 📘 Day 14: Higher-Order Functions & Lambda - Advanced Data Processing
+# 📘 Day 13: Higher-Order Functions & Lambda - Advanced Data Processing
 
 Today, we're going to explore a more advanced—but incredibly powerful—concept in Python: **higher-order functions**. This is a style of programming that is heavily used in data analysis for its conciseness and power.
 
