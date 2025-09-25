@@ -1,6 +1,6 @@
-# 37 Days of Python - A Structured Learning Path
+# 50 Days of Python & Machine Learning - A Structured Learning Path
 
-Welcome to the 37 Days of Python challenge, a structured and comprehensive curriculum designed to take you from the fundamentals of Python to advanced topics in data science, web development, and more. This repository has been reorganized to provide a logical and progressive learning experience.
+Welcome to the 50 Days of Python & Machine Learning challenge, a structured and comprehensive curriculum designed to take you from the fundamentals of Python to advanced topics in data science, web development, and a complete track on Machine Learning. This repository has been reorganized to provide a logical and progressive learning experience.
 
 ## How to Use This Repository
 
@@ -65,6 +65,23 @@ Each day's folder contains a lesson, example code, and exercises to solidify you
 |-----|---------------|-----------------------------------------------|
 | 36  | Case Study    | [Day_36_Case_Study](./Day_36_Case_Study/)     |
 | 37  | Conclusion    | [Day_37_Conclusion](./Day_37_Conclusion/)     |
+
+### Part 5: Machine Learning
+| Day | Topic                                     | Folder                                                                      |
+|-----|-------------------------------------------|-----------------------------------------------------------------------------|
+| 38  | Math Foundations - Linear Algebra         | [Day_38_Linear_Algebra](./Day_38_Linear_Algebra/)                           |
+| 39  | Math Foundations - Calculus             | [Day_39_Calculus](./Day_39_Calculus/)                                       |
+| 40  | Introduction to ML & Core Concepts        | [Day_40_Intro_to_ML](./Day_40_Intro_to_ML/)                                   |
+| 41  | Supervised Learning - Regression          | [Day_41_Supervised_Learning_Regression](./Day_41_Supervised_Learning_Regression/) |
+| 42  | Supervised Learning - Classification 1    | [Day_42_Supervised_Learning_Classification_Part_1](./Day_42_Supervised_Learning_Classification_Part_1/) |
+| 43  | Supervised Learning - Classification 2    | [Day_43_Supervised_Learning_Classification_Part_2](./Day_43_Supervised_Learning_Classification_Part_2/) |
+| 44  | Unsupervised Learning                     | [Day_44_Unsupervised_Learning](./Day_44_Unsupervised_Learning/)             |
+| 45  | Feature Engineering & Model Evaluation    | [Day_45_Feature_Engineering_and_Evaluation](./Day_45_Feature_Engineering_and_Evaluation/) |
+| 46  | Intro to Neural Networks & Frameworks     | [Day_46_Intro_to_Neural_Networks](./Day_46_Intro_to_Neural_Networks/)         |
+| 47  | Convolutional Neural Networks (CNNs)      | [Day_47_Convolutional_Neural_Networks](./Day_47_Convolutional_Neural_Networks/) |
+| 48  | Recurrent Neural Networks (RNNs)          | [Day_48_Recurrent_Neural_Networks](./Day_48_Recurrent_Neural_Networks/)       |
+| 49  | Natural Language Processing (NLP)         | [Day_49_NLP](./Day_49_NLP/)                                                 |
+| 50  | MLOps - Model Deployment                  | [Day_50_MLOps](./Day_50_MLOps/)                                             |
 
 
 ## Contributing
