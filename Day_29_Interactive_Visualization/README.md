@@ -1,4 +1,4 @@
-# 📘 Day 21: Interactive Visualization with Plotly
+# 📘 Day 29: Interactive Visualization with Plotly
 
 Static charts are good for reports, but in the modern era of business intelligence, users expect to be able to *interact* with their data. They want to hover over data points to get more details, zoom into specific time ranges, and filter data on the fly.
 
@@ -58,9 +58,9 @@ You can save your interactive chart as a standalone HTML file that anyone can op
 fig.write_html("interactive_revenue_chart.html")
 ```
 
-## 💻 Exercises: Day 21
+## 💻 Exercises: Day 29
 
-For these exercises, you will use the cleaned `sales_data.csv` from Day 17.
+For these exercises, you will use the cleaned `sales_data.csv` from Day 24.
 
 1. **Interactive Sales by Product:**
     * Load the cleaned sales data.

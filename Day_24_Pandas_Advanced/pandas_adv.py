@@ -1,5 +1,5 @@
 """
-Day 17: Advanced Pandas - Working with Real Data
+Day 24: Advanced Pandas - Working with Real Data
 
 This script demonstrates loading data from a CSV file and
 using advanced selection and cleaning techniques with Pandas.

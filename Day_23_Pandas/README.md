@@ -1,4 +1,4 @@
-# 📘 Day 16: Pandas - Your Data Analysis Superpower
+# 📘 Day 23: Pandas - Your Data Analysis Superpower
 
 If NumPy is the foundation for numerical computing, **Pandas** is the tool you will use every single day for practical data analysis. It is, without exaggeration, the most important library for data manipulation in Python. Think of it as giving Python the capabilities of a super-powered spreadsheet, like Excel or Google Sheets.
 
@@ -72,7 +72,7 @@ prices_column = df['Price']
 product_and_price = df[['Product Name', 'Price']]
 ```
 
-## 💻 Exercises: Day 16
+## 💻 Exercises: Day 23
 
 1. **Create an Employee DataFrame:**
     * Create a Python dictionary to store data for 3-4 employees. Each employee should have a `Name`, `Department`, and `Salary`.

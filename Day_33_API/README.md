@@ -1,4 +1,4 @@
-# 📘 Day 28: APIs - Accessing Live Data from the Web
+# 📘 Day 33: APIs - Accessing Live Data from the Web
 
 So far, we've worked with data from static files (CSVs) and databases. But what if you need live, up-to-the-minute data? Or what if you need to programmatically interact with another software service, like a CRM or a social media platform? For this, we use **APIs (Application Programming Interfaces)**.
 
@@ -67,7 +67,7 @@ posts_user1 = response.json()
 
 This is equivalent to requesting the URL `https://jsonplaceholder.typicode.com/posts?userId=1`.
 
-## 💻 Exercises: Day 28
+## 💻 Exercises: Day 33
 
 For these exercises, we will use the free and public [**{JSON} Placeholder API**](https://jsonplaceholder.typicode.com/).
 

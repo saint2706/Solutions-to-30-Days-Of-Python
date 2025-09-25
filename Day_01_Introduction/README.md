@@ -4,7 +4,7 @@
 
 Welcome, future business leader! You're about to take your first step into a larger world of data-driven decision-making. In today's business landscape, the ability to understand and leverage data is not just a technical skill—it's a core competency for effective management. This course is designed specifically for MBA students like you. We'll skip the abstract computer science jargon and focus on one thing: **using Python as a powerful tool to solve real-world business problems.**
 
-You don't need any prior coding experience. We'll start from zero and build your skills step-by-step. By the end of this 30-day journey, you'll be able to manipulate data, generate insights, and even build predictive models.
+You don't need any prior coding experience. We'll start from zero and build your skills step-by-step. By the end of this 50-day journey, you'll be able to manipulate data, generate insights, and even build predictive models.
 
 ## Why Python for Business?
 

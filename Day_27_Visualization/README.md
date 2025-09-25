@@ -1,4 +1,4 @@
-# 📘 Day 19: Data Visualization - Communicating Insights
+# 📘 Day 27: Data Visualization - Communicating Insights
 
 Numbers and tables are great for analysis, but to communicate your findings effectively, you need to visualize your data. A good chart can reveal patterns, trends, and insights far more effectively than a table of numbers.
 
@@ -73,9 +73,9 @@ plt.title('Marketing Spend vs. Sales')
 plt.show()
 ```
 
-## 💻 Exercises: Day 19
+## 💻 Exercises: Day 27
 
-For these exercises, you will use the cleaned `sales_data.csv` from Day 17.
+For these exercises, you will use the cleaned `sales_data.csv` from Day 24.
 
 1. **Sales by Product:**
     * Load the cleaned sales data.

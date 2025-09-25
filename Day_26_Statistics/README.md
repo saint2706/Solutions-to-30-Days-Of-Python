@@ -1,4 +1,4 @@
-# 📘 Day 24: Practical Statistics for Business Analysis
+# 📘 Day 26: Practical Statistics for Business Analysis
 
 So far, we've focused on manipulating and visualizing data. Now, let's dive into **statistics**—the science of collecting, analyzing, and interpreting data. For a business analyst, statistics provide the tools to move from simply describing data to drawing meaningful conclusions and making data-driven inferences.
 
@@ -63,10 +63,10 @@ else:
 
 Pandas DataFrames have a built-in `.corr()` method to calculate the correlation between all numerical columns.
 
-## 💻 Exercises: Day 24
+## 💻 Exercises: Day 26
 
 1. **Descriptive Statistics of Sales:**
-    * Load the cleaned `sales_data.csv` from Day 17.
+    * Load the cleaned `sales_data.csv` from Day 24.
     * Select the 'Revenue' column.
     * Calculate and print the mean, median, standard deviation, min, and max of the revenue.
 

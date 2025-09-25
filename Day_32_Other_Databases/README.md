@@ -1,4 +1,4 @@
-# 📘 Day 27: Connecting to Other Databases (MySQL & MongoDB)
+# 📘 Day 32: Connecting to Other Databases (MySQL & MongoDB)
 
 In the previous lesson, we used `sqlite3`, which is fantastic for learning and small projects because it's built into Python and doesn't require a separate server. However, in a corporate environment, you will most likely be connecting to a more powerful, server-based database like **MySQL**, **PostgreSQL**, or a NoSQL database like **MongoDB**.
 

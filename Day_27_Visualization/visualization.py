@@ -1,5 +1,5 @@
 """
-Day 19: Creating Business Visualizations
+Day 27: Creating Business Visualizations
 
 This script demonstrates how to create common business charts
 using the Seaborn and Matplotlib libraries with a sample dataset.
@@ -10,14 +10,14 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # --- Load and Prepare Data ---
-# We use the cleaned data from Day 17 for reliable plotting.
+# We use the cleaned data from Day 24 for reliable plotting.
 try:
     # parse_dates=['Date'] tells pandas to automatically convert the 'Date' column
     df = pd.read_csv(r"Day_24_Pandas_Advanced\sales_data.csv", parse_dates=["Date"])
     df.dropna(inplace=True)  # Drop rows with missing values for simplicity
     print("Data loaded successfully.")
 except FileNotFoundError:
-    print("Error: sales_data.csv not found. Please run Day 17 first.")
+    print("Error: sales_data.csv not found. Please run Day 24 first.")
     df = pd.DataFrame()
 
 

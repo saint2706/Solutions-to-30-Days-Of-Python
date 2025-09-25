@@ -1,7 +1,7 @@
 """
-Day 25: Capstone Case Study
+Day 36: Capstone Case Study
 
-This is the main script file for the Day 25 case study.
+This is the main script file for the Day 36 case study.
 Students should write their code here to solve the business problem.
 
 The steps are:

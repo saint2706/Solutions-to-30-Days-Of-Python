@@ -1,4 +1,4 @@
-# 📘 Day 23: Virtual Environments - Professional Project Management
+# 📘 Day 21: Virtual Environments - Professional Project Management
 
 As you start working on more complex projects, you'll find that different projects have different requirements. Project A might need `pandas` version 1.5, while Project B needs the newer `pandas` version 2.0. If you install everything globally on your computer, you will run into conflicts.
 

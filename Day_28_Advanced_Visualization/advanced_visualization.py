@@ -1,5 +1,5 @@
 """
-Day 20: Advanced Visualization and Customization
+Day 28: Advanced Visualization and Customization
 
 This script demonstrates how to customize plots for presentation
 and arrange multiple plots into a single dashboard figure.
@@ -15,7 +15,7 @@ try:
     df.dropna(inplace=True)
     print("Data loaded successfully.")
 except FileNotFoundError:
-    print("Error: sales_data.csv not found in '17_Day_Pandas_Adv' directory.")
+    print("Error: sales_data.csv not found in 'Day_24_Pandas_Advanced' directory.")
     df = pd.DataFrame()
 
 if not df.empty:

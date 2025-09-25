@@ -1,5 +1,5 @@
 """
-Day 28: Accessing Live Data with APIs
+Day 33: Accessing Live Data with APIs
 
 This script demonstrates how to make GET requests to a public
 REST API to retrieve data and load it into Pandas.

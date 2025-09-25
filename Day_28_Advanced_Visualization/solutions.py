@@ -1,5 +1,5 @@
 """
-Day 20: Solutions to Exercises
+Day 28: Solutions to Exercises
 """
 
 import pandas as pd
@@ -7,13 +7,13 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # --- Load and Prepare Data ---
-# We use the cleaned data from Day 17 for reliable plotting.
+# We use the cleaned data from Day 24 for reliable plotting.
 try:
     df = pd.read_csv(r"Day_24_Pandas_Advanced\sales_data.csv", parse_dates=["Date"])
     df.dropna(inplace=True)  # Drop rows with missing values for simplicity
     print("Data loaded successfully for exercises.")
 except FileNotFoundError:
-    print("Error: sales_data.csv not found in '17_Day_Pandas_Adv' directory.")
+    print("Error: sales_data.csv not found in 'Day_24_Pandas_Advanced' directory.")
     df = pd.DataFrame()
 
 
