@@ -1,4 +1,4 @@
-# 📘 Day 12: Modules - Organizing Your Business Logic
+# 📘 Day 14: Modules - Organizing Your Business Logic
 
 As you write more functions, your script files can get long and disorganized. Imagine having one giant file with all your financial calculations, HR logic, and marketing analytics tools mixed together. It would be a mess!
 
