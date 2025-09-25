@@ -5,18 +5,26 @@ This script demonstrates common data cleaning techniques on a
 messy, real-world-style dataset using Pandas.
 """
 
+from pathlib import Path
+
 import pandas as pd
 
 # --- Load the Messy Data ---
+resource_dir = Path(__file__).resolve().parent
+data_path = resource_dir / "messy_sales_data.csv"
+
 print("--- Loading and Inspecting Messy Data ---")
 try:
-    df = pd.read_csv(r"Day_25_Data_Cleaning\messy_sales_data.csv")
+    df = pd.read_csv(data_path)
     print("Original data types (df.info()):")
     df.info()
     print("\nOriginal data head:")
     print(df.head())
 except FileNotFoundError:
-    print("Error: messy_sales_data.csv not found.")
+    print(
+        "Error: messy_sales_data.csv not found in the Day_25_Data_Cleaning folder."
+        " Keep the CSV beside this script."
+    )
     df = pd.DataFrame()  # Create empty df to prevent crash
 
 if not df.empty:

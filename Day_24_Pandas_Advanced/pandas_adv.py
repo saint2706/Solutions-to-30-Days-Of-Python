@@ -5,12 +5,17 @@ This script demonstrates loading data from a CSV file and
 using advanced selection and cleaning techniques with Pandas.
 """
 
+from pathlib import Path
+
 import pandas as pd
 
 # --- Loading Data from a CSV File ---
+resource_dir = Path(__file__).resolve().parent
+data_path = resource_dir / "sales_data.csv"
+
 print("--- Loading and Inspecting sales_data.csv ---")
 # This command reads the CSV file in the same directory into a DataFrame.
-df = pd.read_csv(r"Day_24_Pandas_Advanced\sales_data.csv")
+df = pd.read_csv(data_path)
 
 # Always inspect after loading
 print("First 5 rows (df.head()):")
