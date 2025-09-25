@@ -5,13 +5,18 @@ This script demonstrates how to calculate descriptive statistics,
 correlation, and perform a simple hypothesis test (t-test).
 """
 
+from pathlib import Path
+
 import pandas as pd
 from scipy.stats import ttest_ind
 
 # --- 1. Descriptive Statistics with Pandas ---
+resource_dir = Path(__file__).resolve().parent
+data_path = resource_dir / "sales_data.csv"
+
 print("--- 1. Descriptive Statistics of Sales Data ---")
 try:
-    df = pd.read_csv(r"Day_24_Pandas_Advanced\sales_data.csv")
+    df = pd.read_csv(data_path)
     df.dropna(inplace=True)  # Clean the data first
 
     # Select the 'Revenue' column to analyze
@@ -27,7 +32,7 @@ try:
     print(df.describe())
 
 except FileNotFoundError:
-    print("Error: sales_data.csv not found in '17_Day_Pandas_Adv' directory.")
+    print("Error: sales_data.csv not found. Keep the CSV beside this script.")
     df = pd.DataFrame()
 print("-" * 20)
 

@@ -2,13 +2,18 @@
 Day 26: Solutions to Exercises
 """
 
+from pathlib import Path
+
 import pandas as pd
 from scipy.stats import ttest_ind
 
 # --- Exercise 1: Descriptive Statistics of Sales ---
 print("--- Solution to Exercise 1 ---")
+resource_dir = Path(__file__).resolve().parent
+data_path = resource_dir / "sales_data.csv"
+
 try:
-    df = pd.read_csv(r"Day_24_Pandas_Advanced\sales_data.csv")
+    df = pd.read_csv(data_path)
     df.dropna(inplace=True)  # Clean the data first
 
     revenue = df["Revenue"]
@@ -20,7 +25,7 @@ try:
     print(f"Maximum Revenue: ${revenue.max():,.2f}")
 
 except FileNotFoundError:
-    print("Error: sales_data.csv not found in '17_Day_Pandas_Adv' directory.")
+    print("Error: sales_data.csv not found. Keep the CSV beside this script.")
     df = pd.DataFrame()
 print("-" * 20)
 

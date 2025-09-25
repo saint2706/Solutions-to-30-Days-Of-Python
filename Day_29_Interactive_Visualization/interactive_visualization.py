@@ -5,16 +5,21 @@ This script demonstrates how to create interactive, web-based
 charts using the Plotly Express library.
 """
 
+from pathlib import Path
+
 import pandas as pd
 import plotly.express as px
 
 # --- Load and Prepare Data ---
+resource_dir = Path(__file__).resolve().parent
+data_path = resource_dir / "sales_data.csv"
+
 try:
-    df = pd.read_csv(r"Day_24_Pandas_Advanced\sales_data.csv", parse_dates=["Date"])
+    df = pd.read_csv(data_path, parse_dates=["Date"])
     df.dropna(inplace=True)
     print("Data loaded successfully.")
 except FileNotFoundError:
-    print("Error: sales_data.csv not found in '17_Day_Pandas_Adv' directory.")
+    print("Error: sales_data.csv not found. Keep the CSV beside this script.")
     df = pd.DataFrame()
 
 if not df.empty:

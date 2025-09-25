@@ -2,13 +2,18 @@
 Day 25: Solutions to Exercises
 """
 
+from pathlib import Path
+
 import pandas as pd
 
 # --- Exercise 1: Load and Initial Clean ---
 print("--- Solution to Exercise 1 ---")
+resource_dir = Path(__file__).resolve().parent
+data_path = resource_dir / "messy_sales_data.csv"
+
 try:
     # Load the data
-    df = pd.read_csv(r"Day_25_Data_Cleaning\messy_sales_data.csv")
+    df = pd.read_csv(data_path)
     print("Original DataFrame info:")
     df.info()
 
@@ -28,7 +33,10 @@ try:
     df.info()
 
 except FileNotFoundError:
-    print("Error: messy_sales_data.csv not found.")
+    print(
+        "Error: messy_sales_data.csv not found in the Day_25_Data_Cleaning folder."
+        " Keep the CSV beside this script."
+    )
     df = pd.DataFrame()
 print("-" * 20)
 
