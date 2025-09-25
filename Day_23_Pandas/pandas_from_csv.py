@@ -1,6 +1,11 @@
+from pathlib import Path
+
 import pandas as pd
 
-df = pd.read_csv(r"data\hacker_news.csv")
+resource_dir = Path(__file__).resolve().parent
+data_path = resource_dir.parent / "data" / "hacker_news.csv"
+
+df = pd.read_csv(data_path)
 
 first_5_rows = df.head()
 # print(first_5_rows)

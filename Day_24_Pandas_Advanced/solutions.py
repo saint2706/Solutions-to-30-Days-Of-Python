@@ -2,13 +2,18 @@
 Day 24: Solutions to Exercises
 """
 
+from pathlib import Path
+
 import pandas as pd
 
 # --- Exercise 1: Load and Inspect ---
 print("--- Solution to Exercise 1 ---")
 # Load the data
+resource_dir = Path(__file__).resolve().parent
+data_path = resource_dir / "sales_data.csv"
+
 try:
-    df = pd.read_csv("sales_data.csv")
+    df = pd.read_csv(data_path)
     print("Successfully loaded sales_data.csv")
 
     # View the first few rows
@@ -24,7 +29,10 @@ try:
     print(df.describe())
 
 except FileNotFoundError:
-    print("Error: sales_data.csv not found. Make sure it's in the same directory.")
+    print(
+        "Error: sales_data.csv not found in the Day_24_Pandas_Advanced folder."
+        " Keep the CSV beside this script."
+    )
 print("-" * 20)
 
 
