@@ -4,6 +4,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
+import numpy as np
 
 # --- Practical Implementation of Classification Algorithms ---
 
