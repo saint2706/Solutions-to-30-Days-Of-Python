@@ -4,13 +4,14 @@ Congratulations on making it to Day 36 of the 50-day Python for Business Analyti
 
 ## The Business Problem
 
-You are a business analyst at a mid-sized e-commerce company. The Head of Sales wants to understand the performance of different products and regions for the last quarter. They have provided you with a dataset of sales transactions and have asked you to answer the following key questions:
+You are a business analyst at a mid-sized e-commerce company. The Head of Sales wants to understand the performance of different products, regions, customer segments, and sales channels for the last several months. They have provided you with a dataset of sales transactions (now including `Customer Segment`, `Sales Channel`, and a pre-calculated `Revenue` column) and have asked you to answer the following key questions:
 
 1. Which were the top 5 products by total revenue?
 2. Which sales region generated the most revenue?
-3. Is there a correlation between the price of a product and the number of units sold?
-4. How did revenue trend over the quarter?
-5. What are your key recommendations based on this analysis?
+3. Which customer segments and sales channels are driving the most revenue?
+4. Is there a correlation between the price of a product and the number of units sold?
+5. How did revenue trend over the recent months?
+6. What are your key recommendations based on this analysis?
 
 ## Your Task: The Analysis Workflow
 
@@ -19,25 +20,27 @@ Your task is to perform a complete analysis by following the standard data analy
 ### Step 1: Load and Inspect the Data
 
 * Load the `case_study_sales.csv` into a Pandas DataFrame.
-* Use `.head()`, `.info()`, and `.isnull().sum()` to get a first look at the data and identify any immediate issues (like missing values).
+* Use `.head()`, `.info()`, and `.isnull().sum()` to get a first look at the data and identify any immediate issues (like missing values or unexpected data types).
 
 ### Step 2: Clean the Data
 
 * Handle any missing values. For this dataset, you can drop rows with missing data.
-* Ensure all columns have the correct data type (e.g., 'Date' should be datetime, 'Price' should be a float).
+* Ensure all columns have the correct data type (e.g., 'Date' should be datetime, 'Price' should be a float, and `Revenue` should be numeric).
 
 ### Step 3: Exploratory Data Analysis (EDA) & Answering Key Questions
 
 * **Top Products:** Group the data by 'Product' and calculate the sum of 'Revenue' for each. Sort the results to find the top 5.
 * **Top Region:** Group the data by 'Region' and calculate the sum of 'Revenue' for each.
+* **Customer Segments & Channels:** Group the data by `Customer Segment` and `Sales Channel` to understand which audiences and distribution paths drive revenue.
 * **Correlation:** Calculate the correlation between the 'Price' and 'Units Sold' columns.
-* **Time-Series Analysis:** Group the data by 'Date' and calculate the sum of 'Revenue' to see the daily trend.
+* **Time-Series Analysis:** Resample or group the data by month using the `Date` column and calculate the sum of 'Revenue' to see the trend over time.
 
 ### Step 4: Visualize Your Findings
 
 * Create a **bar chart** showing the top 5 products by revenue.
 * Create a **pie chart** or **bar chart** showing the revenue contribution of each region.
-* Create a **line chart** showing the daily revenue trend over the quarter.
+* Create a **bar chart** highlighting revenue by customer segment or sales channel.
+* Create a **line chart** showing the monthly revenue trend over the covered period.
 
 ### Step 5: Write Your Summary
 
