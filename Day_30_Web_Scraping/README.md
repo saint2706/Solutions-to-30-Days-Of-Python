@@ -4,6 +4,10 @@ Sometimes, the data you need isn't available in a clean CSV file or through an A
 
 This is an incredibly powerful tool for a business analyst, allowing you to gather competitive intelligence, track news sentiment, collect product prices, and much more.
 
+## 📦 Working Offline
+
+If you do not have internet access, you can still explore the examples in this lesson. The folder now includes a curated `presidents.csv` (and matching `presidents.json`) containing a snapshot of key columns—number, name, party, term dates, and vice presidents—for every U.S. president through Joe Biden. The exercise scripts will look for this local file first, so you can experiment with parsing and analysis even when the Wikipedia page is unavailable. When a connection is available you can still re-run the scraper to refresh the dataset.
+
 **A VERY IMPORTANT NOTE ON ETHICS AND LEGALITY:**
 
 * **Check `robots.txt`:** Always check a website's `robots.txt` file (e.g., `https://example.com/robots.txt`) to see which parts of the site you are allowed to scrape. Respect the rules.

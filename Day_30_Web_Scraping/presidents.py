@@ -1,16 +1,102 @@
-"""
-Day 30: Web Scraping Presidents Data
+"""Day 30: Web Scraping Presidents Data.
 
-This script scrapes data about the presidents of the United States from Wikipedia,
-processes it using pandas, and saves it as a JSON file.
+This script prefers locally curated data so learners can work offline, falls back
+to a lightweight mock dataset, and only reaches out to Wikipedia when it needs to
+refresh the snapshot.
 """
 
+from pathlib import Path
 from typing import Optional
-import requests
-import pandas as pd
+
 import csv
 import json
-import os
+
+import pandas as pd
+import requests
+
+
+MOCK_PRESIDENTS_DATA = [
+    {
+        "number": "1",
+        "president": "George Washington",
+        "term_start": "1789-04-30",
+        "term_end": "1797-03-04",
+        "party": "Independent",
+        "vice_president": "John Adams",
+    },
+    {
+        "number": "2",
+        "president": "John Adams",
+        "term_start": "1797-03-04",
+        "term_end": "1801-03-04",
+        "party": "Federalist",
+        "vice_president": "Thomas Jefferson",
+    },
+    {
+        "number": "3",
+        "president": "Thomas Jefferson",
+        "term_start": "1801-03-04",
+        "term_end": "1809-03-04",
+        "party": "Democratic-Republican",
+        "vice_president": "Aaron Burr; George Clinton",
+    },
+    {
+        "number": "4",
+        "president": "James Madison",
+        "term_start": "1809-03-04",
+        "term_end": "1817-03-04",
+        "party": "Democratic-Republican",
+        "vice_president": "George Clinton; Elbridge Gerry",
+    },
+    {
+        "number": "5",
+        "president": "James Monroe",
+        "term_start": "1817-03-04",
+        "term_end": "1825-03-04",
+        "party": "Democratic-Republican",
+        "vice_president": "Daniel D. Tompkins",
+    },
+    {
+        "number": "6",
+        "president": "John Quincy Adams",
+        "term_start": "1825-03-04",
+        "term_end": "1829-03-04",
+        "party": "Democratic-Republican",
+        "vice_president": "John C. Calhoun",
+    },
+    {
+        "number": "7",
+        "president": "Andrew Jackson",
+        "term_start": "1829-03-04",
+        "term_end": "1837-03-04",
+        "party": "Democratic",
+        "vice_president": "John C. Calhoun; Martin Van Buren",
+    },
+    {
+        "number": "8",
+        "president": "Martin Van Buren",
+        "term_start": "1837-03-04",
+        "term_end": "1841-03-04",
+        "party": "Democratic",
+        "vice_president": "Richard Mentor Johnson",
+    },
+    {
+        "number": "9",
+        "president": "William Henry Harrison",
+        "term_start": "1841-03-04",
+        "term_end": "1841-04-04",
+        "party": "Whig",
+        "vice_president": "John Tyler",
+    },
+    {
+        "number": "10",
+        "president": "John Tyler",
+        "term_start": "1841-04-04",
+        "term_end": "1845-03-04",
+        "party": "Whig (expelled)",
+        "vice_president": "None",
+    },
+]
 
 
 def scrape_presidents_data(url: str) -> Optional[pd.DataFrame]:
@@ -130,6 +216,16 @@ def convert_csv_to_json(csv_file_path: str, json_file_path: str) -> None:
         print(f"❌ An error occurred during conversion: {e}")
 
 
+def save_mock_json(json_file_path: Path) -> None:
+    """Persist the lightweight mock dataset to a JSON file."""
+
+    print("📄 Local CSV not found. Using built-in mock dataset.")
+    data = {item["number"]: item for item in MOCK_PRESIDENTS_DATA}
+    with json_file_path.open("w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, indent=4, ensure_ascii=False)
+    print(f"✅ Mock JSON file created: {json_file_path}")
+
+
 def main():
     """
     Main function to scrape, process, and save the presidents' data.
@@ -145,40 +241,49 @@ def main():
 
     # Define file paths relative to the script's location
     # This makes the script more portable
-    base_dir = os.path.dirname(__file__)
-    csv_path = os.path.join(base_dir, "presidents.csv")
-    json_path = os.path.join(base_dir, "presidents.json")
+    base_dir = Path(__file__).resolve().parent
+    csv_path = base_dir / "presidents.csv"
+    json_path = base_dir / "presidents.json"
 
     print(f"📁 Output files will be saved to: {base_dir}")
 
     # Scrape the data
+    if csv_path.exists():
+        print("📄 Found curated CSV. Converting to JSON without scraping.")
+        convert_csv_to_json(str(csv_path), str(json_path))
+        return
+
+    # If the curated CSV is missing, provide learners with the mock dataset first.
+    save_mock_json(json_path)
+
     presidents_df = scrape_presidents_data(presidents_url)
 
     if presidents_df is not None:
         try:
             # Save the DataFrame to a temporary CSV file, without the index
-            print("💾 Saving data to CSV...")
-            presidents_df.to_csv(csv_path, index=False, encoding="utf-8")
-            print(f"✅ CSV file created: {csv_path}")
+            temp_csv_path = base_dir / "presidents_download.csv"
+            print("💾 Saving scraped data to a temporary CSV...")
+            presidents_df.to_csv(temp_csv_path, index=False, encoding="utf-8")
+            print(f"✅ CSV file created: {temp_csv_path}")
 
             # Convert the CSV to JSON
-            convert_csv_to_json(csv_path, json_path)
+            convert_csv_to_json(str(temp_csv_path), str(json_path))
 
             # Remove the temporary CSV file
             try:
-                os.remove(csv_path)
-                print(f"🧹 Removed temporary CSV file")
+                temp_csv_path.unlink()
+                print("🧹 Removed temporary CSV file")
             except OSError as e:
-                print(f"⚠️  Warning: Could not remove temporary file {csv_path}: {e}")
+                print(f"⚠️  Warning: Could not remove temporary file {temp_csv_path}: {e}")
 
             # Verify the JSON file was created and show some info
-            if os.path.exists(json_path):
-                file_size = os.path.getsize(json_path)
+            if json_path.exists():
+                file_size = json_path.stat().st_size
                 print(f"\n🎉 Success! Created '{json_path}' ({file_size:,} bytes)")
 
                 # Show a preview of the data
                 try:
-                    with open(json_path, "r", encoding="utf-8") as f:
+                    with json_path.open("r", encoding="utf-8") as f:
                         data = json.load(f)
                         print(f"📊 Total presidents in dataset: {len(data)}")
                         if data:
@@ -198,8 +303,10 @@ def main():
         print("💡 This could be due to:")
         print("   • Network connectivity issues")
         print("   • Wikipedia page structure changes")
+        print("   • Rate limiting on Wikipedia")
         print("   • Server blocking the request")
         print("   • Temporary website unavailability")
+        print("📦 Continuing with the mock dataset so you can keep practicing offline.")
 
 
 if __name__ == "__main__":
