@@ -1,4 +1,4 @@
-# 📘 Day 13: List Comprehension - Elegant Data Manipulation
+# 📘 Day 12: List Comprehension - Elegant Data Manipulation
 
 In data analysis, you constantly need to create new lists by transforming or filtering existing ones. For example, creating a list of adjusted prices from a list of base prices, or filtering a list of all sales to get only the ones from a specific region.
 
