@@ -1,5 +1,5 @@
 """
-Day 26: Working with Databases in Python
+Day 31: Working with Databases in Python
 
 This script demonstrates the two main ways to interact with a
 SQLite database from Python: using the built-in `sqlite3` module

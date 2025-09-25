@@ -5,7 +5,6 @@ This script demonstrates how to programmatically extract and analyze
 tabular data from web pages, a crucial skill for business analysts
 who need to gather competitive intelligence, market data, or industry statistics.
 
-Inspired by the Coding for MBAs 50-Day Python curriculum
 Purpose: Educational tool for MBA students learning data acquisition
 """
 

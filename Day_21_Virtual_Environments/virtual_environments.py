@@ -1,5 +1,5 @@
 """
-Day 23: Virtual Environments
+Day 21: Virtual Environments
 
 This lesson is primarily focused on commands you run in your terminal,
 not in a Python script.

@@ -1,4 +1,4 @@
-# 📘 Day 20: Advanced Visualization & Customization
+# 📘 Day 28: Advanced Visualization & Customization
 
 Creating a basic chart is just the first step. To effectively communicate your story, you need to customize your visualizations to make them clear, compelling, and professional. Today, we'll learn how to customize our plots and how to combine multiple plots into a single figure, like a dashboard.
 
@@ -67,9 +67,9 @@ fig.suptitle('Sales Performance Overview', fontsize=20)
 plt.show()
 ```
 
-## 💻 Exercises: Day 20
+## 💻 Exercises: Day 28
 
-For these exercises, you will use the cleaned `sales_data.csv` from Day 17.
+For these exercises, you will use the cleaned `sales_data.csv` from Day 24.
 
 1. **Create a Customized Sales Chart:**
     * Load the cleaned sales data.

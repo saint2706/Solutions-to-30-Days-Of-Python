@@ -1,4 +1,4 @@
-# 📘 Day 17: Advanced Pandas - Working with Real Data
+# 📘 Day 24: Advanced Pandas - Working with Real Data
 
 In the real world, you rarely create your own data in a Python script. Instead, you load it from external sources like CSV files, Excel spreadsheets, or databases. Today, we'll focus on the most common scenario: working with CSV files. We'll also learn more powerful ways to select and filter the data you need.
 
@@ -82,7 +82,7 @@ Real-world data is messy. It often has missing values, which are represented in 
 * `df.dropna()`: Drops rows that contain any missing values.
 * `df.fillna(value)`: Fills missing values with a specified value (e.g., 0, the mean, or "N/A").
 
-## 💻 Exercises: Day 17
+## 💻 Exercises: Day 24
 
 For these exercises, you will use a provided `sales_data.csv` file.
 

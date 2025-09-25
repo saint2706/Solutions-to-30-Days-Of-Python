@@ -1,5 +1,5 @@
 """
-Day 13: Elegant Data Manipulation with List Comprehensions
+Day 12: Elegant Data Manipulation with List Comprehensions
 
 This script demonstrates how to use list comprehensions to
 efficiently transform and filter lists of business data.

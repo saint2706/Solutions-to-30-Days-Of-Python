@@ -1,5 +1,5 @@
 """
-Day 24: Practical Statistics in Python
+Day 26: Practical Statistics in Python
 
 This script demonstrates how to calculate descriptive statistics,
 correlation, and perform a simple hypothesis test (t-test).

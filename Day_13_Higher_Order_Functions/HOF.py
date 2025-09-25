@@ -1,5 +1,5 @@
 """
-Day 14: Advanced Data Processing with Higher-Order Functions
+Day 13: Advanced Data Processing with Higher-Order Functions
 
 This script demonstrates using map, filter, and lambda functions
 for concise and powerful data manipulation.

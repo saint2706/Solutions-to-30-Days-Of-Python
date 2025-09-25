@@ -19,7 +19,7 @@ Example Usage:
 """
 
 __version__ = "1.0.0"
-__author__ = "30 Days of Python Course"
+__author__ = "50 Days of Python Course"
 
 # Import key functions for easy access
 from .arithmetics import add_numbers, subtract, multiply, divide, remainder, power

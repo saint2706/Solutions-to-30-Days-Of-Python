@@ -1,4 +1,4 @@
-# 📘 Day 29: Building a Simple API with Flask
+# 📘 Day 34: Building a Simple API with Flask
 
 Consuming data from APIs is a core skill. But what if you need to provide data from your analysis to another person or application? Instead of sending a CSV file, you can build your own API. This allows other services (like a web dashboard or another analyst's script) to access your data programmatically.
 
@@ -70,7 +70,7 @@ def get_product(product_id):
 
 Now you can go to `/api/products/1` to get the laptop, or `/api/products/2` to get the mouse.
 
-## 💻 Exercises: Day 29
+## 💻 Exercises: Day 34
 
 1. **Create a Basic API Server:**
     * Create a file named `my_api.py`.

@@ -11,7 +11,7 @@ This educational example shows how to:
 - Extract and clean data
 - Structure data in pandas DataFrame
 
-Author: 30 Days of Python Course
+Author: 50 Days of Python Course
 Purpose: Educational example for MBA students
 """
 

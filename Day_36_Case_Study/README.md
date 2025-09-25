@@ -1,6 +1,6 @@
-# 📘 Day 25: Capstone Case Study - Tying It All Together
+# 📘 Day 36: Capstone Case Study - Tying It All Together
 
-Congratulations on making it to the capstone of our data analysis section! It's time to combine everything you've learned—from data cleaning and manipulation with Pandas to statistical analysis and visualization—to solve a realistic business problem from start to finish.
+Congratulations on making it to Day 36 of the 50-day Python for Business Analytics journey! You've explored foundational Python, powerful data tools, and even built lightweight applications. Now it's time to combine everything you've learned—from data cleaning and manipulation with Pandas to statistical analysis and visualization—to solve a realistic business problem from start to finish.
 
 ## The Business Problem
 
@@ -46,4 +46,4 @@ Your task is to perform a complete analysis by following the standard data analy
 
 A complete, end-to-end solution is provided in the `solutions.py` file for this lesson. Try to complete the case study on your own first!
 
-🎉 **Incredible Achievement!** Completing a case study like this means you have a solid, practical foundation in data analysis. You can now take a raw dataset, clean it, analyze it, visualize it, and extract actionable business insights. This is the core skill set of a data analyst.
+🎉 **Incredible Achievement!** Completing a case study like this means you have a solid, practical foundation in data analysis. You can now take a raw dataset, clean it, analyze it, visualize it, and extract actionable business insights. This milestone sets you up perfectly for Day 37, where we'll reflect on the full 50-day program and map out your next steps.

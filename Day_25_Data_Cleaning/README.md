@@ -1,4 +1,4 @@
-# 📘 Day 18: Data Cleaning - The Most Important Skill in Analytics
+# 📘 Day 25: Data Cleaning - The Most Important Skill in Analytics
 
 Welcome to one of the most critical topics in this course. It's often said that data analysts spend about 80% of their time cleaning and preparing data, and only 20% actually analyzing it. Messy, inconsistent data leads to incorrect analysis and bad business decisions. Learning to clean data effectively is a true superpower.
 
@@ -58,7 +58,7 @@ df_no_duplicates = df.drop_duplicates()
 df_unique_orders = df.drop_duplicates(subset=['OrderID'])
 ```
 
-## 💻 Exercises: Day 18
+## 💻 Exercises: Day 25
 
 For these exercises, you will use a provided `messy_sales_data.csv` file.
 

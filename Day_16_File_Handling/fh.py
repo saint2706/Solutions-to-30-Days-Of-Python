@@ -8,7 +8,7 @@ This module demonstrates various file handling operations commonly used in busin
 - CSV data processing
 - Text cleaning and preprocessing
 
-Author: 30 Days of Python Course
+Author: 50 Days of Python Course
 Purpose: Educational examples for MBA students learning Python file operations
 """
 

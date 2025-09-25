@@ -1,6 +1,6 @@
 # 📁 Day 16: File Handling for Business Analytics
 
-Welcome to Day 16 of the 30 Days of Python for MBA program! Today we explore file handling operations essential for business data processing and analysis.
+Welcome to Day 16 of the 50 Days of Python for MBA program! Today we explore file handling operations essential for business data processing and analysis.
 
 ## 🎯 Learning Objectives
 

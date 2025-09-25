@@ -4,7 +4,7 @@ Day 16: File Handling - Solutions
 This file contains comprehensive solutions to all Day 16 exercises,
 demonstrating advanced file handling techniques for business analytics.
 
-Author: 30 Days of Python Course
+Author: 50 Days of Python Course
 Purpose: Educational solutions for MBA students
 """
 
@@ -252,7 +252,7 @@ def main():
     Main function to run all Day 16 solutions and demonstrations.
     """
     print("🐍 Day 16: File Handling for Business Analytics - Solutions")
-    print("🎓 30 Days of Python for MBA Program")
+    print("🎓 50 Days of Python for MBA Program")
     print("📚 Comprehensive demonstrations of file processing techniques")
 
     try:

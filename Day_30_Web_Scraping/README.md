@@ -1,4 +1,4 @@
-# 📘 Day 22: Web Scraping - Extracting Data from the Web
+# 📘 Day 30: Web Scraping - Extracting Data from the Web
 
 Sometimes, the data you need isn't available in a clean CSV file or through an API. It's simply displayed on a website. **Web scraping** is the process of automatically downloading the HTML code of a web page and extracting useful information from it.
 
@@ -43,7 +43,7 @@ paragraphs = soup.find_all('p')
 first_paragraph_text = paragraphs[0].get_text()
 ```
 
-## 💻 Exercises: Day 22
+## 💻 Exercises: Day 30
 
 For these exercises, we will scrape the website `http://books.toscrape.com/`, a site specifically designed for scraping practice.
 

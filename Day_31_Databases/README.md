@@ -1,4 +1,4 @@
-# 📘 Day 26: Working with Databases in Python
+# 📘 Day 31: Working with Databases in Python
 
 While CSV files are great for smaller datasets, most real-world business data is stored in **databases**. Databases are systems designed for storing, managing, and retrieving large amounts of structured data efficiently and safely.
 
@@ -67,7 +67,7 @@ conn.close()
 # sales_df is now a Pandas DataFrame ready for analysis!
 ```
 
-## 💻 Exercises: Day 26
+## 💻 Exercises: Day 31
 
 1. **Create and Populate a Database:**
     * Write a script that creates a new SQLite database called `company.db`.

@@ -5,7 +5,7 @@ This file contains solutions to the exercises for Day 20, demonstrating
 how to use pip to install and work with third-party Python packages
 for business analytics and data processing.
 
-Author: 30 Days of Python Course
+Author: 50 Days of Python Course
 """
 
 import requests
