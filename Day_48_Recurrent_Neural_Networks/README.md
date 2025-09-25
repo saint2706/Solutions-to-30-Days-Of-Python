@@ -2,6 +2,8 @@
 
 Welcome to Day 48! Today, we explore **Recurrent Neural Networks (RNNs)**, a class of neural networks designed specifically for handling **sequential data**, such as time series, text, or audio.
 
+> **Prerequisites:** Install TensorFlow with `pip install tensorflow` so you can build and train the RNN examples (CPU build by default; follow TensorFlow's GPU instructions if you have compatible hardware). Need to brush up on `pip` usage? Revisit the Day 20 Python Package Manager lesson.
+
 ## Key Concepts
 
 ### What are RNNs?

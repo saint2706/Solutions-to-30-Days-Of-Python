@@ -2,6 +2,8 @@
 
 Welcome to Day 45! Today, we cover two critical aspects of the machine learning workflow: **Feature Engineering**, the art of creating better input features, and **Model Evaluation**, the science of assessing a model's performance beyond simple accuracy.
 
+> **Prerequisites:** Install scikit-learn with `pip install scikit-learn` so you can follow the preprocessing and evaluation walkthroughs. Need a reminder on managing packages? Revisit the Day 20 Python Package Manager lesson.
+
 ## 1. Feature Engineering
 
 Feature engineering is the process of using domain knowledge to create features that make machine learning algorithms work better. Good features can make the difference between a poor model and a highly accurate one.

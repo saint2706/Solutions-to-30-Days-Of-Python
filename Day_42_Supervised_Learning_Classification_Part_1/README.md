@@ -2,6 +2,8 @@
 
 Welcome to Day 42! Today, we begin our exploration of **Classification**, a type of supervised learning where the goal is to predict a discrete class label. We'll start with two fundamental classification algorithms: Logistic Regression and K-Nearest Neighbors (KNN).
 
+> **Prerequisites:** Install scikit-learn with `pip install scikit-learn` so you can run the sample notebooks and scripts. Need a reminder on installing packages? Revisit the Day 20 Python Package Manager lesson.
+
 ## Key Concepts
 
 ### What is Classification?

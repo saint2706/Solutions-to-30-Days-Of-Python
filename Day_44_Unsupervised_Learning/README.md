@@ -2,6 +2,8 @@
 
 Welcome to Day 44! Today, we shift our focus to **Unsupervised Learning**, where we work with unlabeled data to discover hidden patterns and structures. We'll explore two fundamental techniques: **K-Means Clustering** for grouping data and **Principal Component Analysis (PCA)** for dimensionality reduction.
 
+> **Prerequisites:** Install scikit-learn with `pip install scikit-learn` to experiment with the clustering and PCA demos. Need a `pip` refresher? Revisit the Day 20 Python Package Manager lesson.
+
 ## Key Concepts
 
 ### What is Unsupervised Learning?

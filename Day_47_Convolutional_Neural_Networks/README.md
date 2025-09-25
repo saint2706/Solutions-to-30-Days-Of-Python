@@ -2,6 +2,8 @@
 
 Welcome to Day 47! Today, we dive into **Convolutional Neural Networks (CNNs)**, a specialized type of neural network that has revolutionized the field of **Computer Vision**.
 
+> **Prerequisites:** Ensure TensorFlow is installed with `pip install tensorflow` (CPU build by default; use TensorFlow's GPU installation guide if you have compatible hardware). Need to review package installation basics? Revisit the Day 20 Python Package Manager lesson.
+
 ## Key Concepts
 
 ### What are CNNs?
