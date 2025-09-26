@@ -6,7 +6,7 @@ This is an incredibly powerful tool for a business analyst, allowing you to gath
 
 ## 📦 Working Offline
 
-If you do not have internet access, you can still explore the examples in this lesson. The folder now includes a curated `presidents.csv` (and matching `presidents.json`) containing a snapshot of key columns—number, name, party, term dates, and vice presidents—for every U.S. president through Joe Biden. The exercise scripts will look for this local file first, so you can experiment with parsing and analysis even when the Wikipedia page is unavailable. When a connection is available you can still re-run the scraper to refresh the dataset.
+If you do not have internet access, you can still explore the examples in this lesson. The folder includes a curated `presidents.csv` containing a snapshot of key columns—number, name, party, term dates, and vice presidents—for every U.S. president through Joe Biden. The exercise scripts will look for this local file first, so you can experiment with parsing and analysis even when the Wikipedia page is unavailable. When a connection is available you can still re-run the scraper to refresh the dataset, which will regenerate `presidents.json`. Git ignores these generated JSON files so your repository stays clean.
 
 **A VERY IMPORTANT NOTE ON ETHICS AND LEGALITY:**
 

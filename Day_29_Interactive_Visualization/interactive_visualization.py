@@ -69,6 +69,8 @@ if not df.empty:
 
     # --- Saving a Plot to an HTML file ---
     # This is a reliable way to view and share the plots.
+    # The repository's .gitignore skips these generated HTML files so you can
+    # recreate them locally without cluttering version control.
     output_filename = "interactive_scatter_plot.html"
     fig_scatter.write_html(output_filename)
     print(

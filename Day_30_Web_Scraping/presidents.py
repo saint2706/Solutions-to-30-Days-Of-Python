@@ -244,6 +244,8 @@ def main():
     base_dir = Path(__file__).resolve().parent
     csv_path = base_dir / "presidents.csv"
     json_path = base_dir / "presidents.json"
+    # The JSON outputs are ignored by git so learners can regenerate them
+    # locally without creating untracked files.
 
     print(f"📁 Output files will be saved to: {base_dir}")
 
