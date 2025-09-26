@@ -141,3 +141,9 @@ cython_debug/
 /data/__pycache__
 /16_Day_Python_date_time/__pycache__/datetime.cpython-39.pyc!/.vscode/
 /flask_project
+# Lesson artifacts regenerated locally
+Day_29_Interactive_Visualization/*.html
+Day_29_Interactive_Visualization/*.png
+Day_30_Web_Scraping/presidents*.json
+Day_30_Web_Scraping/scrapped_*.json
+Day_30_Web_Scraping/presidents_download.csv
