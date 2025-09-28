@@ -1,10 +1,10 @@
 # 📘 Day 5: Managing Collections of Business Data with Lists
 
-In business, you're rarely dealing with a single piece of data. You have lists of customers, lists of quarterly sales figures, lists of products, and so on. Python's most fundamental tool for managing ordered collections of data is the **list**.
+In business, you often work with collections of data: lists of customers, quarterly sales figures, products, and more. Python's most fundamental tool for managing ordered collections is the **list**.
 
 ## What is a List?
 
-A list is an ordered, changeable collection of items. You create a list by placing items inside square brackets `[]`, separated by commas.
+A list is an ordered, changeable collection of items, created by placing items inside square brackets `[]`.
 
 ```python
 # A list of department names (strings)
@@ -12,66 +12,52 @@ departments = ["Sales", "Marketing", "Human Resources", "Engineering"]
 
 # A list of quarterly sales figures (floats)
 quarterly_sales = [120000.50, 135000.75, 110000.00, 145000.25]
-
-# A list can even contain mixed data types
-product_info = ["Gadget-X", 49.99, 1500, True] # Name, Price, Units Sold, In Stock
 ```
 
-## Accessing Data in Lists: Indexing and Slicing
+## Key List Operations
 
-Because lists are ordered, you can access any item by its position, which is called its **index**. Python indexing starts at **0**.
+*   **Accessing Data:** Use an item's **index** (position starting from 0) to access it. `departments[0]` returns `"Sales"`. Negative indexing like `departments[-1]` gets the last item.
+*   **Slicing:** Get a sub-section of a list, like `quarterly_sales[0:2]` for the first two quarters.
+*   **Modifying Data:** Lists are dynamic. Key methods include:
+    *   `.append()`: Adds an item to the end.
+    *   `.remove()`: Removes the first item with a specified value.
+    *   `.sort()`: Sorts the list in place, which is great for ranking.
 
-```python
-departments = ["Sales", "Marketing", "HR", "Engineering"]
-# Index:         0          1        2         3
+## Environment Setup
 
-first_department = departments[0]  # Accesses "Sales"
-third_department = departments[2]  # Accesses "HR"
+Before you begin, ensure you have followed the setup instructions in the main [README.md](../../README.md) to set up your virtual environment and install the required libraries.
 
-# You can also use negative indexing to count from the end.
-last_department = departments[-1] # Accesses "Engineering"
-```
+## Exploring the Refactored Code
 
-**Slicing** is how you get a sub-section of a list.
+The script for this lesson, `lists.py`, has been refactored into functions to make the logic for each list operation reusable and testable.
 
-```python
-first_two_departments = departments[0:2]  # Gets items at index 0 and 1. Result: ["Sales", "Marketing"]
-all_but_first = departments[1:]         # Gets everything from index 1 to the end.
-```
-
-## Modifying Lists: Your Data Management Toolkit
-
-Lists are dynamic. You can add, remove, and change items.
-
-| Method         | Description                                        | Example                                    | Business Use Case                     |
-| :------------- | :------------------------------------------------- | :----------------------------------------- | :------------------------------------ |
-| `.append()`    | Adds an item to the end of the list.               | `sales.append(250.00)`                     | Adding a new sales transaction.       |
-| `.insert()`    | Adds an item at a specified index.                 | `tasks.insert(0, "Urgent Task")`           | Adding a high-priority item to the top of a list. |
-| `.remove()`    | Removes the first item with the specified value.   | `products.remove("Defective Item")`        | Removing a returned or defective product. |
-| `del`          | Removes the item at a specified index.             | `del sales[0]`                             | Deleting an erroneous transaction.      |
-| `.pop()`       | Removes the item at a specified index (and returns it). | `last_sale = sales.pop()`               | Processing items one by one.          |
-| `.sort()`      | Sorts the list in place.                           | `sales.sort(reverse=True)`                 | Ranking sales from highest to lowest. |
-| `.reverse()`   | Reverses the order of the list in place.           | `timeline.reverse()`                       | Viewing events in reverse chronological order. |
+1.  **Review the Code:** Open `Day_05_Lists/lists.py`. Each list operation (e.g., `add_product()`, `analyze_team_sales()`) is now its own function. Notice that the functions return a *new* list rather than modifying the original, which is a good practice to avoid unexpected side effects.
+2.  **Run the Script:** From the root directory of the project (`Coding-For-MBA`), run the script to see the functions in action:
+    ```bash
+    python Day_05_Lists/lists.py
+    ```
+3.  **Run the Tests:** You can run the tests for this lesson to verify the correctness of each function:
+    ```bash
+    pytest tests/test_day_05.py
+    ```
 
 ## 💻 Exercises: Day 5
 
-1. **Manage a Product List:**
-    * Create a list of product names: `["Laptop", "Mouse", "Keyboard", "Monitor"]`.
-    * A new product, "Webcam", is now in stock. Add it to the end of the list.
-    * The "Mouse" is sold out. Remove it from the list.
-    * Print the final list of available products.
+1.  **Manage a Product List:**
+    *   In a new script (`my_solutions_05.py`), create a list of product names: `["Laptop", "Mouse", "Keyboard", "Monitor"]`.
+    *   A new product, "Webcam", is now in stock. Call the `add_product` function (you can import it) to get a new list with the webcam.
+    *   The "Mouse" is sold out. Call the `remove_product` function on your *new* list.
+    *   Print the final list of available products.
 
-2. **Analyze Monthly Expenses:**
-    * You have a list of monthly expenses: `[2200, 2350, 2600, 2130, 2190]`.
-    * Find the total expenses for the period (`sum()`).
-    * Find the month with the highest and lowest expenses (`min()`, `max()`).
-    * A new expense of $2400 was incurred. Add it to the list.
-    * Print the updated total expenses.
+2.  **Analyze Monthly Expenses:**
+    *   Create a function `analyze_expenses(expenses)` that takes a list of numbers.
+    *   The function should return a dictionary containing the `total_expenses`, `highest_expense`, and `lowest_expense`.
+    *   Call the function with a list like `[2200, 2350, 2600, 2130, 2190]` and print the results.
 
-3. **Select Top Sales Performers:**
-    * You have a list of sales figures for your team: `[5000, 8000, 4500, 12000, 6000, 11000]`.
-    * Sort the list in descending order to identify the top performers.
-    * "Slice" the list to get the top 3 sales figures.
-    * Print the top 3 sales figures.
+3.  **Select Top Sales Performers:**
+    *   The `analyze_team_sales` function in `lists.py` already does this.
+    *   Import it into your script: `from Day_05_Lists.lists import analyze_team_sales`.
+    *   Call the function with a list of sales figures: `[5000, 8000, 4500, 12000, 6000, 11000]`.
+    *   Print the `top_3_sales` from the dictionary that the function returns.
 
-🎉 **Great job!** Lists are the workhorse for storing collections of data in Python. Understanding how to access, manage, and analyze data within lists is a fundamental skill for any data analyst.
+🎉 **Great job!** Lists are the workhorse for storing collections of data in Python. Understanding how to manage and analyze data within lists is a fundamental skill for any data analyst.

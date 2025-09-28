@@ -1,82 +1,84 @@
 """
-Day 13: Advanced Data Processing with Higher-Order Functions
+Day 13: Advanced Data Processing with Higher-Order Functions (Refactored)
 
-This script demonstrates using map, filter, and lambda functions
-for concise and powerful data manipulation.
+This script demonstrates using map, filter, and sorted with lambda functions
+for concise and powerful data manipulation. This version is refactored
+into functions for better organization and testability.
 """
 
-# --- Using map() to transform a list ---
-print("--- Applying a Bonus to All Salaries ---")
-salaries = [50000, 80000, 120000, 65000]
-print(f"Original salaries: {salaries}")
+def apply_bonus_to_salaries(salaries, bonus_percentage):
+    """
+    Applies a percentage bonus to a list of salaries using map().
+    """
+    bonus_multiplier = 1 + bonus_percentage
+    return list(map(lambda s: s * bonus_multiplier, salaries))
 
+def filter_high_yield_projects(projects, roi_threshold):
+    """
+    Filters a list of projects to find those with an ROI above a threshold.
+    Assumes projects is a list of tuples: (project_name, roi_percentage).
+    """
+    return list(filter(lambda p: p[1] > roi_threshold, projects))
 
-# We can define a function to use with map
-def apply_bonus(salary):
-    return salary * 1.10
+def get_active_customer_names(customers):
+    """
+    Filters a list of customer dictionaries for active customers and returns their names.
+    """
+    active_customers = filter(lambda c: c.get("subscription_status") == "active", customers)
+    return list(map(lambda c: c.get("name"), active_customers))
 
+def sort_products_by_attribute(products, attribute_name):
+    """
+    Sorts a list of product dictionaries by a specified attribute (e.g., 'price').
+    """
+    return sorted(products, key=lambda p: p.get(attribute_name, 0))
 
-# But it's often quicker to use a lambda function directly in the map call
-# lambda s: s * 1.10 is a short, anonymous function that does the same thing.
-new_salaries = list(map(lambda s: s * 1.10, salaries))
-print(f"Salaries after 10% bonus: {new_salaries}")
-print("-" * 20)
+def main():
+    """Main function to demonstrate higher-order functions."""
+    # --- Using map() to transform a list ---
+    print("--- Applying a Bonus to All Salaries ---")
+    salaries_list = [50000, 80000, 120000, 65000]
+    print(f"Original salaries: {salaries_list}")
 
+    new_salaries_list = apply_bonus_to_salaries(salaries_list, 0.10) # 10% bonus
+    print(f"Salaries after 10% bonus: {new_salaries_list}")
+    print("-" * 20)
 
-# --- Using filter() to select data ---
-print("--- Filtering for High-Yield Projects ---")
-# A list of tuples, where each tuple is (project_name, roi_percentage)
-projects = [("Project A", 12), ("Project B", 20), ("Project C", 8), ("Project D", 25)]
-print(f"All projects: {projects}")
+    # --- Using filter() to select data ---
+    print("--- Filtering for High-Yield Projects ---")
+    projects_list = [("Project A", 12), ("Project B", 20), ("Project C", 8), ("Project D", 25)]
+    print(f"All projects: {projects_list}")
 
-# We want to find projects where the ROI (the second item, index 1) is > 15%
-# lambda p: p[1] > 15 is a function that returns True or False for each project
-high_yield_projects = list(filter(lambda p: p[1] > 15, projects))
-print(f"High-yield projects (ROI > 15%): {high_yield_projects}")
-print("-" * 20)
+    high_yield_list = filter_high_yield_projects(projects_list, 15)
+    print(f"High-yield projects (ROI > 15%): {high_yield_list}")
+    print("-" * 20)
 
+    # --- Combining map() and filter() ---
+    print("--- Analyzing High-Value Customer Data ---")
+    customers_list = [
+        {"name": "InnovateCorp", "subscription_status": "active", "monthly_spend": 550},
+        {"name": "DataDriven Inc.", "subscription_status": "inactive", "monthly_spend": 120},
+        {"name": "Analytics LLC", "subscription_status": "active", "monthly_spend": 210},
+    ]
+    print(f"Original customer data: {customers_list}")
 
-# --- Combining map() and filter() ---
-print("--- Analyzing High-Value Customer Data ---")
-customers = [
-    {"name": "InnovateCorp", "subscription_status": "active", "monthly_spend": 550},
-    {
-        "name": "DataDriven Inc.",
-        "subscription_status": "inactive",
-        "monthly_spend": 120,
-    },
-    {"name": "Analytics LLC", "subscription_status": "active", "monthly_spend": 210},
-]
+    active_names = get_active_customer_names(customers_list)
+    print(f"Names of active customers: {active_names}")
+    print("-" * 20)
 
-# Goal: Get the names of all 'active' customers.
+    # --- Using sorted() with a lambda key ---
+    print("--- Sorting Products by Price ---")
+    products_list = [
+        {"name": "Laptop", "price": 1200},
+        {"name": "Mouse", "price": 25},
+        {"name": "Keyboard", "price": 75},
+        {"name": "Monitor", "price": 300},
+    ]
+    print(f"Original product list: {products_list}")
 
-# Step 1: Filter the list to get only active customers.
-active_customers = list(
-    filter(lambda c: c["subscription_status"] == "active", customers)
-)
+    sorted_products = sort_products_by_attribute(products_list, 'price')
+    print(f"Products sorted by price: {sorted_products}")
+    print("-" * 20)
 
-# Step 2: Map the filtered list to get just the names.
-active_customer_names = list(map(lambda c: c["name"], active_customers))
-
-print(f"Original customer data: {customers}")
-print(f"Filtered active customers: {active_customers}")
-print(f"Names of active customers: {active_customer_names}")
-print("-" * 20)
-
-
-# --- Using sorted() with a lambda key ---
-print("--- Sorting Products by Price ---")
-products = [
-    {"name": "Laptop", "price": 1200},
-    {"name": "Mouse", "price": 25},
-    {"name": "Keyboard", "price": 75},
-    {"name": "Monitor", "price": 300},
-]
-print(f"Original product list: {products}")
-
-# sorted() is a higher-order function. The 'key' argument takes a function.
-# We provide a lambda function that tells sorted() to look at the 'price'
-# of each dictionary when it's comparing them.
-products_sorted_by_price = sorted(products, key=lambda p: p["price"])
-print(f"Products sorted by price: {products_sorted_by_price}")
-print("-" * 20)
+if __name__ == "__main__":
+    main()

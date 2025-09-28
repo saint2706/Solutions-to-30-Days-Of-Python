@@ -5,71 +5,58 @@ We've seen lists for ordered data and tuples for immutable data. Now we'll learn
 ## What is a Set?
 
 A set is an **unordered** collection of **unique** items.
-
-* **Unordered:** The items in a set do not have a defined order. You cannot access them using an index like `my_set[0]`.
-* **Unique:** A set cannot contain duplicate items. If you try to add an item that's already in the set, nothing happens.
-
-You create a set using curly braces `{}` or the `set()` function on a list.
-
-```python
-# A list with duplicate sales regions
-sales_regions_list = ["North", "South", "North", "West", "East", "South"]
-
-# Creating a set automatically removes duplicates
-unique_sales_regions = set(sales_regions_list)
-# The set will be: {"North", "South", "West", "East"} (order is not guaranteed)
-```
+*   **Unordered:** Items have no defined order.
+*   **Unique:** A set cannot contain duplicate items.
 
 This de-duplication feature is one of the most common uses for sets in data analysis.
 
 ## Set Operations: The Foundation of Segmentation
 
-The true power of sets in business analytics comes from their mathematical operations. These are invaluable for customer segmentation, cohort analysis, and more.
+The true power of sets comes from their mathematical operations, which are invaluable for customer segmentation and cohort analysis.
 
-Imagine we have two sets of customers: those who bought Product A and those who bought Product B.
+| Operation      | Python Operator | Business Question Answered                               |
+| :------------- | :-------------- | :------------------------------------------------------- |
+| **Union**      | `A | B`         | What is the total unique audience for two groups?        |
+| **Intersection** | `A & B`         | Which customers are in *both* Group A *and* Group B?     |
+| **Difference**   | `A - B`         | Which customers are in Group A *but not* in Group B?   |
 
-```python
-customers_A = {"John", "Mary", "Peter", "Jane"}
-customers_B = {"Peter", "Jane", "Chris", "Anna"}
-```
+## Environment Setup
 
-| Operation      | Python Operator | Python Method        | Result                                        | Business Question Answered                               |
-| :------------- | :-------------- | :------------------- | :-------------------------------------------- | :------------------------------------------------------- |
-| **Union**      | `A | B`         | `A.union(B)`         | `{"John", "Mary", "Peter", "Jane", "Chris", "Anna"}` |
-| **Intersection** | `A & B`         | `A.intersection(B)`  | `{"Peter", "Jane"}`                           | Which customers bought *both* Product A *and* Product B? |
-| **Difference**   | `A - B`         | `A.difference(B)`    | `{"John", "Mary"}`                            | Which customers bought Product A *but not* Product B?    |
-| **Symmetric Difference** | `A ^ B` | `A.symmetric_difference(B)` | `{"John", "Mary", "Chris", "Anna"}` | Which customers bought Product A *or* Product B, but *not both*? |
+Before you begin, ensure you have followed the setup instructions in the main [README.md](../../README.md) to set up your virtual environment and install the required libraries.
 
-## Modifying Sets
+## Exploring the Refactored Code
 
-While sets are used for analysis, you can also modify them.
+The script for this lesson, `sets.py`, has been refactored into functions to make the logic for de-duplication and segmentation reusable and testable.
 
-* `.add(item)`: Adds a single item to the set.
-* `.update(other_set)`: Adds all items from another set into the current set.
-* `.remove(item)`: Removes a specified item. Will raise an error if the item is not found.
-* `.discard(item)`: Also removes an item, but will *not* raise an error if the item isn't there. This is often safer.
+1.  **Review the Code:** Open `Day_07_Sets/sets.py`. Notice the functions `get_unique_items()`, `analyze_visitor_segments()`, and `upgrade_plan_features()`.
+2.  **Run the Script:** From the root directory of the project (`Coding-For-MBA`), run the script to see the functions in action:
+    ```bash
+    python Day_07_Sets/sets.py
+    ```
+3.  **Run the Tests:** You can run the tests for this lesson to verify the correctness of each function:
+    ```bash
+    pytest tests/test_day_07.py
+    ```
 
 ## 💻 Exercises: Day 7
 
-1. **Find Unique Customer Cities:**
-    * You have a list of cities from where orders were placed, with many duplicates: `order_cities = ["New York", "Los Angeles", "Chicago", "New York", "Boston", "Los Angeles"]`.
-    * Convert this list into a set to find the unique cities.
-    * Print the set of unique cities and the number of unique cities.
+1.  **Find Unique Customer Cities:**
+    *   In a new script (`my_solutions_07.py`), you have a list of cities: `order_cities = ["New York", "Los Angeles", "Chicago", "New York", "Boston", "Los Angeles"]`.
+    *   Import the `get_unique_items` function from the lesson script.
+    *   Call the function with your list to get a set of unique cities and print the result.
 
-2. **Analyze Website Visitor Activity:**
-    * You have two sets of user IDs. One set for users who visited the "Pricing" page, and another for users who visited the "Contact Us" page.
-    * `pricing_visitors = {"user1", "user3", "user5", "user7"}`
-    * `contact_visitors = {"user2", "user3", "user4", "user5"}`
-    * Find and print the following:
-        * The users who visited *both* the pricing and contact pages (intersection).
-        * The users who visited the pricing page but *not* the contact page (difference).
-        * A complete set of all unique users who visited *either* page (union).
+2.  **Analyze Website Visitor Activity:**
+    *   You have two sets of user IDs:
+        *   `pricing_visitors = {"user1", "user3", "user5", "user7"}`
+        *   `contact_visitors = {"user2", "user3", "user4", "user5"}`
+    *   Import the `analyze_visitor_segments` function.
+    *   Call the function with these two sets.
+    *   Print the `intersection` and `difference_a_b` from the returned dictionary to find highly engaged users and users who only viewed pricing.
 
-3. **Manage Product Features:**
-    * Your "Standard Plan" has a set of features: `standard_features = {"reporting", "data_export", "basic_support"}`.
-    * Your "Pro Plan" has all the standard features plus some new ones.
-    * Start by creating a copy of the standard features for the "Pro Plan": `pro_features = standard_features.copy()`.
-    * Now, `.update()` the `pro_features` set with a list of new features: `["api_access", "priority_support"]`.
-    * Print both the standard and pro feature sets.
+3.  **Manage Product Features:**
+    *   Your "Standard Plan" has a set of features: `standard_features = {"reporting", "data_export", "basic_support"}`.
+    *   You want to add `["api_access", "priority_support"]` for the "Pro Plan".
+    *   Import and use the `upgrade_plan_features` function to create the new feature set for the Pro Plan.
+    *   Print the resulting Pro Plan feature set.
 
 🎉 **Well done!** Sets are a specialized but incredibly efficient tool. When you need to de-duplicate a list or analyze the overlap between two groups, sets are the best tool for the job.

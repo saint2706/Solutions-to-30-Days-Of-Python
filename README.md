@@ -2,6 +2,33 @@
 
 Welcome to the 50 Days of Python & Machine Learning challenge, a structured and comprehensive curriculum designed to take you from the fundamentals of Python to advanced topics in data science, web development, and a complete track on Machine Learning. This repository has been reorganized to provide a logical and progressive learning experience.
 
+## Setup
+
+To get started with this project, you'll need to set up a virtual environment and install the required dependencies.
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/Coding-For-MBA.git
+    cd Coding-For-MBA
+    ```
+
+2.  **Create and activate a virtual environment:**
+    *   **On macOS and Linux:**
+        ```bash
+        python3 -m venv venv
+        source venv/bin/activate
+        ```
+    *   **On Windows:**
+        ```bash
+        python -m venv venv
+        .\\venv\\Scripts\\activate
+        ```
+
+3.  **Install the dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 ## How to Use This Repository
 
 Each day's folder contains a lesson, example code, and exercises to solidify your understanding. It is recommended to follow the days in order, as they build upon concepts from previous lessons.

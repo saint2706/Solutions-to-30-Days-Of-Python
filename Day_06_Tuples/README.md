@@ -1,73 +1,64 @@
 # 📘 Day 6: Tuples - Storing Immutable Business Data
 
-So far, we've worked with lists, which are excellent for collections of data that need to change. But what about data that *shouldn't* change? Think about a specific transaction record: once it's created, you wouldn't want to accidentally change the date or the amount. For this, Python gives us the **tuple**.
+While lists are great for data that changes, sometimes you need to store data that *shouldn't* change. For this, Python provides the **tuple**.
 
 ## What is a Tuple?
 
-A tuple is an ordered, **immutable** collection of items. "Immutable" is a key concept: it means once a tuple is created, it cannot be changed. You can't add, remove, or modify items. This makes tuples perfect for protecting data integrity.
-
-You create a tuple just like a list, but with parentheses `()` instead of square brackets.
+A tuple is an ordered, **immutable** collection of items. "Immutable" means once a tuple is created, it cannot be changed. This makes tuples perfect for protecting the integrity of fixed data records.
 
 ```python
-# A tuple to store fixed company brand colors (RGB values)
-brand_colors = (45, 85, 150)
-
-# A tuple to store a transaction record (ID, Date, Amount)
+# A tuple for a transaction record (ID, Date, Amount)
 transaction = (1001, "2024-03-15", 499.99)
 ```
 
-## Why Use a Tuple Instead of a List?
+### Why Use a Tuple?
 
-1. **Data Integrity:** This is the main reason. If you have data that should remain constant, using a tuple prevents accidental modification by you or someone else using your code. It's a safeguard.
-2. **Performance:** Tuples are slightly more memory-efficient and faster to access than lists. For very large datasets, this can make a difference.
-3. **Dictionary Keys:** As we'll see later, you can use tuples as keys in a dictionary (another data structure), but you cannot use lists. This is useful for complex data mapping.
-
-## Working with Tuples
-
-You can access data in a tuple using indexing and slicing, just like with lists.
-
-```python
-transaction = (1001, "2024-03-15", 499.99)
-transaction_id = transaction[0]  # Accesses 1001
-amount = transaction[2]         # Accesses 499.99
-```
-
-The key difference is that you **cannot** do this:
-`transaction[2] = 599.99  # This will cause a TypeError!`
+1.  **Data Integrity:** Prevents accidental modification of data that should be constant.
+2.  **Performance:** Tuples are slightly more memory-efficient and faster than lists.
+3.  **Dictionary Keys:** Tuples can be used as keys in dictionaries, whereas lists cannot.
 
 ### Unpacking Tuples
 
-A very common and elegant feature of tuples is "unpacking." You can assign the items of a tuple to multiple variables at once.
+A very common and elegant feature is "unpacking," which lets you assign the items of a tuple to multiple variables at once.
 
 ```python
-transaction = (1001, "2024-03-15", 499.99)
 trans_id, date, amount = transaction
-
-print(f"Transaction ID: {trans_id}")
-print(f"Date: {date}")
-print(f"Amount: ${amount}")
 ```
 
-This is much cleaner than accessing each item by its index.
+## Environment Setup
+
+Before you begin, ensure you have followed the setup instructions in the main [README.md](../../README.md) to set up your virtual environment and install the required libraries.
+
+## Exploring the Refactored Code
+
+The script for this lesson, `tuples.py`, has been refactored to separate the logic for handling tuples into testable functions.
+
+1.  **Review the Code:** Open `Day_06_Tuples/tuples.py`. Notice the functions `get_location_coordinates()` and `unpack_transaction()` that now contain the core logic.
+2.  **Run the Script:** From the root directory of the project (`Coding-For-MBA`), run the script to see the functions in action:
+    ```bash
+    python Day_06_Tuples/tuples.py
+    ```
+3.  **Run the Tests:** You can run the tests for this lesson to verify the correctness of each function:
+    ```bash
+    pytest tests/test_day_06.py
+    ```
 
 ## 💻 Exercises: Day 6
 
-1. **Store Geographic Coordinates:**
-    * A company's headquarters is located at latitude 40.7128 and longitude -74.0060.
-    * Store these coordinates in a tuple called `hq_location`.
-    * "Unpack" the tuple into `latitude` and `longitude` variables.
-    * Print the latitude and longitude.
+1.  **Store Geographic Coordinates:**
+    *   In a new script (`my_solutions_06.py`), a company's headquarters is located at latitude `40.7128` and longitude `-74.0060`.
+    *   Store these in a tuple called `hq_location`.
+    *   "Unpack" the tuple into `latitude` and `longitude` variables and print them.
 
-2. **Define Product Dimensions:**
-    * You are defining the dimensions (length, width, height) in centimeters for a product package. These dimensions are fixed.
-    * Create a tuple `package_dimensions` with the values `25`, `15`, `10`.
-    * Write a print statement that uses f-string formatting and indexing to display: "Package Dimensions (LxWxH): 25cm x 15cm x 10cm".
+2.  **Define Product Dimensions:**
+    *   Create a function `format_dimensions(dims_tuple)` that takes a tuple of three numbers (length, width, height).
+    *   The function should return a formatted string like `"Dimensions (LxWxH): 25cm x 15cm x 10cm"`.
+    *   Call the function with a tuple like `(25, 15, 10)` and print the result.
 
-3. **List vs. Tuple - The Right Tool for the Job:**
-    * For each of the following scenarios, decide if a **list** or a **tuple** would be the more appropriate data structure. Write a comment in your Python script explaining your choice.
-        * Scenario A: Storing the monthly sales figures for the past year.
-        * Scenario B: Storing the RGB color code for your company's official logo.
-        * Scenario C: Storing the names of employees in a department.
-        * Scenario D: Storing the name, founding year, and stock ticker symbol for a company.
+3.  **List vs. Tuple - The Right Tool for the Job:**
+    *   For each scenario below, decide if a **list** or a **tuple** is more appropriate and write a comment in your script explaining why.
+        *   Scenario A: Storing the monthly sales figures for the past year.
+        *   Scenario B: Storing the RGB color code for your company's logo.
+        *   Scenario C: Storing the names of employees in a department.
 
-🎉 **Excellent!** You've now learned about immutability and how to use tuples to ensure your data remains constant and secure. Knowing when to use a tuple versus a list is a sign of a thoughtful analyst.
+🎉 **Excellent!** You've learned about immutability and how to use tuples to ensure your data remains constant. Knowing when to use a tuple versus a list is a sign of a thoughtful analyst.

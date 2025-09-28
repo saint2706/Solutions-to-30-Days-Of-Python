@@ -1,61 +1,57 @@
 """
-Day 1: Python for Business Analytics - First Steps
+Day 1: Python for Business Analytics - First Steps (Refactored)
 
 This script demonstrates basic Python concepts using business-relevant examples.
 We will perform a simple profit calculation and check the types of various
-business-related data points.
+business-related data points. This version is refactored to use functions.
 """
 
-# The print() function is used to display output.
-# Let's start with a welcome message for our analytics dashboard.
-print("Welcome to the Quarterly Business Review Dashboard")
-print()  # This prints a blank line for spacing.
+def calculate_gross_profit(revenue, cogs):
+    """Calculates the gross profit from revenue and COGS."""
+    return revenue - cogs
 
-# --- Basic Business Calculations ---
-# Let's calculate the Gross Profit for a product.
-# Gross Profit = Revenue - Cost of Goods Sold (COGS)
+def calculate_gross_profit_margin(gross_profit, revenue):
+    """Calculates the gross profit margin."""
+    if revenue == 0:
+        return 0
+    return (gross_profit / revenue) * 100
 
-revenue = 500000
-cogs = 350000
-gross_profit = revenue - cogs
+def display_business_analytics(revenue, cogs):
+    """Calculates and displays key business metrics."""
+    print("Welcome to the Quarterly Business Review Dashboard")
+    print()
 
-# We use an f-string (formatted string literal) to print the result.
-# This is a modern and readable way to mix text and variables.
-print(f"Total Revenue: ${revenue}")
-print(f"Cost of Goods Sold: ${cogs}")
-print(f"Gross Profit: ${gross_profit}")
-print()
+    gross_profit = calculate_gross_profit(revenue, cogs)
+    gross_profit_margin = calculate_gross_profit_margin(gross_profit, revenue)
 
-# Now, let's calculate the Gross Profit Margin.
-# Gross Profit Margin = (Gross Profit / Revenue) * 100
-gross_profit_margin = (gross_profit / revenue) * 100
+    print(f"Total Revenue: ${revenue}")
+    print(f"Cost of Goods Sold: ${cogs}")
+    print(f"Gross Profit: ${gross_profit}")
+    print()
+    print(f"Gross Profit Margin: {gross_profit_margin:.2f}%")
+    print("-" * 20)
 
-# The :.2f inside the curly braces formats the number to two decimal places.
-print(f"Gross Profit Margin: {gross_profit_margin:.2f}%")
-print("-" * 20)  # Prints a separator line for clarity.
+def display_data_types():
+    """Displays the types of various business-related data points."""
+    print("Checking the types of some common business data points:")
 
-# --- Understanding Data Types in a Business Context ---
-# Python automatically detects the type of data you are using.
-# We can use the type() function to see what Python thinks a piece of data is.
+    units_sold = 1500
+    product_price = 49.99
+    company_name = "InnovateCorp"
+    is_in_stock = True
+    quarterly_sales = [110000, 120000, 135000, 140000]
 
-print("Checking the types of some common business data points:")
+    print(f"Data: {units_sold}, Type: {type(units_sold)}")
+    print(f"Data: {product_price}, Type: {type(product_price)}")
+    print(f"Data: '{company_name}', Type: {type(company_name)}")
+    print(f"Data: {is_in_stock}, Type: {type(is_in_stock)}")
+    print(f"Data: {quarterly_sales}, Type: {type(quarterly_sales)}")
 
-# An integer (int) is a whole number.
-units_sold = 1500
-print(f"Data: {units_sold}, Type: {type(units_sold)}")
+if __name__ == "__main__":
+    # --- Basic Business Calculations ---
+    revenue_main = 500000
+    cogs_main = 350000
+    display_business_analytics(revenue_main, cogs_main)
 
-# A float is a number with a decimal point.
-product_price = 49.99
-print(f"Data: {product_price}, Type: {type(product_price)}")
-
-# A string (str) is text, enclosed in quotes.
-company_name = "InnovateCorp"
-print(f"Data: '{company_name}', Type: {type(company_name)}")
-
-# A boolean (bool) is either True or False.
-is_in_stock = True
-print(f"Data: {is_in_stock}, Type: {type(is_in_stock)}")
-
-# A list is a collection of items.
-quarterly_sales = [110000, 120000, 135000, 140000]
-print(f"Data: {quarterly_sales}, Type: {type(quarterly_sales)}")
+    # --- Understanding Data Types in a Business Context ---
+    display_data_types()

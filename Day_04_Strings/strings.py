@@ -1,68 +1,83 @@
 """
-Day 4: Manipulating Business Text Data with Strings
+Day 4: Manipulating Business Text Data with Strings (Refactored)
 
 This script demonstrates common string manipulations and methods
-applied to business-related text data.
+applied to business-related text data. This version is refactored
+into functions for better organization and testability.
 """
 
-# --- Formatting Strings for Reports ---
-print("--- Generating Report Headers ---")
-report_title = "Quarterly Sales Report"
-fiscal_year = 2024
+def generate_report_header(title, year):
+    """Creates a formatted report header."""
+    return f"*** {title.upper()} - FY{year} ***"
 
-# Using an f-string and the .upper() method to create a clean, formatted header.
-header = f"*** {report_title.upper()} - FY{fiscal_year} ***"
-print(header)
-print("-" * 20)
+def clean_and_format_name(raw_name):
+    """Cleans and capitalizes a raw name string."""
+    return raw_name.strip().title()
 
+def format_date_string(date_str, old_separator="-", new_separator="/"):
+    """Replaces separators in a date string."""
+    return date_str.replace(old_separator, new_separator)
 
-# --- Cleaning Customer and Product Data ---
-print("--- Data Cleaning Examples ---")
+def parse_sku(sku):
+    """Parses a SKU string into its component parts."""
+    parts = sku.split("-")
+    if len(parts) == 3:
+        return {"type": parts[0], "name": parts[1], "id": parts[2]}
+    return None
 
-# .strip() is essential for cleaning user input or messy data.
-raw_customer_name = "  john doe  "
-cleaned_name = raw_customer_name.strip()
-print(f"Raw name: '{raw_customer_name}', Cleaned name: '{cleaned_name}'")
+def is_transaction_type(transaction_id, prefix):
+    """Checks if a transaction ID starts with a given prefix."""
+    return transaction_id.startswith(prefix)
 
-# .title() is a handy method for capitalizing names correctly.
-formatted_name = cleaned_name.title()
-print(f"Final formatted name: '{formatted_name}'")
-print()
+def has_file_extension(filename, extension):
+    """Checks if a filename ends with a given extension."""
+    return filename.endswith(extension)
 
-# .replace() is great for standardizing data.
-raw_date = "2023-Jan-15"
-formatted_date = raw_date.replace("-", "/")
-print(f"Original date: {raw_date}, Formatted date: {formatted_date}")
-print("-" * 20)
+def feedback_contains_keyword(feedback, keyword):
+    """Checks if a feedback string contains a specific keyword."""
+    return feedback.find(keyword) != -1
 
+if __name__ == "__main__":
+    # --- Formatting Strings for Reports ---
+    print("--- Generating Report Headers ---")
+    header_text = generate_report_header("Quarterly Sales Report", 2024)
+    print(header_text)
+    print("-" * 20)
 
-# --- Parsing and Extracting Information from Strings ---
-print("--- Parsing Product and Transaction IDs ---")
+    # --- Cleaning Customer and Product Data ---
+    print("--- Data Cleaning Examples ---")
+    customer_name = "  john doe  "
+    formatted_customer_name = clean_and_format_name(customer_name)
+    print(f"Raw name: '{customer_name}', Final formatted name: '{formatted_customer_name}'")
 
-# .split() is used to break a string into a list of smaller strings.
-sku = "PROD-GADGET-001"
-parts = sku.split("-")
-print(f"SKU: {sku}")
-print(f"  Product Type: {parts[0]}")
-print(f"  Product Name: {parts[1]}")
-print(f"  Product ID: {parts[2]}")
-print()
+    date_string = "2023-Jan-15"
+    formatted_date_str = format_date_string(date_string)
+    print(f"Original date: {date_string}, Formatted date: {formatted_date_str}")
+    print("-" * 20)
 
-# .startswith() helps in identifying or validating data.
-transaction_id = "INV-2024-03-15-998"
-is_invoice = transaction_id.startswith("INV")
-print(f"Transaction '{transaction_id}' is an invoice: {is_invoice}")
+    # --- Parsing and Extracting Information from Strings ---
+    print("--- Parsing Product and Transaction IDs ---")
+    product_sku = "PROD-GADGET-001"
+    parsed_sku = parse_sku(product_sku)
+    if parsed_sku:
+        print(f"SKU: {product_sku}")
+        print(f"  Product Type: {parsed_sku['type']}")
+        print(f"  Product Name: {parsed_sku['name']}")
+        print(f"  Product ID: {parsed_sku['id']}")
+    print()
 
-# .endswith() is great for checking file types.
-report_file = "q1_sales_report.pdf"
-is_pdf = report_file.endswith(".pdf")
-print(f"Report file '{report_file}' is a PDF: {is_pdf}")
-print("-" * 20)
+    trans_id = "INV-2024-03-15-998"
+    is_inv = is_transaction_type(trans_id, "INV")
+    print(f"Transaction '{trans_id}' is an invoice: {is_inv}")
 
-# .find() can be used to locate substrings
-customer_feedback = "The new CRM is great, but the reporting feature is slow."
-# find returns the starting index of the word, or -1 if not found
-if customer_feedback.find("slow") != -1:
-    print("Feedback contains the word 'slow'. Action may be required.")
-else:
-    print("Feedback does not contain the word 'slow'.")
+    report_filename = "q1_sales_report.pdf"
+    is_a_pdf = has_file_extension(report_filename, ".pdf")
+    print(f"Report file '{report_filename}' is a PDF: {is_a_pdf}")
+    print("-" * 20)
+
+    # --- Searching for keywords ---
+    customer_feedback_text = "The new CRM is great, but the reporting feature is slow."
+    if feedback_contains_keyword(customer_feedback_text, "slow"):
+        print("Feedback contains the word 'slow'. Action may be required.")
+    else:
+        print("Feedback does not contain the word 'slow'.")

@@ -1,44 +1,52 @@
-# 🔍 Day 17: Regular Expressions
+# 📘 Day 17: Regular Expressions for Text Pattern Matching
 
-## Welcome to Day 17
+Often, the text data you need to analyze isn't perfectly structured. You might need to find all the invoice numbers in a document, extract all email addresses from a messy text block, or validate that a product code follows a specific format. For these tasks, we use **regular expressions** (regex).
 
-Today, we're going to learn about a powerful tool for text processing: **regular expressions** (often shortened to "regex" or "regexp"). This is an essential skill for anyone working with text data.
+## What is a Regular Expression?
 
-## Why are Regular Expressions Important for Business Analytics?
+A regular expression is a special sequence of characters that defines a search pattern. It's like a mini-language for finding and manipulating text. While it can look intimidating at first, a few key patterns can solve most common business problems.
 
-As a business analyst, you'll often need to extract specific information from large amounts of text, such as:
+*   `\d+`: Matches one or more digits (e.g., `123`).
+*   `[a-z]+`: Matches one or more lowercase letters.
+*   `\s`: Matches a whitespace character.
+*   `\b`: Matches a word boundary.
+*   `[]`: Defines a character set (e.g., `[abc]` matches 'a', 'b', or 'c').
+*   `[^...]`: Matches anything *not* in the character set.
 
-- Finding all the email addresses or phone numbers in a document.
-- Extracting product codes or order numbers from unstructured text.
-- Cleaning up messy text data by removing unwanted characters or formatting.
+## Environment Setup
 
-Regular expressions provide a concise and powerful way to perform these tasks, saving you a lot of time and effort compared to writing complex string manipulation code.
+Before you begin, ensure you have followed the setup instructions in the main [README.md](../../README.md) to set up your virtual environment and install the required libraries.
 
-## Regular Expressions in Python
+## Exploring the Refactored Code
 
-Python's built-in `re` module provides a set of functions for working with regular expressions.
+The script for this lesson, `regex.py`, has been refactored to place each regex task into its own testable function.
 
-## Exploring `regex.py`
-
-The `regex.py` script in this folder provides several examples of how to use regular expressions in Python to solve common text processing problems.
+1.  **Review the Code:** Open `Day_17_Regular_Expressions/regex.py`. Examine functions like `find_most_common_words()`, `extract_and_analyze_numbers()`, `is_valid_python_variable()`, and `clean_text_advanced()`.
+2.  **Run the Script:** From the root directory of the project (`Coding-For-MBA`), run the script to see the functions in action:
+    ```bash
+    python Day_17_Regular_Expressions/regex.py
+    ```
+3.  **Run the Tests:** You can run the tests for this lesson to verify the correctness of each regex function:
+    ```bash
+    pytest tests/test_day_17.py
+    ```
 
 ## 💻 Exercises: Day 17
 
-1. **Find all numbers in a string**:
-    - The `para` variable in `regex.py` contains a string with some numbers.
-    - Write a Python script that uses `re.findall()` to extract all the numbers from this string and prints them as a list of integers.
+1.  **Extract All Numbers from a String:**
+    *   In a new script (`my_solutions_17.py`), you have a string: `text = "Order #123 was placed for $49.99. The order contains 3 items."`
+    *   Import the `extract_and_analyze_numbers` function from the lesson script. Note that it only extracts integers. Can you modify the regex inside it to extract floating-point numbers as well?
+    *   Call the function and print the extracted numbers.
 
-2. **Validate a variable name**:
-    - The `is_valid_variable` function in `regex.py` checks if a string is a valid Python variable name.
-    - Test this function with the following inputs: `_name`, `first_name`, `1name`, `name-1`. Which ones are valid?
+2.  **Validate a Product Code:**
+    *   A valid product code must follow the format `PROD-XXXX`, where `X` is a digit.
+    *   Create a function `is_valid_product_code(code)` that returns `True` if the code is valid and `False` otherwise.
+    *   Use the `re.fullmatch(pattern, string)` function. Your pattern should look something like `r'PROD-\d{4}'`. (`\d{4}` means exactly four digits).
+    *   Test your function with `"PROD-1234"` (valid) and `"PROD-123"` (invalid).
 
-3. **Clean up a messy sentence**:
-    - The `sentence` variable in `regex.py` contains a string with a lot of unwanted characters.
-    - Use the `clean_text` function to clean up this sentence.
-    - After cleaning the text, use the `most_common_words` function to find the 3 most common words in the cleaned sentence.
+3.  **Clean Up a Messy Sentence:**
+    *   You have a sentence with extra symbols: `sentence = "Contact us... at (support@example.com)!"`
+    *   Import and use the `clean_text_advanced` function from the lesson to remove the punctuation and symbols.
+    *   Print the cleaned sentence.
 
-### Solutions
-
-You can find the solutions to these exercises in the `solutions.py` file in this directory.
-
-🎉 **Congratulations!** You've learned how to use regular expressions to process and extract information from text data. This is a valuable skill that you'll use time and time again in your analytics career.
+🎉 **Excellent!** Regular expressions are a fundamental tool for any data analyst who works with text. They provide a powerful and efficient way to clean, validate, and extract information from unstructured data.

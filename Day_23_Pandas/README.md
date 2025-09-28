@@ -1,95 +1,59 @@
 # 📘 Day 23: Pandas - Your Data Analysis Superpower
 
-If NumPy is the foundation for numerical computing, **Pandas** is the tool you will use every single day for practical data analysis. It is, without exaggeration, the most important library for data manipulation in Python. Think of it as giving Python the capabilities of a super-powered spreadsheet, like Excel or Google Sheets.
-
-With Pandas, you can easily load data from files (like CSVs or Excel), clean it, transform it, analyze it, and prepare it for visualization or machine learning.
+If NumPy is the foundation, **Pandas** is the tool you will use every single day for practical data analysis. It is the most important library for data manipulation in Python, giving it the capabilities of a super-powered spreadsheet.
 
 ## The Core Data Structures: Series and DataFrame
 
-Pandas has two main data structures you need to know.
+*   **`Series`**: A one-dimensional labeled array, like a single column in a spreadsheet.
+*   **`DataFrame`**: A two-dimensional labeled table with columns of potentially different types. This is the primary object you will work with in Pandas.
 
-### 1. The Series
+## Key DataFrame Operations
 
-A **Series** is a one-dimensional, labeled array. It's like a single column in a spreadsheet.
+*   **Creation:** Create a DataFrame from a dictionary (`pd.DataFrame(my_dict)`) or by reading a file (`pd.read_csv('my_file.csv')`).
+*   **Inspection:** Always inspect your data after loading.
+    *   `df.head()`: Shows the first 5 rows.
+    *   `df.info()`: Provides a summary of columns, data types, and non-null values.
+    *   `df.describe()`: Generates descriptive statistics for numerical columns.
+*   **Selection:** Select a single column (`df['ColumnName']`) or multiple columns (`df[['Col1', 'Col2']]`).
+*   **Vectorized Operations:** Create new columns by performing operations on existing ones (e.g., `df['Revenue'] = df['Price'] * df['Units Sold']`).
 
-```python
-import pandas as pd  # The standard alias for pandas
+## Environment Setup
 
-# A Series of product prices
-prices = pd.Series([19.99, 25.00, 15.50], index=["Product A", "Product B", "Product C"])
-```
+Before you begin, ensure you have followed the setup instructions in the main [README.md](../../README.md) to set up your virtual environment and install the required libraries (including `pandas`).
 
-Here, `["Product A", "Product B", "Product C"]` is the **index**, which provides labels for the data.
+## Exploring the Refactored Code
 
-### 2. The DataFrame
+The content for this lesson is split into two main files:
 
-A **DataFrame** is a two-dimensional, labeled data structure with columns of potentially different types. It is the single most important data structure in Pandas. **It's a table**, just like in a spreadsheet or a SQL database.
+1.  **`pandas_introduction.ipynb`**: A new Jupyter Notebook that interactively walks through creating a DataFrame from scratch, inspecting it, and creating a visualization. This is the recommended starting point for this lesson.
+2.  **`pandas_from_csv.py`**: A refactored Python script that demonstrates the more common workflow of loading data from a CSV file and filtering it.
 
-You can think of a DataFrame as a collection of Series that share the same index.
+### Running the Code
 
-## Creating Your First DataFrame
-
-One of the most common ways to create a DataFrame is from a Python dictionary.
-
-```python
-import pandas as pd
-
-# A dictionary of business data
-data = {
-    'Product Name': ["Laptop", "Mouse", "Keyboard", "Monitor"],
-    'Category': ["Electronics", "Electronics", "Electronics", "Electronics"],
-    'Price': [1200, 25, 75, 300],
-    'Units Sold': [150, 300, 220, 180]
-}
-
-# Create a DataFrame from the dictionary
-df = pd.DataFrame(data)
-```
-
-This `df` variable now holds a table of your data.
-
-## Inspecting Your Data
-
-Once you have a DataFrame, the first thing you'll always do is inspect it to understand its structure and content.
-
-| Method         | Description                                        |
-| :------------- | :------------------------------------------------- |
-| `df.head()`    | Shows the first 5 rows of the DataFrame.           |
-| `df.tail()`    | Shows the last 5 rows of the DataFrame.            |
-| `df.info()`    | Provides a concise summary of the DataFrame, including data types and non-null values. |
-| `df.describe()`| Generates descriptive statistics for the numerical columns (count, mean, std, min, max, etc.). |
-| `df.shape`     | Returns a tuple representing the dimensionality (rows, columns). |
-
-## Selecting Columns
-
-You can easily select a single column from a DataFrame, which will return a Pandas Series.
-
-```python
-# Select the 'Price' column
-prices_column = df['Price']
-
-# Select multiple columns by passing a list of column names
-product_and_price = df[['Product Name', 'Price']]
-```
+*   To explore the notebook, you'll need to have Jupyter installed (`pip install jupyter`) and run `jupyter notebook` from your terminal.
+*   To run the script from the root directory of the project (`Coding-For-MBA`):
+    ```bash
+    python Day_23_Pandas/pandas_from_csv.py
+    ```
+*   To run the tests for the script:
+    ```bash
+    pytest tests/test_day_23.py
+    ```
 
 ## 💻 Exercises: Day 23
 
-1. **Create an Employee DataFrame:**
-    * Create a Python dictionary to store data for 3-4 employees. Each employee should have a `Name`, `Department`, and `Salary`.
-    * Convert this dictionary into a Pandas DataFrame.
-    * Use `.head()` to display your DataFrame.
-    * Use `.info()` to see the data types.
+1.  **Create an Employee DataFrame:**
+    *   In a new script (`my_solutions_23.py`), create a Python dictionary to store data for 3-4 employees (e.g., `Name`, `Department`, `Salary`).
+    *   Convert this dictionary into a Pandas DataFrame and print it.
 
-2. **Analyze Sales Data:**
-    * Using the `df` DataFrame from the lesson above:
-    * Select and print just the `Product Name` column.
-    * Select and print the `Product Name` and `Units Sold` columns.
-    * Use `.describe()` to get a statistical summary of the numerical columns (`Price` and `Units Sold`).
+2.  **Analyze Sales Data from a File:**
+    *   Import the `load_data_from_csv` and `filter_by_title` functions from the `pandas_from_csv` script.
+    *   The path to the data file is `data/hacker_news.csv`. Load it using the function.
+    *   Use the `filter_by_title` function to find all articles with "Google" in the title and print their titles.
 
-3. **Calculate a New Column:**
-    * Using the `df` DataFrame from the lesson, create a new column called `'Revenue'`.
-    * The value of this column should be the `'Price'` column multiplied by the `'Units Sold'` column.
-    * Hint: `df['Revenue'] = df['Price'] * df['Units Sold']`
-    * Display the DataFrame with the new `'Revenue'` column using `.head()`.
+3.  **Calculate a New Column:**
+    *   Create a DataFrame with `'Price'` and `'Units Sold'` columns.
+    *   Create a new column called `'Revenue'` by multiplying the 'Price' and 'Units Sold' columns.
+    *   Display the DataFrame with the new `'Revenue'` column.
 
-🎉 **Welcome to Pandas!** You've just learned how to create and inspect the most fundamental object in data analysis. In the next lesson, we'll learn how to load data from files and start doing more advanced selections and filtering.
+🎉 **Welcome to Pandas!** You've just learned how to create and inspect the most fundamental object in data analysis. In the next lesson, we'll dive deeper into selecting, filtering, and cleaning data.

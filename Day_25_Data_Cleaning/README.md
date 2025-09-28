@@ -1,80 +1,45 @@
 # 📘 Day 25: Data Cleaning - The Most Important Skill in Analytics
 
-Welcome to one of the most critical topics in this course. It's often said that data analysts spend about 80% of their time cleaning and preparing data, and only 20% actually analyzing it. Messy, inconsistent data leads to incorrect analysis and bad business decisions. Learning to clean data effectively is a true superpower.
+It's often said that data analysts spend about 80% of their time cleaning and preparing data. Messy, inconsistent data leads to incorrect analysis and bad business decisions. Learning to clean data effectively is a true superpower.
 
-Today, we'll build on our Pandas knowledge to tackle common data messes.
+## Common Data Cleaning Tasks
 
-## Correcting Data Types
+*   **Correcting Data Types:** Columns are often loaded with the wrong type (e.g., a 'Price' column with '$' symbols is read as a string). Use `.astype()` to convert columns to the correct type (e.g., `float`, `datetime64[ns]`).
+*   **String Manipulation:** Use the `.str` accessor on a Series to apply string methods to every element at once (e.g., `df['Category'].str.lower()`, `df['Region'].str.strip()`).
+*   **Standardizing Categories:** Use the `.replace()` method to consolidate inconsistent values (e.g., mapping "USA" and "United States" to a single category).
+*   **Handling Duplicates:** Use `df.drop_duplicates()` to remove duplicate rows. The `subset` parameter lets you define which columns to check for duplicates (e.g., `subset=['OrderID']`).
 
-Often, data is loaded from a file with the wrong data type. A numerical column like 'Price' might be loaded as a string (an "object" in Pandas terms) if it contains currency symbols or commas.
+## Environment Setup
 
-```python
-# df['Price'] might be '$1,200.00' (a string)
-# We need to remove the symbols and convert it to a float.
-df['Price'] = df['Price'].str.replace('$', '').str.replace(',', '').astype(float)
+Before you begin, ensure you have followed the setup instructions in the main [README.md](../../README.md) to set up your virtual environment and install the required libraries.
 
-# The .astype() method is used to cast a column to a specified data type.
-```
+## Exploring the Refactored Code
 
-## String Manipulation on Columns
+The script for this lesson, `data_cleaning.py`, has been refactored to encapsulate the entire cleaning process into a single, reusable function.
 
-Pandas Series have a special `.str` accessor that lets you apply string methods to every element in the column at once. This is incredibly powerful for cleaning text data.
-
-```python
-# Standardize a column to be all lowercase
-df['Category'] = df['Category'].str.lower()
-
-# Remove leading/trailing whitespace from a column
-df['Product Name'] = df['Product Name'].str.strip()
-```
-
-## Handling Inconsistent Categorical Data
-
-Categorical data often has inconsistencies. For example, a 'Country' column might have "USA", "U.S.A.", and "United States". These all mean the same thing and should be standardized. The `.replace()` method is perfect for this.
-
-```python
-# Create a mapping of wrong values to the correct one
-country_map = {"U.S.A.": "USA", "United States": "USA"}
-
-# Apply the replacement
-df['Country'] = df['Country'].replace(country_map)
-```
-
-## Finding and Removing Duplicates
-
-Duplicate rows can skew your analysis (e.g., by double-counting revenue). Pandas provides easy ways to find and remove them.
-
-* `df.duplicated()`: Returns a boolean Series indicating which rows are duplicates.
-* `df.drop_duplicates()`: Returns a new DataFrame with duplicate rows removed. You can specify a `subset` of columns to consider when identifying duplicates.
-
-```python
-# Find all rows that are complete duplicates
-duplicate_rows = df[df.duplicated()]
-
-# Remove duplicate rows, keeping the first instance
-df_no_duplicates = df.drop_duplicates()
-
-# Remove rows where the 'OrderID' is duplicated
-df_unique_orders = df.drop_duplicates(subset=['OrderID'])
-```
+1.  **Review the Code:** Open `Day_25_Data_Cleaning/data_cleaning.py`. Examine the `clean_sales_data()` function, which performs all the cleaning steps on a DataFrame.
+2.  **Run the Script:** From the root directory of the project (`Coding-For-MBA`), run the script. It will load the messy CSV, pass it to the cleaning function, and print the results.
+    ```bash
+    python Day_25_Data_Cleaning/data_cleaning.py
+    ```
+3.  **Run the Tests:** The tests use a sample messy DataFrame created in memory to verify that the entire cleaning pipeline works as expected.
+    ```bash
+    pytest tests/test_day_25.py
+    ```
 
 ## 💻 Exercises: Day 25
 
-For these exercises, you will use a provided `messy_sales_data.csv` file.
+For these exercises, you will use the provided `messy_sales_data.csv` file.
 
-1. **Load and Initial Clean:**
-    * Load the `messy_sales_data.csv` file into a DataFrame.
-    * The 'Order Date' column is loaded as a string. Convert it to a proper datetime type using `pd.to_datetime(df['Order Date'])`.
-    * The 'Price' column is a string with '$' and commas. Clean it and convert it to a float data type.
-    * The 'Region' column has extra whitespace. Clean it up.
+1.  **Load and Clean:**
+    *   In a new script (`my_solutions_25.py`), import `pandas` and the `clean_sales_data` function from the lesson script.
+    *   Load the `messy_sales_data.csv` file into a DataFrame.
+    *   Pass your DataFrame to the `clean_sales_data` function to get a cleaned version.
 
-2. **Standardize Categories:**
-    * The 'Product' column has inconsistent capitalization (e.g., "Laptop", "laptop"). Standardize the entire column to lowercase so you can accurately group products later.
-    * The 'Region' column has both "USA" and "United States". Standardize them all to be "USA".
+2.  **Verify the Cleaning:**
+    *   On your new `cleaned_df`, perform the following checks and print the results:
+        *   Use `.info()` to confirm that 'Order Date' is a datetime and 'Price' is a float.
+        *   Print the unique values of the 'Product' column (`cleaned_df['Product'].unique()`) to confirm they are all lowercase.
+        *   Check the shape of the original DataFrame versus the cleaned one to see how many rows were removed.
 
-3. **Handle Duplicates:**
-    * Use `.duplicated().sum()` to check for and count any fully duplicate rows in the dataset.
-    * Create a new DataFrame called `df_cleaned` that has these duplicate rows removed.
-    * Check if any orders have the same 'Order ID'. If so, create a final DataFrame `df_final` that keeps only the *first* occurrence of each 'Order ID'.
-
-🎉 **Incredible work!** You've just learned the foundational techniques for data wrangling. Being able to take a messy, real-world dataset and turn it into a clean, analysis-ready format is arguably the most valuable skill a data analyst can possess.
+🎉 **Incredible work!** Being able to take a messy, real-world dataset and turn it into a clean, analysis-ready format is arguably the most valuable skill a data analyst can possess.

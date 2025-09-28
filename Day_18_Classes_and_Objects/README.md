@@ -1,48 +1,54 @@
-# 🏛️ Day 18: Classes and Objects
+# 📘 Day 18: Classes and Objects - Modeling Business Concepts
 
-## Welcome to Day 18
+So far, we've organized our code with functions. But what if you want to model a real-world concept, like a "Customer," that has both data (name, email) and actions (calculate total spending)? For this, we use **Object-Oriented Programming (OOP)**, and its building blocks: **classes** and **objects**.
 
-Today, we're going to explore one of the most important concepts in modern programming: **Object-Oriented Programming (OOP)**, and its fundamental building blocks: **classes** and **objects**.
+## What are Classes and Objects?
 
-## Why is OOP Important for Business Analytics?
+*   A **Class** is a blueprint for creating an object. It defines the data (attributes) and actions (methods) that the object will have. Think of `Car` as a class.
+*   An **Object** is an instance of a class. It's a concrete thing created from the blueprint. Your specific `toyota_camry` would be an object of the `Car` class.
 
-Object-Oriented Programming allows you to structure your code in a way that models real-world business concepts. For example, you could have a `Customer` object that stores all the information about a customer (name, email, purchase history), and has methods to calculate their total spending or identify their last purchase date.
+This approach is powerful because it lets you bundle data and the functions that operate on that data together in a clean, logical way.
 
-This approach makes your code more organized, reusable, and easier to understand, which is especially important when you're building complex analytical models.
+## Key Class Concepts
 
-## Classes and Objects in Python
+*   **`__init__(self, ...)`:** The "initializer" or "constructor" method. It runs automatically when you create a new object and is used to set up its initial attributes.
+*   **`self`:** Represents the instance of the class itself. Inside a method, you use `self` to access the object's own attributes (e.g., `self.firstname`).
+*   **Attributes:** Variables that belong to an object (e.g., `person.firstname`).
+*   **Methods:** Functions that belong to an object (e.g., `person.account_balance()`).
 
-In Python, a **class** is a blueprint for creating objects. An **object** is an instance of a class.
+## Environment Setup
 
-## Exploring `CaO.py`
+Before you begin, ensure you have followed the setup instructions in the main [README.md](../../README.md) to set up your virtual environment and install the required libraries.
 
-The `CaO.py` script in this folder provides two great examples of classes in Python: `Statistics` and `PersonAccount`.
+## Exploring the Refactored Code
 
-### The `Statistics` Class
+The script for this lesson, `CaO.py`, has been refactored for clarity and robustness.
 
-This class is a blueprint for creating objects that can perform statistical calculations on a list of numbers.
-
-### The `PersonAccount` Class
-
-This class is a blueprint for creating objects that can manage a person's income and expenses.
+1.  **Review the Code:** Open `Day_18_Classes_and_Objects/CaO.py`.
+    *   The `Statistics` class now gracefully handles empty data and potential errors when calculating the mode.
+    *   The `PersonAccount` class has been streamlined to add incomes and expenses via methods, which is a more standard object-oriented approach.
+2.  **Run the Script:** From the root directory of the project (`Coding-For-MBA`), run the script to see the classes instantiated and their methods called:
+    ```bash
+    python Day_18_Classes_and_Objects/CaO.py
+    ```
+3.  **Run the Tests:** You can run the tests for this lesson to verify the correctness of each class and its methods under various conditions:
+    ```bash
+    pytest tests/test_day_18.py
+    ```
 
 ## 💻 Exercises: Day 18
 
-1. **Create a `Car` class**:
-    * Create a class named `Car` with the following attributes: `make`, `model`, and `year`.
-    * Add a method named `display_info` that prints the car's information in a user-friendly format.
-    * Create an instance of the `Car` class and call the `display_info` method.
+1.  **Create a `Product` Class:**
+    *   In a new script (`my_solutions_18.py`), create a class named `Product`.
+    *   The `__init__` method should take `name`, `price`, and `initial_quantity` as arguments and store them as attributes.
+    *   Add a method `get_inventory_value()` that returns the total value of the product's inventory (`price * quantity`).
+    *   Add a method `restock(amount)` that increases the product's quantity.
+    *   Create an instance of your `Product` class, check its initial inventory value, restock it, and then check the new value.
 
-2. **Add a `get_age` method to the `Car` class**:
-    * Add a method to the `Car` class that calculates the age of the car (current year - year of the car).
-    * You can use the `datetime` module to get the current year.
+2.  **Extend the `PersonAccount` Class:**
+    *   Import the `PersonAccount` class from the lesson script.
+    *   Create an instance of the class for a new person.
+    *   Add several income and expense items using the `.add_income()` and `.add_expense()` methods.
+    *   Print the final account summary using the `.account_info()` method.
 
-3. **Extend the `PersonAccount` class**:
-    * Add a new method to the `PersonAccount` class named `get_income_sources` that returns a list of all the income sources.
-    * Add a new method named `get_expense_sources` that returns a list of all the expense sources.
-
-### Solutions
-
-You can find the solutions to these exercises in the `solutions.py` file in this directory.
-
-🎉 **Congratulations!** You've learned the basics of object-oriented programming in Python. This will enable you to write more organized and powerful analytical scripts.
+🎉 **Congratulations!** You've learned the basics of object-oriented programming. This will enable you to write more organized, powerful, and scalable analytical scripts that model real-world business concepts.
