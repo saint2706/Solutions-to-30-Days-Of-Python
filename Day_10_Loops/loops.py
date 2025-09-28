@@ -1,69 +1,90 @@
 """
-Day 10: Automating Tasks with Loops
+Day 10: Automating Tasks with Loops (Refactored)
 
 This script demonstrates how to use for and while loops to
-process collections of business data automatically.
+process collections of business data automatically. This version
+is refactored into functions for better organization and testability.
 """
 
-# --- Using a for loop to aggregate data ---
-print("--- Calculating Total Monthly Revenue ---")
-monthly_sales = [2340.50, 3100.25, 2900.00, 4500.75]
-total_revenue = 0
+def calculate_total_from_list(numbers_list):
+    """Calculates the sum of all numbers in a list using a for loop."""
+    total = 0
+    for number in numbers_list:
+        total += number
+    return total
 
-# The 'for' loop iterates through each 'sale' in the 'monthly_sales' list.
-for sale in monthly_sales:
-    total_revenue += sale
+def filter_high_value_customers(customers_list, threshold=2000):
+    """
+    Filters a list of customer dictionaries to find those who spent above a threshold.
+    Returns a list of their names.
+    """
+    high_priority = []
+    for customer in customers_list:
+        if customer.get("total_spent", 0) > threshold:
+            high_priority.append(customer.get("name"))
+    return high_priority
 
-print(f"Total Revenue for the month: ${total_revenue:.2f}")
-print("-" * 20)
+def check_inventory_levels(inventory_dict, threshold=50):
+    """
+    Checks an inventory dictionary and returns a list of products
+    that are below a specified stock threshold.
+    """
+    low_stock_alerts = []
+    for product, count in inventory_dict.items():
+        if count < threshold:
+            low_stock_alerts.append(product)
+    return low_stock_alerts
 
+def simulate_investment_growth(initial_investment, target_amount, interest_rate):
+    """
+    Simulates the number of years it takes for an investment to reach a target.
+    Returns the number of years.
+    """
+    if initial_investment <= 0 or interest_rate <= 0:
+        return -1 # Indicate invalid input
 
-# --- Using a for loop with a conditional to filter data ---
-print("--- Filtering High-Value Customers ---")
-customers = [
-    {"name": "InnovateCorp", "total_spent": 5500},
-    {"name": "DataDriven Inc.", "total_spent": 1200},
-    {"name": "Analytics LLC", "total_spent": 2100},
-    {"name": "Global Solutions", "total_spent": 850},
-]
-high_priority_customers = []
+    investment = initial_investment
+    years = 0
+    while investment < target_amount:
+        investment *= (1 + interest_rate)
+        years += 1
+    return years
 
-# We loop through each customer dictionary in the list.
-for customer in customers:
-    # Check if the value for the "total_spent" key meets our condition.
-    if customer["total_spent"] > 2000:
-        # If it does, add the customer's name to our new list.
-        high_priority_customers.append(customer["name"])
+if __name__ == "__main__":
+    # --- Using a for loop to aggregate data ---
+    print("--- Calculating Total Monthly Revenue ---")
+    sales_data = [2340.50, 3100.25, 2900.00, 4500.75]
+    total_rev = calculate_total_from_list(sales_data)
+    print(f"Total Revenue for the month: ${total_rev:.2f}")
+    print("-" * 20)
 
-print(f"High-priority customers to contact: {high_priority_customers}")
-print("-" * 20)
+    # --- Using a for loop with a conditional to filter data ---
+    print("--- Filtering High-Value Customers ---")
+    customer_data = [
+        {"name": "InnovateCorp", "total_spent": 5500},
+        {"name": "DataDriven Inc.", "total_spent": 1200},
+        {"name": "Analytics LLC", "total_spent": 2100},
+        {"name": "Global Solutions", "total_spent": 850},
+    ]
+    priority_customers = filter_high_value_customers(customer_data)
+    print(f"High-priority customers to contact: {priority_customers}")
+    print("-" * 20)
 
+    # --- Looping through a dictionary for inventory alerts ---
+    print("--- Inventory Stock Level Alerts ---")
+    inventory_levels = {"Laptops": 15, "Mice": 150, "Keyboards": 45, "Monitors": 25}
+    low_stock_items = check_inventory_levels(inventory_levels)
+    for item in low_stock_items:
+        print(f"ALERT: {item} are low on stock ({inventory_levels[item]} units remaining).")
+    print("-" * 20)
 
-# --- Looping through a dictionary for inventory alerts ---
-print("--- Inventory Stock Level Alerts ---")
-inventory = {"Laptops": 15, "Mice": 150, "Keyboards": 45, "Monitors": 25}
-low_stock_threshold = 50
-
-# .items() lets us get both the key (product) and value (count) in each loop.
-for product, count in inventory.items():
-    if count < low_stock_threshold:
-        print(f"ALERT: {product} are low on stock ({count} units remaining).")
-print("-" * 20)
-
-
-# --- Using a while loop for financial simulation ---
-print("--- Investment Growth Simulation ---")
-investment = 10000
-target = 20000
-interest_rate = 0.07
-years = 0
-
-# The 'while' loop continues as long as the condition is true.
-while investment < target:
-    investment *= 1 + interest_rate  # Apply 7% annual interest
-    years += 1  # Increment the year count
-
-print(
-    f"It will take {years} years for the initial investment of $10,000 to double at a {interest_rate*100}% interest rate."
-)
-print("-" * 20)
+    # --- Using a while loop for financial simulation ---
+    print("--- Investment Growth Simulation ---")
+    initial = 10000
+    target_val = 20000
+    rate = 0.07
+    years_to_double = simulate_investment_growth(initial, target_val, rate)
+    print(
+        f"It will take {years_to_double} years for the initial investment of ${initial} to double at a {rate*100}% interest rate."
+    )
+    print("-" * 20)

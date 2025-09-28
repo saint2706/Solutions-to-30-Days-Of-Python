@@ -1,76 +1,48 @@
 # 📘 Day 3: Operators - The Tools for Business Calculation and Logic
 
-In programming, an **operator** is a symbol that tells the computer to perform a specific mathematical or logical manipulation. For a business analyst, operators are the tools you'll use to calculate financial metrics, compare results, and create business rules.
+An **operator** is a symbol that tells the computer to perform a specific mathematical or logical manipulation. For a business analyst, operators are the tools you'll use to calculate financial metrics, compare results, and create business rules.
 
-## Arithmetic Operators
+## Key Operator Types
 
-These are the operators you know from basic math. They are the foundation of any quantitative analysis.
+*   **Arithmetic Operators (`+`, `-`, `*`, `/`, `**`):** The foundation of any quantitative analysis, used for calculations like profit margin and compound interest.
+*   **Assignment Operators (`=`, `+=`, `-=`):** Used to assign and update values in variables, such as accumulating total sales.
+*   **Comparison Operators (`==`, `!=`, `>`, `<`):** Used to compare two values, resulting in `True` or `False`. This is the basis for filtering data and making decisions.
+*   **Logical Operators (`and`, `or`, `not`):** Used to combine conditional statements to create complex business rules, like determining bonus eligibility.
 
-| Operator | Name           | Example (in Python) | Business Context                  |
-| :------- | :------------- | :------------------ | :-------------------------------- |
-| `+`      | Addition       | `revenue + bonus`   | Calculating total compensation    |
-| `-`      | Subtraction    | `sales - returns`   | Calculating net sales             |
-| `*`      | Multiplication | `units * price`     | Calculating total revenue         |
-| `/`      | Division       | `profit / revenue`  | Calculating profit margin         |
-| `%`      | Modulus        | `10 % 3` (is 1)     | Finding remainder (e.g., in batch processing) |
-| `**`     | Exponent       | `(1 + 0.05) ** 3`   | Calculating compound interest     |
-| `//`     | Floor Division | `10 // 3` (is 3)    | Finding how many full units fit   |
+## Environment Setup
 
-## Assignment Operators
+Before you begin, ensure you have followed the setup instructions in the main [README.md](../../README.md) to set up your virtual environment and install the required libraries.
 
-Assignment operators are used to assign values to variables. We've already used the basic one, `=`. But there are shorthand operators that are very common.
+## Exploring the Refactored Code
 
-| Operator | Example      | Equivalent to     | Business Context                  |
-| :------- | :----------- | :---------------- | :-------------------------------- |
-| `=`      | `x = 5`      | `x = 5`           | Setting an initial value          |
-| `+=`     | `x += 5`     | `x = x + 5`       | Accumulating a total (e.g., summing daily sales) |
-| `-=`     | `x -= 5`     | `x = x - 5`       | Depleting a budget                |
-| `*=`     | `x *= 5`     | `x = x * 5`       | Applying a multiplier             |
+The script for this lesson, `operators.py`, has been refactored into functions to make the logic clear, reusable, and testable.
 
-## Comparison Operators
-
-These operators are used to compare two values, and the result is always a Boolean (`True` or `False`). This is the foundation of filtering data and making decisions in your code.
-
-| Operator | Name                       | Example                | Business Context                                  |
-| :------- | :------------------------- | :--------------------- | :------------------------------------------------ |
-| `==`     | Equal to                   | `region == "North"`    | Is the sale from the North region?                |
-| `!=`     | Not equal to               | `status != "Shipped"`  | Is the order status something other than shipped? |
-| `>`      | Greater than               | `revenue > 10000`      | Did we exceed the revenue target?                 |
-| `<`      | Less than                  | `inventory < 50`       | Is the inventory level low?                       |
-| `>=`     | Greater than or equal to   | `score >= 0.8`         | Is the customer's credit score high enough?       |
-| `<=`     | Less than or equal to      | `discount <= 0.15`     | Is the discount within the allowed limit?         |
-
-## Logical Operators
-
-Logical operators are used to combine conditional statements. They allow you to create complex business rules.
-
-| Operator | Description                               | Example                                  | Business Context                                        |
-| :------- | :---------------------------------------- | :--------------------------------------- | :------------------------------------------------------ |
-| `and`    | Returns `True` if both statements are true | `revenue > 10000 and region == "North"`  | Finding high-value sales from the North region.         |
-| `or`     | Returns `True` if one of the statements is true | `status == "Urgent" or inventory < 10` | Flagging an order if it's marked urgent or if stock is low. |
-| `not`    | Reverses the result, returns `False` if the result is true | `not is_holiday`          | Checking if today is a business day.                    |
+1.  **Review the Code:** Open `Day_03_Operators/operators.py`. Each business calculation or rule (e.g., `calculate_compound_interest()`, `check_bonus_eligibility()`) is now its own function.
+2.  **Run the Script:** From the root directory of the project (`Coding-For-MBA`), run the script to see the functions in action:
+    ```bash
+    python Day_03_Operators/operators.py
+    ```
+3.  **Run the Tests:** You can run the tests for this lesson to verify the correctness of each function:
+    ```bash
+    pytest tests/test_day_03.py
+    ```
 
 ## 💻 Exercises: Day 3
 
-1. **Calculate Net Profit Margin:**
-    * A company has a `revenue` of 1,200,000 and `total_expenses` of 850,000.
-    * Calculate the `profit` (`revenue - total_expenses`).
-    * Calculate the `net_profit_margin` (`profit / revenue`).
-    * Print the net profit margin as a percentage, rounded to two decimal places.
+1.  **Calculate Net Profit Margin:**
+    *   In a new script (`my_solutions_03.py`), create a function `calculate_net_profit_margin(revenue, expenses)`.
+    *   The function should return the net profit margin (`(revenue - expenses) / revenue`).
+    *   Call the function with a `revenue` of 1,200,000 and `total_expenses` of 850,000.
+    *   Print the result formatted as a percentage with two decimal places.
 
-2. **Inventory Check:**
-    * You have `inventory_count` of 45 units for a product.
-    * The `low_stock_threshold` is 50 units.
-    * The `reorder_threshold` is 25 units.
-    * Write a Python script that prints:
-        * `True` or `False` if the inventory is considered low stock.
-        * `True` or `False` if a reorder is required.
+2.  **Inventory Check Function:**
+    *   Create a function `check_reorder_status(inventory_count, low_stock_threshold, reorder_threshold)`.
+    *   The function should return a dictionary with two keys: `is_low_stock` (boolean) and `needs_reorder` (boolean).
+    *   Call the function with an `inventory_count` of 45, a `low_stock_threshold` of 50, and a `reorder_threshold` of 25. Print the results.
 
-3. **Sales Bonus Eligibility:**
-    * A salesperson is eligible for a bonus if they meet one of two conditions:
-        * Condition A: They made over $10,000 in `sales` **and** have been with the company for more than 2 `years_of_service`.
-        * Condition B: They are the `top_performer_last_quarter` (a Boolean variable).
-    * Create variables for `sales`, `years_of_service`, and `top_performer_last_quarter`.
-    * Test your logic with a few different scenarios (e.g., high sales but new employee, low sales but top performer, etc.). Print whether the salesperson is eligible for a bonus (`True` or `False`).
+3.  **Sales Bonus Eligibility Function:**
+    *   The logic for bonus eligibility is already in the `check_bonus_eligibility` function in `operators.py`.
+    *   In your own script, import this function: `from Day_03_Operators.operators import check_bonus_eligibility`.
+    *   Call the function with a few different scenarios for `sales`, `years_of_service`, and `top_performer_last_quarter` to see the results.
 
-🎉 **Excellent work!** You're now equipped with the operators needed to perform the vast majority of business calculations and logical checks you'll encounter. These are the verbs of data analysis.
+🎉 **Excellent work!** You're now equipped with the operators needed to perform the vast majority of business calculations and logical checks you'll encounter.

@@ -1,74 +1,68 @@
-# 🛡️ Day 15: Exception Handling
+# 📘 Day 15: Exception Handling - Building Robust Business Logic
 
-## Welcome to Day 15
+In the real world, data is messy and operations can fail. A file might be missing, a user might enter text instead of a number, or you might try to divide by zero when calculating a financial ratio. Without a safety net, these errors—called **exceptions**—will crash your script.
 
-Today, we'll explore a fundamental concept in programming: **exception handling**. This is a crucial skill for building robust and reliable applications.
+**Exception handling** is the process of catching these errors and handling them gracefully so your program can continue running or fail in a predictable way.
 
-## Why is Exception Handling Important for Business Analytics?
+## Key Concepts: `try` and `except`
 
-In the world of business analytics, you'll often be working with data from various sources, which can be unpredictable and messy. Your scripts might encounter errors like:
+The core of exception handling is the `try...except` block.
 
-- Trying to read a file that doesn't exist.
-- Performing calculations on missing or invalid data.
-- Connecting to a database that is temporarily unavailable.
-
-Without proper exception handling, these errors would crash your program, interrupting your analysis and potentially leading to data loss. By handling exceptions, you can ensure that your scripts can gracefully handle errors, log them for review, and continue with the rest of the analysis.
-
-## Key Concepts in Python
-
-In Python, we use `try...except` blocks to handle exceptions.
-
-- **`try` block**: The code that might raise an exception is placed inside the `try` block.
-- **`except` block**: If an exception occurs in the `try` block, the code inside the `except` block is executed.
-
-### Example: `exception.py`
-
-The `exception.py` script in this folder provides a simple example of exception handling combined with extended iterable unpacking.
+*   **`try` block:** You place the code that might cause an error inside the `try` block.
+*   **`except` block:** If an error occurs in the `try` block, the code inside the `except` block is executed, and the program does not crash.
 
 ```python
-"""
-Day 15: Exception Handling
-
-This script demonstrates the use of extended iterable unpacking and a try-except block.
-"""
-
-# A list of country names
-country_names = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland', 'Estonia', 'Russia']
-
+# A common business scenario: calculating profit margin
 try:
-    # This is an example of extended iterable unpacking.
-    # The '*' operator is used to assign multiple items to a single variable.
-    # In this case, 'nordic_countries' will be a list of the first n-2 items,
-    # 'estonia' will be the second to last item, and 'russia' will be the last item.
-    *nordic_countries, estonia, russia = country_names
-
-    print("Nordic Countries:", nordic_countries)
-    print("Estonia:", estonia)
-    print("Russia:", russia)
-
-except Exception as e:
-    # This block will be executed if any exception occurs in the 'try' block.
-    # It's a good practice to catch specific exceptions instead of the general 'Exception',
-    # but for this educational example, we are catching any possible exception.
-    print(f"An error occurred: {e}")
+    # This might cause a ZeroDivisionError if revenue is 0
+    margin = (profit / revenue) * 100
+    print(f"Profit margin is {margin:.2f}%")
+except ZeroDivisionError:
+    print("Cannot calculate margin: revenue is zero.")
 ```
+
+You can also catch specific error types like `ValueError` (e.g., trying to convert "abc" to a number) or `FileNotFoundError`.
+
+## Environment Setup
+
+Before you begin, ensure you have followed the setup instructions in the main [README.md](../../README.md) to set up your virtual environment and install the required libraries.
+
+## Exploring the Refactored Code
+
+The script for this lesson, `exception.py`, has been refactored to place the logic into testable functions that include exception handling.
+
+1.  **Review the Code:** Open `Day_15_Exception_Handling/exception.py`.
+    *   The `unpack_country_list()` function now includes a check to prevent errors with small lists.
+    *   The new `calculate_profit_margin()` function demonstrates how to handle a `ZeroDivisionError` and `TypeError` in a practical business calculation.
+2.  **Run the Script:** From the root directory of the project (`Coding-For-MBA`), run the script to see the functions handle both successful cases and errors gracefully:
+    ```bash
+    python Day_15_Exception_Handling/exception.py
+    ```
+3.  **Run the Tests:** You can run the tests for this lesson to verify that the functions behave correctly, both with valid input and when exceptions are expected:
+    ```bash
+    pytest tests/test_day_15.py
+    ```
 
 ## 💻 Exercises: Day 15
 
-1. **Handling a `ValueError`**:
-    - Write a script that asks the user to enter their age.
-    - Use a `try...except` block to handle the `ValueError` that might occur if the user enters a non-numeric value.
-    - Print a user-friendly error message if a `ValueError` occurs.
+1.  **Safe Division Function:**
+    *   In a new script (`my_solutions_15.py`), create a function `safe_divide(numerator, denominator)`.
+    *   Inside the function, use a `try...except` block to handle a potential `ZeroDivisionError`.
+    *   If division is successful, return the result.
+    *   If a `ZeroDivisionError` occurs, print an error message and return `0`.
+    *   Test your function by calling it with valid numbers (e.g., `10, 2`) and with a zero denominator (e.g., `10, 0`).
 
-2. **Handling a `ZeroDivisionError`**:
-    - Write a script that asks the user for two numbers and divides the first number by the second number.
-    - Use a `try...except` block to handle the `ZeroDivisionError` that might occur if the user enters 0 as the second number.
+2.  **User Input with Validation:**
+    *   Create a function `get_user_age()` that prompts the user to enter their age.
+    *   Use a `try...except` block to handle the `ValueError` that occurs if the user enters text instead of a number.
+    *   If the input is invalid, print an error message and return `None`.
+    *   If the input is valid, convert it to an integer and return it.
 
-3. **Refactor `exception.py`**:
-    - Modify the `exception.py` script to handle the case where the `country_names` list has fewer than two elements. What kind of error do you get? How can you handle it specifically?
+3.  **File Reading with Error Handling:**
+    *   Create a function `read_file_contents(filepath)`.
+    *   Use a `try...except` block to handle a `FileNotFoundError`.
+    *   If the file is found, the function should read its contents and return them.
+    *   If the file is not found, it should print an error message and return `None`.
+    *   Test your function with a real file path and a fake one.
 
-### Solutions
-
-You can find the solutions to these exercises in the `solutions.py` file in this directory.
-
-🎉 **Congratulations!** You've learned how to make your Python scripts more robust and reliable using exception handling. This is a critical skill for any data analyst or developer.
+🎉 **Congratulations!** You've learned how to make your Python scripts more robust and reliable. Exception handling is a critical skill for any data analyst or developer working with real-world data.

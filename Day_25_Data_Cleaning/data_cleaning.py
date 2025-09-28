@@ -1,82 +1,69 @@
 """
-Day 25: Data Cleaning in Practice
+Day 25: Data Cleaning in Practice (Optimized)
 
 This script demonstrates common data cleaning techniques on a
-messy, real-world-style dataset using Pandas.
+messy, real-world-style dataset using Pandas. This version includes
+performance optimizations.
 """
 
-from pathlib import Path
-
 import pandas as pd
+from pathlib import Path
+import re
 
-# --- Load the Messy Data ---
-resource_dir = Path(__file__).resolve().parent
-data_path = resource_dir / "messy_sales_data.csv"
-
-print("--- Loading and Inspecting Messy Data ---")
-try:
-    df = pd.read_csv(data_path)
-    print("Original data types (df.info()):")
-    df.info()
-    print("\nOriginal data head:")
-    print(df.head())
-except FileNotFoundError:
-    print(
-        "Error: messy_sales_data.csv not found in the Day_25_Data_Cleaning folder."
-        " Keep the CSV beside this script."
-    )
-    df = pd.DataFrame()  # Create empty df to prevent crash
-
-if not df.empty:
+def clean_sales_data(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Cleans the sales data by correcting data types, standardizing text,
+    and removing duplicates.
+    """
     # --- 1. Correcting Data Types ---
-    print("\n--- 1. Correcting Data Types ---")
-
-    # Convert 'Order Date' to datetime objects
     df["Order Date"] = pd.to_datetime(df["Order Date"])
 
-    # Clean and convert 'Price' column to float
-    # .str accessor works on Series to apply string methods element-wise
-    df["Price"] = df["Price"].str.replace("$", "").str.replace(",", "").astype(float)
-
-    print("\nData types after correction (df.info()):")
-    df.info()
-    print("\nHead after data type correction:")
-    print(df.head())
+    # Optimized price cleaning using a single regex
+    df["Price"] = df["Price"].str.replace(r'[$,]', '', regex=True).astype(float)
 
     # --- 2. Cleaning and Standardizing Text Data ---
-    print("\n--- 2. Standardizing Text Data ---")
-
-    # Use .str.strip() to remove leading/trailing whitespace
-    df["Region"] = df["Region"].str.strip()
-
-    # Use .str.lower() to standardize product names
+    df["Region"] = df["Region"].str.strip().str.lower()
     df["Product"] = df["Product"].str.lower()
-
-    # Use .replace() to standardize categorical data
-    df["Region"] = df["Region"].replace({"USA": "United States"})
-
-    print("\n'Region' and 'Product' columns after cleaning:")
-    print(df[["Region", "Product"]].head())
-    print("\nUnique values in 'Region' column:", df["Region"].unique())
+    df["Region"] = df["Region"].replace({"usa": "united states"})
 
     # --- 3. Handling Duplicates ---
-    print("\n--- 3. Handling Duplicates ---")
+    df.drop_duplicates(inplace=True)
+    df.drop_duplicates(subset=["Order ID"], keep="first", inplace=True)
 
-    # Check for fully duplicate rows
-    duplicate_row_count = df.duplicated().sum()
-    print(f"\nNumber of fully duplicate rows found: {duplicate_row_count}")
+    return df
 
-    # Remove full duplicates
-    df_no_rows = df.drop_duplicates()
-    print(f"Shape after dropping full duplicates: {df_no_rows.shape}")
+def main():
+    """
+    Main function to load, clean, and inspect the data.
+    """
+    # --- Load the Messy Data ---
+    resource_dir = Path(__file__).resolve().parent
+    data_path = resource_dir / "messy_sales_data.csv"
 
-    # Check for duplicate Order IDs
-    duplicate_order_id_count = df_no_rows.duplicated(subset=["Order ID"]).sum()
-    print(f"\nNumber of duplicate Order IDs found: {duplicate_order_id_count}")
+    print("--- Loading and Inspecting Messy Data ---")
+    try:
+        df = pd.read_csv(data_path)
+        print("Original data types (df.info()):")
+        df.info()
+        print("\nOriginal data head:")
+        print(df.head())
+    except FileNotFoundError:
+        print(
+            "Error: messy_sales_data.csv not found in the Day_25_Data_Cleaning folder."
+        )
+        return
 
-    # Remove duplicates based on a subset of columns, keeping the first entry
-    df_final = df_no_rows.drop_duplicates(subset=["Order ID"], keep="first")
-    print(f"Shape after dropping duplicate Order IDs: {df_final.shape}")
+    # --- Clean the Data ---
+    df_cleaned = clean_sales_data(df.copy()) # Use a copy to avoid SettingWithCopyWarning
 
-    print("\nFinal cleaned data head:")
-    print(df_final.head())
+    # --- Inspect Cleaned Data ---
+    print("\n--- Inspecting Cleaned Data ---")
+    print("\nCleaned data types (df.info()):")
+    df_cleaned.info()
+    print("\nCleaned data head:")
+    print(df_cleaned.head())
+    print("\nUnique values in 'Region' column:", df_cleaned["Region"].unique())
+
+
+if __name__ == "__main__":
+    main()

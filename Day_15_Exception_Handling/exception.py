@@ -1,33 +1,76 @@
 """
-Day 15: Exception Handling
+Day 15: Handling Exceptions in Business Logic (Refactored)
 
-This script demonstrates the use of extended iterable unpacking and a try-except block.
+This script demonstrates exception handling and iterable unpacking
+with more practical, testable functions.
 """
 
-# A list of country names
-country_names = [
-    "Finland",
-    "Sweden",
-    "Norway",
-    "Denmark",
-    "Iceland",
-    "Estonia",
-    "Russia",
-]
+def unpack_country_list(countries):
+    """
+    Unpacks a list of countries into nordic countries, Estonia, and Russia.
+    Uses a try-except block to handle cases where the list is too short.
+    """
+    if not isinstance(countries, list) or len(countries) < 3:
+        return None, None, None
 
-try:
-    # This is an example of extended iterable unpacking.
-    # The '*' operator is used to assign multiple items to a single variable.
-    # In this case, 'nordic_countries' will be a list of the first n-2 items,
-    # 'estonia' will be the second to last item, and 'russia' will be the last item.
-    *nordic_countries, estonia, russia = country_names
+    try:
+        # Extended iterable unpacking
+        *nordic, estonia, russia = countries
+        return nordic, estonia, russia
+    except ValueError:
+        # This would catch errors if the list had fewer than 2 items,
+        # but the initial check makes it mostly for demonstration.
+        return None, None, None
 
-    print("Nordic Countries:", nordic_countries)
-    print("Estonia:", estonia)
-    print("Russia:", russia)
+def calculate_profit_margin(revenue, profit):
+    """
+    Calculates the profit margin and handles the case of zero revenue
+    to avoid a ZeroDivisionError.
+    """
+    try:
+        margin = (profit / revenue) * 100
+        return margin
+    except ZeroDivisionError:
+        print("Error: Revenue is zero, cannot calculate profit margin.")
+        return 0.0 # Return a sensible default
+    except TypeError:
+        print("Error: Invalid input, revenue and profit must be numbers.")
+        return None
 
-except Exception as e:
-    # This block will be executed if any exception occurs in the 'try' block.
-    # It's a good practice to catch specific exceptions instead of the general 'Exception',
-    # but for this educational example, we are catching any possible exception.
-    print(f"An error occurred: {e}")
+
+def main():
+    """Main function to demonstrate exception handling and unpacking."""
+    # --- Example 1: Extended Iterable Unpacking ---
+    print("--- Unpacking a List of Countries ---")
+    country_names = [
+        "Finland", "Sweden", "Norway", "Denmark",
+        "Iceland", "Estonia", "Russia",
+    ]
+
+    nordic_list, estonia_country, russia_country = unpack_country_list(country_names)
+
+    if nordic_list is not None:
+        print("Nordic Countries:", nordic_list)
+        print("Estonia:", estonia_country)
+        print("Russia:", russia_country)
+    print("-" * 20)
+
+    # --- Example 2: Handling a ZeroDivisionError ---
+    print("--- Calculating Profit Margin (with Error Handling) ---")
+
+    # Successful case
+    revenue1 = 500000
+    profit1 = 75000
+    margin1 = calculate_profit_margin(revenue1, profit1)
+    print(f"Revenue: ${revenue1}, Profit: ${profit1} -> Margin: {margin1:.2f}%")
+
+    # Error case
+    revenue2 = 0
+    profit2 = -10000 # A loss
+    margin2 = calculate_profit_margin(revenue2, profit2)
+    print(f"Revenue: ${revenue2}, Profit: ${profit2} -> Margin: {margin2:.2f}%")
+    print("-" * 20)
+
+
+if __name__ == "__main__":
+    main()

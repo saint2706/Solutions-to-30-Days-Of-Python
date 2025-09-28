@@ -1,67 +1,73 @@
 """
-Day 12: Elegant Data Manipulation with List Comprehensions
+Day 12: Elegant Data Manipulation with List Comprehensions (Refactored)
 
 This script demonstrates how to use list comprehensions to
-efficiently transform and filter lists of business data.
+efficiently transform and filter lists of business data. This version
+is refactored into functions for better organization and testability.
 """
 
-# --- Example 1: Transforming Data (Applying a Price Increase) ---
-print("--- Applying a Price Increase ---")
-prices = [100.00, 150.50, 200.00, 80.25]
-print(f"Original prices: {prices}")
+def apply_price_increase(prices, increase_percentage):
+    """
+    Applies a percentage price increase to a list of prices
+    using a list comprehension.
+    """
+    increase_multiplier = 1 + increase_percentage
+    # [expression for item in iterable]
+    return [price * increase_multiplier for price in prices]
 
-# The 'for' loop way (for comparison)
-new_prices_loop = []
-for price in prices:
-    new_prices_loop.append(price * 1.1)
+def filter_large_sales(sales, threshold):
+    """
+    Filters a list of sales to find those above a given threshold
+    using a list comprehension.
+    """
+    # [expression for item in iterable if condition]
+    return [sale for sale in sales if sale > threshold]
 
-# The list comprehension way
-# [expression for item in iterable]
-new_prices_comp = [price * 1.1 for price in prices]
+def get_top_sales_performers(employees, sales_target):
+    """
+    Filters and transforms a list of employee dictionaries to get the
+    names of top-performing sales staff.
+    """
+    # [expression for item in iterable if condition]
+    return [
+        employee["name"]
+        for employee in employees
+        if employee.get("department") == "Sales"
+           and employee.get("quarterly_sales", 0) > sales_target
+    ]
 
-print(f"New prices (from loop): {[f'${p:.2f}' for p in new_prices_loop]}")
-print(f"New prices (from comprehension): {[f'${p:.2f}' for p in new_prices_comp]}")
-print("-" * 20)
+def main():
+    """Main function to demonstrate list comprehensions."""
+    # --- Example 1: Transforming Data ---
+    print("--- Applying a Price Increase ---")
+    original_prices = [100.00, 150.50, 200.00, 80.25]
+    print(f"Original prices: {original_prices}")
 
+    increased_prices = apply_price_increase(original_prices, 0.10) # 10% increase
+    print(f"New prices (from comprehension): {[f'${p:.2f}' for p in increased_prices]}")
+    print("-" * 20)
 
-# --- Example 2: Filtering Data (Finding Large Sales) ---
-print("--- Filtering for Large Sales Transactions ---")
-sales = [500, 1200, 800, 1500, 300, 2500]
-print(f"All sales: {sales}")
+    # --- Example 2: Filtering Data ---
+    print("--- Filtering for Large Sales Transactions ---")
+    sales_data = [500, 1200, 800, 1500, 300, 2500]
+    print(f"All sales: {sales_data}")
 
-# The 'for' loop way (for comparison)
-large_sales_loop = []
-for sale in sales:
-    if sale > 1000:
-        large_sales_loop.append(sale)
+    large_sales_data = filter_large_sales(sales_data, 1000)
+    print(f"Large sales (from comprehension): {large_sales_data}")
+    print("-" * 20)
 
-# The list comprehension way with a condition
-# [expression for item in iterable if condition]
-large_sales_comp = [sale for sale in sales if sale > 1000]
+    # --- Example 3: Filtering and Transforming ---
+    print("--- Extracting Names of High-Performing Sales Staff ---")
+    employee_data = [
+        {"name": "Alice", "department": "Sales", "quarterly_sales": 12000},
+        {"name": "Bob", "department": "Engineering", "quarterly_sales": 0},
+        {"name": "Charlie", "department": "Sales", "quarterly_sales": 8000},
+        {"name": "David", "department": "Sales", "quarterly_sales": 15000},
+    ]
+    target = 10000
+    top_performers_list = get_top_sales_performers(employee_data, target)
+    print(f"Top performing sales staff (sales > ${target}): {top_performers_list}")
+    print("-" * 20)
 
-print(f"Large sales (from loop): {large_sales_loop}")
-print(f"Large sales (from comprehension): {large_sales_comp}")
-print("-" * 20)
-
-
-# --- Example 3: Filtering and Transforming (Complex Example) ---
-print("--- Extracting Names of High-Performing Sales Staff ---")
-employees = [
-    {"name": "Alice", "department": "Sales", "quarterly_sales": 12000},
-    {"name": "Bob", "department": "Engineering", "quarterly_sales": 0},
-    {"name": "Charlie", "department": "Sales", "quarterly_sales": 8000},
-    {"name": "David", "department": "Sales", "quarterly_sales": 15000},
-]
-sales_target = 10000
-
-# We want to get the names of sales staff who exceeded the target.
-# The expression transforms the item (employee dict) into just the name.
-# The condition filters for the correct department AND sales amount.
-top_performers = [
-    employee["name"]
-    for employee in employees
-    if employee["department"] == "Sales" and employee["quarterly_sales"] > sales_target
-]
-
-print(f"Top performing sales staff (sales > ${sales_target}): {top_performers}")
-print("-" * 20)
+if __name__ == "__main__":
+    main()

@@ -1,58 +1,92 @@
+"""
+Day 17: Using Regular Expressions for Text Pattern Matching (Refactored)
+
+This script demonstrates how to use the 're' module for common
+business text processing tasks like finding patterns, validating text,
+and cleaning data. This version is refactored into testable functions.
+"""
+
 import re
 import string
 from collections import Counter
-from pprint import pprint
+from typing import List, Tuple
 
-paragraph = (
-    "I love teaching. If you do not love teaching what else can you love. I love Python if you do not love "
-    "something which can give you all the capabilities to develop an application what else can you love. "
-)
+def find_most_common_words(text: str, top_n: int) -> List[Tuple[str, int]]:
+    """
+    Finds the most common words in a given text string.
+    The text is converted to lowercase and punctuation is removed before counting.
+    """
+    # Use regex to find all words (sequences of alphabetic characters)
+    words = re.findall(r'\b[a-z]+\b', text.lower())
+    return Counter(words).most_common(top_n)
 
+def extract_and_analyze_numbers(text: str) -> dict:
+    """
+    Extracts all integer numbers from a text and returns the sorted list
+    and the distance between the maximum and minimum numbers.
+    """
+    # Regex to find all integers, including negative ones
+    numbers = [int(n) for n in re.findall(r'-?\d+', text)]
+    if not numbers:
+        return {"sorted_numbers": [], "distance": 0}
 
-def most_common_words(text):
-    split_it = text.split()
-    Cnter = Counter(split_it).most_common()
-    # Cnter.sort(reverse=True)
-    return Cnter
+    numbers.sort()
+    distance = numbers[-1] - numbers[0]
+    return {"sorted_numbers": numbers, "distance": distance}
 
+def is_valid_python_variable(name: str) -> bool:
+    """
+    Checks if a string is a valid Python variable name using regex.
+    Valid: starts with a letter or underscore, followed by letters, numbers, or underscores.
+    """
+    # ^[a-zA-Z_] matches the start of the string with a letter or underscore.
+    # \w* matches zero or more "word" characters (letters, numbers, underscore).
+    # $ matches the end of the string.
+    return bool(re.fullmatch(r'[a-zA-Z_]\w*', name))
 
-pprint(most_common_words(paragraph))
-para = """The position of some particles on the horizontal x-axis are -12, -4, -3 and -1 in the negative direction,
-0 at origin, 4 and 8 in the positive direction. """
-
-num_list = list(map(int, re.findall(r"[-+]?[.]?[\d]+", para)))
-num_list.sort()
-pprint(num_list)
-dist = num_list[-1] - num_list[0]
-pprint(dist)
-
-
-def is_valid_variable(potential_variable):
-    if re.search(r"^[a-zA-Z_]\w*$", potential_variable):
-        return True
-    else:
-        return False
-
-
-pprint(is_valid_variable("first_name"))
-pprint(is_valid_variable("first-name"))
-
-sentence = """%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as
-educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s
-mo@tivate yo@u to be a tea@cher!? """
-
-
-# noinspection DuplicatedCode
-def clean_text(text):
-    text = text.lower()
-    text = re.sub(r"\[.*?]", "", text)
-    text = re.sub(r"https?://\S+|www\.\S+", "", text)
-    text = re.sub("<.*?>+", "", text)
-    text = re.sub("[%s]" % re.escape(string.punctuation), "", text)
-    text = re.sub("\n", "", text)
-    text = re.sub(r"\w*\d\w*", "", text)
-    return text
+def clean_text_advanced(text: str) -> str:
+    """
+    Cleans a text string by removing all non-alphanumeric characters
+    (except spaces) and converting to lowercase.
+    """
+    # [^a-z0-9\s] is a character set that matches anything that is NOT
+    # a lowercase letter, a digit, or a whitespace character.
+    return re.sub(r'[^a-z0-9\s]', '', text.lower())
 
 
-pprint(clean_text(sentence))
-pprint(most_common_words(clean_text(sentence))[:3])
+def main():
+    """Main function to demonstrate regex capabilities."""
+    print("--- Finding Most Common Words ---")
+    paragraph = (
+        "I love teaching. If you do not love teaching what else can you love. I love Python if you do not love "
+        "something which can give you all the capabilities to develop an application what else can you love."
+    )
+    top_words = find_most_common_words(paragraph, 5)
+    print(f"Original Text: '{paragraph[:50]}...'")
+    print(f"Top 5 most common words: {top_words}")
+    print("-" * 20)
+
+    print("--- Extracting and Analyzing Numbers ---")
+    para_with_nums = "The position of some particles on the x-axis are -12, -4, -3, -1, 0, 4, and 8."
+    analysis = extract_and_analyze_numbers(para_with_nums)
+    print(f"Original Text: '{para_with_nums}'")
+    print(f"Extracted and sorted numbers: {analysis['sorted_numbers']}")
+    print(f"Distance between max and min: {analysis['distance']}")
+    print("-" * 20)
+
+    print("--- Validating Python Variable Names ---")
+    print(f"'first_name' is a valid variable name: {is_valid_python_variable('first_name')}")
+    print(f"'first-name' is a valid variable name: {is_valid_python_variable('first-name')}")
+    print(f"'2nd_place' is a valid variable name: {is_valid_python_variable('2nd_place')}")
+    print("-" * 20)
+
+    print("--- Advanced Text Cleaning ---")
+    messy_sentence = """%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;."""
+    cleaned = clean_text_advanced(messy_sentence)
+    print(f"Original: '{messy_sentence}'")
+    print(f"Cleaned: '{cleaned}'")
+    print("-" * 20)
+
+
+if __name__ == "__main__":
+    main()
