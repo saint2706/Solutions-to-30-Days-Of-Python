@@ -19,7 +19,15 @@ jobs:
         with:
           fetch-depth: 0    # Super-Linter needs the full git history
 
+      - name: Run Super-Linter (Check Only)
+        if: github.event_name == 'pull_request'
+        uses: super-linter/super-linter@v8.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: true
+
       - name: Run Super-Linter (with Fix)
+        if: github.event_name == 'push'
         uses: super-linter/super-linter@v8.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -34,6 +42,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
 
       - name: Commit & Push changes if any
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
