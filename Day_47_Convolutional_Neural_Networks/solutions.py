@@ -1,103 +1,148 @@
+"""Reusable helpers for building and training a small CNN on MNIST images."""
+
+from __future__ import annotations
+
+from typing import Dict, Tuple
+
+import numpy as np
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models
-import matplotlib.pyplot as plt
 
-# --- Building a CNN for Handwritten Digit Recognition ---
 
-print("--- CNN for MNIST Classification ---")
+DEFAULT_SEED = 42
 
-# 1. Load and Preprocess the MNIST Dataset
-(train_images, train_labels), (test_images, test_labels) = datasets.mnist.load_data()
 
-# Normalize pixel values to be between 0 and 1
-train_images, test_images = train_images / 255.0, test_images / 255.0
+def set_global_seed(seed: int = DEFAULT_SEED) -> None:
+    """Synchronise NumPy and TensorFlow RNGs for deterministic runs."""
 
-# Add a channel dimension. MNIST images are grayscale, so the channel is 1.
-# Keras Conv2D layers expect inputs in the shape (batch, height, width, channels).
-train_images = train_images[..., tf.newaxis]
-test_images = test_images[..., tf.newaxis]
+    np.random.seed(seed)
+    tf.keras.utils.set_random_seed(seed)
 
-print(f"Training data shape: {train_images.shape}")
-print(f"Test data shape: {test_images.shape}")
-print("-" * 30)
 
-# 2. Build the Convolutional Neural Network Model
-model = models.Sequential([
-    # First Convolutional Block
-    # 32 filters of size 3x3. 'relu' activation introduces non-linearity.
-    # `input_shape` is specified for the first layer.
-    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)),
-    # Max pooling layer reduces dimensionality.
-    layers.MaxPooling2D((2, 2)),
+def prepare_mnist_data(normalize: bool = True) -> Tuple[Tuple[np.ndarray, np.ndarray], Tuple[np.ndarray, np.ndarray]]:
+    """Load MNIST images, optionally normalise pixels, and add a channel axis."""
 
-    # Second Convolutional Block
-    layers.Conv2D(64, (3, 3), activation='relu'),
-    layers.MaxPooling2D((2, 2)),
+    (train_images, train_labels), (test_images, test_labels) = datasets.mnist.load_data()
 
-    # Third Convolutional Block
-    layers.Conv2D(64, (3, 3), activation='relu'),
+    train_images = train_images.astype("float32")
+    test_images = test_images.astype("float32")
 
-    # Flatten the 3D output to 1D to feed into Dense layers
-    layers.Flatten(),
+    if normalize:
+        train_images /= 255.0
+        test_images /= 255.0
 
-    # Dense Classifier Head
-    layers.Dense(64, activation='relu'),
-    # Output layer with 10 neurons (for 10 digits) and softmax activation
-    layers.Dense(10, activation='softmax')
-])
+    train_images = train_images[..., tf.newaxis]
+    test_images = test_images[..., tf.newaxis]
 
-# 3. Compile the Model
-model.compile(
-    optimizer='adam',
-    loss='sparse_categorical_crossentropy', # Use this for integer labels
-    metrics=['accuracy']
-)
+    return (train_images, train_labels), (test_images, test_labels)
 
-# Print model summary
-print("Model Summary:")
-model.summary()
-print("-" * 30)
 
-# 4. Train the Model
-print("Training the CNN...")
-# We train for 5 epochs, which is enough for high accuracy on MNIST.
-history = model.fit(
-    train_images,
-    train_labels,
-    epochs=5,
-    batch_size=64,
-    validation_data=(test_images, test_labels),
-    verbose=1 # Show training progress
-)
-print("Model training complete.")
-print("-" * 30)
+def build_cnn_model(
+    input_shape: Tuple[int, int, int] = (28, 28, 1),
+    num_classes: int = 10,
+    conv_filters: Tuple[int, int, int] = (32, 64, 64),
+    dense_units: int = 64,
+) -> tf.keras.Model:
+    """Create an MNIST classifier mirroring the tutorial architecture."""
 
-# 5. Evaluate the Model
-print("Evaluating the model on the test set...")
-test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
+    model = models.Sequential()
+    model.add(layers.Input(shape=input_shape))
+    for index, filters in enumerate(conv_filters):
+        model.add(layers.Conv2D(filters, (3, 3), activation="relu"))
+        if index < len(conv_filters) - 1:
+            model.add(layers.MaxPooling2D((2, 2)))
 
-print(f"\nTest Accuracy: {test_acc * 100:.2f}%")
-print(f"Test Loss: {test_loss:.4f}")
-print("CNNs are highly effective for image tasks, often achieving >99% accuracy on MNIST.")
-print("-" * 30)
+    model.add(layers.Flatten())
+    model.add(layers.Dense(dense_units, activation="relu"))
+    model.add(layers.Dense(num_classes, activation="softmax"))
 
-# 6. Visualize Training History (Optional)
-plt.figure(figsize=(12, 4))
-plt.subplot(1, 2, 1)
-plt.plot(history.history['accuracy'], label='Training Accuracy')
-plt.plot(history.history['val_accuracy'], label = 'Validation Accuracy')
-plt.xlabel('Epoch')
-plt.ylabel('Accuracy')
-plt.ylim([0.9, 1])
-plt.legend(loc='lower right')
-plt.title('Training and Validation Accuracy')
+    return model
 
-plt.subplot(1, 2, 2)
-plt.plot(history.history['loss'], label='Training Loss')
-plt.plot(history.history['val_loss'], label = 'Validation Loss')
-plt.xlabel('Epoch')
-plt.ylabel('Loss')
-plt.title('Training and Validation Loss')
-plt.savefig('cnn_training_history.png')
-print("Saved training history plot to 'cnn_training_history.png'")
-print("-" * 30)
+
+def compile_cnn_model(
+    model: tf.keras.Model,
+    optimizer: str = "adam",
+    loss: str = "sparse_categorical_crossentropy",
+    metrics: Tuple[str, ...] = ("accuracy",),
+) -> tf.keras.Model:
+    """Compile the CNN with sensible defaults for classification."""
+
+    model.compile(optimizer=optimizer, loss=loss, metrics=list(metrics))
+    return model
+
+
+def train_cnn_model(
+    model: tf.keras.Model,
+    train_images: np.ndarray,
+    train_labels: np.ndarray,
+    *,
+    epochs: int = 5,
+    batch_size: int = 64,
+    validation_data: Tuple[np.ndarray, np.ndarray] | None = None,
+    validation_split: float = 0.0,
+    verbose: int = 1,
+    shuffle: bool = True,
+) -> tf.keras.callbacks.History:
+    """Fit the CNN and return the training history."""
+
+    history = model.fit(
+        train_images,
+        train_labels,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_data=validation_data,
+        validation_split=validation_split,
+        verbose=verbose,
+        shuffle=shuffle,
+    )
+    return history
+
+
+def evaluate_cnn_model(
+    model: tf.keras.Model,
+    test_images: np.ndarray,
+    test_labels: np.ndarray,
+    *,
+    verbose: int = 2,
+) -> Dict[str, float]:
+    """Evaluate the trained CNN on the test split."""
+
+    return model.evaluate(test_images, test_labels, verbose=verbose, return_dict=True)
+
+
+def run_full_workflow(
+    *,
+    epochs: int = 5,
+    batch_size: int = 64,
+    verbose: int = 1,
+    seed: int = DEFAULT_SEED,
+) -> Tuple[tf.keras.callbacks.History, Dict[str, float], tf.keras.Model]:
+    """Train and evaluate the CNN end-to-end, returning the artifacts."""
+
+    set_global_seed(seed)
+    (train_images, train_labels), (test_images, test_labels) = prepare_mnist_data()
+    model = build_cnn_model(input_shape=train_images.shape[1:])
+    compile_cnn_model(model)
+    history = train_cnn_model(
+        model,
+        train_images,
+        train_labels,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_data=(test_images, test_labels),
+        verbose=verbose,
+    )
+    metrics = evaluate_cnn_model(model, test_images, test_labels, verbose=verbose)
+    return history, metrics, model
+
+
+if __name__ == "__main__":
+    history, metrics, model = run_full_workflow()
+
+    print("--- CNN for MNIST Classification ---")
+    model.summary()
+    print("-" * 30)
+    print("Final training accuracy:", history.history["accuracy"][-1])
+    print("Test metrics:")
+    for name, value in metrics.items():
+        print(f"  {name}: {value:.4f}")

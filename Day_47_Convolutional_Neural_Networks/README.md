@@ -37,11 +37,15 @@ A common CNN architecture consists of a stack of `Conv2D` and `MaxPooling2D` lay
 
 ## Practice Exercise
 
--   The `solutions.py` file demonstrates how to build and train a simple CNN to classify handwritten digits from the famous **MNIST dataset**.
+-   The `solutions.py` module now exports granular helpers (`prepare_mnist_data`, `build_cnn_model`, `train_cnn_model`, etc.) so you can mix and match pieces in notebooks or tests without kicking off a full five-epoch training run on import.
 -   The code covers:
     1.  Loading and preprocessing the MNIST image data. (Images are normalized to be between 0 and 1).
     2.  Building a sequential CNN model with `Conv2D`, `MaxPooling2D`, `Flatten`, and `Dense` layers.
     3.  Compiling and training the CNN.
     4.  Evaluating its performance on the test set. A well-trained CNN can achieve very high accuracy on this task.
 
-Review the code to see how these specialized layers are combined to create a powerful image classifier.
+### Running the example and tests
+
+-   For the full demonstration run `python Day_47_Convolutional_Neural_Networks/solutions.py`. Expect a few epochs of training output plus the final metrics.
+-   To verify the pipeline quickly (and without downloading the entire MNIST dataset), use the short smoke test: `pytest tests/test_day_47.py`. The test swaps in a tiny synthetic dataset and trains for a single epoch.
+-   CNN training benefits from GPU acceleration. TensorFlow will automatically use your GPU if the drivers and CUDA/cuDNN stack are configured; otherwise the CPU-only run will simply take longer.
