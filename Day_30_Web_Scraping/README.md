@@ -47,6 +47,17 @@ paragraphs = soup.find_all('p')
 first_paragraph_text = paragraphs[0].get_text()
 ```
 
+## 🔬 Profiling the Scraper
+
+Profiling helps you spot whether networking or HTML parsing is the bottleneck. Two helper commands wire into the shared profiler:
+
+```bash
+python Day_30_Web_Scraping/profile_web_scraping.py --mode cprofile
+python Day_30_Web_Scraping/profile_web_scraping.py --mode timeit --local-html Day_30_Web_Scraping/books_sample.html --repeat 5 --number 3
+```
+
+The `cProfile` output shows that almost all time is spent inside `requests.Session.get`—network I/O dominates the runtime, so batching requests or caching responses offers the biggest win.【ad83b3†L1-L29】 For deterministic timing, use the saved `books_sample.html` page (refresh it with `curl http://books.toscrape.com/ -o Day_30_Web_Scraping/books_sample.html`). Parsing that local file takes ~0.03 seconds per iteration across five repeats, letting you focus on BeautifulSoup performance without hitting the network.【de293a†L1-L7】 Reusing a single `requests.Session` and avoiding repeated downloads can dramatically cut the cost when scraping multiple pages.
+
 ## 💻 Exercises: Day 30
 
 For these exercises, we will scrape the website `http://books.toscrape.com/`, a site specifically designed for scraping practice.

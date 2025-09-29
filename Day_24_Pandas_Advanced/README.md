@@ -53,6 +53,17 @@ The script for this lesson, `pandas_adv.py`, has been refactored to place each a
     pytest tests/test_day_24.py
     ```
 
+## 🔬 Profiling the Workflow
+
+Curious about where Pandas spends its time? Launch the shared profiling helper to benchmark the lesson workflow:
+
+```bash
+python Day_24_Pandas_Advanced/profile_pandas_adv.py --mode cprofile
+python Day_24_Pandas_Advanced/profile_pandas_adv.py --mode timeit --repeat 5 --number 3
+```
+
+The first command prints a truncated `cProfile` report. In our baseline run the CSV load (`pandas.read_csv`) and the follow-up cleaning call (`handle_missing_data`) dominated the runtime, confirming that disk I/O and DataFrame materialisation are the hot spots.【732170†L1-L28】 The `timeit` helper highlights how quickly the full workflow executes once the operating system cache is warm—about 3 ms per iteration on average across five repeats.【af7429†L1-L7】 If you plan to reuse the dataset across multiple analyses, load the CSV once and reuse the DataFrame rather than calling `read_csv` inside a tight loop.
+
 ## 💻 Exercises: Day 24
 
 1.  **Load and Inspect:**
