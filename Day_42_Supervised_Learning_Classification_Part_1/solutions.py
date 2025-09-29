@@ -1,73 +1,105 @@
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score
+"""Reusable helpers for logistic regression and KNN on the Iris dataset."""
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Dict
+
 import numpy as np
-
-# --- Practical Implementation of Classification Algorithms ---
-
-# 1. Load the dataset
-# The Iris dataset is a classic multi-class classification problem.
-# Features: sepal length, sepal width, petal length, petal width
-# Target: 3 species of iris flowers (0, 1, 2)
-iris = load_iris()
-X, y = iris.data, iris.target
-
-print("--- Classification Example on Iris Dataset ---")
-print(f"Dataset loaded with {X.shape[0]} samples and {X.shape[1]} features.")
-print(f"Number of classes: {len(np.unique(y))}")
-
-# 2. Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
-
-print(f"Training set size: {len(X_train)} samples")
-print(f"Testing set size: {len(X_test)} samples")
-print("-" * 30)
-
-# 3. Feature Scaling (important for KNN)
-# We fit the scaler on the training data and transform both train and test data
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
-print("Data has been scaled using StandardScaler.")
-print("-" * 30)
-
-# --- Model 1: Logistic Regression ---
-print("\n--- Training Logistic Regression ---")
-# Logistic Regression doesn't strictly require feature scaling but it can help convergence.
-# We'll use the scaled data for consistency.
-log_reg = LogisticRegression(random_state=42, max_iter=200)
-log_reg.fit(X_train_scaled, y_train)
-
-# Make predictions
-y_pred_log_reg = log_reg.predict(X_test_scaled)
-
-# Evaluate the model
-accuracy_log_reg = accuracy_score(y_test, y_pred_log_reg)
-print(f"Logistic Regression Accuracy: {accuracy_log_reg:.4f}")
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import StandardScaler
 
 
-# --- Model 2: K-Nearest Neighbors (KNN) ---
-print("\n--- Training K-Nearest Neighbors (KNN) ---")
-# We'll use a common value for k, like k=5.
-k = 5
-knn = KNeighborsClassifier(n_neighbors=k)
-knn.fit(X_train_scaled, y_train)
+@dataclass
+class IrisData:
+    X_train: np.ndarray
+    X_test: np.ndarray
+    y_train: np.ndarray
+    y_test: np.ndarray
+    X_train_scaled: np.ndarray
+    X_test_scaled: np.ndarray
+    scaler: StandardScaler
 
-# Make predictions
-y_pred_knn = knn.predict(X_test_scaled)
 
-# Evaluate the model
-accuracy_knn = accuracy_score(y_test, y_pred_knn)
-print(f"KNN (k={k}) Accuracy: {accuracy_knn:.4f}")
-print("-" * 30)
+def load_and_prepare_iris(
+    test_size: float = 0.3,
+    random_state: int = 42,
+) -> IrisData:
+    """Load the Iris dataset and return scaled/unscaled splits."""
+    iris = load_iris()
+    X_train, X_test, y_train, y_test = train_test_split(
+        iris.data,
+        iris.target,
+        test_size=test_size,
+        random_state=random_state,
+        stratify=iris.target,
+    )
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    return IrisData(
+        X_train=X_train,
+        X_test=X_test,
+        y_train=y_train,
+        y_test=y_test,
+        X_train_scaled=X_train_scaled,
+        X_test_scaled=X_test_scaled,
+        scaler=scaler,
+    )
 
-# --- Comparison ---
-print("\n--- Model Comparison ---")
-print(f"Logistic Regression achieved an accuracy of {accuracy_log_reg*100:.2f}%.")
-print(f"KNN (k={k}) achieved an accuracy of {accuracy_knn*100:.2f}%.")
-print("Both models perform well on this dataset, with Logistic Regression being slightly better.")
-print("-" * 30)
+
+def train_logistic_regression(
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    *,
+    random_state: int = 42,
+    max_iter: int = 200,
+) -> LogisticRegression:
+    """Train a logistic regression classifier with deterministic settings."""
+    model = LogisticRegression(random_state=random_state, max_iter=max_iter)
+    model.fit(X_train, y_train)
+    return model
+
+
+def train_knn_classifier(
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    *,
+    n_neighbors: int = 5,
+) -> KNeighborsClassifier:
+    """Train a K-Nearest Neighbours classifier."""
+    model = KNeighborsClassifier(n_neighbors=n_neighbors)
+    model.fit(X_train, y_train)
+    return model
+
+
+def evaluate_classifier(
+    model,
+    X_test: np.ndarray,
+    y_test: np.ndarray,
+) -> Dict[str, float]:
+    """Return a dictionary of evaluation metrics for the classifier."""
+    accuracy = accuracy_score(y_test, model.predict(X_test))
+    return {"accuracy": accuracy}
+
+
+def run_classification_demo() -> Dict[str, Dict[str, float]]:
+    """Run the Day 42 classification demo and return the metrics."""
+    data = load_and_prepare_iris()
+    log_reg = train_logistic_regression(data.X_train_scaled, data.y_train)
+    knn = train_knn_classifier(data.X_train_scaled, data.y_train)
+    return {
+        "logistic_regression": evaluate_classifier(log_reg, data.X_test_scaled, data.y_test),
+        "knn": evaluate_classifier(knn, data.X_test_scaled, data.y_test),
+    }
+
+
+if __name__ == "__main__":
+    metrics = run_classification_demo()
+    print("--- Classification Example on Iris Dataset ---")
+    print("Training Logistic Regression and KNN models...")
+    for model_name, model_metrics in metrics.items():
+        print(f"{model_name.replace('_', ' ').title()} accuracy: {model_metrics['accuracy']:.4f}")
