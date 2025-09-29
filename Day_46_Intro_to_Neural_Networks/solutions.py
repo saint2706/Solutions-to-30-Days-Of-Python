@@ -1,101 +1,206 @@
+"""Utility functions for training a simple neural network on the Iris dataset.
+
+The original tutorial for Day 46 walked through the full workflow of preparing
+data, building a model, fitting it, and evaluating the results using
+print statements.  This refactor exposes each major step as a reusable
+function so that the workflow can be unit tested and reused from other
+scripts without executing expensive training at import time.
+
+The helper functions are intentionally lightweight: callers control the
+number of training epochs, verbosity, and whether validation data is used.
+Each function returns rich objects (e.g. `History` instances or metric
+dictionaries) so tests can assert on their contents.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Dict, Iterable, Tuple
+
 import numpy as np
 import tensorflow as tf
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-# --- Building a Simple Neural Network with TensorFlow/Keras ---
 
-# Set random seed for reproducibility
-tf.random.set_seed(42)
-np.random.seed(42)
+DEFAULT_SEED = 42
 
-print("--- Neural Network for Iris Classification ---")
 
-# 1. Load and Prepare the Data
-iris = load_iris()
-X, y = iris.data, iris.target
+@dataclass
+class IrisData:
+    """Container for the Iris dataset splits and fitted preprocessors."""
 
-# a. Scale the features
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
+    X_train: np.ndarray
+    X_test: np.ndarray
+    y_train: np.ndarray
+    y_test: np.ndarray
+    scaler: StandardScaler
+    encoder: OneHotEncoder
+    target_names: Iterable[str]
 
-# b. One-hot encode the target variable
-# Neural networks for multi-class classification require the target to be in a binary matrix format.
-encoder = OneHotEncoder(sparse_output=False)
-y_onehot = encoder.fit_transform(y.reshape(-1, 1))
 
-# c. Split the data
-X_train, X_test, y_train, y_test = train_test_split(X_scaled, y_onehot, test_size=0.2, random_state=42)
+def set_global_seed(seed: int = DEFAULT_SEED) -> None:
+    """Ensure reproducible results across NumPy and TensorFlow."""
 
-print(f"Data loaded and prepared. Training set shape: {X_train.shape}")
-print(f"One-hot encoded target shape: {y_train.shape}")
-print("-" * 30)
+    np.random.seed(seed)
+    tf.keras.utils.set_random_seed(seed)
 
-# 2. Build the Neural Network Model
-# We use a Sequential model, which is a linear stack of layers.
-model = tf.keras.Sequential([
-    # Input layer and first hidden layer
-    # Dense layer means every neuron is connected to every neuron in the previous layer.
-    # `input_shape` is only needed for the first layer.
-    tf.keras.layers.Dense(10, activation='relu', input_shape=(X_train.shape[1],)),
 
-    # Second hidden layer
-    tf.keras.layers.Dense(10, activation='relu'),
+def prepare_iris_data(
+    test_size: float = 0.2, random_state: int = DEFAULT_SEED
+) -> IrisData:
+    """Load, scale, and encode the Iris dataset.
 
-    # Output layer
-    # 3 neurons for the 3 classes.
-    # 'softmax' activation is used for multi-class classification to get probability distribution.
-    tf.keras.layers.Dense(3, activation='softmax')
-])
+    Args:
+        test_size: Fraction of samples to allocate to the test split.
+        random_state: Deterministic seed used for the train/test split.
 
-# 3. Compile the Model
-# This step configures the model for training.
-model.compile(
-    optimizer='adam',  # Adam is a popular and effective optimization algorithm.
-    loss='categorical_crossentropy',  # Loss function for multi-class classification.
-    metrics=['accuracy']  # We want to monitor the accuracy during training.
-)
+    Returns:
+        An :class:`IrisData` instance containing the dataset splits along with
+        the fitted preprocessing objects.
+    """
 
-# Print a summary of the model architecture
-print("Model Summary:")
-model.summary()
-print("-" * 30)
+    iris = load_iris()
+    X, y = iris.data, iris.target
 
-# 4. Train the Model
-# We 'fit' the model to the training data.
-print("Training the model...")
-history = model.fit(
-    X_train,
-    y_train,
-    epochs=50,  # An epoch is one complete pass through the entire training dataset.
-    batch_size=8, # The number of samples to process before updating the model's weights.
-    validation_split=0.2, # Use 20% of training data for validation during training.
-    verbose=0  # Set to 0 to hide the lengthy training output for this example.
-)
-print("Model training complete.")
-print("-" * 30)
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
 
-# 5. Evaluate the Model
-# We evaluate the trained model on the unseen test data.
-print("Evaluating the model on the test set...")
-loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
+    # ``sparse_output`` is available in newer scikit-learn releases; fall back
+    # to the legacy ``sparse`` flag when running on older versions.
+    try:
+        encoder = OneHotEncoder(sparse_output=False)  # type: ignore[arg-type]
+    except TypeError:  # pragma: no cover - executed on older scikit-learn
+        encoder = OneHotEncoder(sparse=False)
+    y_onehot = encoder.fit_transform(y.reshape(-1, 1))
 
-print(f"Test Accuracy: {accuracy * 100:.2f}%")
-print(f"Test Loss: {loss:.4f}")
-print("-" * 30)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_scaled, y_onehot, test_size=test_size, random_state=random_state
+    )
 
-# 6. Make a prediction
-# Let's predict the class for a new, unseen sample.
-# We need to scale it first.
-new_sample = np.array([[5.1, 3.5, 1.4, 0.2]]) # An example of Iris-setosa
-new_sample_scaled = scaler.transform(new_sample)
+    return IrisData(
+        X_train=X_train,
+        X_test=X_test,
+        y_train=y_train,
+        y_test=y_test,
+        scaler=scaler,
+        encoder=encoder,
+        target_names=iris.target_names,
+    )
 
-prediction = model.predict(new_sample_scaled)
-predicted_class = np.argmax(prediction, axis=1)
 
-print("Prediction for a new sample:")
-print(f"Probabilities: {prediction[0]}")
-print(f"Predicted class index: {predicted_class[0]}")
-print(f"Predicted class name: {iris.target_names[predicted_class][0]}")
-print("-" * 30)
+def build_iris_model(
+    input_shape: int, num_classes: int, hidden_units: Tuple[int, ...] = (10, 10)
+) -> tf.keras.Model:
+    """Create and compile the neural network used for Iris classification."""
+
+    model = tf.keras.Sequential()
+    model.add(tf.keras.layers.Input(shape=(input_shape,)))
+    for units in hidden_units:
+        model.add(tf.keras.layers.Dense(units, activation="relu"))
+
+    model.add(tf.keras.layers.Dense(num_classes, activation="softmax"))
+
+    model.compile(
+        optimizer="adam",
+        loss="categorical_crossentropy",
+        metrics=["accuracy"],
+    )
+
+    return model
+
+
+def train_iris_model(
+    model: tf.keras.Model,
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    *,
+    epochs: int = 50,
+    batch_size: int = 8,
+    validation_split: float = 0.2,
+    verbose: int = 0,
+    shuffle: bool = True,
+) -> tf.keras.callbacks.History:
+    """Fit the neural network and return the resulting history object."""
+
+    history = model.fit(
+        X_train,
+        y_train,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_split=validation_split,
+        verbose=verbose,
+        shuffle=shuffle,
+    )
+    return history
+
+
+def evaluate_iris_model(
+    model: tf.keras.Model, X_test: np.ndarray, y_test: np.ndarray, *, verbose: int = 0
+) -> Dict[str, float]:
+    """Evaluate the trained model and return the metrics as a dictionary."""
+
+    return model.evaluate(X_test, y_test, verbose=verbose, return_dict=True)
+
+
+def run_full_workflow(
+    *,
+    epochs: int = 50,
+    batch_size: int = 8,
+    validation_split: float = 0.2,
+    verbose: int = 0,
+    seed: int = DEFAULT_SEED,
+) -> Tuple[tf.keras.callbacks.History, Dict[str, float], tf.keras.Model, IrisData]:
+    """Execute the end-to-end Iris training workflow.
+
+    This helper is convenient for interactive exploration while keeping the
+    individual steps separately testable.
+    """
+
+    set_global_seed(seed)
+    data = prepare_iris_data(random_state=seed)
+    model = build_iris_model(data.X_train.shape[1], data.y_train.shape[1])
+    history = train_iris_model(
+        model,
+        data.X_train,
+        data.y_train,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_split=validation_split,
+        verbose=verbose,
+        shuffle=True,
+    )
+    metrics = evaluate_iris_model(model, data.X_test, data.y_test, verbose=verbose)
+    return history, metrics, model, data
+
+
+if __name__ == "__main__":
+    history, metrics, model, data = run_full_workflow(verbose=1)
+
+    print("--- Neural Network for Iris Classification ---")
+    print(f"Training set shape: {data.X_train.shape}")
+    print(f"One-hot encoded target shape: {data.y_train.shape}")
+    print("-" * 30)
+
+    print("Model Summary:")
+    model.summary()
+    print("-" * 30)
+
+    print("Training complete. Final validation accuracy:"
+          f" {history.history['val_accuracy'][-1]:.3f}")
+    print("Test metrics:")
+    for name, value in metrics.items():
+        print(f"  {name}: {value:.4f}")
+    print("-" * 30)
+
+    # Demonstrate an example prediction using the fitted scaler.
+    sample = np.array([[5.1, 3.5, 1.4, 0.2]])
+    sample_scaled = data.scaler.transform(sample)
+    prediction = model.predict(sample_scaled)
+    predicted_class = np.argmax(prediction, axis=1)[0]
+
+    print("Prediction for a new sample:")
+    print(f"Probabilities: {prediction[0]}")
+    print(f"Predicted class index: {predicted_class}")
+    print(f"Predicted class name: {data.target_names[predicted_class]}")

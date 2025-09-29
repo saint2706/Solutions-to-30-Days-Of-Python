@@ -44,12 +44,16 @@ Building neural networks from scratch is complex. We use specialized libraries t
 
 ## Practice Exercise
 
--   The `solutions.py` file demonstrates how to build a simple neural network for a classification task using **TensorFlow with the Keras API**.
+-   The `solutions.py` module now exposes dedicated helper functions for each step of the workflow (data preparation, model construction, training, and evaluation). Import the pieces you need instead of running everything on import.
 -   The code covers:
     1.  Loading and preparing the Iris dataset.
     2.  Building a sequential model with dense (fully connected) layers.
     3.  Compiling the model (specifying the optimizer, loss function, and metrics).
     4.  Training the model.
-    5.  Evaluating its performance.
+    5.  Evaluating its performance and making predictions.
 
-Review the code to understand the basic workflow of building and training a neural network.
+### Running the example and tests
+
+-   Execute the full walkthrough from the command line with `python Day_46_Intro_to_Neural_Networks/solutions.py`. The script prints the data shapes, model summary, and evaluation metrics.
+-   Need a quick confidence check without the full 50-epoch run? The automated test performs a single, deterministic epoch: `pytest tests/test_day_46.py`.
+-   Training on GPU hardware is optional for this small dataset, but TensorFlow will automatically leverage your GPU if it's available and correctly configured.

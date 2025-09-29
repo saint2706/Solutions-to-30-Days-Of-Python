@@ -35,8 +35,8 @@ To solve this problem, more sophisticated RNN variants were developed:
 
 ## Practice Exercise
 
--   The `solutions.py` file demonstrates how to build and train a simple RNN (using an LSTM layer) for **sentiment analysis** on the **IMDB movie review dataset**.
--   The goal is to classify a review as either `positive` or `negative`.
+-   The refactored `solutions.py` module exposes building blocks such as `prepare_imdb_data`, `build_rnn_model`, and `train_rnn_model`. Import what you need for notebooks or experiments; nothing trains automatically when the module is imported.
+-   The goal remains to classify IMDB reviews as `positive` or `negative`, and the workflow now mirrors the modular structure used for other deep-learning lessons.
 -   The code covers:
     1.  Loading and preprocessing the IMDB text data. (Reviews are pre-processed into sequences of integers).
     2.  Padding the sequences to ensure they all have the same length.
@@ -44,4 +44,8 @@ To solve this problem, more sophisticated RNN variants were developed:
     4.  Compiling and training the RNN.
     5.  Evaluating its performance on the test set.
 
-Review the code to see how RNNs can be used to understand and classify sequential text data.
+### Running the example and tests
+
+-   Launch the full script with `python Day_48_Recurrent_Neural_Networks/solutions.py` to download IMDB, train the LSTM, and print evaluation metrics.
+-   For a very fast check, use `pytest tests/test_day_48.py`. The test stubs out the dataset loader with a handful of synthetic sequences and runs a single epoch so it finishes quickly.
+-   LSTM models benefit significantly from GPU acceleration. If you have CUDA/cuDNN configured, TensorFlow will pick it up automatically; otherwise the CPU execution path will still work (just slower).
