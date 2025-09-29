@@ -7,6 +7,7 @@ datetime module, refactored into testable functions.
 
 from datetime import datetime, date, timedelta
 
+
 def get_current_datetime_components() -> dict:
     """Gets the current date and time and returns its components as a dictionary."""
     now = datetime.now()
@@ -19,9 +20,11 @@ def get_current_datetime_components() -> dict:
         "timestamp": now.timestamp(),
     }
 
+
 def format_datetime_to_string(dt_object: datetime, format_str: str) -> str:
     """Formats a datetime object into a string according to a format code."""
     return dt_object.strftime(format_str)
+
 
 def parse_string_to_datetime(date_string: str, format_str: str) -> datetime:
     """Parses a string into a datetime object based on a format code."""
@@ -30,9 +33,11 @@ def parse_string_to_datetime(date_string: str, format_str: str) -> datetime:
     except ValueError:
         return None
 
+
 def calculate_date_difference(date1: date, date2: date) -> timedelta:
     """Calculates the difference between two date objects."""
     return date1 - date2
+
 
 def main():
     """Main function to demonstrate datetime operations."""
@@ -59,8 +64,11 @@ def main():
     new_year_2022 = date(year=2022, month=1, day=1)
     today_fake = date(year=2021, month=9, day=20)
     time_difference = calculate_date_difference(new_year_2022, today_fake)
-    print(f"The difference between {new_year_2022} and {today_fake} is {time_difference.days} days.")
+    print(
+        f"The difference between {new_year_2022} and {today_fake} is {time_difference.days} days."
+    )
     print("-" * 20)
+
 
 if __name__ == "__main__":
     main()

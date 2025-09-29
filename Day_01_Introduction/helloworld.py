@@ -6,15 +6,18 @@ We will perform a simple profit calculation and check the types of various
 business-related data points. This version is refactored to use functions.
 """
 
+
 def calculate_gross_profit(revenue, cogs):
     """Calculates the gross profit from revenue and COGS."""
     return revenue - cogs
+
 
 def calculate_gross_profit_margin(gross_profit, revenue):
     """Calculates the gross profit margin."""
     if revenue == 0:
         return 0
     return (gross_profit / revenue) * 100
+
 
 def display_business_analytics(revenue, cogs):
     """Calculates and displays key business metrics."""
@@ -31,6 +34,7 @@ def display_business_analytics(revenue, cogs):
     print(f"Gross Profit Margin: {gross_profit_margin:.2f}%")
     print("-" * 20)
 
+
 def display_data_types():
     """Displays the types of various business-related data points."""
     print("Checking the types of some common business data points:")
@@ -46,6 +50,7 @@ def display_data_types():
     print(f"Data: '{company_name}', Type: {type(company_name)}")
     print(f"Data: {is_in_stock}, Type: {type(is_in_stock)}")
     print(f"Data: {quarterly_sales}, Type: {type(quarterly_sales)}")
+
 
 if __name__ == "__main__":
     # --- Basic Business Calculations ---

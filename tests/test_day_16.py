@@ -1,10 +1,9 @@
 import sys
 import os
 import pytest
-from pathlib import Path
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_16_File_Handling.fh import (
     count_words_and_lines,
@@ -13,10 +12,12 @@ from Day_16_File_Handling.fh import (
     analyze_sales_csv,
 )
 
+
 # Use a temporary directory for test files provided by pytest
 @pytest.fixture
 def temp_dir(tmp_path):
     return tmp_path
+
 
 def test_count_words_and_lines(temp_dir):
     """Tests counting words and lines from a file."""
@@ -33,6 +34,7 @@ def test_count_words_and_lines(temp_dir):
     assert words_nf == 0
     assert lines_nf == 0
 
+
 def test_find_most_common_words(temp_dir):
     """Tests finding the most common words, ignoring stop words."""
     file_path = temp_dir / "common_words.txt"
@@ -42,6 +44,7 @@ def test_find_most_common_words(temp_dir):
     common = find_most_common_words(str(file_path), 2)
     assert common == [("sales", 2), ("great", 2)]
 
+
 def test_extract_emails_from_file(temp_dir):
     """Tests extracting unique emails from a text file."""
     file_path = temp_dir / "emails.txt"
@@ -50,6 +53,7 @@ def test_extract_emails_from_file(temp_dir):
 
     emails = extract_emails_from_file(str(file_path))
     assert emails == ["sales@example.com", "support@example.com"]
+
 
 def test_analyze_sales_csv(temp_dir):
     """Tests reading and analyzing a sales CSV file."""

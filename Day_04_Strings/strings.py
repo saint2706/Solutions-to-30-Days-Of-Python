@@ -6,17 +6,21 @@ applied to business-related text data. This version is refactored
 into functions for better organization and testability.
 """
 
+
 def generate_report_header(title, year):
     """Creates a formatted report header."""
     return f"*** {title.upper()} - FY{year} ***"
+
 
 def clean_and_format_name(raw_name):
     """Cleans and capitalizes a raw name string."""
     return raw_name.strip().title()
 
+
 def format_date_string(date_str, old_separator="-", new_separator="/"):
     """Replaces separators in a date string."""
     return date_str.replace(old_separator, new_separator)
+
 
 def parse_sku(sku):
     """Parses a SKU string into its component parts."""
@@ -25,17 +29,21 @@ def parse_sku(sku):
         return {"type": parts[0], "name": parts[1], "id": parts[2]}
     return None
 
+
 def is_transaction_type(transaction_id, prefix):
     """Checks if a transaction ID starts with a given prefix."""
     return transaction_id.startswith(prefix)
+
 
 def has_file_extension(filename, extension):
     """Checks if a filename ends with a given extension."""
     return filename.endswith(extension)
 
+
 def feedback_contains_keyword(feedback, keyword):
     """Checks if a feedback string contains a specific keyword."""
     return feedback.find(keyword) != -1
+
 
 if __name__ == "__main__":
     # --- Formatting Strings for Reports ---
@@ -48,7 +56,9 @@ if __name__ == "__main__":
     print("--- Data Cleaning Examples ---")
     customer_name = "  john doe  "
     formatted_customer_name = clean_and_format_name(customer_name)
-    print(f"Raw name: '{customer_name}', Final formatted name: '{formatted_customer_name}'")
+    print(
+        f"Raw name: '{customer_name}', Final formatted name: '{formatted_customer_name}'"
+    )
 
     date_string = "2023-Jan-15"
     formatted_date_str = format_date_string(date_string)

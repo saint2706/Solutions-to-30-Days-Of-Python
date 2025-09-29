@@ -2,7 +2,7 @@ import sys
 import os
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_07_Sets.sets import (
     get_unique_items,
@@ -10,12 +10,14 @@ from Day_07_Sets.sets import (
     upgrade_plan_features,
 )
 
+
 def test_get_unique_items():
     """Tests the de-duplication of a list using a set."""
     items = ["a", "b", "a", "c", "b", "d"]
     unique_set = get_unique_items(items)
     assert unique_set == {"a", "b", "c", "d"}
     assert len(unique_set) == 4
+
 
 def test_analyze_visitor_segments():
     """Tests the segmentation analysis of two sets."""
@@ -26,6 +28,7 @@ def test_analyze_visitor_segments():
     assert result["intersection"] == {3, 4}
     assert result["difference_a_b"] == {1, 2}
     assert result["union"] == {1, 2, 3, 4, 5, 6}
+
 
 def test_upgrade_plan_features():
     """Tests adding new features to a base set."""

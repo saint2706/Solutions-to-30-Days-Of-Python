@@ -1,4 +1,5 @@
 """Reusable helpers for SVM and Decision Tree classifiers on the Iris dataset."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -101,4 +102,6 @@ if __name__ == "__main__":
     metrics = run_classification_demo()
     print("--- Advanced Classification on Iris Dataset ---")
     for model_name, model_metrics in metrics.items():
-        print(f"{model_name.replace('_', ' ').title()} accuracy: {model_metrics['accuracy']:.4f}")
+        print(
+            f"{model_name.replace('_', ' ').title()} accuracy: {model_metrics['accuracy']:.4f}"
+        )

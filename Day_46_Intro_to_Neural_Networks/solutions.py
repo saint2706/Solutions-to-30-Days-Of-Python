@@ -187,8 +187,10 @@ if __name__ == "__main__":
     model.summary()
     print("-" * 30)
 
-    print("Training complete. Final validation accuracy:"
-          f" {history.history['val_accuracy'][-1]:.3f}")
+    print(
+        "Training complete. Final validation accuracy:"
+        f" {history.history['val_accuracy'][-1]:.3f}"
+    )
     print("Test metrics:")
     for name, value in metrics.items():
         print(f"  {name}: {value:.4f}")

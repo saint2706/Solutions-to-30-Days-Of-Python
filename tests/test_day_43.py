@@ -11,7 +11,9 @@ def _load_module():
         / "Day_43_Supervised_Learning_Classification_Part_2"
         / "solutions.py"
     )
-    spec = importlib.util.spec_from_file_location("day_43_part_2_solutions", module_path)
+    spec = importlib.util.spec_from_file_location(
+        "day_43_part_2_solutions", module_path
+    )
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     sys.modules[spec.name] = module

@@ -11,7 +11,8 @@ from Day_30_Web_Scraping.web_scraping import process_book_data, scrape_books
 
 
 HTML_FIXTURE = (
-    """
+    (
+        """
     <html>
         <body>
             <article class="product_pod">
@@ -29,7 +30,10 @@ HTML_FIXTURE = (
         </body>
     </html>
     """
-).strip().encode("utf-8")
+    )
+    .strip()
+    .encode("utf-8")
+)
 
 
 class DummyResponse:

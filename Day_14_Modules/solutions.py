@@ -1,12 +1,13 @@
-"""
-Day 14: Solutions to Exercises
-"""
+"""Day 14: Solutions to Exercises."""
+
+import datetime
+import math
+
+import finance_tools as ft
+
 
 # --- Exercise 1: Create a Finance Module ---
 print("--- Solution to Exercise 1 ---")
-# This script acts as the 'main_analysis.py' file.
-# We import the module we just created.
-import finance_tools as ft
 
 # --- Call functions from the module ---
 investment = 150000
@@ -21,7 +22,7 @@ rate = 0.05
 years = 10
 future_value = ft.calculate_future_value(principal, rate, years)
 print(
-    f"Future value of ${principal:,.2f} after {years} years at a {rate*100}% rate is: ${future_value:,.2f}"
+    f"Future value of ${principal:,.2f} after {years} years at a {rate * 100}% rate is: ${future_value:,.2f}"
 )
 print("-" * 20)
 
@@ -29,7 +30,6 @@ print("-" * 20)
 # --- Exercise 2: Use the `datetime` Module ---
 print("--- Solution to Exercise 2 ---")
 # import the module
-import datetime
 
 # Get the current date and time
 now = datetime.datetime.now()
@@ -45,7 +45,6 @@ print("-" * 20)
 # --- Exercise 3: Use the `math` Module ---
 print("--- Solution to Exercise 3 ---")
 # import the module
-import math
 
 marketing_budget = 100000
 # Use the sqrt function from the math module

@@ -2,7 +2,7 @@ import sys
 import os
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_04_Strings.strings import (
     generate_report_header,
@@ -14,9 +14,11 @@ from Day_04_Strings.strings import (
     feedback_contains_keyword,
 )
 
+
 def test_generate_report_header():
     """Tests the report header generation."""
     assert generate_report_header("Test Report", 2023) == "*** TEST REPORT - FY2023 ***"
+
 
 def test_clean_and_format_name():
     """Tests name cleaning and formatting."""
@@ -24,10 +26,15 @@ def test_clean_and_format_name():
     assert clean_and_format_name("single") == "Single"
     assert clean_and_format_name("  already Correct  ") == "Already Correct"
 
+
 def test_format_date_string():
     """Tests date string formatting."""
     assert format_date_string("2023-Jan-15") == "2023/Jan/15"
-    assert format_date_string("2023.01.01", old_separator=".", new_separator="-") == "2023-01-01"
+    assert (
+        format_date_string("2023.01.01", old_separator=".", new_separator="-")
+        == "2023-01-01"
+    )
+
 
 def test_parse_sku():
     """Tests SKU parsing."""
@@ -40,15 +47,18 @@ def test_parse_sku():
 
     assert parse_sku("INVALID-SKU") is None
 
+
 def test_is_transaction_type():
     """Tests transaction type checking."""
     assert is_transaction_type("INV-123", "INV") is True
     assert is_transaction_type("ORD-456", "INV") is False
 
+
 def test_has_file_extension():
     """Tests file extension checking."""
     assert has_file_extension("report.pdf", ".pdf") is True
     assert has_file_extension("image.jpg", ".png") is False
+
 
 def test_feedback_contains_keyword():
     """Tests keyword search in feedback."""

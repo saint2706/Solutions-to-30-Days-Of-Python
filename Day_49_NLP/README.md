@@ -9,7 +9,7 @@ baselines or lightweight models.
 
 ## What's in this folder?
 
-* `solutions.py` – exposes `build_count_matrix` and `build_tfidf_matrix`
+- `solutions.py` – exposes `build_count_matrix` and `build_tfidf_matrix`
   helper functions plus a small demo script that prints both
   representations for a sample corpus.
 

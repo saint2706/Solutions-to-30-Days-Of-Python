@@ -5,11 +5,13 @@ This script demonstrates loading data from a CSV file and
 using advanced selection and cleaning techniques with Pandas,
 refactored into testable functions.
 """
+
 from pathlib import Path
 from typing import Any, List, Optional
 
 import pandas as pd
 import plotly.graph_objects as go
+
 
 def load_sales_data(file_path: str) -> Optional[pd.DataFrame]:
     """Loads sales data from a CSV file into a Pandas DataFrame."""
@@ -19,7 +21,10 @@ def load_sales_data(file_path: str) -> Optional[pd.DataFrame]:
         print(f"❌ Error: The file was not found at {file_path}")
         return None
 
-def select_by_label(df: pd.DataFrame, index_label: Any, columns: List[str]) -> Optional[pd.Series]:
+
+def select_by_label(
+    df: pd.DataFrame, index_label: Any, columns: List[str]
+) -> Optional[pd.Series]:
     """Selects data by row label and column names using .loc."""
     if df is None or df.empty:
         return None
@@ -28,7 +33,10 @@ def select_by_label(df: pd.DataFrame, index_label: Any, columns: List[str]) -> O
     except KeyError:
         return None
 
-def select_by_position(df: pd.DataFrame, row_pos: int, col_slice: slice) -> Optional[pd.Series]:
+
+def select_by_position(
+    df: pd.DataFrame, row_pos: int, col_slice: slice
+) -> Optional[pd.Series]:
     """Selects data by integer position using .iloc."""
     if df is None or df.empty:
         return None
@@ -37,24 +45,31 @@ def select_by_position(df: pd.DataFrame, row_pos: int, col_slice: slice) -> Opti
     except IndexError:
         return None
 
+
 def filter_by_high_revenue(df: pd.DataFrame, threshold: float) -> pd.DataFrame:
     """Filters the DataFrame for rows where Revenue exceeds a threshold."""
-    if df is None or 'Revenue' not in df.columns:
+    if df is None or "Revenue" not in df.columns:
         return pd.DataFrame()
     return df[df["Revenue"] > threshold]
 
-def filter_by_product_and_region(df: pd.DataFrame, product: str, region: str) -> pd.DataFrame:
+
+def filter_by_product_and_region(
+    df: pd.DataFrame, product: str, region: str
+) -> pd.DataFrame:
     """Filters the DataFrame for a specific product and region."""
-    if df is None or 'Product' not in df.columns or 'Region' not in df.columns:
+    if df is None or "Product" not in df.columns or "Region" not in df.columns:
         return pd.DataFrame()
     return df[(df["Product"] == product) & (df["Region"] == region)]
 
-def handle_missing_data(df: pd.DataFrame, strategy: str = 'drop', fill_value=None) -> pd.DataFrame:
+
+def handle_missing_data(
+    df: pd.DataFrame, strategy: str = "drop", fill_value=None
+) -> pd.DataFrame:
     """Handles missing data by either dropping rows or filling with a value."""
     df_copy = df.copy()
-    if strategy == 'drop':
+    if strategy == "drop":
         return df_copy.dropna()
-    elif strategy == 'fill':
+    elif strategy == "fill":
         if fill_value is None:
             # Default to filling with the mean for numeric columns
             for col in df_copy.columns:
@@ -74,7 +89,9 @@ def build_revenue_by_region_bar_chart(df: pd.DataFrame) -> go.Figure:
         raise KeyError("DataFrame must include 'Region' and 'Revenue' columns")
 
     regional_revenue = (
-        df.groupby("Region", dropna=False)["Revenue"].sum(min_count=1).sort_values(ascending=False)
+        df.groupby("Region", dropna=False)["Revenue"]
+        .sum(min_count=1)
+        .sort_values(ascending=False)
     )
     figure = go.Figure(
         data=[
@@ -111,7 +128,12 @@ def build_units_vs_price_scatter(df: pd.DataFrame) -> go.Figure:
                 x=df["Price"],
                 y=df["Units Sold"],
                 mode="markers",
-                marker=dict(size=10, color=df["Units Sold"], colorscale="Viridis", showscale=True),
+                marker=dict(
+                    size=10,
+                    color=df["Units Sold"],
+                    colorscale="Viridis",
+                    showscale=True,
+                ),
                 text=df["Product"],
                 hovertemplate=(
                     "Product: %{text}<br>Price: %{x:$,.0f}<br>Units Sold: %{y}<extra></extra>"
@@ -126,6 +148,7 @@ def build_units_vs_price_scatter(df: pd.DataFrame) -> go.Figure:
         template="plotly_white",
     )
     return figure
+
 
 def main():
     """Main function to demonstrate advanced Pandas operations."""
@@ -158,12 +181,15 @@ def main():
         print(f"Original shape: {df.shape}")
         print(f"Missing values count:\n{df.isnull().sum()}\n")
 
-        df_dropped = handle_missing_data(df, strategy='drop')
+        df_dropped = handle_missing_data(df, strategy="drop")
         print(f"Shape after dropping missing rows: {df_dropped.shape}")
 
-        df_filled = handle_missing_data(df, strategy='fill')
-        print(f"Missing values after filling with mean:\n{df_filled.isnull().sum().sum()}")
+        df_filled = handle_missing_data(df, strategy="fill")
+        print(
+            f"Missing values after filling with mean:\n{df_filled.isnull().sum().sum()}"
+        )
         print("-" * 20)
+
 
 if __name__ == "__main__":
     main()

@@ -72,11 +72,22 @@ def summarize_case_study(data: pd.DataFrame, *, top_n: int = 5) -> Dict[str, Any
         raise ValueError("Cannot summarize an empty DataFrame.")
 
     summary: Dict[str, Any] = {
-        "top_products": data.groupby("Product")["Revenue"].sum().sort_values(ascending=False).head(top_n),
-        "region_revenue": data.groupby("Region")["Revenue"].sum().sort_values(ascending=False),
-        "segment_revenue": data.groupby("Customer Segment")["Revenue"].sum().sort_values(ascending=False),
-        "channel_revenue": data.groupby("Sales Channel")["Revenue"].sum().sort_values(ascending=False),
-        "price_units_correlation": data[["Price", "Units Sold"]].corr().loc["Price", "Units Sold"],
+        "top_products": data.groupby("Product")["Revenue"]
+        .sum()
+        .sort_values(ascending=False)
+        .head(top_n),
+        "region_revenue": data.groupby("Region")["Revenue"]
+        .sum()
+        .sort_values(ascending=False),
+        "segment_revenue": data.groupby("Customer Segment")["Revenue"]
+        .sum()
+        .sort_values(ascending=False),
+        "channel_revenue": data.groupby("Sales Channel")["Revenue"]
+        .sum()
+        .sort_values(ascending=False),
+        "price_units_correlation": data[["Price", "Units Sold"]]
+        .corr()
+        .loc["Price", "Units Sold"],
         "monthly_revenue": data.set_index("Date")["Revenue"].resample("M").sum(),
     }
 
@@ -98,4 +109,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

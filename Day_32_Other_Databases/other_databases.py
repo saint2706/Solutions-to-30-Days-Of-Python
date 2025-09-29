@@ -85,14 +85,12 @@ def upsert_sales_forecast(
     intentionally generic so that the function remains database-agnostic.
     """
 
-    merge_query = (
-        """
+    merge_query = """
         INSERT INTO sales_forecast (region, forecast_month, revenue)
         VALUES (%s, %s, %s)
         ON CONFLICT (region, forecast_month) DO UPDATE
         SET revenue = EXCLUDED.revenue
         """.strip()
-    )
 
     connection = client_factory(credentials)
     cursor = connection.cursor()

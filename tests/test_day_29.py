@@ -14,12 +14,14 @@ from Day_29_Interactive_Visualization import interactive_visualization as iv
 def sample_df() -> pd.DataFrame:
     return pd.DataFrame(
         {
-            "Date": pd.to_datetime([
-                "2024-01-01",
-                "2024-01-01",
-                "2024-01-02",
-                "2024-01-03",
-            ]),
+            "Date": pd.to_datetime(
+                [
+                    "2024-01-01",
+                    "2024-01-01",
+                    "2024-01-02",
+                    "2024-01-03",
+                ]
+            ),
             "Region": ["North", "South", "North", "West"],
             "Revenue": [100.0, 80.0, 120.0, 90.0],
             "Product": ["A", "B", "A", "C"],
@@ -50,7 +52,9 @@ def test_build_daily_revenue_line(sample_df: pd.DataFrame) -> None:
     trace = fig.data[0]
     assert isinstance(trace, go.Scatter)
     assert trace.mode == "lines+markers"
-    expected_dates = list(pd.to_datetime(["2024-01-01", "2024-01-02", "2024-01-03"]).to_pydatetime())
+    expected_dates = list(
+        pd.to_datetime(["2024-01-01", "2024-01-02", "2024-01-03"]).to_pydatetime()
+    )
     assert list(trace.x) == expected_dates
     assert list(trace.y) == [180.0, 120.0, 90.0]
 

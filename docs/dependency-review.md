@@ -1,11 +1,13 @@
 # Dependency review — 2025-09-29
 
 ## Summary
+
 - Upgraded the production requirements to the latest stable releases that support Python 3.12.
 - Realigned TensorFlow with NumPy 2.x compatibility and refreshed ancillary scientific tooling (pandas, scikit-learn, matplotlib, seaborn, sympy).
 - Adjusted the Day 29 interactive visualisation helper to preserve Python `datetime` objects after pandas 2.3's aggregation changes.
 
 ## Upgrade matrix
+
 | Package | Previous | Updated | Notes |
 |---------|----------|---------|-------|
 | beautifulsoup4 | 4.12.3 | 4.14.2 | Bug fixes and parser improvements; no code changes required. |
@@ -24,5 +26,5 @@
 | responses | 0.25.3 | 0.25.8 | Keeps HTTP mocking utilities current for API lessons. |
 
 ## Smoke test matrix
-- `pytest` — full suite (182 tests) with coverage thresholds intact.
 
+- `pytest` — full suite (182 tests) with coverage thresholds intact.

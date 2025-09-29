@@ -4,6 +4,7 @@ This module provides reusable plotting functions for the lesson so that the
 charts can be tested and embedded in notebooks without relying on the GUI
 backend.  Each function returns a :class:`matplotlib.figure.Figure` instance.
 """
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -124,16 +125,22 @@ def main() -> None:
     if df.empty:
         return
 
-    print("Displaying Bar Chart: Total Revenue by Region. Close the window to continue.")
+    print(
+        "Displaying Bar Chart: Total Revenue by Region. Close the window to continue."
+    )
     build_revenue_by_region_plot(df).show()
 
     print("Displaying Line Chart: Daily Revenue Trend. Close the window to continue.")
     build_daily_revenue_plot(df).show()
 
-    print("Displaying Histogram: Distribution of Units Sold. Close the window to continue.")
+    print(
+        "Displaying Histogram: Distribution of Units Sold. Close the window to continue."
+    )
     build_units_sold_distribution_plot(df).show()
 
-    print("Displaying Scatter Plot: Price vs. Units Sold. Close the window to continue.")
+    print(
+        "Displaying Scatter Plot: Price vs. Units Sold. Close the window to continue."
+    )
     build_price_vs_units_sold_plot(df).show()
 
 

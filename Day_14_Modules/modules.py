@@ -11,6 +11,7 @@ import business_logic as bl
 import datetime
 import math
 
+
 def demonstrate_custom_module():
     """Demonstrates using functions from the custom business_logic module."""
     print("--- Using Custom Business Logic Module ---")
@@ -29,6 +30,7 @@ def demonstrate_custom_module():
     )
     print("-" * 20)
 
+
 def demonstrate_builtin_modules():
     """Demonstrates using Python's built-in datetime and math modules."""
     print("--- Using Built-in 'datetime' and 'math' Modules ---")
@@ -44,10 +46,12 @@ def demonstrate_builtin_modules():
     )
     print("-" * 20)
 
+
 def main():
     """Main function to demonstrate module usage."""
     demonstrate_custom_module()
     demonstrate_builtin_modules()
+
 
 if __name__ == "__main__":
     main()

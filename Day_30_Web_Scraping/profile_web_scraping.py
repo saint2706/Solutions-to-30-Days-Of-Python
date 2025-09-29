@@ -3,16 +3,17 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 from typing import Callable
 
-import sys
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.append(str(PROJECT_ROOT))
-
-from mypackage.profiling import print_report, profile_callable
+try:
+    from mypackage.profiling import print_report, profile_callable
+except ImportError:
+    PROJECT_ROOT = Path(__file__).resolve().parents[1]
+    if str(PROJECT_ROOT) not in sys.path:
+        sys.path.append(str(PROJECT_ROOT))
+    from mypackage.profiling import print_report, profile_callable
 
 try:  # pragma: no cover - runtime guard for direct execution
     from .web_scraping import URL, process_book_data, scrape_books
@@ -73,7 +74,9 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.mode == "timeit" and args.local_html is None:
-        raise SystemExit("--mode=timeit requires --local-html to avoid repeated network calls")
+        raise SystemExit(
+            "--mode=timeit requires --local-html to avoid repeated network calls"
+        )
 
     pipeline = build_pipeline(url=args.url, html_path=args.local_html)
     profile_report, timing_report = profile_callable(
@@ -87,4 +90,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

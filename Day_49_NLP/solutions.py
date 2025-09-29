@@ -26,7 +26,7 @@ def demo():
     corpus = [
         "The quick brown fox jumped over the lazy dog.",
         "The dog was not lazy.",
-        "The fox is quick."
+        "The fox is quick.",
     ]
 
     print("--- NLP Vectorization Demo ---")
@@ -50,7 +50,9 @@ def demo():
     print(df_tfidf.columns.to_list())
     print("\nTF-IDF Matrix:")
     print(df_tfidf.round(2))
-    print("This matrix shows the TF-IDF score for each word, highlighting important words.")
+    print(
+        "This matrix shows the TF-IDF score for each word, highlighting important words."
+    )
     print("-" * 30)
 
 

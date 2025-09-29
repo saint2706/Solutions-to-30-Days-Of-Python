@@ -9,19 +9,14 @@ Purpose: Educational solutions for MBA students
 """
 
 import os
-import json
 import csv
 import glob
-from typing import List, Dict, Tuple, Any, Optional, Union
+from typing import List, Dict
 from fh import (
     counter,
     find_most_common_words,
     extract_emails,
     check_email,
-    document_similarity,
-    analyze_technology_mentions,
-    most_populated_countries,
-    most_spoken_languages,
 )
 
 
@@ -68,14 +63,14 @@ def exercise_1_document_analyzer():
     # Analyze the story
     try:
         words, lines = counter(story_file)
-        print(f"\n📈 Story Analysis Results:")
+        print("\n📈 Story Analysis Results:")
         print(f"   📝 Total words: {words}")
         print(f"   📄 Total lines: {lines}")
-        print(f"   📊 Average words per line: {words/lines:.2f}")
+        print(f"   📊 Average words per line: {words / lines:.2f}")
 
         # Find most common words in the story
         common_words = find_most_common_words(story_file, 5)
-        print(f"\n🔤 Most Common Words:")
+        print("\n🔤 Most Common Words:")
         for i, (freq, word) in enumerate(common_words, 1):
             print(f"   {i}. '{word}': {freq} times")
 
@@ -83,7 +78,7 @@ def exercise_1_document_analyzer():
         print(f"❌ Error analyzing story: {e}")
 
     # Demonstrate batch document analysis
-    print(f"\n📚 Batch Document Analysis:")
+    print("\n📚 Batch Document Analysis:")
     batch_analyze_business_documents()
 
     # Clean up
@@ -134,7 +129,7 @@ def batch_analyze_business_documents():
             print(f"   ❌ Error processing {file_path}: {e}")
 
     if total_words > 0:
-        print(f"\n   📊 Batch Analysis Summary:")
+        print("\n   📊 Batch Analysis Summary:")
         print(f"      📝 Total words across documents: {total_words:,}")
         print(f"      📄 Total lines across documents: {total_lines:,}")
 
@@ -143,7 +138,7 @@ def batch_analyze_business_documents():
             top_themes = sorted(all_themes.items(), key=lambda x: x[1], reverse=True)[
                 :5
             ]
-            print(f"      🎯 Common themes across documents:")
+            print("      🎯 Common themes across documents:")
             for i, (word, freq) in enumerate(top_themes, 1):
                 print(f"         {i}. '{word}': {freq} mentions")
 
@@ -199,12 +194,12 @@ def exercise_2_contact_management():
         # Remove duplicates
         unique_emails = list(set(all_emails))
 
-        print(f"\n📊 Contact Management Summary:")
+        print("\n📊 Contact Management Summary:")
         print(f"   📧 Total email addresses found: {len(all_emails)}")
         print(f"   🔄 Unique email addresses: {len(unique_emails)}")
         print(f"   🏢 Companies/domains: {len(contact_database)}")
 
-        print(f"\n🏢 Contact Database by Domain:")
+        print("\n🏢 Contact Database by Domain:")
         for domain, emails in sorted(contact_database.items()):
             unique_domain_emails = list(set(emails))
             print(f"   📍 {domain}: {len(unique_domain_emails)} contacts")
@@ -241,7 +236,7 @@ def export_contacts_to_csv(contact_database: Dict[str, List[str]]):
         # Clean up demonstration file
         if os.path.exists(csv_file):
             os.remove(csv_file)
-            print(f"   🧹 Cleaned up demonstration file")
+            print("   🧹 Cleaned up demonstration file")
 
     except Exception as e:
         print(f"   ❌ Error exporting contacts: {e}")
@@ -260,7 +255,7 @@ def main():
         exercise_1_document_analyzer()
         exercise_2_contact_management()
 
-        print(f"\n" + "=" * 60)
+        print("\n" + "=" * 60)
         print("🎉 All File Handling Exercises Completed Successfully!")
         print("💡 Key Skills Demonstrated:")
         print("   📄 Text file processing and analysis")

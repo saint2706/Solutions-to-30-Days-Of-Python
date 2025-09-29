@@ -2,7 +2,7 @@ import sys
 import os
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_11_Functions.functions import (
     get_net_profit,
@@ -11,16 +11,19 @@ from Day_11_Functions.functions import (
     format_currency,
 )
 
+
 def test_get_net_profit():
     """Tests the net profit calculation."""
     assert get_net_profit(1000, 800) == 200
     assert get_net_profit(500, 500) == 0
     assert get_net_profit(200, 300) == -100
 
+
 def test_calculate_commission():
     """Tests the sales commission calculation."""
     assert calculate_commission(10000) == 1500
     assert calculate_commission(0) == 0
+
 
 def test_is_eligible_for_bonus():
     """Tests the bonus eligibility logic."""
@@ -33,6 +36,7 @@ def test_is_eligible_for_bonus():
     assert is_eligible_for_bonus(performance_rating=5, years_of_service=2) is False
     # Not eligible on both counts
     assert is_eligible_for_bonus(performance_rating=2, years_of_service=1) is False
+
 
 def test_format_currency():
     """Tests the currency formatting function."""

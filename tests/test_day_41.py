@@ -6,7 +6,11 @@ import pytest
 
 
 def _load_module():
-    module_path = Path(__file__).resolve().parents[1] / "Day_41_Supervised_Learning_Regression" / "solutions.py"
+    module_path = (
+        Path(__file__).resolve().parents[1]
+        / "Day_41_Supervised_Learning_Regression"
+        / "solutions.py"
+    )
     spec = importlib.util.spec_from_file_location("day_41_solutions", module_path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
@@ -36,7 +40,9 @@ def test_regression_metrics(regression_workflow):
 
 def test_regression_plot_creation(tmp_path, regression_workflow):
     X_test, y_test, y_pred, _ = regression_workflow
-    fig, output_path = sol.plot_regression_results(X_test, y_test, y_pred, tmp_path / "plot.png")
+    fig, output_path = sol.plot_regression_results(
+        X_test, y_test, y_pred, tmp_path / "plot.png"
+    )
     try:
         assert output_path.exists()
         assert fig.axes

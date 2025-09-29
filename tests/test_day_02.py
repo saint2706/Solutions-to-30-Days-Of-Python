@@ -2,9 +2,10 @@ import sys
 import os
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_02_Variables_Builtin_Functions.variables import analyze_weekly_sales
+
 
 def test_analyze_weekly_sales_positive_data():
     """Test analyze_weekly_sales with a typical list of sales."""
@@ -16,12 +17,14 @@ def test_analyze_weekly_sales_positive_data():
     assert result["largest_sale"] == 450.50
     assert round(result["average_sale"], 2) == 224.57
 
+
 def test_analyze_weekly_sales_empty_list():
     """Test analyze_weekly_sales with an empty list to check for edge cases."""
     sales_data = []
     # This function prints to stdout, so we just check it doesn't crash
     # and that the dictionary it would return is effectively None
     assert analyze_weekly_sales(sales_data) is None
+
 
 def test_analyze_weekly_sales_single_item():
     """Test analyze_weekly_sales with a single sale."""

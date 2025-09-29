@@ -8,17 +8,18 @@ You don't need any prior coding experience. We'll start from zero and build your
 
 ## Why Python for Business?
 
-1.  **The Lingua Franca of Data:** Python is the most widely used language for data science, machine learning, and analytics.
-2.  **Automation of Tedious Tasks:** Automate cleaning messy Excel sheets, gathering web data, or generating weekly reports.
-3.  **Powerful Analytics at Your Fingertips:** Python's extensive libraries allow for complex statistical analysis and compelling data visualizations.
-4.  **Strategic Advantage:** Understanding the language of your data science team gives you a significant strategic advantage.
+1. **The Lingua Franca of Data:** Python is the most widely used language for data science, machine learning, and analytics.
+1. **Automation of Tedious Tasks:** Automate cleaning messy Excel sheets, gathering web data, or generating weekly reports.
+1. **Powerful Analytics at Your Fingertips:** Python's extensive libraries allow for complex statistical analysis and compelling data visualizations.
+1. **Strategic Advantage:** Understanding the language of your data science team gives you a significant strategic advantage.
 
 ## Environment Setup
 
 Before you begin, please follow the setup instructions in the main [README.md](../../README.md) at the root of this repository. This will guide you through:
-1.  Cloning the project.
-2.  Setting up a virtual environment.
-3.  Installing all the necessary libraries from `requirements.txt`.
+
+1. Cloning the project.
+1. Setting up a virtual environment.
+1. Installing all the necessary libraries from `requirements.txt`.
 
 Once you have completed those steps and activated your virtual environment, you are ready to start this lesson.
 
@@ -26,11 +27,11 @@ Once you have completed those steps and activated your virtual environment, you 
 
 Let's explore the code for today's lesson. The script for this lesson is `helloworld.py`.
 
-1.  **Review the Code:** Open `Day_01_Introduction/helloworld.py` in your code editor. You will see that the code is now organized into functions, which is a best practice for writing clean and reusable code.
-2.  **Run the Script:** To run the script, make sure your terminal is in the root directory of this project (the `Coding-For-MBA` folder) and your virtual environment is active. Then, execute the script by running:
-    ```bash
-    python Day_01_Introduction/helloworld.py
-    ```
+1. **Review the Code:** Open `Day_01_Introduction/helloworld.py` in your code editor. You will see that the code is now organized into functions, which is a best practice for writing clean and reusable code.
+1. **Run the Script:** To run the script, make sure your terminal is in the root directory of this project (the `Coding-For-MBA` folder) and your virtual environment is active. Then, execute the script by running:
+   ```bash
+   python Day_01_Introduction/helloworld.py
+   ```
 
 You will see the output of the business calculations printed to your console.
 
@@ -38,20 +39,23 @@ You will see the output of the business calculations printed to your console.
 
 The exercises are designed to help you practice the fundamental concepts introduced in the script.
 
-1.  **Company Introduction:**
-    *   Create a new Python file named `my_solutions.py` in the `Day_01_Introduction` folder.
-    *   In your new script, use the `print()` function to introduce a fictional company.
-    *   Example: `print("Welcome to InnovateCorp Analytics")`
+1. **Company Introduction:**
 
-2.  **Quarterly Sales Calculation:**
-    *   A company had quarterly sales of $110,000, $120,000, $135,000, and $140,000.
-    *   In your script, use the `print()` function to calculate and display the total annual sales. (Hint: you can do math right inside the print statement: `print(110000 + 120000 + ...)`).
+   - Create a new Python file named `my_solutions.py` in the `Day_01_Introduction` folder.
+   - In your new script, use the `print()` function to introduce a fictional company.
+   - Example: `print("Welcome to InnovateCorp Analytics")`
 
-3.  **Checking Data Types in Business:**
-    *   Use the `type()` function to check the data types of the following business-related data points.
-        *   `1500` (e.g., number of units sold)
-        *   `1500.75` (e.g., a price or a financial metric)
-        *   `'InnovateCorp'` (e.g., a company name)
-        *   `True` (e.g., is the product in stock?)
+1. **Quarterly Sales Calculation:**
+
+   - A company had quarterly sales of $110,000, $120,000, $135,000, and $140,000.
+   - In your script, use the `print()` function to calculate and display the total annual sales. (Hint: you can do math right inside the print statement: `print(110000 + 120000 + ...)`).
+
+1. **Checking Data Types in Business:**
+
+   - Use the `type()` function to check the data types of the following business-related data points.
+     - `1500` (e.g., number of units sold)
+     - `1500.75` (e.g., a price or a financial metric)
+     - `'InnovateCorp'` (e.g., a company name)
+     - `True` (e.g., is the product in stock?)
 
 🎉 **Congratulations!** You've just run your first refactored Python script and are on your way to becoming a data-savvy leader.

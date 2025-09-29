@@ -56,7 +56,9 @@ def compute_correlations(df: DataFrame) -> DataFrame:
 
     columns = [col for col in ("Units Sold", "Price", "Revenue") if col in df.columns]
     if len(columns) < 2:
-        raise ValueError("At least two of 'Units Sold', 'Price', or 'Revenue' must be present")
+        raise ValueError(
+            "At least two of 'Units Sold', 'Price', or 'Revenue' must be present"
+        )
 
     return df[columns].corr()
 

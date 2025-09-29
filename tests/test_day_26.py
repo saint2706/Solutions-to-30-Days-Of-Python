@@ -45,7 +45,9 @@ def test_summarize_revenue_returns_expected_metrics():
     assert summary["std"] == pytest.approx(76.376, rel=1e-3)
     assert summary["min"] == 100.0
     assert summary["max"] == 250.0
-    pd.testing.assert_series_equal(summary["describe"].loc["mean"], df.describe().loc["mean"])
+    pd.testing.assert_series_equal(
+        summary["describe"].loc["mean"], df.describe().loc["mean"]
+    )
 
 
 def test_compute_correlations_matches_pandas_corr():

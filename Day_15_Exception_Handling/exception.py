@@ -5,6 +5,7 @@ This script demonstrates exception handling and iterable unpacking
 with more practical, testable functions.
 """
 
+
 def unpack_country_list(countries):
     """
     Unpacks a list of countries into nordic countries, Estonia, and Russia.
@@ -22,6 +23,7 @@ def unpack_country_list(countries):
         # but the initial check makes it mostly for demonstration.
         return None, None, None
 
+
 def calculate_profit_margin(revenue, profit):
     """
     Calculates the profit margin and handles the case of zero revenue
@@ -32,7 +34,7 @@ def calculate_profit_margin(revenue, profit):
         return margin
     except ZeroDivisionError:
         print("Error: Revenue is zero, cannot calculate profit margin.")
-        return 0.0 # Return a sensible default
+        return 0.0  # Return a sensible default
     except TypeError:
         print("Error: Invalid input, revenue and profit must be numbers.")
         return None
@@ -43,8 +45,13 @@ def main():
     # --- Example 1: Extended Iterable Unpacking ---
     print("--- Unpacking a List of Countries ---")
     country_names = [
-        "Finland", "Sweden", "Norway", "Denmark",
-        "Iceland", "Estonia", "Russia",
+        "Finland",
+        "Sweden",
+        "Norway",
+        "Denmark",
+        "Iceland",
+        "Estonia",
+        "Russia",
     ]
 
     nordic_list, estonia_country, russia_country = unpack_country_list(country_names)
@@ -66,7 +73,7 @@ def main():
 
     # Error case
     revenue2 = 0
-    profit2 = -10000 # A loss
+    profit2 = -10000  # A loss
     margin2 = calculate_profit_margin(revenue2, profit2)
     print(f"Revenue: ${revenue2}, Profit: ${profit2} -> Margin: {margin2:.2f}%")
     print("-" * 20)

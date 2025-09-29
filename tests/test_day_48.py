@@ -6,7 +6,11 @@ import numpy as np
 
 
 def _load_day48_module():
-    module_path = Path(__file__).resolve().parents[1] / "Day_48_Recurrent_Neural_Networks" / "solutions.py"
+    module_path = (
+        Path(__file__).resolve().parents[1]
+        / "Day_48_Recurrent_Neural_Networks"
+        / "solutions.py"
+    )
     spec = importlib.util.spec_from_file_location("day48_solutions", module_path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
@@ -23,7 +27,9 @@ def _fake_imdb_load_data(num_words=None):
 
     def build_split(num_samples: int):
         lengths = rng.integers(5, 15, size=num_samples)
-        sequences = [rng.integers(1, 100, size=int(length)).tolist() for length in lengths]
+        sequences = [
+            rng.integers(1, 100, size=int(length)).tolist() for length in lengths
+        ]
         labels = rng.integers(0, 2, size=num_samples, dtype=np.int64)
         return sequences, labels
 

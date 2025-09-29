@@ -7,9 +7,9 @@ and cleaning data. This version is refactored into testable functions.
 """
 
 import re
-import string
 from collections import Counter
 from typing import List, Tuple
+
 
 def find_most_common_words(text: str, top_n: int) -> List[Tuple[str, int]]:
     """
@@ -17,8 +17,9 @@ def find_most_common_words(text: str, top_n: int) -> List[Tuple[str, int]]:
     The text is converted to lowercase and punctuation is removed before counting.
     """
     # Use regex to find all words (sequences of alphabetic characters)
-    words = re.findall(r'\b[a-z]+\b', text.lower())
+    words = re.findall(r"\b[a-z]+\b", text.lower())
     return Counter(words).most_common(top_n)
+
 
 def extract_and_analyze_numbers(text: str) -> dict:
     """
@@ -26,13 +27,14 @@ def extract_and_analyze_numbers(text: str) -> dict:
     and the distance between the maximum and minimum numbers.
     """
     # Regex to find all integers, including negative ones
-    numbers = [int(n) for n in re.findall(r'-?\d+', text)]
+    numbers = [int(n) for n in re.findall(r"-?\d+", text)]
     if not numbers:
         return {"sorted_numbers": [], "distance": 0}
 
     numbers.sort()
     distance = numbers[-1] - numbers[0]
     return {"sorted_numbers": numbers, "distance": distance}
+
 
 def is_valid_python_variable(name: str) -> bool:
     """
@@ -42,7 +44,8 @@ def is_valid_python_variable(name: str) -> bool:
     # ^[a-zA-Z_] matches the start of the string with a letter or underscore.
     # \w* matches zero or more "word" characters (letters, numbers, underscore).
     # $ matches the end of the string.
-    return bool(re.fullmatch(r'[a-zA-Z_]\w*', name))
+    return bool(re.fullmatch(r"[a-zA-Z_]\w*", name))
+
 
 def clean_text_advanced(text: str) -> str:
     """
@@ -51,7 +54,7 @@ def clean_text_advanced(text: str) -> str:
     """
     # [^a-z0-9\s] is a character set that matches anything that is NOT
     # a lowercase letter, a digit, or a whitespace character.
-    return re.sub(r'[^a-z0-9\s]', '', text.lower())
+    return re.sub(r"[^a-z0-9\s]", "", text.lower())
 
 
 def main():
@@ -67,7 +70,9 @@ def main():
     print("-" * 20)
 
     print("--- Extracting and Analyzing Numbers ---")
-    para_with_nums = "The position of some particles on the x-axis are -12, -4, -3, -1, 0, 4, and 8."
+    para_with_nums = (
+        "The position of some particles on the x-axis are -12, -4, -3, -1, 0, 4, and 8."
+    )
     analysis = extract_and_analyze_numbers(para_with_nums)
     print(f"Original Text: '{para_with_nums}'")
     print(f"Extracted and sorted numbers: {analysis['sorted_numbers']}")
@@ -75,9 +80,15 @@ def main():
     print("-" * 20)
 
     print("--- Validating Python Variable Names ---")
-    print(f"'first_name' is a valid variable name: {is_valid_python_variable('first_name')}")
-    print(f"'first-name' is a valid variable name: {is_valid_python_variable('first-name')}")
-    print(f"'2nd_place' is a valid variable name: {is_valid_python_variable('2nd_place')}")
+    print(
+        f"'first_name' is a valid variable name: {is_valid_python_variable('first_name')}"
+    )
+    print(
+        f"'first-name' is a valid variable name: {is_valid_python_variable('first-name')}"
+    )
+    print(
+        f"'2nd_place' is a valid variable name: {is_valid_python_variable('2nd_place')}"
+    )
     print("-" * 20)
 
     print("--- Advanced Text Cleaning ---")

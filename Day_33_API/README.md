@@ -1,6 +1,7 @@
 # 📘 Day 33: Accessing Web APIs with `requests`
 
 ## Overview
+
 This lesson introduces a lightweight wrapper around the
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) demo API. The module
 exports three helpers—`fetch_users`, `fetch_post`, and `fetch_posts_by_user`—that
@@ -8,12 +9,14 @@ return structured data for analytics workflows while keeping the HTTP layer easy
 to mock during tests.
 
 ## Learning goals
+
 - Understand how to issue HTTP GET requests with `requests`.
 - Convert JSON payloads into `pandas.DataFrame` objects for analysis.
 - Inject custom HTTP clients (for example, `requests.Session` objects or call
   stubs) to make networked code testable.
 
 ## Requirements
+
 Install the core and testing dependencies into your environment:
 
 ```bash
@@ -25,7 +28,9 @@ pip install pytest responses
 pytest suite.
 
 ## Running the lesson
+
 ### Live API demo
+
 Execute the script directly to fetch data from JSONPlaceholder:
 
 ```bash
@@ -36,6 +41,7 @@ The command prints a preview of the user list, details for post `1`, and a table
 of posts authored by user `2`.
 
 ### Mocked endpoints
+
 The helper functions accept a `requests.Session` or any callable with the same
 signature as `requests.get`. This allows you to supply canned responses when the
 internet is unavailable or you want deterministic examples:
@@ -65,6 +71,7 @@ The included pytest suite (see below) relies on the `responses` library to
 provide richer, request-aware mocks if you prefer a declarative API.
 
 ## Tests
+
 Run the Day 33 unit tests, which exercise both success and error paths using
 mocked HTTP responses:
 

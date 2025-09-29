@@ -3,22 +3,26 @@ import os
 import pytest
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_18_Classes_and_Objects.CaO import Statistics, PersonAccount
+
 
 @pytest.fixture
 def sample_data():
     return [10, 20, 30, 20]
 
+
 @pytest.fixture
 def multimodal_data():
-    return [1, 2, 3, 4, 5] # No unique mode
+    return [1, 2, 3, 4, 5]  # No unique mode
+
 
 def test_statistics_init(sample_data):
     """Tests the initialization of the Statistics class."""
     stats = Statistics(sample_data)
     assert stats.data == sample_data
+
 
 def test_statistics_calculations(sample_data):
     """Tests basic statistical calculations."""
@@ -33,19 +37,22 @@ def test_statistics_calculations(sample_data):
     assert stats.std() == pytest.approx(8.16, rel=1e-2)
     assert stats.var() == pytest.approx(66.67, rel=1e-2)
 
+
 def test_statistics_mode(sample_data):
     """Tests the mode calculation."""
     stats = Statistics(sample_data)
     mode_result = stats.mode()
-    assert mode_result['mode'] == 20
-    assert mode_result['count'] == 2
+    assert mode_result["mode"] == 20
+    assert mode_result["count"] == 2
+
 
 def test_statistics_no_unique_mode(multimodal_data):
     """Tests the mode calculation when there is no unique mode."""
     stats = Statistics(multimodal_data)
     mode_result = stats.mode()
-    assert mode_result['mode'] == "No unique mode"
-    assert mode_result['count'] == 0
+    assert mode_result["mode"] == "No unique mode"
+    assert mode_result["count"] == 0
+
 
 def test_statistics_empty_data():
     """Tests that the Statistics class handles empty data gracefully."""
@@ -60,6 +67,7 @@ def test_statistics_empty_data():
     assert stats.std() == 0.0
     assert stats.var() == 0.0
 
+
 def test_person_account_init():
     """Tests the initialization of the PersonAccount class."""
     person = PersonAccount("John", "Doe")
@@ -67,6 +75,7 @@ def test_person_account_init():
     assert person.lastname == "Doe"
     assert person.incomes == {}
     assert person.expenses == {}
+
 
 def test_person_account_transactions():
     """Tests adding income/expenses and calculating totals."""

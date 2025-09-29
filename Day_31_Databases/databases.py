@@ -63,9 +63,7 @@ def initialize_employee_db(database: DatabaseLike) -> None:
         connection.commit()
 
 
-def fetch_department_salaries(
-    database: DatabaseLike, department: str
-) -> SalaryResult:
+def fetch_department_salaries(database: DatabaseLike, department: str) -> SalaryResult:
     """Return ``(name, salary)`` pairs for the requested department."""
 
     query = """
@@ -79,9 +77,7 @@ def fetch_department_salaries(
         return [(row[0], float(row[1])) for row in cursor.fetchall()]
 
 
-def fetch_department_dataframe(
-    database: DatabaseLike, department: str
-) -> pd.DataFrame:
+def fetch_department_dataframe(database: DatabaseLike, department: str) -> pd.DataFrame:
     """Return a ``pandas.DataFrame`` of the department's employees."""
 
     query = "SELECT * FROM employees WHERE department = ? ORDER BY salary"
@@ -130,4 +126,3 @@ def main(database: DatabaseLike = DB_FILE) -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -43,8 +43,8 @@ Often, you want to display multiple charts together to tell a more complete stor
 
 `fig, axes = plt.subplots(nrows=, ncols=, figsize=())`
 
-* `nrows`, `ncols`: The number of rows and columns in your grid of plots.
-* `figsize`: A tuple specifying the width and height of the entire figure in inches.
+- `nrows`, `ncols`: The number of rows and columns in your grid of plots.
+- `figsize`: A tuple specifying the width and height of the entire figure in inches.
 
 You can then tell each Seaborn plot which `ax` (axis) to draw on.
 
@@ -72,19 +72,21 @@ plt.show()
 For these exercises, you will use the cleaned `sales_data.csv` from Day 24.
 
 1. **Create a Customized Sales Chart:**
-    * Load the cleaned sales data.
-    * Create a bar chart showing the total `Revenue` for each `Product`.
-    * **Customize it:**
-        * Give it the title "Total Revenue per Product".
-        * Set the y-axis label to "Total Revenue (USD)".
-        * Add a horizontal red dashed line representing the average revenue across all products.
-        * Save the figure to a file named `product_revenue.png`.
 
-2. **Build a 2x1 Dashboard:**
-    * Create a figure with two rows and one column of subplots.
-    * **Top Plot:** A line chart showing the trend of `Units Sold` over `Date`. Make sure the date is on the x-axis.
-    * **Bottom Plot:** A scatter plot showing the relationship between `Price` and `Units Sold`.
-    * Give each plot its own descriptive title.
-    * Add an overall title to the entire figure: "Sales Analysis Dashboard".
+   - Load the cleaned sales data.
+   - Create a bar chart showing the total `Revenue` for each `Product`.
+   - **Customize it:**
+     - Give it the title "Total Revenue per Product".
+     - Set the y-axis label to "Total Revenue (USD)".
+     - Add a horizontal red dashed line representing the average revenue across all products.
+     - Save the figure to a file named `product_revenue.png`.
+
+1. **Build a 2x1 Dashboard:**
+
+   - Create a figure with two rows and one column of subplots.
+   - **Top Plot:** A line chart showing the trend of `Units Sold` over `Date`. Make sure the date is on the x-axis.
+   - **Bottom Plot:** A scatter plot showing the relationship between `Price` and `Units Sold`.
+   - Give each plot its own descriptive title.
+   - Add an overall title to the entire figure: "Sales Analysis Dashboard".
 
 🎉 **Fantastic!** You can now create presentation-ready charts and combine them into simple dashboards. This ability to not just analyze, but also to present data in a customized and professional format is a key skill that separates great analysts from good ones.

@@ -126,7 +126,9 @@ def time_callable(
     runs = tuple(timer.repeat(repeat=repeat, number=number))
     best = min(runs) / number
     average = statistics.fmean(runs) / number
-    return TimingReport(runs=runs, repeat=repeat, number=number, best=best, average=average)
+    return TimingReport(
+        runs=runs, repeat=repeat, number=number, best=best, average=average
+    )
 
 
 def profile_callable(
@@ -172,4 +174,3 @@ def print_report(
     if timing_report is not None:
         print("\n=== timeit summary ===")
         print(timing_report.format())
-

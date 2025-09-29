@@ -6,6 +6,7 @@ to perform business calculations and logical checks. This version is
 refactored into functions for better organization and testability.
 """
 
+
 def calculate_compound_interest(principal, rate, time, n=1):
     """
     Calculates the final amount of an investment with compound interest.
@@ -14,6 +15,7 @@ def calculate_compound_interest(principal, rate, time, n=1):
     # The ** operator is used for exponents
     final_amount = principal * (1 + rate / n) ** (n * time)
     return final_amount
+
 
 def accumulate_sales(initial_sales, daily_sales):
     """
@@ -24,15 +26,18 @@ def accumulate_sales(initial_sales, daily_sales):
         total += sale  # The += operator adds a value to a variable
     return total
 
+
 def check_inventory_status(inventory_count, low_stock_threshold):
     """Checks if the inventory count is below the low stock threshold."""
     # The < operator checks if a value is less than another
     return inventory_count < low_stock_threshold
 
+
 def check_sales_target(current_sales, sales_target):
     """Checks if the current sales have met or exceeded the sales target."""
     # The >= operator checks for "greater than or equal to"
     return current_sales >= sales_target
+
 
 def check_bonus_eligibility(sales, years_of_service, top_performer_last_quarter):
     """
@@ -43,15 +48,18 @@ def check_bonus_eligibility(sales, years_of_service, top_performer_last_quarter)
     is_eligible = (sales > 10000 and years_of_service > 2) or top_performer_last_quarter
     return is_eligible
 
+
 if __name__ == "__main__":
     # --- Arithmetic Operators for Financial Calculations ---
     print("--- Financial Calculations ---")
     principal_amount = 10000
     interest_rate = 0.05
     investment_time = 3
-    final_investment_amount = calculate_compound_interest(principal_amount, interest_rate, investment_time)
+    final_investment_amount = calculate_compound_interest(
+        principal_amount, interest_rate, investment_time
+    )
     print(
-        f"Investment of ${principal_amount} after {investment_time} years at {interest_rate*100}% interest will be: ${final_investment_amount:.2f}"
+        f"Investment of ${principal_amount} after {investment_time} years at {interest_rate * 100}% interest will be: ${final_investment_amount:.2f}"
     )
     print("-" * 20)
 
@@ -74,11 +82,17 @@ if __name__ == "__main__":
     # --- Logical Operators for Complex Eligibility Rules ---
     print("--- Sales Bonus Eligibility Test ---")
     # Scenario 1
-    eligible_s1 = check_bonus_eligibility(sales=12000, years_of_service=1, top_performer_last_quarter=False)
+    eligible_s1 = check_bonus_eligibility(
+        sales=12000, years_of_service=1, top_performer_last_quarter=False
+    )
     print(f"Scenario 1 (High Sales, New Employee): Eligible? {eligible_s1}")
     # Scenario 2
-    eligible_s2 = check_bonus_eligibility(sales=8000, years_of_service=3, top_performer_last_quarter=True)
+    eligible_s2 = check_bonus_eligibility(
+        sales=8000, years_of_service=3, top_performer_last_quarter=True
+    )
     print(f"Scenario 2 (Top Performer): Eligible? {eligible_s2}")
     # Scenario 3
-    eligible_s3 = check_bonus_eligibility(sales=9000, years_of_service=1, top_performer_last_quarter=False)
+    eligible_s3 = check_bonus_eligibility(
+        sales=9000, years_of_service=1, top_performer_last_quarter=False
+    )
     print(f"Scenario 3 (Not Eligible): Eligible? {eligible_s3}")

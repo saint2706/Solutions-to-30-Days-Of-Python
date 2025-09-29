@@ -4,13 +4,11 @@ This module demonstrates various file handling operations commonly used in busin
 """
 
 import os
-import json
 import re
 import csv
-import math
 import string
 from collections import Counter
-from typing import List, Dict, Tuple, Any, Optional
+from typing import List, Dict, Tuple, Optional
 
 # Import stop words from the local file
 from .stop_words import stop_words as sw
@@ -34,14 +32,15 @@ def count_words_and_lines(fname: str) -> Tuple[int, int]:
         print(f"❌ Error reading file '{fname}': {e}")
         return 0, 0
 
+
 def find_most_common_words(fname: str, top_n: int) -> List[Tuple[str, int]]:
     """Find the most frequently used words in a text file, ignoring stop words."""
     try:
-        with open(fname, 'r', encoding='utf-8') as f:
+        with open(fname, "r", encoding="utf-8") as f:
             text = f.read().lower()
 
         # Remove punctuation
-        text = text.translate(str.maketrans('', '', string.punctuation))
+        text = text.translate(str.maketrans("", "", string.punctuation))
         words = text.split()
 
         # Filter out stop words
@@ -58,15 +57,16 @@ def find_most_common_words(fname: str, top_n: int) -> List[Tuple[str, int]]:
         print(f"❌ An unexpected error occurred: {e}")
         return []
 
+
 def extract_emails_from_file(fname: str) -> List[str]:
     """Extract all unique email addresses from a text file."""
-    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    email_pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
     try:
-        with open(fname, 'r', encoding='utf-8') as f:
+        with open(fname, "r", encoding="utf-8") as f:
             text = f.read()
 
         emails = re.findall(email_pattern, text)
-        return sorted(list(set(emails))) # Return unique emails, sorted
+        return sorted(list(set(emails)))  # Return unique emails, sorted
 
     except FileNotFoundError:
         print(f"❌ Error: File '{fname}' not found")
@@ -85,9 +85,9 @@ def analyze_sales_csv(fname: str) -> Optional[Dict[str, float]]:
     transaction_count = 0
 
     try:
-        with open(fname, mode='r', encoding='utf-8') as file:
+        with open(fname, mode="r", encoding="utf-8") as file:
             csv_reader = csv.reader(file)
-            header = next(csv_reader) # Skip header row
+            _ = next(csv_reader)  # Skip header row
 
             for row in csv_reader:
                 try:
@@ -103,7 +103,10 @@ def analyze_sales_csv(fname: str) -> Optional[Dict[str, float]]:
             return None
 
         average_transaction = total_revenue / transaction_count
-        return {"total_revenue": total_revenue, "average_transaction": average_transaction}
+        return {
+            "total_revenue": total_revenue,
+            "average_transaction": average_transaction,
+        }
 
     except FileNotFoundError:
         print(f"❌ Error: File '{fname}' not found")

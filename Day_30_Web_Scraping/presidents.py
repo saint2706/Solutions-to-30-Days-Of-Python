@@ -211,7 +211,7 @@ def convert_csv_to_json(csv_file_path: str, json_file_path: str) -> None:
     except FileNotFoundError:
         print(f"❌ Error: The file {csv_file_path} was not found.")
     except PermissionError:
-        print(f"❌ Error: Permission denied when accessing files.")
+        print("❌ Error: Permission denied when accessing files.")
     except Exception as e:
         print(f"❌ An error occurred during conversion: {e}")
 
@@ -276,7 +276,9 @@ def main():
                 temp_csv_path.unlink()
                 print("🧹 Removed temporary CSV file")
             except OSError as e:
-                print(f"⚠️  Warning: Could not remove temporary file {temp_csv_path}: {e}")
+                print(
+                    f"⚠️  Warning: Could not remove temporary file {temp_csv_path}: {e}"
+                )
 
             # Verify the JSON file was created and show some info
             if json_path.exists():
@@ -296,7 +298,7 @@ def main():
                 except Exception as e:
                     print(f"⚠️  Could not preview JSON data: {e}")
             else:
-                print(f"❌ JSON file was not created successfully")
+                print("❌ JSON file was not created successfully")
 
         except Exception as e:
             print(f"❌ Error in main processing: {e}")

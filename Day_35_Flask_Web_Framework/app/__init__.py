@@ -1,10 +1,20 @@
 """Flask application factory for the Day 35 text analyzer."""
+
 from __future__ import annotations
 
 import os
 from typing import Any, Dict, Optional
 
-from flask import Flask, Response, make_response, redirect, render_template, request, session, url_for
+from flask import (
+    Flask,
+    Response,
+    make_response,
+    redirect,
+    render_template,
+    request,
+    session,
+    url_for,
+)
 
 from .text_utils import clean_text, lex_div_calc, most_common_word
 

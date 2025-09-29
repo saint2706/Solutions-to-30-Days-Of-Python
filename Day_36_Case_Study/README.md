@@ -19,11 +19,11 @@ Python code.
 ## Suggested Workflow
 
 1. Use `load_case_study_data()` to import the CSV with parsed dates.
-2. Call `clean_case_study_data()` to enforce schema expectations and rebuild the
+1. Call `clean_case_study_data()` to enforce schema expectations and rebuild the
    `Revenue` column when necessary.
-3. Explore metrics via `summarize_case_study()` or write your own aggregations
+1. Explore metrics via `summarize_case_study()` or write your own aggregations
    and visualizations.
-4. Capture narrative takeaways for the Head of Sales along with supporting
+1. Capture narrative takeaways for the Head of Sales along with supporting
    charts or tables.
 
 Running the script directly executes the helper pipeline and prints the top-line

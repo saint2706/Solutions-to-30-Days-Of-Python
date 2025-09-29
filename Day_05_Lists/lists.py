@@ -6,16 +6,19 @@ lists containing business-related data. This version is refactored
 into functions for better organization and testability.
 """
 
+
 def get_list_element(data_list, index):
     """Safely gets an element from a list by its index."""
     if -len(data_list) <= index < len(data_list):
         return data_list[index]
     return None
 
+
 def get_first_half_sales(sales_list):
     """Returns the first half of a list of sales."""
     midpoint = len(sales_list) // 2
     return sales_list[:midpoint]
+
 
 def add_product(product_list, new_product):
     """Adds a new product to a list of products."""
@@ -23,12 +26,14 @@ def add_product(product_list, new_product):
     new_list.append(new_product)
     return new_list
 
+
 def remove_product(product_list, product_to_remove):
     """Removes a product from a list if it exists."""
     new_list = product_list.copy()
     if product_to_remove in new_list:
         new_list.remove(product_to_remove)
     return new_list
+
 
 def analyze_team_sales(sales_figures):
     """Sorts sales, finds top performers, and returns an analysis."""
@@ -44,6 +49,7 @@ def analyze_team_sales(sales_figures):
         "top_3_sales": top_3_sales,
         "total_top_sales": total_top_sales,
     }
+
 
 if __name__ == "__main__":
     # --- Initializing Lists with Business Data ---
@@ -87,5 +93,7 @@ if __name__ == "__main__":
     if sales_analysis:
         print(f"Sales sorted from highest to lowest: {sales_analysis['sorted_sales']}")
         print(f"Top 3 sales figures: {sales_analysis['top_3_sales']}")
-        print(f"Total sales from top 3 performers: ${sales_analysis['total_top_sales']}")
+        print(
+            f"Total sales from top 3 performers: ${sales_analysis['total_top_sales']}"
+        )
     print("-" * 20)
