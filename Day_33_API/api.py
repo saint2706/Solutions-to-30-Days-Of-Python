@@ -1,78 +1,109 @@
-"""
-Day 33: Accessing Live Data with APIs
+"""Utility functions for interacting with the JSONPlaceholder API used in Day 33."""
 
-This script demonstrates how to make GET requests to a public
-REST API to retrieve data and load it into Pandas.
-"""
+from __future__ import annotations
 
-import requests
+from typing import Any, Optional
+
 import pandas as pd
+import requests
 
-# --- 1. Making a Basic GET Request ---
-print("--- 1. Fetching a list of users ---")
-# The endpoint for a list of users
-users_url = "https://jsonplaceholder.typicode.com/users"
+JSONPLACEHOLDER_BASE_URL = "https://jsonplaceholder.typicode.com"
+USERS_ENDPOINT = f"{JSONPLACEHOLDER_BASE_URL}/users"
+POSTS_ENDPOINT = f"{JSONPLACEHOLDER_BASE_URL}/posts"
 
-try:
-    # Make the request
-    response = requests.get(users_url)
-    # This line will raise an HTTPError if the HTTP request returned an unsuccessful status code
+
+def _make_request(
+    url: str,
+    client: Optional[Any] = None,
+    **kwargs: Any,
+) -> requests.Response:
+    """Execute a GET request using the provided client.
+
+    The client can be a ``requests.Session`` (or any object that exposes a
+    ``get`` method) or a callable that mimics ``requests.get``.
+    """
+
+    if client is None:
+        with requests.Session() as session:
+            response = session.get(url, **kwargs)
+    elif hasattr(client, "get"):
+        response = client.get(url, **kwargs)  # type: ignore[call-arg]
+    elif callable(client):
+        response = client(url, **kwargs)
+    else:
+        raise TypeError("client must be a requests.Session, callable, or None")
+
     response.raise_for_status()
-
-    # Parse the JSON response into a Python list of dictionaries
-    users_data = response.json()
-
-    # Load the data into a Pandas DataFrame
-    users_df = pd.DataFrame(users_data)
-
-    print("Successfully fetched user data. First 5 rows:")
-    print(users_df.head())
-
-except requests.exceptions.RequestException as e:
-    print(f"Failed to fetch data: {e}")
-print("-" * 20)
+    return response
 
 
-# --- 2. Making a Request for a Specific Resource ---
-print("--- 2. Fetching a single post (ID = 1) ---")
-# The endpoint for a single post
-post_url = "https://jsonplaceholder.typicode.com/posts/1"
+def fetch_users(
+    client: Optional[Any] = None,
+) -> pd.DataFrame:
+    """Fetch all users and return them as a :class:`pandas.DataFrame`."""
 
-try:
-    response = requests.get(post_url)
-    response.raise_for_status()
-
-    # The response for a single item is usually a single dictionary
-    post_data = response.json()
-
-    print("Successfully fetched post data:")
-    print(f"  User ID: {post_data['userId']}")
-    print(f"  Title: {post_data['title']}")
-
-except requests.exceptions.RequestException as e:
-    print(f"Failed to fetch data: {e}")
-print("-" * 20)
+    response = _make_request(USERS_ENDPOINT, client=client)
+    return pd.DataFrame(response.json())
 
 
-# --- 3. Making a Request with Parameters ---
-print("--- 3. Fetching all posts by a specific user (userId = 2) ---")
-# The base endpoint for posts
-all_posts_url = "https://jsonplaceholder.typicode.com/posts"
+def fetch_post(
+    post_id: int,
+    client: Optional[Any] = None,
+) -> dict[str, Any]:
+    """Fetch a single post by ``post_id`` and return the JSON payload."""
 
-# A dictionary of query parameters to filter the results
-# This will be converted to ?userId=2 in the URL
-params = {"userId": 2}
+    url = f"{POSTS_ENDPOINT}/{post_id}"
+    response = _make_request(url, client=client)
+    return response.json()
 
-try:
-    response = requests.get(all_posts_url, params=params)
-    response.raise_for_status()
 
-    user_2_posts_data = response.json()
-    user_2_posts_df = pd.DataFrame(user_2_posts_data)
+def fetch_posts_by_user(
+    user_id: int,
+    client: Optional[Any] = None,
+) -> pd.DataFrame:
+    """Fetch posts filtered by ``user_id`` and return them as a DataFrame."""
 
-    print(f"Found {len(user_2_posts_df)} posts for userId=2. First 5 rows:")
-    print(user_2_posts_df.head())
+    response = _make_request(POSTS_ENDPOINT, client=client, params={"userId": user_id})
+    return pd.DataFrame(response.json())
 
-except requests.exceptions.RequestException as e:
-    print(f"Failed to fetch data: {e}")
-print("-" * 20)
+
+def _print_preview(df: pd.DataFrame, label: str) -> None:
+    """Utility helper to display a DataFrame preview in the CLI demo."""
+
+    print(f"{label} (showing up to 5 rows):")
+    if df.empty:
+        print("  No rows returned.")
+    else:
+        print(df.head())
+    print("-" * 20)
+
+
+def main() -> None:
+    """Simple CLI demonstration that exercises the helper functions."""
+
+    print("--- 1. Fetching a list of users ---")
+    try:
+        users_df = fetch_users()
+        _print_preview(users_df, "Users")
+    except requests.RequestException as exc:
+        print(f"Failed to fetch users: {exc}")
+
+    print("--- 2. Fetching a single post (ID = 1) ---")
+    try:
+        post = fetch_post(1)
+        print(f"  User ID: {post['userId']}")
+        print(f"  Title: {post['title']}")
+        print("-" * 20)
+    except requests.RequestException as exc:
+        print(f"Failed to fetch post: {exc}")
+
+    print("--- 3. Fetching all posts by a specific user (userId = 2) ---")
+    try:
+        posts_df = fetch_posts_by_user(2)
+        _print_preview(posts_df, "Posts for userId=2")
+    except requests.RequestException as exc:
+        print(f"Failed to fetch posts: {exc}")
+
+
+if __name__ == "__main__":
+    main()
