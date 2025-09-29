@@ -1,99 +1,133 @@
-"""
-Day 31: Working with Databases in Python
+"""Utilities for working with the Day 31 employee database."""
 
-This script demonstrates the two main ways to interact with a
-SQLite database from Python: using the built-in `sqlite3` module
-and using the powerful `pandas.read_sql_query` function.
-"""
+from __future__ import annotations
 
-import sqlite3
-import pandas as pd
 import os
+import sqlite3
+from contextlib import contextmanager
+from typing import Iterator, List, Sequence, Tuple, Union
+
+import pandas as pd
+
 
 DB_FILE = "company_data.db"
 
-# --- 1. Create and Populate a SQLite Database ---
-print(f"--- 1. Creating and populating the database: {DB_FILE} ---")
-# The 'with' statement ensures the connection is closed automatically.
-with sqlite3.connect(DB_FILE) as conn:
-    cursor = conn.cursor()
+EmployeeRecord = Tuple[int, str, str, float]
+SalaryResult = List[Tuple[str, float]]
+DatabaseLike = Union[str, os.PathLike[str], sqlite3.Connection]
 
-    # Drop the table if it already exists to make the script re-runnable
-    cursor.execute("DROP TABLE IF EXISTS employees")
+EMPLOYEE_ROWS: Sequence[EmployeeRecord] = (
+    (101, "Alice", "Sales", 80_000),
+    (102, "Bob", "Engineering", 120_000),
+    (103, "Charlie", "Sales", 85_000),
+    (104, "Diana", "HR", 70_000),
+    (105, "Eve", "Engineering", 130_000),
+)
 
-    # Create a table
-    cursor.execute(
-        """
-    CREATE TABLE employees (
-        employee_id INTEGER PRIMARY KEY,
-        name TEXT NOT NULL,
-        department TEXT NOT NULL,
-        salary REAL NOT NULL
-    )
+
+@contextmanager
+def _get_connection(database: DatabaseLike) -> Iterator[sqlite3.Connection]:
+    """Yield a SQLite connection for a file path or existing connection."""
+
+    if isinstance(database, sqlite3.Connection):
+        yield database
+        return
+
+    connection = sqlite3.connect(os.fspath(database))
+    try:
+        yield connection
+    finally:
+        connection.close()
+
+
+def initialize_employee_db(database: DatabaseLike) -> None:
+    """Create the employees table and populate it with sample rows."""
+
+    with _get_connection(database) as connection:
+        cursor = connection.cursor()
+        cursor.execute("DROP TABLE IF EXISTS employees")
+        cursor.execute(
+            """
+            CREATE TABLE employees (
+                employee_id INTEGER PRIMARY KEY,
+                name TEXT NOT NULL,
+                department TEXT NOT NULL,
+                salary REAL NOT NULL
+            )
+            """
+        )
+        cursor.executemany(
+            "INSERT INTO employees VALUES (?, ?, ?, ?)",
+            EMPLOYEE_ROWS,
+        )
+        connection.commit()
+
+
+def fetch_department_salaries(
+    database: DatabaseLike, department: str
+) -> SalaryResult:
+    """Return ``(name, salary)`` pairs for the requested department."""
+
+    query = """
+        SELECT name, salary
+        FROM employees
+        WHERE department = ?
+        ORDER BY salary
     """
-    )
-
-    # Insert some data
-    employees_to_add = [
-        (101, "Alice", "Sales", 80000),
-        (102, "Bob", "Engineering", 120000),
-        (103, "Charlie", "Sales", 85000),
-        (104, "Diana", "HR", 70000),
-        (105, "Eve", "Engineering", 130000),
-    ]
-    cursor.executemany("INSERT INTO employees VALUES (?, ?, ?, ?)", employees_to_add)
-
-    # Commit the changes to the database
-    conn.commit()
-print("Database and table created successfully.")
-print("-" * 20)
+    with _get_connection(database) as connection:
+        cursor = connection.execute(query, (department,))
+        return [(row[0], float(row[1])) for row in cursor.fetchall()]
 
 
-# --- 2. Querying with the `sqlite3` module ---
-print("--- 2. Querying for 'Sales' employees with sqlite3 ---")
-try:
-    with sqlite3.connect(DB_FILE) as conn:
-        cursor = conn.cursor()
+def fetch_department_dataframe(
+    database: DatabaseLike, department: str
+) -> pd.DataFrame:
+    """Return a ``pandas.DataFrame`` of the department's employees."""
 
-        # Execute a query to select specific data
-        cursor.execute("SELECT name, salary FROM employees WHERE department = 'Sales'")
-
-        # Fetch all results from the executed query
-        sales_employees = cursor.fetchall()
-
-        print("Results from sqlite3:")
-        for employee in sales_employees:
-            print(f"  - Name: {employee[0]}, Salary: ${employee[1]:,.2f}")
-
-except sqlite3.Error as e:
-    print(f"Database error: {e}")
-print("-" * 20)
+    query = "SELECT * FROM employees WHERE department = ? ORDER BY salary"
+    with _get_connection(database) as connection:
+        return pd.read_sql_query(query, connection, params=(department,))
 
 
-# --- 3. The Pandas Way: `read_sql_query` ---
-print("--- 3. Querying all 'Engineering' employees with Pandas ---")
-try:
-    with sqlite3.connect(DB_FILE) as conn:
-        # The SQL query to execute
-        sql_query = "SELECT * FROM employees WHERE department = 'Engineering'"
+def cleanup_employee_db(database: DatabaseLike) -> None:
+    """Remove the SQLite file for the employee database if it exists."""
 
-        # This one function does all the work: connects, queries, and returns a DataFrame
-        engineering_df = pd.read_sql_query(sql_query, conn)
+    if isinstance(database, sqlite3.Connection):
+        database.close()
+        return
 
-        print("DataFrame returned by pd.read_sql_query():")
-        print(engineering_df)
+    db_path = os.fspath(database)
+    if os.path.exists(db_path):
+        os.remove(db_path)
 
-        # Now you can use all your Pandas skills on this DataFrame
-        avg_eng_salary = engineering_df["salary"].mean()
-        print(f"\nAverage Engineering Salary: ${avg_eng_salary:,.2f}")
 
-except sqlite3.Error as e:
-    print(f"Database error: {e}")
-except Exception as e:
-    print(f"An error occurred: {e}")
-finally:
-    # Clean up the created database file
-    if os.path.exists(DB_FILE):
-        os.remove(DB_FILE)
-        print(f"\nCleaned up and removed {DB_FILE}.")
-print("-" * 20)
+def main(database: DatabaseLike = DB_FILE) -> None:
+    """Demonstrate basic interactions with the employee database."""
+
+    print(f"--- 1. Creating and populating the database: {database} ---")
+    initialize_employee_db(database)
+    print("Database and table created successfully.")
+    print("-" * 20)
+
+    print("--- 2. Querying for 'Sales' employees with sqlite3 ---")
+    sales_employees = fetch_department_salaries(database, "Sales")
+    print("Results from sqlite3:")
+    for name, salary in sales_employees:
+        print(f"  - Name: {name}, Salary: ${salary:,.2f}")
+    print("-" * 20)
+
+    print("--- 3. Querying all 'Engineering' employees with Pandas ---")
+    engineering_df = fetch_department_dataframe(database, "Engineering")
+    print("DataFrame returned by pd.read_sql_query():")
+    print(engineering_df)
+    avg_salary = engineering_df["salary"].mean()
+    print(f"\nAverage Engineering Salary: ${avg_salary:,.2f}")
+
+    cleanup_employee_db(database)
+    print(f"\nCleaned up and removed {database}.")
+    print("-" * 20)
+
+
+if __name__ == "__main__":
+    main()
+
