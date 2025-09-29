@@ -1,67 +1,104 @@
+"""Reusable helpers for SVM and Decision Tree classifiers on the Iris dataset."""
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Dict
+
+import numpy as np
 from sklearn.datasets import load_iris
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
-
-# --- Practical Implementation of Advanced Classification Algorithms ---
-
-# 1. Load the dataset
-iris = load_iris()
-X, y = iris.data, iris.target
-
-print("--- Advanced Classification on Iris Dataset ---")
-print(f"Dataset loaded with {X.shape[0]} samples and {X.shape[1]} features.")
-
-# 2. Split the data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
-
-print(f"Training set size: {len(X_train)} samples")
-print(f"Testing set size: {len(X_test)} samples")
-print("-" * 30)
-
-# 3. Feature Scaling (Important for SVM)
-# Decision Trees do not require feature scaling, but SVMs do.
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
-print("Data has been scaled using StandardScaler.")
-print("-" * 30)
 
 
-# --- Model 1: Support Vector Machine (SVM) ---
-print("\n--- Training Support Vector Machine (SVM) ---")
-# We'll use the Radial Basis Function (RBF) kernel, which is good for non-linear data.
-svm_classifier = SVC(kernel='rbf', random_state=42)
-svm_classifier.fit(X_train_scaled, y_train)
-
-# Make predictions
-y_pred_svm = svm_classifier.predict(X_test_scaled)
-
-# Evaluate the model
-accuracy_svm = accuracy_score(y_test, y_pred_svm)
-print(f"SVM (RBF Kernel) Accuracy: {accuracy_svm:.4f}")
+@dataclass
+class IrisData:
+    X_train: np.ndarray
+    X_test: np.ndarray
+    y_train: np.ndarray
+    y_test: np.ndarray
+    X_train_scaled: np.ndarray
+    X_test_scaled: np.ndarray
+    scaler: StandardScaler
 
 
-# --- Model 2: Decision Tree ---
-print("\n--- Training Decision Tree Classifier ---")
-# We'll use the unscaled data for the Decision Tree, as it's not affected by feature scale.
-tree_classifier = DecisionTreeClassifier(random_state=42)
-tree_classifier.fit(X_train, y_train) # Using original, unscaled data
+def load_and_prepare_iris(
+    test_size: float = 0.3,
+    random_state: int = 42,
+) -> IrisData:
+    """Load the Iris dataset and return scaled/unscaled splits."""
+    iris = load_iris()
+    X_train, X_test, y_train, y_test = train_test_split(
+        iris.data,
+        iris.target,
+        test_size=test_size,
+        random_state=random_state,
+        stratify=iris.target,
+    )
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    return IrisData(
+        X_train=X_train,
+        X_test=X_test,
+        y_train=y_train,
+        y_test=y_test,
+        X_train_scaled=X_train_scaled,
+        X_test_scaled=X_test_scaled,
+        scaler=scaler,
+    )
 
-# Make predictions
-y_pred_tree = tree_classifier.predict(X_test) # Using original, unscaled data
 
-# Evaluate the model
-accuracy_tree = accuracy_score(y_test, y_pred_tree)
-print(f"Decision Tree Accuracy: {accuracy_tree:.4f}")
-print("-" * 30)
+def train_svm_classifier(
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    *,
+    kernel: str = "rbf",
+    random_state: int = 42,
+) -> SVC:
+    """Train an SVM classifier with deterministic hyperparameters."""
+    model = SVC(kernel=kernel, random_state=random_state)
+    model.fit(X_train, y_train)
+    return model
 
-# --- Comparison ---
-print("\n--- Model Comparison ---")
-print(f"SVM (RBF Kernel) achieved an accuracy of {accuracy_svm*100:.2f}%.")
-print(f"Decision Tree achieved an accuracy of {accuracy_tree*100:.2f}%.")
-print("Both models perform very well, showcasing their effectiveness on this dataset.")
-print("-" * 30)
+
+def train_decision_tree_classifier(
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    *,
+    random_state: int = 42,
+) -> DecisionTreeClassifier:
+    """Train a decision tree classifier."""
+    model = DecisionTreeClassifier(random_state=random_state)
+    model.fit(X_train, y_train)
+    return model
+
+
+def evaluate_classifier(
+    model,
+    X_test: np.ndarray,
+    y_test: np.ndarray,
+) -> Dict[str, float]:
+    """Return a dictionary of evaluation metrics for the classifier."""
+    accuracy = accuracy_score(y_test, model.predict(X_test))
+    return {"accuracy": accuracy}
+
+
+def run_classification_demo() -> Dict[str, Dict[str, float]]:
+    """Run the Day 43 classification demo and return the metrics."""
+    data = load_and_prepare_iris()
+    svm_model = train_svm_classifier(data.X_train_scaled, data.y_train)
+    tree_model = train_decision_tree_classifier(data.X_train, data.y_train)
+    return {
+        "svm": evaluate_classifier(svm_model, data.X_test_scaled, data.y_test),
+        "decision_tree": evaluate_classifier(tree_model, data.X_test, data.y_test),
+    }
+
+
+if __name__ == "__main__":
+    metrics = run_classification_demo()
+    print("--- Advanced Classification on Iris Dataset ---")
+    for model_name, model_metrics in metrics.items():
+        print(f"{model_name.replace('_', ' ').title()} accuracy: {model_metrics['accuracy']:.4f}")
