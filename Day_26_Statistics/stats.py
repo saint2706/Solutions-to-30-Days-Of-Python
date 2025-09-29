@@ -1,91 +1,134 @@
-"""
-Day 26: Practical Statistics in Python
+"""Day 26: Practical Statistics in Python.
 
-This script demonstrates how to calculate descriptive statistics,
-correlation, and perform a simple hypothesis test (t-test).
+This module provides helper functions for loading sales data, generating
+summary statistics, computing correlations, and running a simple A/B test.
+
+All side effects (such as printing to the console) are encapsulated in the
+``main`` function so that the individual helpers are easy to import and test.
 """
+
+from __future__ import annotations
 
 from pathlib import Path
+from typing import Iterable, Mapping, MutableMapping
 
 import pandas as pd
+from pandas import DataFrame, Series
 from scipy.stats import ttest_ind
 
-# --- 1. Descriptive Statistics with Pandas ---
-resource_dir = Path(__file__).resolve().parent
-data_path = resource_dir / "sales_data.csv"
 
-print("--- 1. Descriptive Statistics of Sales Data ---")
-try:
-    df = pd.read_csv(data_path)
-    df.dropna(inplace=True)  # Clean the data first
+def load_sales_data(csv_path: Path | str | None = None) -> DataFrame:
+    """Load and clean the sales CSV file."""
 
-    # Select the 'Revenue' column to analyze
+    resource_dir = Path(__file__).resolve().parent
+    path = Path(csv_path) if csv_path is not None else resource_dir / "sales_data.csv"
+
+    try:
+        df = pd.read_csv(path)
+    except FileNotFoundError:
+        return pd.DataFrame()
+
+    return df.dropna(axis=0, how="any")
+
+
+def summarize_revenue(df: DataFrame) -> Mapping[str, float | Series | DataFrame]:
+    """Return descriptive statistics for the ``Revenue`` column."""
+
+    if "Revenue" not in df:
+        raise KeyError("DataFrame must contain a 'Revenue' column")
+
     revenue = df["Revenue"]
-
-    print(f"Mean Revenue: ${revenue.mean():,.2f}")
-    print(f"Median Revenue: ${revenue.median():,.2f}")
-    print(f"Standard Deviation of Revenue: ${revenue.std():,.2f}")
-    print(f"Minimum Revenue: ${revenue.min():,.2f}")
-    print(f"Maximum Revenue: ${revenue.max():,.2f}")
-
-    print("\nFull descriptive statistics (df.describe()):")
-    print(df.describe())
-
-except FileNotFoundError:
-    print("Error: sales_data.csv not found. Keep the CSV beside this script.")
-    df = pd.DataFrame()
-print("-" * 20)
+    summary: MutableMapping[str, float | Series | DataFrame] = {
+        "mean": float(revenue.mean()),
+        "median": float(revenue.median()),
+        "std": float(revenue.std()),
+        "min": float(revenue.min()),
+        "max": float(revenue.max()),
+        "describe": df.describe(),
+    }
+    return summary
 
 
-# --- 2. Correlation Analysis ---
-print("--- 2. Correlation Analysis ---")
-if not df.empty:
-    # Select only the numerical columns for correlation calculation
-    numerical_df = df[["Units Sold", "Price", "Revenue"]]
+def compute_correlations(df: DataFrame) -> DataFrame:
+    """Return the correlation matrix for the key numeric columns."""
 
-    # .corr() calculates the correlation matrix
-    correlation_matrix = numerical_df.corr()
+    columns = [col for col in ("Units Sold", "Price", "Revenue") if col in df.columns]
+    if len(columns) < 2:
+        raise ValueError("At least two of 'Units Sold', 'Price', or 'Revenue' must be present")
 
-    print("Correlation Matrix:")
-    print(correlation_matrix)
-    print(
-        "\nAnalysis: 'Units Sold' and 'Revenue' have a strong positive correlation (0.93)."
-    )
-    print("'Price' and 'Revenue' also have a strong positive correlation (0.83).")
-    print(
-        "'Price' and 'Units Sold' have a weak negative correlation (-0.23), which might be expected (higher price can sometimes mean fewer units)."
-    )
-else:
-    print("DataFrame not available for this exercise.")
-print("-" * 20)
+    return df[columns].corr()
 
 
-# --- 3. Inferential Statistics (T-Test) ---
-print("--- 3. A/B Test Analysis (T-Test) ---")
-# Sample data for an A/B test on website headlines
-group_a_durations = [10.5, 12.1, 11.8, 13.0, 12.5, 11.9, 12.3]
-group_b_durations = [12.8, 13.5, 13.2, 14.0, 13.8, 14.1, 13.6]
-print(f"Group A (Old Headline) Durations: {group_a_durations}")
-print(f"Group B (New Headline) Durations: {group_b_durations}")
+def run_ab_test(
+    group_a: Iterable[float], group_b: Iterable[float], alpha: float = 0.05
+) -> Mapping[str, float | bool]:
+    """Run an independent t-test on two groups of durations."""
 
-# Perform an independent t-test
-# This test checks if the two independent samples have different average values.
-t_statistic, p_value = ttest_ind(group_a_durations, group_b_durations)
+    t_statistic, p_value = ttest_ind(list(group_a), list(group_b))
+    return {
+        "t_statistic": float(t_statistic),
+        "p_value": float(p_value),
+        "alpha": float(alpha),
+        "is_significant": bool(p_value < alpha),
+    }
 
-print(f"\nT-statistic: {t_statistic:.4f}")
-print(f"P-value: {p_value:.4f}")
 
-# Interpret the result
-# A small p-value (typically < 0.05) indicates strong evidence against the null hypothesis.
-alpha = 0.05
-if p_value < alpha:  # pyright: ignore[reportOperatorIssue]
-    print("\nConclusion: The difference is statistically significant.")
-    print(
-        "We can conclude that the new headline (Group B) likely leads to longer session durations."
-    )
-else:
-    print("\nConclusion: The difference is not statistically significant.")
-    print(
-        "We cannot conclude that the new headline had a real effect on session duration."
-    )
-print("-" * 20)
+def main() -> None:
+    """Execute the lesson workflow with helpful console output."""
+
+    print("--- 1. Descriptive Statistics of Sales Data ---")
+    df = load_sales_data()
+    if df.empty:
+        print("Error: sales_data.csv not found. Keep the CSV beside this script.")
+    else:
+        revenue_summary = summarize_revenue(df)
+        print(f"Mean Revenue: ${revenue_summary['mean']:,.2f}")
+        print(f"Median Revenue: ${revenue_summary['median']:,.2f}")
+        print(f"Standard Deviation of Revenue: ${revenue_summary['std']:,.2f}")
+        print(f"Minimum Revenue: ${revenue_summary['min']:,.2f}")
+        print(f"Maximum Revenue: ${revenue_summary['max']:,.2f}")
+        print("\nFull descriptive statistics (df.describe()):")
+        print(revenue_summary["describe"])
+    print("-" * 20)
+
+    print("--- 2. Correlation Analysis ---")
+    if not df.empty:
+        correlation_matrix = compute_correlations(df)
+        print("Correlation Matrix:")
+        print(correlation_matrix)
+        print(
+            "\nAnalysis: 'Units Sold' and 'Revenue' have a strong positive correlation (0.93)."
+        )
+        print("'Price' and 'Revenue' also have a strong positive correlation (0.83).")
+        print(
+            "'Price' and 'Units Sold' have a weak negative correlation (-0.23), which might be expected (higher price can sometimes mean fewer units)."
+        )
+    else:
+        print("DataFrame not available for this exercise.")
+    print("-" * 20)
+
+    print("--- 3. A/B Test Analysis (T-Test) ---")
+    group_a_durations = [10.5, 12.1, 11.8, 13.0, 12.5, 11.9, 12.3]
+    group_b_durations = [12.8, 13.5, 13.2, 14.0, 13.8, 14.1, 13.6]
+    print(f"Group A (Old Headline) Durations: {group_a_durations}")
+    print(f"Group B (New Headline) Durations: {group_b_durations}")
+
+    test_results = run_ab_test(group_a_durations, group_b_durations)
+    print(f"\nT-statistic: {test_results['t_statistic']:.4f}")
+    print(f"P-value: {test_results['p_value']:.4f}")
+
+    if test_results["is_significant"]:
+        print("\nConclusion: The difference is statistically significant.")
+        print(
+            "We can conclude that the new headline (Group B) likely leads to longer session durations."
+        )
+    else:
+        print("\nConclusion: The difference is not statistically significant.")
+        print(
+            "We cannot conclude that the new headline had a real effect on session duration."
+        )
+    print("-" * 20)
+
+
+if __name__ == "__main__":
+    main()
