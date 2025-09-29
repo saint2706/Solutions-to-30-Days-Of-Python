@@ -1,48 +1,52 @@
 # Day 44: Unsupervised Learning
 
-Welcome to Day 44! Today, we shift our focus to **Unsupervised Learning**, where we work with unlabeled data to discover hidden patterns and structures. We'll explore two fundamental techniques: **K-Means Clustering** for grouping data and **Principal Component Analysis (PCA)** for dimensionality reduction.
+## Overview
 
-> **Prerequisites:** Install scikit-learn with `pip install scikit-learn` to experiment with the clustering and PCA demos. Need a `pip` refresher? Revisit the Day 20 Python Package Manager lesson.
+Day 44 introduces two foundational unsupervised learning workflows:
 
-## Key Concepts
+- **K-Means clustering** groups unlabeled observations into clusters using
+  distance to learned centroids.
+- **Principal Component Analysis (PCA)** compresses high-dimensional data
+  into a smaller number of orthogonal components for easier visualization
+  and downstream modeling.
 
-### What is Unsupervised Learning?
-In unsupervised learning, the algorithm is given a dataset without explicit labels and must find patterns or relationships on its own. The goal is not to predict an output but to understand the data's underlying structure.
+Install scikit-learn before running the examples:
 
-### 1. K-Means Clustering
-K-Means is an algorithm that groups a dataset into a pre-specified number of clusters (`k`). It aims to partition the data points into `k` clusters in which each data point belongs to the cluster with the nearest mean (cluster centroid).
+```bash
+pip install scikit-learn
+```
 
-- **How it works:**
-  1.  **Initialize:** Randomly select `k` initial centroids from the data.
-  2.  **Assign:** Assign each data point to the closest centroid.
-  3.  **Update:** Recalculate the centroids as the mean of all data points assigned to that cluster.
-  4.  **Repeat:** Repeat the assignment and update steps until the centroids no longer change significantly.
-- **Use Case:** Customer segmentation, document clustering, image compression.
+## What's inside
 
-### 2. Principal Component Analysis (PCA)
-PCA is a dimensionality reduction technique used to reduce the number of features in a dataset while preserving as much of the original information (variance) as possible.
+- `solutions.py` – reusable functions for generating blob data, fitting
+  K-Means, and projecting datasets with PCA. Executing the file still
+  creates the original visualisations.
+- `README.md` – lesson summary (this document).
 
-- **How it works:**
-  - PCA identifies new, uncorrelated variables called **principal components**. These components are linear combinations of the original features.
-  - The first principal component accounts for the largest possible variance in the data, the second component accounts for the second largest, and so on.
-  - By keeping only the first few principal components, we can reduce the dimensionality of the data with minimal loss of information.
-- **Use Case:** Speeding up model training, data visualization (by reducing data to 2D or 3D).
+## Running the lesson script
 
----
+Execute the scripted walkthrough, which will save clustering and PCA plots
+to the project directory:
 
-## Practice Exercises
+```bash
+python Day_44_Unsupervised_Learning/solutions.py
+```
 
-1.  **Conceptual Questions:**
-    *   What is the primary goal of clustering?
-    *   How do you choose the value of `k` in K-Means? (Hint: Research the "Elbow Method").
-    *   What is the main benefit of using PCA?
+## Running the tests
 
-2.  **Code Implementation:**
-    *   The `solutions.py` file demonstrates how to implement both K-Means and PCA using `scikit-learn`.
-    *   The code covers:
-        1.  Generating synthetic data suitable for clustering.
-        2.  Applying K-Means to find clusters in the data.
-        3.  Loading the Iris dataset and applying PCA to reduce its dimensionality from 4 to 2.
-        4.  Visualizing the results of both algorithms.
+Automated tests validate the reusable helpers. Run just the Day 44 checks
+with:
 
-Review the code to understand these powerful unsupervised techniques.
+```bash
+pytest tests/test_day_44.py
+```
+
+To execute the entire suite, simply call `pytest` from the repository
+root.
+
+## Further exploration
+
+- Experiment with different numbers of clusters in `fit_kmeans` to observe
+  how centroids move.
+- Try increasing the number of PCA components and inspect the cumulative
+  explained variance to decide how many dimensions to keep.
