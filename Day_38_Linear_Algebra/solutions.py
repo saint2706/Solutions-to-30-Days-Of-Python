@@ -1,59 +1,60 @@
 import numpy as np
 
-# --- Practice Exercises ---
 
-# 1. Vector Operations
-print("--- Vector Operations ---")
-v1 = np.array([1, 2, 3])
-v2 = np.array([4, 5, 6])
+def vector_operations(v1=None, v2=None):
+    """Return the sum, difference, and dot product of two vectors."""
 
-# Vector sum
-vector_sum = v1 + v2
-print(f"Sum of v1 and v2: {vector_sum}")
+    v1_array = np.array([1, 2, 3]) if v1 is None else np.asarray(v1)
+    v2_array = np.array([4, 5, 6]) if v2 is None else np.asarray(v2)
 
-# Vector difference
-vector_diff = v1 - v2
-print(f"Difference of v1 and v2: {vector_diff}")
+    vector_sum = v1_array + v2_array
+    vector_difference = v1_array - v2_array
+    dot_product = np.dot(v1_array, v2_array)
 
-# Dot product
-dot_product = np.dot(v1, v2)
-print(f"Dot product of v1 and v2: {dot_product}")
-print("-" * 25)
+    return vector_sum, vector_difference, dot_product
 
 
-# 2. Matrix Operations
-print("\n--- Matrix Operations ---")
-M1 = np.array([[1, 2], [3, 4]])
-M2 = np.array([[5, 6], [7, 8]])
+def matrix_operations(m1=None, m2=None):
+    """Return the sum and product of two matrices."""
 
-# Matrix sum
-matrix_sum = M1 + M2
-print(f"Sum of M1 and M2:\n{matrix_sum}")
+    m1_array = np.array([[1, 2], [3, 4]]) if m1 is None else np.asarray(m1)
+    m2_array = np.array([[5, 6], [7, 8]]) if m2 is None else np.asarray(m2)
 
-# Matrix product (dot product)
-matrix_product = np.dot(M1, M2)
-print(f"Product of M1 and M2:\n{matrix_product}")
-print("-" * 25)
+    matrix_sum = m1_array + m2_array
+    matrix_product = np.dot(m1_array, m2_array)
+
+    return matrix_sum, matrix_product
 
 
-# 3. Eigen-analysis
-print("\n--- Eigen-analysis ---")
-A = np.array([[4, 1], [2, 3]])
+def eigen_analysis(matrix=None):
+    """Return the eigenvalues and eigenvectors for the provided matrix."""
 
-# Calculate eigenvalues and eigenvectors
-eigenvalues, eigenvectors = np.linalg.eig(A)
+    matrix_array = np.array([[4, 1], [2, 3]]) if matrix is None else np.asarray(matrix)
+    eigenvalues, eigenvectors = np.linalg.eig(matrix_array)
+    return eigenvalues, eigenvectors
 
-print(f"Matrix A:\n{A}")
-print(f"Eigenvalues: {eigenvalues}")
-print(f"Eigenvectors:\n{eigenvectors}")
 
-# Verification: A * v = λ * v
-# For the first eigenvector/eigenvalue
-v1 = eigenvectors[:, 0]
-lambda1 = eigenvalues[0]
+def main():
+    print("--- Vector Operations ---")
+    vector_sum, vector_difference, dot_product = vector_operations()
+    print(f"Sum of v1 and v2: {vector_sum}")
+    print(f"Difference of v1 and v2: {vector_difference}")
+    print(f"Dot product of v1 and v2: {dot_product}")
+    print("-" * 25)
 
-print(f"\nVerifying for the first eigenvalue/eigenvector:")
-print(f"A * v1 = {np.dot(A, v1)}")
-print(f"λ1 * v1 = {lambda1 * v1}")
-print("Note: The results should be approximately equal.")
-print("-" * 25)
+    print("\n--- Matrix Operations ---")
+    matrix_sum, matrix_product = matrix_operations()
+    print(f"Sum of M1 and M2:\n{matrix_sum}")
+    print(f"Product of M1 and M2:\n{matrix_product}")
+    print("-" * 25)
+
+    print("\n--- Eigen-analysis ---")
+    eigenvalues, eigenvectors = eigen_analysis()
+    print(f"Matrix A:\n{np.array([[4, 1], [2, 3]])}")
+    print(f"Eigenvalues: {eigenvalues}")
+    print(f"Eigenvectors:\n{eigenvectors}")
+    print("-" * 25)
+
+
+if __name__ == "__main__":
+    main()
