@@ -119,6 +119,11 @@ across the Day 24–26 analytics modules via `pytest.ini`:
 pytest
 ```
 
+## 🔄 Dependency reviews
+
+The library stack is reviewed periodically. See [`docs/dependency-review.md`](docs/dependency-review.md)
+for the latest upgrade log (most recent review: 2025-09-29).
+
 - `tests/test_data_pipeline.py` chains the refactored functions from Days 24–26
   to ensure messy CSV extracts can be cleaned, aggregated, and transformed into
   plot-ready tables for the Day 27 visualisations.

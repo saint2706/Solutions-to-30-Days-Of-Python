@@ -67,6 +67,13 @@ def build_daily_revenue_line(df: pd.DataFrame) -> go.Figure:
     _require_columns(df, ["Date", "Revenue"])
 
     daily_revenue = df.groupby("Date", as_index=False)["Revenue"].sum().sort_values("Date")
+    # ``plotly`` preserves ``datetime64`` values when rendering, which pandas now
+    # returns from ``groupby`` aggregations.  Converting to plain ``datetime``
+    # objects keeps backwards compatibility with the existing visualisation and
+    # tests that expect Python ``datetime`` instances.
+    daily_revenue["Date"] = [
+        pd.Timestamp(ts).to_pydatetime() for ts in daily_revenue["Date"]
+    ]
 
     fig = px.line(
         daily_revenue,
@@ -77,6 +84,9 @@ def build_daily_revenue_line(df: pd.DataFrame) -> go.Figure:
     )
     fig.update_traces(mode="lines+markers")
     fig.update_layout(yaxis_title="Revenue (USD)")
+    for trace in fig.data:
+        python_datetimes = tuple(pd.Timestamp(x).to_pydatetime() for x in trace.x)
+        trace.update(x=python_datetimes)
     return fig
 
 
