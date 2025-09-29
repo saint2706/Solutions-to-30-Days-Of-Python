@@ -1,81 +1,133 @@
-"""
-Day 29: Interactive Visualization with Plotly
+"""Reusable helpers for Day 29 interactive Plotly visualisations."""
 
-This script demonstrates how to create interactive, web-based
-charts using the Plotly Express library.
-"""
+from __future__ import annotations
 
 from pathlib import Path
+from typing import Iterable
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 
-# --- Load and Prepare Data ---
-resource_dir = Path(__file__).resolve().parent
-data_path = resource_dir / "sales_data.csv"
+__all__ = [
+    "load_sales_data",
+    "build_region_revenue_bar",
+    "build_daily_revenue_line",
+    "build_price_units_scatter",
+    "main",
+]
 
-try:
+
+def _require_columns(df: pd.DataFrame, required: Iterable[str]) -> None:
+    """Raise ``ValueError`` if ``df`` is missing any of ``required`` columns."""
+
+    missing = set(required) - set(df.columns)
+    if missing:
+        columns = ", ".join(sorted(missing))
+        raise ValueError(f"DataFrame is missing required columns: {columns}")
+    if df.empty:
+        raise ValueError("DataFrame must contain at least one row to build the figure.")
+
+
+def load_sales_data(data_path: Path | str | None = None) -> pd.DataFrame:
+    """Return the ``sales_data.csv`` dataset bundled with the lesson."""
+
+    if data_path is None:
+        resource_dir = Path(__file__).resolve().parent
+        data_path = resource_dir / "sales_data.csv"
+
     df = pd.read_csv(data_path, parse_dates=["Date"])
-    df.dropna(inplace=True)
-    print("Data loaded successfully.")
-except FileNotFoundError:
-    print("Error: sales_data.csv not found. Keep the CSV beside this script.")
-    df = pd.DataFrame()
+    return df.dropna().reset_index(drop=True)
 
-if not df.empty:
-    # --- 1. Interactive Bar Chart ---
-    print("\n--- 1. Interactive Bar Chart: Revenue by Region ---")
-    # Group data to get the sum of revenue for each region
-    region_revenue = df.groupby("Region")["Revenue"].sum().reset_index()
 
-    fig_bar = px.bar(
+def build_region_revenue_bar(df: pd.DataFrame) -> go.Figure:
+    """Return a bar chart showing total revenue by region."""
+
+    _require_columns(df, ["Region", "Revenue"])
+
+    region_revenue = (
+        df.groupby("Region", as_index=False)["Revenue"].sum().sort_values("Region")
+    )
+
+    fig = px.bar(
         region_revenue,
         x="Region",
         y="Revenue",
+        color="Region",
         title="Total Revenue by Region",
-        labels={"Revenue": "Total Revenue (USD)"},  # Customizing axis labels
-        color="Region",  # Color each bar differently
+        labels={"Revenue": "Total Revenue (USD)"},
     )
-    print("Displaying interactive bar chart. A browser window may open.")
-    # fig_bar.show() # This would open in a browser, might not work in all environments
+    fig.update_layout(showlegend=False)
+    return fig
 
-    # --- 2. Interactive Line Chart ---
-    print("\n--- 2. Interactive Line Chart: Revenue Over Time ---")
-    daily_revenue = df.groupby("Date")["Revenue"].sum().reset_index()
 
-    fig_line = px.line(
+def build_daily_revenue_line(df: pd.DataFrame) -> go.Figure:
+    """Return a daily revenue line chart with markers."""
+
+    _require_columns(df, ["Date", "Revenue"])
+
+    daily_revenue = df.groupby("Date", as_index=False)["Revenue"].sum().sort_values("Date")
+
+    fig = px.line(
         daily_revenue,
         x="Date",
         y="Revenue",
         title="Daily Revenue Trend",
-        markers=True,  # Add markers to each data point
+        markers=True,
     )
-    print("Displaying interactive line chart. A browser window may open.")
-    # fig_line.show()
+    fig.update_traces(mode="lines+markers")
+    fig.update_layout(yaxis_title="Revenue (USD)")
+    return fig
 
-    # --- 3. Interactive Scatter Plot ---
-    print("\n--- 3. Interactive Scatter Plot: Price vs. Units Sold ---")
-    fig_scatter = px.scatter(
+
+def build_price_units_scatter(df: pd.DataFrame) -> go.Figure:
+    """Return a scatter plot comparing price and units sold with revenue sizing."""
+
+    _require_columns(df, ["Price", "Units Sold", "Revenue", "Product", "Region"])
+
+    fig = px.scatter(
         df,
         x="Price",
         y="Units Sold",
-        color="Product",  # Color points by product category
-        size="Revenue",  # Make point size proportional to revenue
-        hover_data=["Region"],  # Show region info on hover
+        color="Product",
+        size="Revenue",
+        hover_data=["Region", "Revenue"],
         title="Price vs. Units Sold Analysis",
     )
-    print("Displaying interactive scatter plot. A browser window may open.")
-    # fig_scatter.show()
+    fig.update_layout(
+        legend_title_text="Product",
+        xaxis_title="Price (USD)",
+        yaxis_title="Units Sold",
+    )
+    return fig
 
-    # --- Saving a Plot to an HTML file ---
-    # This is a reliable way to view and share the plots.
-    # The repository's .gitignore skips these generated HTML files so you can
-    # recreate them locally without cluttering version control.
+
+def main() -> None:
+    """Load the lesson dataset and display the interactive figures."""
+
+    try:
+        df = load_sales_data()
+    except FileNotFoundError:
+        print("Error: sales_data.csv not found. Keep the CSV beside this script.")
+        return
+
+    print("Data loaded successfully.")
+
+    print("\n--- 1. Interactive Bar Chart: Revenue by Region ---")
+    build_region_revenue_bar(df).show()
+
+    print("\n--- 2. Interactive Line Chart: Revenue Over Time ---")
+    build_daily_revenue_line(df).show()
+
+    print("\n--- 3. Interactive Scatter Plot: Price vs. Units Sold ---")
+    scatter = build_price_units_scatter(df)
+    scatter.show()
     output_filename = "interactive_scatter_plot.html"
-    fig_scatter.write_html(output_filename)
+    scatter.write_html(output_filename)
     print(
         f"\nScatter plot saved to '{output_filename}'. You can open this file in a web browser."
     )
 
-else:
-    print("\nSkipping plot generation as DataFrame could not be loaded.")
+
+if __name__ == "__main__":
+    main()

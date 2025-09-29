@@ -12,14 +12,14 @@ source .venv/bin/activate  # On Windows use `.venv\\Scripts\\activate`
 pip install -r requirements.txt
 ```
 
-## 2. Day 28 resources
+## 2. Day 29 resources
 
-### Run the advanced visualization script
+### Run the interactive visualization script
 
 Execute the refactored script to load the bundled `sales_data.csv` file and open the figures:
 
 ```bash
-python Day_28_Advanced_Visualization/advanced_visualization.py
+python Day_29_Interactive_Visualization/interactive_visualization.py
 ```
 
 ### Explore the interactive notebook
@@ -27,7 +27,7 @@ python Day_28_Advanced_Visualization/advanced_visualization.py
 Launch Jupyter and open the new walkthrough notebook:
 
 ```bash
-jupyter notebook Day_28_Advanced_Visualization/advanced_visualization.ipynb
+jupyter notebook Day_29_Interactive_Visualization/interactive_visualization.ipynb
 ```
 
 ### Execute the automated tests
@@ -35,7 +35,7 @@ jupyter notebook Day_28_Advanced_Visualization/advanced_visualization.ipynb
 Pytest checks validate the figure construction helpers:
 
 ```bash
-pytest tests/test_day_28.py
+pytest tests/test_day_29.py
 ```
 
 ## 3. Repository layout
