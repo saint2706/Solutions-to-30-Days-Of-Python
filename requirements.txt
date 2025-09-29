@@ -12,3 +12,4 @@ seaborn==0.13.2
 sympy==1.14.0
 tensorflow==2.20.0
 responses==0.25.8
+lexical-diversity
