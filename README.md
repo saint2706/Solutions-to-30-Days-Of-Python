@@ -37,6 +37,30 @@ against live services; the test suite uses mocks and runs without them.
 - [Day 32 – Other Databases](Day_32_Other_Databases/other_databases.py):
   demonstrates dependency-injected connection patterns for SQL and MongoDB
   clients so that data access logic remains testable.
+- [Day 50 – MLOps](Day_50_MLOps/solutions.py): exposes reusable helpers for
+  training, saving, loading, and predicting with a Logistic Regression Iris
+  classifier. Import the module in your own notebooks or call the script
+  directly with:
+
+  ```bash
+  python Day_50_MLOps/solutions.py
+  ```
+
+  From Python you can orchestrate the workflow yourself:
+
+  ```python
+  from Day_50_MLOps.solutions import (
+      load_model,
+      predict_sample,
+      save_model,
+      train_iris_model,
+  )
+
+  model, accuracy, X_test, y_test, target_names = train_iris_model()
+  model_path = save_model(model, "iris_model.joblib")
+  reloaded = load_model(model_path)
+  prediction, label = predict_sample(reloaded, X_test[0], target_names)
+  ```
 
 Run a lesson directly with `python <path-to-script>`. For example, Day 31 can
 be executed via:
@@ -59,6 +83,7 @@ To focus on specific lessons:
 ```bash
 pytest tests/test_day_31.py
 pytest tests/test_day_32.py
+pytest tests/test_day_50.py
 ```
 
 The Day 32 tests rely solely on the dependency-injected stubs so they can run
