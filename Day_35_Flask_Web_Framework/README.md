@@ -1,52 +1,52 @@
 # 🌐 Day 35: Flask Web Framework
 
-## Welcome to Day 35
+Welcome to Day 35! This lesson contains a small Flask project that analyses submitted text and reports simple statistics such as word counts and lexical diversity.
 
-Today, we're going to learn about **Flask**, a lightweight and popular web framework for Python. A web framework provides a set of tools and libraries to help you build web applications more easily.
+## Environment setup
 
-## Why is Flask Important for Business Analytics?
+1. **Create and activate a virtual environment** (recommended):
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows use: .venv\\Scripts\\activate
+   ```
+2. **Install the dependencies for this lesson**:
+   ```bash
+   pip install -r Day_35_Flask_Web_Framework/requirements.txt
+   ```
 
-While you might not be building full-fledged web applications as a business analyst, understanding the basics of web frameworks like Flask can be very useful for:
+## Running the Flask application
 
-- **Creating interactive dashboards**: You can use Flask to build simple web-based dashboards to display your analysis and visualizations.
-- **Building APIs**: You can create APIs (Application Programming Interfaces) to serve your data and models to other applications.
-- **Prototyping ideas**: Flask is great for quickly building prototypes of data-driven products and services.
+The application now exposes a `create_app()` factory in `Day_35_Flask_Web_Framework/app/__init__.py`, so it can be started with the Flask CLI:
 
-## Key Concepts in Flask
+```bash
+FLASK_APP=Day_35_Flask_Web_Framework.app:create_app flask run
+```
 
-- **Routes**: A route is a URL that your application will respond to. You define routes using the `@app.route()` decorator.
-- **View functions**: A view function is a Python function that is executed when a user visits a specific route. It returns the content that will be displayed in the user's browser.
-- **Templates**: Templates are HTML files that can be used to render dynamic content. Flask uses the Jinja2 templating engine.
+Alternatively, you can execute the module directly:
 
-## Exploring `app.py`
+```bash
+python -m Day_35_Flask_Web_Framework.app
+```
 
-The `app.py` script in this folder contains a simple Flask application that demonstrates the basic concepts of Flask.
+Once running, visit <http://127.0.0.1:5000/> to interact with the analyser. Use the **Post** page to submit text and review the calculated statistics on the **Result** page.
 
-### How to Run the Application
+## Running the tests
 
-1. **Install Flask**: If you haven't already, install Flask using pip:
+Automated tests validate both the Flask routes and the helper functions that power the analyser. Execute them from the repository root:
 
-    ```bash
-    pip install Flask
-    ```
-
-2. **Run the application**: Open your terminal, navigate to this directory, and run the following command:
-
-    ```bash
-    python app.py
-    ```
-
-3. **Open your browser**: Open your web browser and go to `http://127.0.0.1:5000/`. You should see the home page of the application.
+```bash
+pytest -k day_35
+```
 
 ## 💻 Exercises: Day 35
 
 1. **Create a new route**:
-    - Add a new route to the `app.py` script at the URL `/about`.
+    - Add a new route to the `create_app` factory at the URL `/about`.
     - Create a view function that returns a simple string, like "This is the about page."
 
 2. **Create a new template**:
     - Create a new HTML file named `contact.html` in the `templates` directory.
-    - Add a new route to the `app.py` script at the URL `/contact` that renders the `contact.html` template.
+    - Add a new route to the Flask app at the URL `/contact` that renders the `contact.html` template.
 
 3. **Pass data to a template**:
     - Modify the `/about` route to pass your name to a new `about.html` template.

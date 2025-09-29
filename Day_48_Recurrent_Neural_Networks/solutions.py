@@ -1,81 +1,142 @@
+"""Utility functions for building and training a small LSTM on the IMDB dataset."""
+
+from __future__ import annotations
+
+from typing import Dict, Tuple
+
+import numpy as np
 import tensorflow as tf
-from tensorflow.keras import layers, models, datasets
+from tensorflow.keras import datasets, layers, models
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-# --- Building an RNN for Sentiment Analysis ---
 
-print("--- RNN (LSTM) for IMDB Sentiment Classification ---")
+DEFAULT_SEED = 42
 
-# 1. Load and Preprocess the IMDB Dataset
-# The dataset contains 50,000 movie reviews from IMDB, labeled as positive (1) or negative (0).
-# We'll limit the vocabulary to the top 10,000 most frequent words.
-vocab_size = 10000
-(train_data, train_labels), (test_data, test_labels) = datasets.imdb.load_data(num_words=vocab_size)
 
-print(f"Number of training samples: {len(train_data)}")
-print(f"Number of test samples: {len(test_data)}")
+def set_global_seed(seed: int = DEFAULT_SEED) -> None:
+    """Synchronise NumPy and TensorFlow RNGs for deterministic runs."""
 
-# Each review is a sequence of word indices. Let's look at one.
-print(f"Example review (as word indices): {train_data[0][:15]}...")
+    np.random.seed(seed)
+    tf.keras.utils.set_random_seed(seed)
 
-# The reviews have different lengths. We need to pad them to a uniform length.
-# We'll set a max length of 256. Reviews longer than this will be truncated.
-max_length = 256
-train_data_padded = pad_sequences(train_data, maxlen=max_length, padding='post')
-test_data_padded = pad_sequences(test_data, maxlen=max_length, padding='post')
 
-print(f"Padded training data shape: {train_data_padded.shape}")
-print(f"Padded test data shape: {test_data_padded.shape}")
-print("-" * 30)
+def prepare_imdb_data(
+    *, vocab_size: int = 10_000, max_length: int = 256
+) -> Tuple[Tuple[np.ndarray, np.ndarray], Tuple[np.ndarray, np.ndarray]]:
+    """Load the IMDB sentiment dataset and pad sequences to a uniform length."""
 
-# 2. Build the Recurrent Neural Network Model
-# We will use an LSTM layer.
-embedding_dim = 16
+    (train_data, train_labels), (test_data, test_labels) = datasets.imdb.load_data(
+        num_words=vocab_size
+    )
 
-model = models.Sequential([
-    # 1. Embedding Layer: Turns positive integers (word indices) into dense vectors of fixed size.
-    # This layer learns word embeddings from the data.
-    layers.Embedding(input_dim=vocab_size, output_dim=embedding_dim, input_length=max_length),
+    train_data_padded = pad_sequences(train_data, maxlen=max_length, padding="post")
+    test_data_padded = pad_sequences(test_data, maxlen=max_length, padding="post")
 
-    # 2. LSTM Layer: The core of our RNN. 64 units in the LSTM cell.
-    layers.LSTM(64),
+    return (train_data_padded, np.array(train_labels)), (
+        test_data_padded,
+        np.array(test_labels),
+    )
 
-    # 3. Dense Classifier Head
-    layers.Dense(64, activation='relu'),
-    # Output layer with 1 neuron and a sigmoid activation for binary classification.
-    layers.Dense(1, activation='sigmoid')
-])
 
-# 3. Compile the Model
-model.compile(
-    optimizer='adam',
-    loss='binary_crossentropy', # Loss function for binary classification
-    metrics=['accuracy']
-)
+def build_rnn_model(
+    *,
+    vocab_size: int = 10_000,
+    embedding_dim: int = 16,
+    max_length: int = 256,
+    lstm_units: int = 64,
+    dense_units: int = 64,
+) -> tf.keras.Model:
+    """Create an LSTM-based classifier mirroring the tutorial architecture."""
 
-# Print model summary
-print("Model Summary:")
-model.summary()
-print("-" * 30)
+    model = models.Sequential(
+        [
+            layers.Input(shape=(max_length,)),
+            layers.Embedding(input_dim=vocab_size, output_dim=embedding_dim),
+            layers.LSTM(lstm_units),
+            layers.Dense(dense_units, activation="relu"),
+            layers.Dense(1, activation="sigmoid"),
+        ]
+    )
 
-# 4. Train the Model
-print("Training the RNN (LSTM)...")
-history = model.fit(
-    train_data_padded,
-    train_labels,
-    epochs=5, # 5 epochs is sufficient for a good result
-    batch_size=128,
-    validation_split=0.2, # Use 20% of training data for validation
-    verbose=1
-)
-print("Model training complete.")
-print("-" * 30)
+    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
+    return model
 
-# 5. Evaluate the Model
-print("Evaluating the model on the test set...")
-test_loss, test_acc = model.evaluate(test_data_padded, test_labels, verbose=2)
 
-print(f"\nTest Accuracy: {test_acc * 100:.2f}%")
-print(f"Test Loss: {test_loss:.4f}")
-print("RNNs with LSTM/GRU cells are very effective for sequence tasks like sentiment analysis.")
-print("-" * 30)
+def train_rnn_model(
+    model: tf.keras.Model,
+    train_data: np.ndarray,
+    train_labels: np.ndarray,
+    *,
+    epochs: int = 5,
+    batch_size: int = 128,
+    validation_split: float = 0.2,
+    verbose: int = 1,
+    shuffle: bool = True,
+) -> tf.keras.callbacks.History:
+    """Fit the RNN and return the training history."""
+
+    history = model.fit(
+        train_data,
+        train_labels,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_split=validation_split,
+        verbose=verbose,
+        shuffle=shuffle,
+    )
+    return history
+
+
+def evaluate_rnn_model(
+    model: tf.keras.Model,
+    test_data: np.ndarray,
+    test_labels: np.ndarray,
+    *,
+    verbose: int = 2,
+) -> Dict[str, float]:
+    """Evaluate the trained RNN on the held-out test data."""
+
+    return model.evaluate(test_data, test_labels, verbose=verbose, return_dict=True)
+
+
+def run_full_workflow(
+    *,
+    vocab_size: int = 10_000,
+    max_length: int = 256,
+    epochs: int = 5,
+    batch_size: int = 128,
+    verbose: int = 1,
+    seed: int = DEFAULT_SEED,
+) -> Tuple[tf.keras.callbacks.History, Dict[str, float], tf.keras.Model]:
+    """Train and evaluate the IMDB LSTM classifier end-to-end."""
+
+    set_global_seed(seed)
+    (train_data, train_labels), (test_data, test_labels) = prepare_imdb_data(
+        vocab_size=vocab_size, max_length=max_length
+    )
+    model = build_rnn_model(
+        vocab_size=vocab_size, embedding_dim=16, max_length=max_length
+    )
+    history = train_rnn_model(
+        model,
+        train_data,
+        train_labels,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_split=0.2,
+        verbose=verbose,
+    )
+    metrics = evaluate_rnn_model(model, test_data, test_labels, verbose=verbose)
+    return history, metrics, model
+
+
+if __name__ == "__main__":
+    history, metrics, model = run_full_workflow()
+
+    print("--- RNN (LSTM) for IMDB Sentiment Classification ---")
+    model.summary()
+    print("-" * 30)
+    print("Final training accuracy:", history.history["accuracy"][-1])
+    print("Test metrics:")
+    for name, value in metrics.items():
+        print(f"  {name}: {value:.4f}")
