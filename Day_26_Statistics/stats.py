@@ -16,6 +16,8 @@ import pandas as pd
 from pandas import DataFrame, Series
 from scipy.stats import ttest_ind
 
+import plotly.graph_objects as go
+
 
 def load_sales_data(csv_path: Path | str | None = None) -> DataFrame:
     """Load and clean the sales CSV file."""
@@ -57,6 +59,56 @@ def compute_correlations(df: DataFrame) -> DataFrame:
         raise ValueError("At least two of 'Units Sold', 'Price', or 'Revenue' must be present")
 
     return df[columns].corr()
+
+
+def build_revenue_distribution_chart(df: DataFrame) -> go.Figure:
+    """Create a histogram visualising the distribution of the ``Revenue`` column."""
+
+    if "Revenue" not in df:
+        raise KeyError("DataFrame must contain a 'Revenue' column")
+
+    revenue = df["Revenue"].dropna()
+    figure = go.Figure(
+        data=[
+            go.Histogram(
+                x=revenue,
+                nbinsx=min(30, max(5, revenue.nunique() // 2 or 5)),
+                marker_color="#636EFA",
+                opacity=0.85,
+                hovertemplate="Revenue: %{x:$,.0f}<extra></extra>",
+            )
+        ]
+    )
+    figure.update_layout(
+        title="Revenue Distribution",
+        xaxis_title="Revenue",
+        yaxis_title="Frequency",
+        template="plotly_white",
+        bargap=0.05,
+    )
+    return figure
+
+
+def build_correlation_heatmap(df: DataFrame) -> go.Figure:
+    """Create a heatmap to visualise correlations between key numeric metrics."""
+
+    correlations = compute_correlations(df)
+    heatmap = go.Heatmap(
+        z=correlations.values,
+        x=list(correlations.columns),
+        y=list(correlations.index),
+        colorscale="Blues",
+        zmin=-1,
+        zmax=1,
+        hovertemplate="%{y} vs %{x}: %{z:.2f}<extra></extra>",
+        colorbar=dict(title="Correlation"),
+    )
+    figure = go.Figure(data=[heatmap])
+    figure.update_layout(
+        title="Correlation Heatmap",
+        template="plotly_white",
+    )
+    return figure
 
 
 def run_ab_test(

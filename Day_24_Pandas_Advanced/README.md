@@ -53,6 +53,25 @@ The script for this lesson, `pandas_adv.py`, has been refactored to place each a
     pytest tests/test_day_24.py
     ```
 
+## ✨ Interactive Plotly Visualisations
+
+Plotly chart builders now sit alongside the existing data-wrangling helpers:
+
+* `build_revenue_by_region_bar_chart()` aggregates revenue totals for each region and renders an interactive bar chart.
+* `build_units_vs_price_scatter()` plots price sensitivity using `Units Sold` on the y-axis and encodes the point colour scale for quick outlier detection.
+
+To experiment locally:
+
+1. Install notebook dependencies if you have not done so already:
+   ```bash
+   pip install notebook plotly
+   ```
+2. Launch Jupyter from the project root and open the companion notebook:
+   ```bash
+   jupyter notebook Day_24_Pandas_Advanced/pandas_adv_interactive.ipynb
+   ```
+3. Run the cells to compare the quick Matplotlib baseline with the interactive Plotly versions. Hover, filter, and export the Plotly figures directly from the notebook toolbar.
+
 ## 🔬 Profiling the Workflow
 
 Curious about where Pandas spends its time? Launch the shared profiling helper to benchmark the lesson workflow:
