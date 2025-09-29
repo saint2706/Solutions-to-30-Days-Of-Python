@@ -9,7 +9,6 @@ Purpose: Educational solutions for MBA students learning NumPy
 """
 
 import numpy as np
-from typing import Tuple, List, Dict, Any, Optional
 import warnings
 
 # Suppress numpy warnings for cleaner output
@@ -38,7 +37,7 @@ def exercise_1_array_creation_and_vectorization():
     prices_array = np.array(prices)
     units_array = np.array(units)
 
-    print(f"\n🔧 Converting to NumPy arrays:")
+    print("\n🔧 Converting to NumPy arrays:")
     print(f"   Prices array: {prices_array}")
     print(f"   Units array: {units_array}")
     print(f"   Prices array type: {type(prices_array)}")
@@ -47,12 +46,12 @@ def exercise_1_array_creation_and_vectorization():
     # Vectorized multiplication (the magic of NumPy!)
     revenue_array = prices_array * units_array
 
-    print(f"\n📈 Revenue Calculation (Vectorized):")
+    print("\n📈 Revenue Calculation (Vectorized):")
     print(f"   Revenue array: {revenue_array}")
     print(f"   Total revenue: ${revenue_array.sum():,.2f}")
 
     # Demonstrate the difference with traditional loop approach
-    print(f"\n🔍 Comparison with Traditional Loop Approach:")
+    print("\n🔍 Comparison with Traditional Loop Approach:")
     revenue_loop = []
     for i in range(len(prices)):
         revenue_loop.append(prices[i] * units[i])
@@ -61,7 +60,7 @@ def exercise_1_array_creation_and_vectorization():
     print(f"   Same result? {np.array_equal(revenue_array, np.array(revenue_loop))}")
 
     # Advanced: Show additional business insights
-    print(f"\n💡 Business Insights:")
+    print("\n💡 Business Insights:")
     avg_price = prices_array.mean()
     avg_units = units_array.mean()
     avg_revenue = revenue_array.mean()
@@ -100,7 +99,7 @@ def exercise_2_sales_data_analysis():
         "Sunday",
     ]
 
-    print(f"📅 Weekly Sales Data:")
+    print("📅 Weekly Sales Data:")
     for day, sales in zip(days_of_week, sales_data):
         print(f"   {day:>9}: ${sales:>6.2f}")
 
@@ -110,14 +109,14 @@ def exercise_2_sales_data_analysis():
     best_sales_day = sales_data.max()
     worst_sales_day = sales_data.min()
 
-    print(f"\n📈 Sales Metrics:")
+    print("\n📈 Sales Metrics:")
     print(f"   Total weekly sales: ${total_weekly_sales:,.2f}")
     print(f"   Average daily sales: ${average_daily_sales:.2f}")
     print(f"   Best sales day: ${best_sales_day:.2f}")
     print(f"   Worst sales day: ${worst_sales_day:.2f}")
 
     # Additional business insights
-    print(f"\n💡 Advanced Business Insights:")
+    print("\n💡 Advanced Business Insights:")
 
     # Standard deviation and variance
     sales_std = sales_data.std()
@@ -143,10 +142,10 @@ def exercise_2_sales_data_analysis():
     print(f"   Days below average: {below_average_days}")
 
     # Business recommendations
-    print(f"\n📋 Business Recommendations:")
+    print("\n📋 Business Recommendations:")
     if sales_std > average_daily_sales * 0.3:
         print(
-            f"   ⚠️  High sales volatility detected. Consider investigating factors causing variation."
+            "   ⚠️  High sales volatility detected. Consider investigating factors causing variation."
         )
 
     weekend_sales = sales_data[5:7]  # Saturday and Sunday
@@ -160,10 +159,10 @@ def exercise_2_sales_data_analysis():
 
     if avg_weekend < avg_weekday:
         print(
-            f"   💡 Weekend sales are lower. Consider weekend promotions or different staffing."
+            "   💡 Weekend sales are lower. Consider weekend promotions or different staffing."
         )
     else:
-        print(f"   ✅ Weekend sales are strong. Current strategy is working well.")
+        print("   ✅ Weekend sales are strong. Current strategy is working well.")
 
 
 def exercise_3_conditional_filtering():
@@ -204,7 +203,7 @@ def exercise_3_conditional_filtering():
     print(f"📈 Good sales days (above average): {good_sales_days}")
 
     # Additional filtering examples for business intelligence
-    print(f"\n💼 Advanced Filtering Examples:")
+    print("\n💼 Advanced Filtering Examples:")
 
     # High performance days (> 400)
     high_performance = sales_data > 400
@@ -227,7 +226,7 @@ def exercise_3_conditional_filtering():
     print(f"\n📅 Names of good sales days: {list(good_day_names)}")
 
     # Multiple condition filtering
-    print(f"\n🎯 Multiple Condition Filtering:")
+    print("\n🎯 Multiple Condition Filtering:")
 
     # Days with sales between 250 and 450
     moderate_sales = (sales_data >= 250) & (sales_data <= 450)
@@ -242,7 +241,7 @@ def exercise_3_conditional_filtering():
     print(f"   Weekend or high sales days: {special_days}")
 
     # Business intelligence summary
-    print(f"\n📊 Business Intelligence Summary:")
+    print("\n📊 Business Intelligence Summary:")
     print(
         f"   • {np.sum(above_average_boolean)} out of {len(sales_data)} days exceeded average sales"
     )
@@ -283,7 +282,7 @@ def bonus_exercise_advanced_numpy():
     print(f"Sales Matrix:\n{sales_matrix}")
 
     # Analysis along different axes
-    print(f"\n📈 Axis-based Analysis:")
+    print("\n📈 Axis-based Analysis:")
 
     # Total sales per product (sum across days - axis=1)
     total_by_product = sales_matrix.sum(axis=1)
@@ -300,23 +299,23 @@ def bonus_exercise_advanced_numpy():
         print(f"   {day}: ${total:,}")
 
     # Advanced operations
-    print(f"\n🔍 Advanced Operations:")
+    print("\n🔍 Advanced Operations:")
 
     # Average sales per product
     avg_by_product = sales_matrix.mean(axis=1)
-    print(f"Average daily sales per product:")
+    print("Average daily sales per product:")
     for product, avg in zip(products, avg_by_product):
         print(f"   {product}: ${avg:.2f}")
 
     # Best and worst performing days for each product
-    print(f"\nBest performing day for each product:")
+    print("\nBest performing day for each product:")
     best_days_idx = sales_matrix.argmax(axis=1)
     for i, (product, day_idx) in enumerate(zip(products, best_days_idx)):
         best_sales = sales_matrix[i, day_idx]
         print(f"   {product}: {days[day_idx]} (${best_sales})")
 
     # Correlation analysis (bonus advanced topic)
-    print(f"\n📊 Product Performance Correlation:")
+    print("\n📊 Product Performance Correlation:")
     correlation_matrix = np.corrcoef(sales_matrix)
     print(f"Correlation matrix shape: {correlation_matrix.shape}")
 
@@ -327,7 +326,7 @@ def bonus_exercise_advanced_numpy():
             print(f"   {products[i]} vs {products[j]}: {correlation:.3f}")
 
     # Performance ranking
-    print(f"\n🏆 Performance Ranking:")
+    print("\n🏆 Performance Ranking:")
     product_ranking = np.argsort(total_by_product)[::-1]  # Descending order
     for rank, product_idx in enumerate(product_ranking, 1):
         product_name = products[product_idx]
@@ -335,7 +334,7 @@ def bonus_exercise_advanced_numpy():
         print(f"   #{rank}: {product_name} - ${total_sales:,}")
 
     # Statistical insights
-    print(f"\n📈 Statistical Insights:")
+    print("\n📈 Statistical Insights:")
     overall_mean = sales_matrix.mean()
     overall_std = sales_matrix.std()
     print(f"   Overall average daily sales: ${overall_mean:.2f}")
@@ -370,7 +369,7 @@ def performance_comparison_demo():
     )  # Random sales between $100-$1000
     sales_list = sales_data_large.tolist()  # Convert to Python list
 
-    print(f"\n🔧 Test: Calculating 15% discount on all sales")
+    print("\n🔧 Test: Calculating 15% discount on all sales")
 
     # NumPy vectorized approach
     start_time = time.time()
@@ -382,22 +381,22 @@ def performance_comparison_demo():
     discounted_python = [price * 0.85 for price in sales_list]
     python_time = time.time() - start_time
 
-    print(f"\n⏱️  Performance Results:")
+    print("\n⏱️  Performance Results:")
     print(f"   NumPy vectorized: {numpy_time:.6f} seconds")
     print(f"   Python list comp: {python_time:.6f} seconds")
-    print(f"   Speed improvement: {python_time/numpy_time:.1f}x faster with NumPy")
+    print(f"   Speed improvement: {python_time / numpy_time:.1f}x faster with NumPy")
 
     # Verify results are the same
     print(f"   Results identical: {np.allclose(discounted_numpy, discounted_python)}")
 
-    print(f"\n💡 Business Impact:")
+    print("\n💡 Business Impact:")
     if python_time > 0.001:  # If measurable difference
         time_saved = python_time - numpy_time
         print(f"   Time saved per operation: {time_saved:.6f} seconds")
         print(f"   For 1000 daily operations: {time_saved * 1000:.2f} seconds saved")
         print(f"   Annual time savings: {time_saved * 1000 * 365 / 3600:.2f} hours")
 
-    print(f"   💼 For large-scale business analytics, NumPy is essential!")
+    print("   💼 For large-scale business analytics, NumPy is essential!")
 
 
 def practical_business_scenarios():
@@ -425,7 +424,7 @@ def practical_business_scenarios():
     print(f"   Total products below reorder point: {np.sum(needs_reorder)}")
 
     # Scenario 2: Sales Forecasting
-    print(f"\n📈 Scenario 2: Sales Trend Analysis")
+    print("\n📈 Scenario 2: Sales Trend Analysis")
 
     # Monthly sales data
     months = np.array(["Jan", "Feb", "Mar", "Apr", "May", "Jun"])
@@ -435,9 +434,9 @@ def practical_business_scenarios():
     growth_rates = np.diff(sales) / sales[:-1] * 100
 
     print(f"   Monthly sales: {dict(zip(months, sales))}")
-    print(f"   Month-over-month growth rates:")
+    print("   Month-over-month growth rates:")
     for i, rate in enumerate(growth_rates):
-        print(f"      {months[i]} to {months[i+1]}: {rate:.1f}%")
+        print(f"      {months[i]} to {months[i + 1]}: {rate:.1f}%")
 
     avg_growth = growth_rates.mean()
     print(f"   Average monthly growth rate: {avg_growth:.1f}%")
@@ -447,7 +446,7 @@ def practical_business_scenarios():
     print(f"   Forecast for Jul: ${next_month_forecast:,.0f}")
 
     # Scenario 3: Customer Segmentation
-    print(f"\n👥 Scenario 3: Customer Segmentation")
+    print("\n👥 Scenario 3: Customer Segmentation")
 
     # Customer data
     customer_spending = np.array([500, 1500, 300, 2000, 800, 1200, 400, 3000, 600, 900])
@@ -459,17 +458,17 @@ def practical_business_scenarios():
 
     print(f"   Total customers: {len(customer_spending)}")
     print(
-        f"   High-value customers (>$1500): {np.sum(high_value)} ({np.sum(high_value)/len(customer_spending)*100:.1f}%)"
+        f"   High-value customers (>$1500): {np.sum(high_value)} ({np.sum(high_value) / len(customer_spending) * 100:.1f}%)"
     )
     print(
-        f"   Medium-value customers ($800-$1500): {np.sum(medium_value)} ({np.sum(medium_value)/len(customer_spending)*100:.1f}%)"
+        f"   Medium-value customers ($800-$1500): {np.sum(medium_value)} ({np.sum(medium_value) / len(customer_spending) * 100:.1f}%)"
     )
     print(
-        f"   Low-value customers (<$800): {np.sum(low_value)} ({np.sum(low_value)/len(customer_spending)*100:.1f}%)"
+        f"   Low-value customers (<$800): {np.sum(low_value)} ({np.sum(low_value) / len(customer_spending) * 100:.1f}%)"
     )
 
     # Average spending per segment
-    print(f"   Average spending per segment:")
+    print("   Average spending per segment:")
     if np.sum(high_value) > 0:
         print(f"      High-value: ${customer_spending[high_value].mean():.2f}")
     if np.sum(medium_value) > 0:
@@ -497,7 +496,7 @@ def main():
         performance_comparison_demo()
         practical_business_scenarios()
 
-        print(f"\n" + "=" * 60)
+        print("\n" + "=" * 60)
         print("🎉 All NumPy Exercises Completed Successfully!")
         print("💡 Key Skills Demonstrated:")
         print("   📊 Array creation and vectorized operations")
@@ -508,7 +507,7 @@ def main():
         print("   💼 Real-world business applications")
         print("=" * 60)
 
-        print(f"\n🚀 Next Steps:")
+        print("\n🚀 Next Steps:")
         print("   • Master these NumPy fundamentals before moving to Pandas")
         print("   • Practice with your own business datasets")
         print("   • Explore NumPy's extensive documentation")

@@ -5,7 +5,7 @@ import requests
 from unittest.mock import patch, MagicMock
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_20_Python_Package_Manager.url import (
     fetch_api_data,
@@ -14,19 +14,47 @@ from Day_20_Python_Package_Manager.url import (
     parse_metric_range,
 )
 
+
 # --- Test Data Fixtures ---
 @pytest.fixture
 def mock_cat_breeds_data():
     """Provides a sample of cat breed data for testing."""
     return [
-        {"name": "Abyssinian", "weight": {"metric": "3 - 5"}, "life_span": "14 - 15", "origin": "Egypt"},
-        {"name": "Aegean", "weight": {"metric": "3 - 4"}, "life_span": "9 - 12", "origin": "Greece"},
-        {"name": "American Bobtail", "weight": {"metric": "3 - 7"}, "life_span": "11 - 15", "origin": "United States"},
-        {"name": "Singapura", "weight": {"metric": "2 - 4"}, "life_span": "11 - 15", "origin": "Singapore"},
-        {"name": "Toyger", "weight": {"metric": "3 - 5"}, "life_span": "10 - 15", "origin": "United States"},
+        {
+            "name": "Abyssinian",
+            "weight": {"metric": "3 - 5"},
+            "life_span": "14 - 15",
+            "origin": "Egypt",
+        },
+        {
+            "name": "Aegean",
+            "weight": {"metric": "3 - 4"},
+            "life_span": "9 - 12",
+            "origin": "Greece",
+        },
+        {
+            "name": "American Bobtail",
+            "weight": {"metric": "3 - 7"},
+            "life_span": "11 - 15",
+            "origin": "United States",
+        },
+        {
+            "name": "Singapura",
+            "weight": {"metric": "2 - 4"},
+            "life_span": "11 - 15",
+            "origin": "Singapore",
+        },
+        {
+            "name": "Toyger",
+            "weight": {"metric": "3 - 5"},
+            "life_span": "10 - 15",
+            "origin": "United States",
+        },
     ]
 
+
 # --- Test Functions ---
+
 
 def test_parse_metric_range():
     """Tests parsing a string range into an average float."""
@@ -35,7 +63,8 @@ def test_parse_metric_range():
     assert parse_metric_range("5") == 5.0
     assert parse_metric_range("invalid") == 0.0
 
-@patch('Day_20_Python_Package_Manager.url.requests.get')
+
+@patch("Day_20_Python_Package_Manager.url.requests.get")
 def test_fetch_api_data_success(mock_get):
     """Tests successful API data fetching and JSON decoding."""
     mock_response = MagicMock()
@@ -47,7 +76,8 @@ def test_fetch_api_data_success(mock_get):
     assert data == [{"id": 1, "name": "test"}]
     mock_get.assert_called_once_with("http://fakeapi.com/data", timeout=15)
 
-@patch('Day_20_Python_Package_Manager.url.requests.get')
+
+@patch("Day_20_Python_Package_Manager.url.requests.get")
 def test_fetch_api_data_http_error(mock_get):
     """Tests the function's handling of an HTTP error."""
     mock_response = MagicMock()
@@ -56,17 +86,19 @@ def test_fetch_api_data_http_error(mock_get):
 
     assert fetch_api_data("http://fakeapi.com/data") is None
 
+
 def test_analyze_breed_metrics(mock_cat_breeds_data):
     """Tests the analysis of metrics from the breed data."""
     # Test weight analysis
-    weight_stats = analyze_breed_metrics(mock_cat_breeds_data, 'weight', 'kg')
-    assert weight_stats['mean'] == pytest.approx(3.9)
-    assert weight_stats['median'] == pytest.approx(4.0)
+    weight_stats = analyze_breed_metrics(mock_cat_breeds_data, "weight", "kg")
+    assert weight_stats["mean"] == pytest.approx(3.9)
+    assert weight_stats["median"] == pytest.approx(4.0)
 
     # Test lifespan analysis
-    lifespan_stats = analyze_breed_metrics(mock_cat_breeds_data, 'life_span', 'years')
-    assert lifespan_stats['mean'] == pytest.approx(12.7)
-    assert lifespan_stats['median'] == pytest.approx(13.0)
+    lifespan_stats = analyze_breed_metrics(mock_cat_breeds_data, "life_span", "years")
+    assert lifespan_stats["mean"] == pytest.approx(12.7)
+    assert lifespan_stats["median"] == pytest.approx(13.0)
+
 
 def test_analyze_breed_origins(mock_cat_breeds_data):
     """Tests the analysis of breed origins."""

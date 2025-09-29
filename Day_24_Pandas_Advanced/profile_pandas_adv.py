@@ -3,16 +3,17 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 from typing import Callable
 
-import sys
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.append(str(PROJECT_ROOT))
-
-from mypackage.profiling import print_report, profile_callable
+try:
+    from mypackage.profiling import print_report, profile_callable
+except ImportError:
+    PROJECT_ROOT = Path(__file__).resolve().parents[1]
+    if str(PROJECT_ROOT) not in sys.path:
+        sys.path.append(str(PROJECT_ROOT))
+    from mypackage.profiling import print_report, profile_callable
 
 try:  # pragma: no cover - runtime guard for script execution
     from .pandas_adv import (
@@ -114,4 +115,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

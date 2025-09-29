@@ -1,4 +1,5 @@
 """Tests for Day 35 Flask text analyser."""
+
 from __future__ import annotations
 
 import html
@@ -29,10 +30,7 @@ def client(app):
 
 def test_clean_text_strips_noise() -> None:
     noisy = "Hello, MBA world! Visit https://example.com for more info [ref]."
-    assert (
-        clean_text(noisy)
-        == "hello mba world visit for more info"
-    )
+    assert clean_text(noisy) == "hello mba world visit for more info"
 
 
 def test_most_common_word_counts_sorted() -> None:

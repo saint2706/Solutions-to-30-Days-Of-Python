@@ -5,12 +5,14 @@ This document outlines the future work planned for the `Coding-For-MBA` reposito
 ## Phase 1: Core Data Science Curriculum (Days 26-37)
 
 Apply the established refactoring pattern to the core data science lessons. For each day, the process will be:
-1.  Refactor the main Python script into modular, testable functions.
-2.  Create a corresponding test file in the `tests/` directory with `pytest`.
-3.  Update the lesson's `README.md` to the new, more detailed format.
-4.  Convert key lessons to Jupyter Notebooks (`.ipynb`) to enhance the interactive learning experience, especially for visualization and data manipulation lessons.
+
+1. Refactor the main Python script into modular, testable functions.
+1. Create a corresponding test file in the `tests/` directory with `pytest`.
+1. Update the lesson's `README.md` to the new, more detailed format.
+1. Convert key lessons to Jupyter Notebooks (`.ipynb`) to enhance the interactive learning experience, especially for visualization and data manipulation lessons.
 
 **Lessons to be addressed:**
+
 - `Day_26_Statistics`
 - `Day_27_Visualization` (Convert to Notebook)
 - `Day_28_Advanced_Visualization` (Convert to Notebook)
@@ -29,6 +31,7 @@ Apply the established refactoring pattern to the core data science lessons. For 
 Apply the same refactoring and documentation pattern to the Machine Learning section. The focus will be on ensuring the code is clear, well-documented, and that the concepts are explained in the updated `README.md` format.
 
 **Lessons to be addressed:**
+
 - `Day_38_Linear_Algebra`
 - `Day_39_Calculus`
 - `Day_40_Intro_to_ML`

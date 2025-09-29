@@ -5,9 +5,11 @@ This script demonstrates how to load data from a CSV file into a
 Pandas DataFrame and perform basic filtering and inspection. This version
 is refactored into testable functions.
 """
+
 from pathlib import Path
 import pandas as pd
 from typing import Optional
+
 
 def load_data_from_csv(file_path: str) -> Optional[pd.DataFrame]:
     """
@@ -20,18 +22,20 @@ def load_data_from_csv(file_path: str) -> Optional[pd.DataFrame]:
         print(f"❌ Error: The file was not found at {file_path}")
         return None
 
+
 def filter_by_title(df: pd.DataFrame, keyword: str) -> pd.DataFrame:
     """
     Filters a DataFrame to find rows where the 'title' column contains a keyword.
     This is case-insensitive.
     """
-    if df is None or 'title' not in df.columns:
-        return pd.DataFrame() # Return empty DataFrame if input is invalid
+    if df is None or "title" not in df.columns:
+        return pd.DataFrame()  # Return empty DataFrame if input is invalid
 
     # Ensure title column is string type to use .str accessor
-    df['title'] = df['title'].astype(str)
+    df["title"] = df["title"].astype(str)
 
     return df.loc[df["title"].str.contains(keyword, case=False, na=False)]
+
 
 def main():
     """Main function to demonstrate loading and filtering a CSV."""
@@ -56,13 +60,14 @@ def main():
         python_titles_df = filter_by_title(df, "Python")
         print(f"Found {len(python_titles_df)} titles containing 'Python':")
         # Print only the title column for brevity
-        print(python_titles_df['title'].to_string(index=False))
+        print(python_titles_df["title"].to_string(index=False))
 
         # 3. Filter for titles containing 'JavaScript'
         print("\n--- Filtering for titles containing 'JavaScript' ---")
         js_titles_df = filter_by_title(df, "JavaScript")
         print(f"Found {len(js_titles_df)} titles containing 'JavaScript':")
-        print(js_titles_df['title'].to_string(index=False))
+        print(js_titles_df["title"].to_string(index=False))
+
 
 if __name__ == "__main__":
     main()

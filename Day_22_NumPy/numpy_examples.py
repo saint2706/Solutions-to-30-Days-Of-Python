@@ -8,6 +8,7 @@ refactored into functions for better organization and testability.
 
 import numpy as np
 
+
 def calculate_revenue_vectorized(prices: list, units: list) -> np.ndarray:
     """
     Calculates revenue by performing a vectorized multiplication of prices and units.
@@ -15,6 +16,7 @@ def calculate_revenue_vectorized(prices: list, units: list) -> np.ndarray:
     prices_array = np.array(prices)
     units_array = np.array(units)
     return prices_array * units_array
+
 
 def analyze_sales_data(sales: list) -> dict:
     """
@@ -32,6 +34,7 @@ def analyze_sales_data(sales: list) -> dict:
         "std_dev": sales_array.std(),
     }
 
+
 def filter_above_average(data: np.ndarray) -> np.ndarray:
     """
     Filters a NumPy array to return only the elements above its average.
@@ -41,6 +44,7 @@ def filter_above_average(data: np.ndarray) -> np.ndarray:
 
     average = data.mean()
     return data[data > average]
+
 
 def main():
     """Main function to demonstrate NumPy capabilities."""
@@ -76,6 +80,7 @@ def main():
     print(f"The sales figures for good days were: {good_days}")
     print(f"Number of good sales days: {len(good_days)}")
     print("-" * 20)
+
 
 if __name__ == "__main__":
     main()

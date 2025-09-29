@@ -9,16 +9,19 @@ app = Flask(__name__)
 
 # 2. Load the trained model
 # This is done once when the app starts.
-model_filename = 'iris_model.joblib'
+model_filename = "iris_model.joblib"
 try:
     model = joblib.load(model_filename)
     print(f"Model '{model_filename}' loaded successfully.")
 except FileNotFoundError:
-    print(f"Error: Model file '{model_filename}' not found. Please run solutions.py first.")
+    print(
+        f"Error: Model file '{model_filename}' not found. Please run solutions.py first."
+    )
     model = None
 
+
 # 3. Define the prediction endpoint
-@app.route('/predict', methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
     """
     Receives a POST request with JSON data and returns a prediction.
@@ -30,28 +33,35 @@ def predict():
     data = request.get_json()
 
     # Basic validation
-    if not data or 'features' not in data:
+    if not data or "features" not in data:
         return jsonify({"error": "Invalid input: 'features' key not found"}), 400
 
     try:
         # Extract features and convert to a list of lists for prediction
-        features = [data['features']]
+        features = [data["features"]]
 
         # Make a prediction
         prediction_index = model.predict(features)
 
         # Get the class name from the index
-        iris_target_names = ['setosa', 'versicolor', 'virginica'] # In a real app, load this properly
+        iris_target_names = [
+            "setosa",
+            "versicolor",
+            "virginica",
+        ]  # In a real app, load this properly
         predicted_class = iris_target_names[prediction_index[0]]
 
         # Return the result as JSON
-        return jsonify({
-            "prediction": predicted_class,
-            "prediction_index": int(prediction_index[0])
-        })
+        return jsonify(
+            {
+                "prediction": predicted_class,
+                "prediction_index": int(prediction_index[0]),
+            }
+        )
 
     except Exception as e:
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
 
 # --- How to Run This API ---
 # 1. Make sure 'iris_model.joblib' exists by running solutions.py.
@@ -71,7 +81,7 @@ def predict():
 #   "prediction_index": 1
 # }
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # The `debug=True` flag allows for auto-reloading when you save changes.
     # Do not use `debug=True` in a production environment.
     app.run(debug=True)

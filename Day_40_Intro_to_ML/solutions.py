@@ -4,7 +4,9 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import KFold
 
 
-def generate_dataset(num_samples=100, start=0.0, stop=10.0, noise_scale=3.0, random_state=None):
+def generate_dataset(
+    num_samples=100, start=0.0, stop=10.0, noise_scale=3.0, random_state=None
+):
     """Generate a simple linear dataset with Gaussian noise."""
 
     rng = np.random.default_rng(random_state)
@@ -63,7 +65,9 @@ def main():
 
     print("-" * 30)
     print(f"Average MSE across 5 folds: {average_mse:.4f}")
-    print("This average score is a more robust estimate of how the model will perform on unseen data.")
+    print(
+        "This average score is a more robust estimate of how the model will perform on unseen data."
+    )
     print("-" * 30)
 
 

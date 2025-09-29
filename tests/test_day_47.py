@@ -6,7 +6,11 @@ import numpy as np
 
 
 def _load_day47_module():
-    module_path = Path(__file__).resolve().parents[1] / "Day_47_Convolutional_Neural_Networks" / "solutions.py"
+    module_path = (
+        Path(__file__).resolve().parents[1]
+        / "Day_47_Convolutional_Neural_Networks"
+        / "solutions.py"
+    )
     spec = importlib.util.spec_from_file_location("day47_solutions", module_path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
@@ -35,7 +39,9 @@ def test_cnn_training_with_synthetic_data(monkeypatch):
     day47.set_global_seed(7)
     monkeypatch.setattr(day47.datasets.mnist, "load_data", _fake_mnist_load_data)
 
-    (train_images, train_labels), (test_images, test_labels) = day47.prepare_mnist_data()
+    (train_images, train_labels), (test_images, test_labels) = (
+        day47.prepare_mnist_data()
+    )
     model = day47.build_cnn_model(input_shape=train_images.shape[1:])
     day47.compile_cnn_model(model)
     history = day47.train_cnn_model(

@@ -9,7 +9,7 @@ Welcome to Day 35! This lesson contains a small Flask project that analyses subm
    python -m venv .venv
    source .venv/bin/activate  # On Windows use: .venv\\Scripts\\activate
    ```
-2. **Install the dependencies for this lesson**:
+1. **Install the dependencies for this lesson**:
    ```bash
    pip install -r Day_35_Flask_Web_Framework/requirements.txt
    ```
@@ -41,16 +41,19 @@ pytest -k day_35
 ## 💻 Exercises: Day 35
 
 1. **Create a new route**:
-    - Add a new route to the `create_app` factory at the URL `/about`.
-    - Create a view function that returns a simple string, like "This is the about page."
 
-2. **Create a new template**:
-    - Create a new HTML file named `contact.html` in the `templates` directory.
-    - Add a new route to the Flask app at the URL `/contact` that renders the `contact.html` template.
+   - Add a new route to the `create_app` factory at the URL `/about`.
+   - Create a view function that returns a simple string, like "This is the about page."
 
-3. **Pass data to a template**:
-    - Modify the `/about` route to pass your name to a new `about.html` template.
-    - In the `about.html` template, display the name that was passed from the view function.
+1. **Create a new template**:
+
+   - Create a new HTML file named `contact.html` in the `templates` directory.
+   - Add a new route to the Flask app at the URL `/contact` that renders the `contact.html` template.
+
+1. **Pass data to a template**:
+
+   - Modify the `/about` route to pass your name to a new `about.html` template.
+   - In the `about.html` template, display the name that was passed from the view function.
 
 ### Solutions
 

@@ -8,7 +8,7 @@ performance optimizations.
 
 import pandas as pd
 from pathlib import Path
-import re
+
 
 def clean_sales_data(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -19,7 +19,7 @@ def clean_sales_data(df: pd.DataFrame) -> pd.DataFrame:
     df["Order Date"] = pd.to_datetime(df["Order Date"])
 
     # Optimized price cleaning using a single regex
-    df["Price"] = df["Price"].str.replace(r'[$,]', '', regex=True).astype(float)
+    df["Price"] = df["Price"].str.replace(r"[$,]", "", regex=True).astype(float)
 
     # --- 2. Cleaning and Standardizing Text Data ---
     df["Region"] = df["Region"].str.strip().str.lower()
@@ -31,6 +31,7 @@ def clean_sales_data(df: pd.DataFrame) -> pd.DataFrame:
     df.drop_duplicates(subset=["Order ID"], keep="first", inplace=True)
 
     return df
+
 
 def main():
     """
@@ -54,7 +55,9 @@ def main():
         return
 
     # --- Clean the Data ---
-    df_cleaned = clean_sales_data(df.copy()) # Use a copy to avoid SettingWithCopyWarning
+    df_cleaned = clean_sales_data(
+        df.copy()
+    )  # Use a copy to avoid SettingWithCopyWarning
 
     # --- Inspect Cleaned Data ---
     print("\n--- Inspecting Cleaned Data ---")

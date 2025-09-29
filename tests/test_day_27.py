@@ -24,7 +24,9 @@ def sample_sales_dataframe() -> pd.DataFrame:
     """Provide a compact dataset for chart testing."""
 
     data = {
-        "Date": pd.to_datetime(["2024-01-01", "2024-01-02", "2024-01-01", "2024-01-03"]),
+        "Date": pd.to_datetime(
+            ["2024-01-01", "2024-01-02", "2024-01-01", "2024-01-03"]
+        ),
         "Region": ["North", "South", "East", "West"],
         "Revenue": [1200, 800, 500, 1300],
         "Units Sold": [15, 12, 8, 20],
@@ -56,7 +58,9 @@ def test_build_daily_revenue_plot(sample_sales_dataframe: pd.DataFrame) -> None:
     _close(fig)
 
 
-def test_build_units_sold_distribution_plot(sample_sales_dataframe: pd.DataFrame) -> None:
+def test_build_units_sold_distribution_plot(
+    sample_sales_dataframe: pd.DataFrame,
+) -> None:
     fig = build_units_sold_distribution_plot(sample_sales_dataframe)
     ax = fig.axes[0]
     assert ax.get_title() == "Distribution of Units Sold per Transaction"

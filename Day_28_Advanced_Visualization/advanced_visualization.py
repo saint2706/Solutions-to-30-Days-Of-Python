@@ -26,7 +26,9 @@ def build_product_revenue_bar(df: pd.DataFrame) -> plt.Figure:
         raise ValueError("DataFrame must contain at least one row to build the chart.")
 
     product_revenue = (
-        df.groupby("Product", as_index=False)["Revenue"].sum().sort_values("Revenue", ascending=False)
+        df.groupby("Product", as_index=False)["Revenue"]
+        .sum()
+        .sort_values("Revenue", ascending=False)
     )
     avg_revenue = product_revenue["Revenue"].mean()
 
@@ -62,7 +64,9 @@ def build_sales_dashboard(df: pd.DataFrame) -> plt.Figure:
 
     _require_columns(df, ["Date", "Revenue"])
     if df.empty:
-        raise ValueError("DataFrame must contain at least one row to build the dashboard.")
+        raise ValueError(
+            "DataFrame must contain at least one row to build the dashboard."
+        )
 
     daily_revenue = df.groupby("Date")["Revenue"].sum().sort_index().reset_index()
 

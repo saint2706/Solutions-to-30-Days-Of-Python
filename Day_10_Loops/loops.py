@@ -6,12 +6,14 @@ process collections of business data automatically. This version
 is refactored into functions for better organization and testability.
 """
 
+
 def calculate_total_from_list(numbers_list):
     """Calculates the sum of all numbers in a list using a for loop."""
     total = 0
     for number in numbers_list:
         total += number
     return total
+
 
 def filter_high_value_customers(customers_list, threshold=2000):
     """
@@ -24,6 +26,7 @@ def filter_high_value_customers(customers_list, threshold=2000):
             high_priority.append(customer.get("name"))
     return high_priority
 
+
 def check_inventory_levels(inventory_dict, threshold=50):
     """
     Checks an inventory dictionary and returns a list of products
@@ -35,20 +38,22 @@ def check_inventory_levels(inventory_dict, threshold=50):
             low_stock_alerts.append(product)
     return low_stock_alerts
 
+
 def simulate_investment_growth(initial_investment, target_amount, interest_rate):
     """
     Simulates the number of years it takes for an investment to reach a target.
     Returns the number of years.
     """
     if initial_investment <= 0 or interest_rate <= 0:
-        return -1 # Indicate invalid input
+        return -1  # Indicate invalid input
 
     investment = initial_investment
     years = 0
     while investment < target_amount:
-        investment *= (1 + interest_rate)
+        investment *= 1 + interest_rate
         years += 1
     return years
+
 
 if __name__ == "__main__":
     # --- Using a for loop to aggregate data ---
@@ -75,7 +80,9 @@ if __name__ == "__main__":
     inventory_levels = {"Laptops": 15, "Mice": 150, "Keyboards": 45, "Monitors": 25}
     low_stock_items = check_inventory_levels(inventory_levels)
     for item in low_stock_items:
-        print(f"ALERT: {item} are low on stock ({inventory_levels[item]} units remaining).")
+        print(
+            f"ALERT: {item} are low on stock ({inventory_levels[item]} units remaining)."
+        )
     print("-" * 20)
 
     # --- Using a while loop for financial simulation ---
@@ -85,6 +92,6 @@ if __name__ == "__main__":
     rate = 0.07
     years_to_double = simulate_investment_growth(initial, target_val, rate)
     print(
-        f"It will take {years_to_double} years for the initial investment of ${initial} to double at a {rate*100}% interest rate."
+        f"It will take {years_to_double} years for the initial investment of ${initial} to double at a {rate * 100}% interest rate."
     )
     print("-" * 20)

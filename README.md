@@ -26,7 +26,6 @@ Optional extras for database-focused lessons:
 Lessons are organised chronologically. Jump to any topic by running the
 corresponding script:
 
-
 ## Running the lessons
 
 Each lesson folder provides a focused example that can be run directly with
@@ -119,6 +118,20 @@ across the Day 24–26 analytics modules via `pytest.ini`:
 pytest
 ```
 
+## 🧹 Code formatting
+
+The repository standardises formatting across Python modules, notebooks, and
+Markdown documents. After installing `requirements-dev.txt`, run the following
+commands from the project root before opening a pull request:
+
+```bash
+ruff check --fix .
+ruff format .
+nbqa black $(git ls-files '*.ipynb')
+nbqa ruff --fix $(git ls-files '*.ipynb')
+mdformat $(git ls-files '*.md')
+```
+
 ## 🔄 Dependency reviews
 
 The library stack is reviewed periodically. See [`docs/dependency-review.md`](docs/dependency-review.md)
@@ -127,6 +140,7 @@ for the latest upgrade log (most recent review: 2025-09-29).
 - `tests/test_data_pipeline.py` chains the refactored functions from Days 24–26
   to ensure messy CSV extracts can be cleaned, aggregated, and transformed into
   plot-ready tables for the Day 27 visualisations.
+
 - Individual lessons can still be executed directly, for example:
 
   ```bash
@@ -152,7 +166,3 @@ verifies that predictions remain consistent.
 Have ideas to expand the business analytics focus? Open an issue or submit a
 pull request—we welcome community contributions that keep the curriculum
 practical and accessible.
-
-
-
-

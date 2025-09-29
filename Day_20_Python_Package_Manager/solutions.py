@@ -10,7 +10,6 @@ Author: 50 Days of Python Course
 
 import requests
 import json
-from typing import List, Dict, Any
 
 
 ## Exercise 1: Install a package
@@ -147,7 +146,7 @@ def top_5_largest_countries_by_area():
         print("=" * 45)
         for i in range(min(5, len(sorted_countries))):
             country = sorted_countries[i]
-            print(f"{i+1}. {country['name']:<20}: {country['area']:>15,.0f} sq. km")
+            print(f"{i + 1}. {country['name']:<20}: {country['area']:>15,.0f} sq. km")
 
         print("\n💡 Business Insight: These large countries represent significant")
         print("   market opportunities for international expansion!")

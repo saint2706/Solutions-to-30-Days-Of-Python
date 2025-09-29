@@ -36,5 +36,7 @@ def test_evaluate_model_returns_expected_confusion_matrix():
     pipeline, metrics = evaluate_model(df, test_size=0.3, random_state=42)
 
     assert "preprocess" in pipeline.named_steps
-    np.testing.assert_array_equal(metrics["confusion_matrix"], np.array([[1, 1], [0, 1]]))
+    np.testing.assert_array_equal(
+        metrics["confusion_matrix"], np.array([[1, 1], [0, 1]])
+    )
     assert "precision" in metrics["classification_report"].lower()

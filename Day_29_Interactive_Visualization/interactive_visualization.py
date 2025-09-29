@@ -66,7 +66,9 @@ def build_daily_revenue_line(df: pd.DataFrame) -> go.Figure:
 
     _require_columns(df, ["Date", "Revenue"])
 
-    daily_revenue = df.groupby("Date", as_index=False)["Revenue"].sum().sort_values("Date")
+    daily_revenue = (
+        df.groupby("Date", as_index=False)["Revenue"].sum().sort_values("Date")
+    )
     # ``plotly`` preserves ``datetime64`` values when rendering, which pandas now
     # returns from ``groupby`` aggregations.  Converting to plain ``datetime``
     # objects keeps backwards compatibility with the existing visualisation and

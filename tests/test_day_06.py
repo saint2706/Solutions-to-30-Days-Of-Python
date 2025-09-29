@@ -2,9 +2,10 @@ import sys
 import os
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_06_Tuples.tuples import get_location_coordinates, unpack_transaction
+
 
 def test_get_location_coordinates():
     """Tests the extraction of coordinates from a location tuple."""
@@ -13,13 +14,14 @@ def test_get_location_coordinates():
     assert lon == -74.0060
 
     # Test with invalid data
-    lat, lon = get_location_coordinates([10, 20]) # Not a tuple
+    lat, lon = get_location_coordinates([10, 20])  # Not a tuple
     assert lat is None
     assert lon is None
 
-    lat, lon = get_location_coordinates((10, 20, 30)) # Wrong length
+    lat, lon = get_location_coordinates((10, 20, 30))  # Wrong length
     assert lat is None
     assert lon is None
+
 
 def test_unpack_transaction():
     """Tests the unpacking of a transaction tuple into a dictionary."""
@@ -31,5 +33,5 @@ def test_unpack_transaction():
     assert result["amount"] == 499.99
 
     # Test with invalid data
-    assert unpack_transaction([1, 2, 3]) is None # Not a tuple
-    assert unpack_transaction((1, 2)) is None # Wrong length
+    assert unpack_transaction([1, 2, 3]) is None  # Not a tuple
+    assert unpack_transaction((1, 2)) is None  # Wrong length

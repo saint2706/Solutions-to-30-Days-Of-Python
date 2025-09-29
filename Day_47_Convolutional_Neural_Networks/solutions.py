@@ -19,10 +19,14 @@ def set_global_seed(seed: int = DEFAULT_SEED) -> None:
     tf.keras.utils.set_random_seed(seed)
 
 
-def prepare_mnist_data(normalize: bool = True) -> Tuple[Tuple[np.ndarray, np.ndarray], Tuple[np.ndarray, np.ndarray]]:
+def prepare_mnist_data(
+    normalize: bool = True,
+) -> Tuple[Tuple[np.ndarray, np.ndarray], Tuple[np.ndarray, np.ndarray]]:
     """Load MNIST images, optionally normalise pixels, and add a channel axis."""
 
-    (train_images, train_labels), (test_images, test_labels) = datasets.mnist.load_data()
+    (train_images, train_labels), (test_images, test_labels) = (
+        datasets.mnist.load_data()
+    )
 
     train_images = train_images.astype("float32")
     test_images = test_images.astype("float32")

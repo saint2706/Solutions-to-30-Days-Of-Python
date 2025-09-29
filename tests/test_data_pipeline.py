@@ -2,35 +2,49 @@
 
 from __future__ import annotations
 
-from pathlib import Path
-import os
 import sys
+from pathlib import Path
 from typing import Tuple
 
 import numpy as np
 import pandas as pd
 import pytest
 
-# Ensure the project root is importable when running `pytest` from subdirectories.
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-if PROJECT_ROOT not in sys.path:
-    sys.path.insert(0, PROJECT_ROOT)
-
-from Day_24_Pandas_Advanced.pandas_adv import (
-    filter_by_high_revenue,
-    filter_by_product_and_region,
-    handle_missing_data,
-    load_sales_data,
-    select_by_label,
-    select_by_position,
-)
-from Day_25_Data_Cleaning.data_cleaning import clean_sales_data
-from Day_26_Statistics.stats import (
-    compute_correlations,
-    load_sales_data as stats_load_sales_data,
-    run_ab_test,
-    summarize_revenue,
-)
+try:
+    from Day_24_Pandas_Advanced.pandas_adv import (
+        filter_by_high_revenue,
+        filter_by_product_and_region,
+        handle_missing_data,
+        load_sales_data,
+        select_by_label,
+        select_by_position,
+    )
+    from Day_25_Data_Cleaning.data_cleaning import clean_sales_data
+    from Day_26_Statistics.stats import (
+        compute_correlations,
+        load_sales_data as stats_load_sales_data,
+        run_ab_test,
+        summarize_revenue,
+    )
+except ImportError:
+    PROJECT_ROOT = Path(__file__).resolve().parents[1]
+    if str(PROJECT_ROOT) not in sys.path:
+        sys.path.insert(0, str(PROJECT_ROOT))
+    from Day_24_Pandas_Advanced.pandas_adv import (
+        filter_by_high_revenue,
+        filter_by_product_and_region,
+        handle_missing_data,
+        load_sales_data,
+        select_by_label,
+        select_by_position,
+    )
+    from Day_25_Data_Cleaning.data_cleaning import clean_sales_data
+    from Day_26_Statistics.stats import (
+        compute_correlations,
+        load_sales_data as stats_load_sales_data,
+        run_ab_test,
+        summarize_revenue,
+    )
 
 
 @pytest.fixture
@@ -80,7 +94,16 @@ def raw_sales_frame() -> pd.DataFrame:
             "$80.00",
             "$55.00",
         ],
-        "Revenue": [108000.0, 11200.0, 5720.0, 30400.0, 10140.0, 108000.0, np.nan, np.nan],
+        "Revenue": [
+            108000.0,
+            11200.0,
+            5720.0,
+            30400.0,
+            10140.0,
+            108000.0,
+            np.nan,
+            np.nan,
+        ],
     }
     return pd.DataFrame(data)
 
@@ -151,7 +174,12 @@ def test_sales_pipeline_cleans_and_summarises(raw_sales_frame, tmp_path):
     laptop_revenue = cleaned.loc[cleaned["Product"] == "laptop", "Revenue"]
     keyboard_revenue = cleaned.loc[cleaned["Product"] == "keyboard", "Revenue"]
     ab_results = run_ab_test(keyboard_revenue, laptop_revenue)
-    assert set(ab_results.keys()) == {"t_statistic", "p_value", "alpha", "is_significant"}
+    assert set(ab_results.keys()) == {
+        "t_statistic",
+        "p_value",
+        "alpha",
+        "is_significant",
+    }
     assert ab_results["alpha"] == pytest.approx(0.05)
 
 
@@ -161,7 +189,9 @@ def test_pipeline_outputs_are_ready_for_visualisation(raw_sales_frame, tmp_path)
     _, _, _, cleaned = _run_pipeline(raw_sales_frame, tmp_path)
 
     # Region-level revenue totals power bar charts in Day 27.
-    region_totals = cleaned.groupby("Region")["Revenue"].sum().sort_values(ascending=False)
+    region_totals = (
+        cleaned.groupby("Region")["Revenue"].sum().sort_values(ascending=False)
+    )
     assert list(region_totals.index[:3]) == ["north", "east", "west"]
     assert region_totals.loc["north"] == pytest.approx(118140.0)
     assert region_totals.loc["east"] == pytest.approx(45576.6666667, rel=1e-9)

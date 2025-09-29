@@ -70,7 +70,9 @@ def scrape_books(
     return process_book_data(response.content)
 
 
-def process_book_data(html_content: bytes) -> Tuple[pd.DataFrame, pd.DataFrame, Dict[str, Any]]:
+def process_book_data(
+    html_content: bytes,
+) -> Tuple[pd.DataFrame, pd.DataFrame, Dict[str, Any]]:
     """
     Process the HTML response and extract book data.
 
@@ -217,9 +219,7 @@ def main():
     print(
         f"💰 Most expensive: '{analysis['most_expensive_title']}' - {analysis['most_expensive_price']}"
     )
-    print(
-        f"💸 Cheapest: '{analysis['cheapest_title']}' - {analysis['cheapest_price']}"
-    )
+    print(f"💸 Cheapest: '{analysis['cheapest_title']}' - {analysis['cheapest_price']}")
 
     print("\n💡 Next steps you could take:")
     print("   • Save data to CSV: clean_df.to_csv('books.csv', index=False)")

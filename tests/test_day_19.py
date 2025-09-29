@@ -1,10 +1,9 @@
 import sys
 import os
-import pytest
 from datetime import datetime, date, timedelta
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_19_Python_Date_Time.date_time import (
     get_current_datetime_components,
@@ -12,6 +11,7 @@ from Day_19_Python_Date_Time.date_time import (
     parse_string_to_datetime,
     calculate_date_difference,
 )
+
 
 def test_get_current_datetime_components():
     """Tests that the components dictionary is returned with the correct keys."""
@@ -24,11 +24,15 @@ def test_get_current_datetime_components():
     assert "timestamp" in components
     assert isinstance(components["year"], int)
 
+
 def test_format_datetime_to_string():
     """Tests formatting a datetime object into a string."""
     dt = datetime(2023, 10, 26, 14, 30)
     assert format_datetime_to_string(dt, "%Y-%m-%d %H:%M") == "2023-10-26 14:30"
-    assert format_datetime_to_string(dt, "%A, %B %d, %Y") == "Thursday, October 26, 2023"
+    assert (
+        format_datetime_to_string(dt, "%A, %B %d, %Y") == "Thursday, October 26, 2023"
+    )
+
 
 def test_parse_string_to_datetime():
     """Tests parsing a string into a datetime object."""
@@ -41,6 +45,7 @@ def test_parse_string_to_datetime():
 
     # Test invalid format
     assert parse_string_to_datetime("invalid-date", "%Y-%m-%d") is None
+
 
 def test_calculate_date_difference():
     """Tests calculating the difference between two dates."""

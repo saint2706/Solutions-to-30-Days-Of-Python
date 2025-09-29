@@ -1,4 +1,5 @@
 """Reusable helpers for logistic regression and KNN on the Iris dataset."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -92,7 +93,9 @@ def run_classification_demo() -> Dict[str, Dict[str, float]]:
     log_reg = train_logistic_regression(data.X_train_scaled, data.y_train)
     knn = train_knn_classifier(data.X_train_scaled, data.y_train)
     return {
-        "logistic_regression": evaluate_classifier(log_reg, data.X_test_scaled, data.y_test),
+        "logistic_regression": evaluate_classifier(
+            log_reg, data.X_test_scaled, data.y_test
+        ),
         "knn": evaluate_classifier(knn, data.X_test_scaled, data.y_test),
     }
 
@@ -102,4 +105,6 @@ if __name__ == "__main__":
     print("--- Classification Example on Iris Dataset ---")
     print("Training Logistic Regression and KNN models...")
     for model_name, model_metrics in metrics.items():
-        print(f"{model_name.replace('_', ' ').title()} accuracy: {model_metrics['accuracy']:.4f}")
+        print(
+            f"{model_name.replace('_', ' ').title()} accuracy: {model_metrics['accuracy']:.4f}"
+        )

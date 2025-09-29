@@ -64,4 +64,3 @@ def test_cleanup_employee_db_removes_file(tmp_path):
     assert db_path.exists()
     cleanup_employee_db(db_path)
     assert not db_path.exists()
-

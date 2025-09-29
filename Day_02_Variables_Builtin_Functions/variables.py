@@ -6,6 +6,7 @@ and built-in functions to perform basic analysis. This version is
 refactored into functions for better organization and testability.
 """
 
+
 def display_company_profile(name, founded, revenue, is_public):
     """Displays the company's profile information."""
     print("--- Company Profile ---")
@@ -14,6 +15,7 @@ def display_company_profile(name, founded, revenue, is_public):
     print(f"Current Revenue: ${revenue}")
     print(f"Is Publicly Traded: {is_public}")
     print("-" * 20)
+
 
 def analyze_weekly_sales(sales_data):
     """Analyzes and prints a summary of weekly sales data."""
@@ -40,8 +42,9 @@ def analyze_weekly_sales(sales_data):
         "total_revenue": total_revenue,
         "smallest_sale": smallest_sale,
         "largest_sale": largest_sale,
-        "average_sale": average_sale
+        "average_sale": average_sale,
     }
+
 
 def interactive_profit_calculator():
     """Handles user input to calculate and display profit."""
@@ -55,6 +58,7 @@ def interactive_profit_calculator():
     except ValueError:
         print("Invalid input. Please enter numbers only.")
         return None
+
 
 if __name__ == "__main__":
     # --- Storing Company Profile in Variables ---

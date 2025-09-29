@@ -110,9 +110,7 @@ def evaluate_model(
 
     metrics: Dict[str, object] = {
         "confusion_matrix": confusion_matrix(y_test, y_pred),
-        "classification_report": classification_report(
-            y_test, y_pred, zero_division=0
-        ),
+        "classification_report": classification_report(y_test, y_pred, zero_division=0),
     }
     return pipeline, metrics
 

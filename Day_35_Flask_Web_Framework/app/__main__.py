@@ -1,4 +1,5 @@
 """Command-line entry point for running the Day 35 Flask app."""
+
 from __future__ import annotations
 
 import os

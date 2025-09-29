@@ -4,7 +4,6 @@ Day 36: Solution to the Capstone Case Study
 
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 # --- Step 1 & 2: Load and Clean the Data ---
 print("--- Step 1 & 2: Loading and Cleaning Data ---")
@@ -27,7 +26,9 @@ try:
 
     if has_revenue_column:
         if df["Revenue"].isnull().any():
-            print("Revenue column contained missing or non-numeric values. Recalculating from Price and Units Sold.")
+            print(
+                "Revenue column contained missing or non-numeric values. Recalculating from Price and Units Sold."
+            )
             df["Revenue"] = df["Price"] * df["Units Sold"]
     else:
         print("Revenue column not found. Creating it from Price and Units Sold.")
@@ -44,7 +45,9 @@ if not df.empty:
     print("\n--- Step 3: Answering Key Business Questions ---")
 
     # 1. Top 5 products by total revenue
-    top_products = df.groupby("Product")["Revenue"].sum().sort_values(ascending=False).head(5)
+    top_products = (
+        df.groupby("Product")["Revenue"].sum().sort_values(ascending=False).head(5)
+    )
     print("\n1. Top 5 Products by Revenue:")
     print(top_products)
 
@@ -54,8 +57,12 @@ if not df.empty:
     print(region_revenue)
 
     # 3. Customer segment and sales channel performance
-    segment_revenue = df.groupby("Customer Segment")["Revenue"].sum().sort_values(ascending=False)
-    channel_revenue = df.groupby("Sales Channel")["Revenue"].sum().sort_values(ascending=False)
+    segment_revenue = (
+        df.groupby("Customer Segment")["Revenue"].sum().sort_values(ascending=False)
+    )
+    channel_revenue = (
+        df.groupby("Sales Channel")["Revenue"].sum().sort_values(ascending=False)
+    )
     print("\n3. Revenue by Customer Segment:")
     print(segment_revenue)
     print("\n4. Revenue by Sales Channel:")
@@ -67,9 +74,7 @@ if not df.empty:
     print(correlation)
 
     # 5. Monthly revenue trend
-    monthly_revenue = (
-        df.set_index("Date")["Revenue"].resample("M").sum()
-    )
+    monthly_revenue = df.set_index("Date")["Revenue"].resample("M").sum()
     print("\n6. Monthly Revenue Trend:")
     print(monthly_revenue)
 

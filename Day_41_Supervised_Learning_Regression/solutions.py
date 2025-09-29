@@ -5,6 +5,7 @@ train a linear regression model, evaluate it, and optionally persist
 visualisations.  When executed as a script it will run the full demo and
 save a regression plot to ``regression_fit.png``.
 """
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -42,7 +43,9 @@ def split_regression_data(
     return train_test_split(X, y, test_size=test_size, random_state=random_state)
 
 
-def train_regression_model(X_train: np.ndarray, y_train: np.ndarray) -> LinearRegression:
+def train_regression_model(
+    X_train: np.ndarray, y_train: np.ndarray
+) -> LinearRegression:
     """Fit a :class:`~sklearn.linear_model.LinearRegression` model."""
     model = LinearRegression()
     model.fit(X_train, y_train)
@@ -54,7 +57,9 @@ def make_regression_predictions(model: LinearRegression, X: np.ndarray) -> np.nd
     return model.predict(X)
 
 
-def evaluate_regression_model(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:
+def evaluate_regression_model(
+    y_true: np.ndarray, y_pred: np.ndarray
+) -> Dict[str, float]:
     """Calculate common regression metrics for the provided predictions."""
     return {
         "mse": mean_squared_error(y_true, y_pred),
@@ -91,7 +96,9 @@ def plot_regression_results(
     return fig, output_path
 
 
-def run_linear_regression_demo(save_path: str | Path = "regression_fit.png") -> Dict[str, float]:
+def run_linear_regression_demo(
+    save_path: str | Path = "regression_fit.png",
+) -> Dict[str, float]:
     """Execute the full demo workflow and return evaluation metrics."""
     X, y = generate_regression_data()
     X_train, X_test, y_train, y_test = split_regression_data(X, y)

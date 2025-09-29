@@ -7,4 +7,3 @@ from .databases import (  # noqa: F401
     fetch_department_salaries,
     initialize_employee_db,
 )
-

@@ -18,23 +18,23 @@ computation from presentation.
 
 1. **Review the Code:** Open `Day_26_Statistics/stats.py` and look at the new
    helpers:
-   * `load_sales_data()` reads `sales_data.csv` and removes missing rows.
-   * `summarize_revenue()` returns key revenue metrics and the full
+   - `load_sales_data()` reads `sales_data.csv` and removes missing rows.
+   - `summarize_revenue()` returns key revenue metrics and the full
      `DataFrame.describe()` output.
-   * `compute_correlations()` produces a correlation matrix for the numeric
+   - `compute_correlations()` produces a correlation matrix for the numeric
      sales fields.
-   * `run_ab_test()` wraps SciPy's independent t-test and reports whether the
+   - `run_ab_test()` wraps SciPy's independent t-test and reports whether the
      difference is statistically significant.
-   * `build_revenue_distribution_chart()` visualises the revenue histogram as an
+   - `build_revenue_distribution_chart()` visualises the revenue histogram as an
      interactive Plotly figure.
-   * `build_correlation_heatmap()` turns the correlation matrix into an
+   - `build_correlation_heatmap()` turns the correlation matrix into an
      interactive heatmap with hover labels and colourbar explanations.
-2. **Run the Script:** From the project root, execute the module to see the
+1. **Run the Script:** From the project root, execute the module to see the
    printed analysis that the helpers power.
    ```bash
    python Day_26_Statistics/stats.py
    ```
-3. **Run the Tests:** The automated tests create in-memory DataFrames and
+1. **Run the Tests:** The automated tests create in-memory DataFrames and
    duration samples to validate each helper without touching disk.
    ```bash
    pytest tests/test_day_26.py
@@ -50,11 +50,11 @@ to try the Plotly charts side by side with their static counterparts:
    ```bash
    pip install notebook plotly
    ```
-2. Launch Jupyter and open the walkthrough:
+1. Launch Jupyter and open the walkthrough:
    ```bash
    jupyter notebook Day_26_Statistics/statistics_interactive.ipynb
    ```
-3. Execute the notebook cells to compare the summary statistics, static plots,
+1. Execute the notebook cells to compare the summary statistics, static plots,
    and the new interactive revenue distribution and correlation heatmap.
 
 🎉 **Great job!** With these reusable statistics utilities you can move from

@@ -59,7 +59,9 @@ def run_pca(
     return transformed, pca, scaler
 
 
-def _plot_kmeans_results(X: np.ndarray, labels: np.ndarray, centers: np.ndarray) -> None:
+def _plot_kmeans_results(
+    X: np.ndarray, labels: np.ndarray, centers: np.ndarray
+) -> None:
     plt.figure(figsize=(10, 6))
     plt.scatter(X[:, 0], X[:, 1], c=labels, s=50, cmap="viridis", label="Data Points")
     plt.scatter(

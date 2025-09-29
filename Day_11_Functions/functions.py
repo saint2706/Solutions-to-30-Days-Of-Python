@@ -5,6 +5,7 @@ This script demonstrates how to define and call functions
 to perform repeatable business calculations.
 """
 
+
 # Adding type hints (e.g., revenue: float) makes the function's expected inputs clear.
 # The "-> float" indicates that the function is expected to return a float value.
 def get_net_profit(revenue: float, expenses: float) -> float:
@@ -52,7 +53,6 @@ def main():
     total_profit = product_a_profit + product_b_profit
     print(f"Total Company Profit: {format_currency(total_profit)}")
     print("-" * 20)
-
 
     print("--- Sales and Bonus Calculations ---")
     sales_figure = 12000

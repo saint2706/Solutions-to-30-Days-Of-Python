@@ -31,7 +31,9 @@ def test_execute_sql_query_uses_client_factory_and_closes_resources():
     assert rows == [("North", 10)]
     client_factory.assert_called_once_with(credentials)
     connection.cursor.assert_called_once()
-    cursor.execute.assert_called_once_with("SELECT * FROM sales WHERE region = %s", ("North",))
+    cursor.execute.assert_called_once_with(
+        "SELECT * FROM sales WHERE region = %s", ("North",)
+    )
     cursor.fetchall.assert_called_once()
     cursor.close.assert_called_once()
     connection.close.assert_called_once()
@@ -65,7 +67,9 @@ def test_upsert_sales_forecast_executes_all_rows_and_commits():
         ("South", "2024-10", 99000),
     ]
 
-    upsert_sales_forecast(client_factory, credentials=credentials, forecast_rows=forecast_rows)
+    upsert_sales_forecast(
+        client_factory, credentials=credentials, forecast_rows=forecast_rows
+    )
 
     client_factory.assert_called_once_with(credentials)
     assert cursor.execute.call_count == len(forecast_rows)

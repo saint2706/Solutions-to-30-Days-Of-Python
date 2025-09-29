@@ -1,7 +1,9 @@
 # Day 18: Classes and Objects - Solutions
 
 from datetime import datetime
-from typing import Dict, Union, List
+from typing import List
+
+from CaO import PersonAccount
 
 ## Exercise 1 & 2: Create a `Car` class with a `get_age` method
 
@@ -24,12 +26,6 @@ class Car:
 my_car = Car("Toyota", "Camry", 2020)
 my_car.display_info()
 print(f"The car is {my_car.get_age()} years old.")
-
-
-from typing import Dict, Union, List
-
-# Import PersonAccount from CaO.py
-from CaO import PersonAccount
 
 ## Exercise 3: Extend the `PersonAccount` class
 

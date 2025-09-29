@@ -9,6 +9,7 @@ import statistics as stat
 from typing import Sequence, List, Dict, Union, Tuple, Any
 from collections import Counter
 
+
 class Statistics:
     """
     A class to perform basic statistical calculations on a list of numbers.
@@ -56,7 +57,7 @@ class Statistics:
             return {"mode": "No data", "count": 0}
 
         counts = Counter(self.data)
-        most_common = counts.most_common(2) # Get up to two most common
+        most_common = counts.most_common(2)  # Get up to two most common
 
         # If there's only one item or the most common is more frequent than the second most common
         if len(most_common) == 1 or most_common[0][1] > most_common[1][1]:
@@ -79,7 +80,10 @@ class Statistics:
             return []
         total = self.count()
         counts = Counter(self.data)
-        return sorted([(count / total * 100, item) for item, count in counts.items()], reverse=True)
+        return sorted(
+            [(count / total * 100, item) for item, count in counts.items()],
+            reverse=True,
+        )
 
     def describe(self) -> str:
         """Provides a descriptive summary of the data."""
@@ -99,6 +103,7 @@ class Statistics:
             f"Variance: {self.var():.2f}"
         )
         return desc
+
 
 class PersonAccount:
     """A class to manage a person's income and expenses."""
@@ -137,7 +142,33 @@ class PersonAccount:
 def main():
     """Main function to demonstrate class usage."""
     print("--- Statistics Class Demonstration ---")
-    ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+    ages = [
+        31,
+        26,
+        34,
+        37,
+        27,
+        26,
+        32,
+        32,
+        26,
+        27,
+        27,
+        24,
+        32,
+        33,
+        27,
+        25,
+        26,
+        38,
+        37,
+        31,
+        34,
+        24,
+        33,
+        29,
+        26,
+    ]
     stats_data = Statistics(ages)
     print(stats_data.describe())
     print("-" * 20)
@@ -156,6 +187,7 @@ def main():
     print("\nAfter adding more income and expenses:")
     print(person_account.account_info())
     print("-" * 20)
+
 
 if __name__ == "__main__":
     main()

@@ -7,6 +7,7 @@ fixed coordinates. This version is refactored into functions for
 better organization and testability.
 """
 
+
 def get_location_coordinates(location_tuple):
     """
     Returns the latitude and longitude from a location tuple.
@@ -15,6 +16,7 @@ def get_location_coordinates(location_tuple):
     if isinstance(location_tuple, tuple) and len(location_tuple) == 2:
         return location_tuple[0], location_tuple[1]
     return None, None
+
 
 def unpack_transaction(transaction_tuple):
     """
@@ -25,6 +27,7 @@ def unpack_transaction(transaction_tuple):
         trans_id, date, amount = transaction_tuple
         return {"id": trans_id, "date": date, "amount": amount}
     return None
+
 
 def demonstrate_list_vs_tuple():
     """

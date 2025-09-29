@@ -73,20 +73,23 @@ Now you can go to `/api/products/1` to get the laptop, or `/api/products/2` to g
 ## 💻 Exercises: Day 34
 
 1. **Create a Basic API Server:**
-    * Create a file named `my_api.py`.
-    * Set up a basic Flask application.
-    * Create a root endpoint `/` that returns a simple welcome message like "Welcome to the Company Data API".
 
-2. **Serve Employee Data:**
-    * Inside your `my_api.py` script, create a list of employee dictionaries. Each employee should have an `id`, `name`, and `department`.
-    * Create a new endpoint at `/api/employees`.
-    * When a `GET` request is made to this endpoint, it should return the full list of employees as a JSON response.
+   - Create a file named `my_api.py`.
+   - Set up a basic Flask application.
+   - Create a root endpoint `/` that returns a simple welcome message like "Welcome to the Company Data API".
 
-3. **Serve a Single Employee's Data:**
-    * Create a dynamic route `/api/employees/<int:employee_id>`.
-    * This endpoint should find the employee with the matching ID from your list.
-    * If the employee is found, return their data as a JSON object.
-    * If no employee with that ID is found, return a JSON error message with a 404 status code.
+1. **Serve Employee Data:**
+
+   - Inside your `my_api.py` script, create a list of employee dictionaries. Each employee should have an `id`, `name`, and `department`.
+   - Create a new endpoint at `/api/employees`.
+   - When a `GET` request is made to this endpoint, it should return the full list of employees as a JSON response.
+
+1. **Serve a Single Employee's Data:**
+
+   - Create a dynamic route `/api/employees/<int:employee_id>`.
+   - This endpoint should find the employee with the matching ID from your list.
+   - If the employee is found, return their data as a JSON object.
+   - If no employee with that ID is found, return a JSON error message with a 404 status code.
 
 🎉 **Incredible!** You've just learned how to build a web API. This is a massive step. It bridges the gap between performing analysis for yourself and providing data and services to others, forming the backbone of modern data applications and microservices.
 

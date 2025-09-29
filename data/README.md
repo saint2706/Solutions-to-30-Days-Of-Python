@@ -18,7 +18,7 @@ This data directory contains curated datasets and utility files specifically des
 - **`fortune_500_companies_2017.csv`** - Historical Fortune 500 data with detailed company information
 - **`fortune1000_final.csv`** - Extended Fortune 1000 dataset for comprehensive corporate analysis
 
-### 📈 Market and Consumer Data  
+### 📈 Market and Consumer Data
 
 - **`weight-height.csv`** - Health and fitness industry demographic data
 - **`result.csv`** - General results dataset for statistical analysis practice
@@ -86,11 +86,11 @@ def clean_business_text(text):
 By working with these datasets, you will learn to:
 
 1. **Data Import and Exploration** - Load various data formats (CSV, JSON, TXT)
-2. **Data Cleaning and Preprocessing** - Handle missing values and inconsistent formats  
-3. **Geographic Analysis** - Work with country-level data for market research
-4. **Corporate Analytics** - Analyze Fortune 500 company performance metrics
-5. **Text Mining** - Extract insights from speeches, emails, and social media
-6. **Statistical Analysis** - Apply descriptive and inferential statistics to business problems
+1. **Data Cleaning and Preprocessing** - Handle missing values and inconsistent formats
+1. **Geographic Analysis** - Work with country-level data for market research
+1. **Corporate Analytics** - Analyze Fortune 500 company performance metrics
+1. **Text Mining** - Extract insights from speeches, emails, and social media
+1. **Statistical Analysis** - Apply descriptive and inferential statistics to business problems
 
 ## 📖 Getting Started
 
@@ -102,7 +102,7 @@ By working with these datasets, you will learn to:
    print(companies.head())
    ```
 
-2. **Explore the Data:**
+1. **Explore the Data:**
 
    ```python
    print(f"Dataset shape: {companies.shape}")
@@ -110,7 +110,7 @@ By working with these datasets, you will learn to:
    print(companies.describe())
    ```
 
-3. **Start Your Analysis:**
+1. **Start Your Analysis:**
 
    ```python
    # Group by sector to identify industry trends
@@ -131,10 +131,10 @@ By working with these datasets, you will learn to:
 These datasets are used throughout the course in various day modules:
 
 - **Days 22-24**: Pandas and data manipulation
-- **Days 25-26**: Data cleaning and statistical analysis  
+- **Days 25-26**: Data cleaning and statistical analysis
 - **Days 27-29**: Data visualization and reporting
 - **Days 30-33**: Web scraping and API integration
 
----
+______________________________________________________________________
 
 *Ready to turn data into business insights? Start exploring these datasets and discover the power of Python for business analytics!* 🚀

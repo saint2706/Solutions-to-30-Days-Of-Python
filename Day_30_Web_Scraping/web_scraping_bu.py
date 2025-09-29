@@ -23,8 +23,8 @@ for i in tables:
     all_key_start_indexes = [x + 7 for x in range(len(i)) if i.startswith('"text">', x)]
     all_key_end_indexes = [x for x in range(len(i)) if i.startswith("</p>", x)]
 
-    for l in range(len(all_key_start_indexes)):
-        keys.append(i[all_key_start_indexes[l] : all_key_end_indexes[l]])
+    for start_index, end_index in zip(all_key_start_indexes, all_key_end_indexes):
+        keys.append(i[start_index:end_index])
 
     all_values_start_indexes = []
     for v in range(len(i)):

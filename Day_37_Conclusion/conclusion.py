@@ -4,6 +4,7 @@ The functions in this module return plain Python data structures so they can
 be easily unit tested or repurposed by downstream tooling. A small CLI is
 provided to render the recap in the terminal for quick reference.
 """
+
 from __future__ import annotations
 
 from argparse import ArgumentParser, Namespace

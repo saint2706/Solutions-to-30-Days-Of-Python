@@ -2,13 +2,14 @@ import sys
 import os
 
 # Add the parent directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_09_Conditionals.conditionals import (
     calculate_discount_percent,
     calculate_shipping_cost,
     calculate_employee_bonus,
 )
+
 
 def test_calculate_discount_percent():
     """Tests the discount calculation logic for various amounts."""
@@ -17,8 +18,9 @@ def test_calculate_discount_percent():
     assert calculate_discount_percent(75.00) == 0.05
     assert calculate_discount_percent(50.00) == 0.00
     assert calculate_discount_percent(25.00) == 0.00
-    assert calculate_discount_percent(-10.00) == 0.00 # Test invalid input
-    assert calculate_discount_percent("abc") == 0.00 # Test invalid input type
+    assert calculate_discount_percent(-10.00) == 0.00  # Test invalid input
+    assert calculate_discount_percent("abc") == 0.00  # Test invalid input type
+
 
 def test_calculate_shipping_cost():
     """Tests the shipping cost calculation for different countries and weights."""
@@ -30,6 +32,7 @@ def test_calculate_shipping_cost():
     assert calculate_shipping_cost("Canada", 60) == 100
     # Other
     assert calculate_shipping_cost("Mexico", 40) == -1
+
 
 def test_calculate_employee_bonus():
     """Tests the employee bonus calculation with different scenarios."""

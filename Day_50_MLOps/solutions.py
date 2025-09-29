@@ -148,7 +148,9 @@ def _demo() -> None:
     print(f"Predicted class name: '{predicted_class_name}'")
     print("This demonstrates that our saved model retains its knowledge.")
     print("-" * 30)
-    print("\nCheck out 'bonus_flask_api.py' for an example of how to serve this model in a web API.")
+    print(
+        "\nCheck out 'bonus_flask_api.py' for an example of how to serve this model in a web API."
+    )
 
 
 if __name__ == "__main__":

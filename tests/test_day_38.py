@@ -1,6 +1,10 @@
 import numpy as np
 
-from Day_38_Linear_Algebra.solutions import eigen_analysis, matrix_operations, vector_operations
+from Day_38_Linear_Algebra.solutions import (
+    eigen_analysis,
+    matrix_operations,
+    vector_operations,
+)
 
 
 def test_vector_operations_defaults():
@@ -22,7 +26,9 @@ def test_eigen_analysis_defaults():
     eigenvalues, eigenvectors = eigen_analysis()
 
     expected_eigenvalues = np.array([5.0, 2.0])
-    expected_eigenvectors = np.array([[0.70710678, -0.4472136], [0.70710678, 0.89442719]])
+    expected_eigenvectors = np.array(
+        [[0.70710678, -0.4472136], [0.70710678, 0.89442719]]
+    )
 
     np.testing.assert_allclose(eigenvalues, expected_eigenvalues)
     np.testing.assert_allclose(np.abs(eigenvectors), np.abs(expected_eigenvectors))
