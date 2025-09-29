@@ -8,6 +8,8 @@ import numpy as np
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from Day_24_Pandas_Advanced.pandas_adv import (
+    build_revenue_by_region_bar_chart,
+    build_units_vs_price_scatter,
     select_by_label,
     select_by_position,
     filter_by_high_revenue,
@@ -22,7 +24,9 @@ def sample_dataframe():
         'Date': ['2023-01-01', '2023-01-01', '2023-01-02', '2023-01-03'],
         'Region': ['North', 'South', 'North', 'South'],
         'Product': ['Laptop', 'Mouse', 'Laptop', 'Keyboard'],
-        'Revenue': [60000, 1000, np.nan, 3000]
+        'Units Sold': [90, 150, 110, 75],
+        'Price': [1200, 8, 950, 40],
+        'Revenue': [60000, 1200, np.nan, 3000]
     }
     return pd.DataFrame(data)
 
@@ -66,3 +70,28 @@ def test_handle_missing_data_fill(sample_dataframe):
     assert df_filled.loc[2, 'Revenue'] == pytest.approx(21333.33, rel=1e-2)
     # Check that other values are unchanged
     assert df_filled.loc[0, 'Revenue'] == 60000
+
+
+def test_build_revenue_by_region_bar_chart_returns_sorted_bars(sample_dataframe):
+    df = sample_dataframe.copy()
+    df.loc[3, "Revenue"] = 4000
+
+    figure = build_revenue_by_region_bar_chart(df)
+
+    assert figure.data[0].type == "bar"
+    assert list(figure.data[0].x) == ["North", "South"]
+    assert list(figure.data[0].y) == [60000, 5200]
+
+
+def test_build_units_vs_price_scatter_uses_required_columns(sample_dataframe):
+    df = sample_dataframe.copy()
+    df.loc[2, "Units Sold"] = 125
+    df.loc[2, "Price"] = 150
+
+    figure = build_units_vs_price_scatter(df)
+    scatter = figure.data[0]
+
+    assert scatter.type == "scatter"
+    assert scatter.mode == "markers"
+    assert list(scatter.x) == df["Price"].tolist()
+    assert list(scatter.y) == df["Units Sold"].tolist()

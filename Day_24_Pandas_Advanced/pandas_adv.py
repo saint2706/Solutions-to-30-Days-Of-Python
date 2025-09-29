@@ -6,8 +6,10 @@ using advanced selection and cleaning techniques with Pandas,
 refactored into testable functions.
 """
 from pathlib import Path
+from typing import Any, List, Optional
+
 import pandas as pd
-from typing import Optional, List, Any
+import plotly.graph_objects as go
 
 def load_sales_data(file_path: str) -> Optional[pd.DataFrame]:
     """Loads sales data from a CSV file into a Pandas DataFrame."""
@@ -61,6 +63,69 @@ def handle_missing_data(df: pd.DataFrame, strategy: str = 'drop', fill_value=Non
         else:
             df_copy = df_copy.fillna(fill_value)
     return df_copy
+
+
+def build_revenue_by_region_bar_chart(df: pd.DataFrame) -> go.Figure:
+    """Build an interactive bar chart comparing revenue across regions."""
+
+    if df is None or df.empty:
+        raise ValueError("DataFrame must not be empty")
+    if not {"Region", "Revenue"}.issubset(df.columns):
+        raise KeyError("DataFrame must include 'Region' and 'Revenue' columns")
+
+    regional_revenue = (
+        df.groupby("Region", dropna=False)["Revenue"].sum(min_count=1).sort_values(ascending=False)
+    )
+    figure = go.Figure(
+        data=[
+            go.Bar(
+                x=regional_revenue.index.astype(str),
+                y=regional_revenue.values,
+                marker_color="#00A1D6",
+                hovertemplate="Region: %{x}<br>Revenue: %{y:$,.0f}<extra></extra>",
+            )
+        ]
+    )
+    figure.update_layout(
+        title="Revenue by Region",
+        xaxis_title="Region",
+        yaxis_title="Total Revenue",
+        template="plotly_white",
+    )
+    return figure
+
+
+def build_units_vs_price_scatter(df: pd.DataFrame) -> go.Figure:
+    """Return a scatter plot showing how pricing relates to units sold."""
+
+    if df is None or df.empty:
+        raise ValueError("DataFrame must not be empty")
+    required_columns = {"Units Sold", "Price", "Product"}
+    if not required_columns.issubset(df.columns):
+        missing = ", ".join(sorted(required_columns - set(df.columns)))
+        raise KeyError(f"Missing required columns: {missing}")
+
+    figure = go.Figure(
+        data=[
+            go.Scatter(
+                x=df["Price"],
+                y=df["Units Sold"],
+                mode="markers",
+                marker=dict(size=10, color=df["Units Sold"], colorscale="Viridis", showscale=True),
+                text=df["Product"],
+                hovertemplate=(
+                    "Product: %{text}<br>Price: %{x:$,.0f}<br>Units Sold: %{y}<extra></extra>"
+                ),
+            )
+        ]
+    )
+    figure.update_layout(
+        title="Units Sold vs. Price",
+        xaxis_title="Price",
+        yaxis_title="Units Sold",
+        template="plotly_white",
+    )
+    return figure
 
 def main():
     """Main function to demonstrate advanced Pandas operations."""

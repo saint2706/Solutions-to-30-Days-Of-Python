@@ -9,6 +9,8 @@ import pytest
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_26_Statistics.stats import (  # noqa: E402
+    build_correlation_heatmap,
+    build_revenue_distribution_chart,
     compute_correlations,
     load_sales_data,
     run_ab_test,
@@ -71,3 +73,34 @@ def test_run_ab_test_returns_ttest_metrics():
     assert results["p_value"] == pytest.approx(0.0006575, rel=1e-4)
     assert results["is_significant"] is True
     assert results["alpha"] == 0.05
+
+
+def test_build_revenue_distribution_chart_returns_histogram():
+    df = pd.DataFrame({"Revenue": [100.0, 150.0, 200.0, 200.0]})
+
+    figure = build_revenue_distribution_chart(df)
+
+    assert figure.data, "Expected histogram trace to be present"
+    histogram = figure.data[0]
+    assert histogram.type == "histogram"
+    assert list(histogram.x) == df["Revenue"].tolist()
+
+
+def test_build_correlation_heatmap_uses_compute_correlations():
+    df = pd.DataFrame(
+        {
+            "Units Sold": [10, 20, 30, 40],
+            "Price": [5.0, 6.0, 7.0, 8.0],
+            "Revenue": [50.0, 120.0, 210.0, 320.0],
+        }
+    )
+
+    figure = build_correlation_heatmap(df)
+    heatmap = figure.data[0]
+
+    correlations = compute_correlations(df)
+
+    assert heatmap.type == "heatmap"
+    assert list(heatmap.x) == list(correlations.columns)
+    assert list(heatmap.y) == list(correlations.index)
+    np.testing.assert_allclose(heatmap.z, correlations.values)
