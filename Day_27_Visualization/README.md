@@ -1,96 +1,35 @@
 # 📘 Day 27: Data Visualization - Communicating Insights
 
-Numbers and tables are great for analysis, but to communicate your findings effectively, you need to visualize your data. A good chart can reveal patterns, trends, and insights far more effectively than a table of numbers.
+Visualising key business metrics makes it easier to communicate findings and uncover patterns. Day 27 introduces reusable Matplotlib and Seaborn helpers that create core business charts for the sales dataset you prepared in Day 24.
 
-Today, we'll learn how to create fundamental business charts using two of Python's most popular visualization libraries: **Matplotlib** and **Seaborn**.
+## Environment Setup
+1. (Recommended) Create a virtual environment and activate it.
+2. Install dependencies from the root of the repository:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Ensure `sales_data.csv` from Day 24 is available in this lesson folder (or update the helper to point to your copy).
 
-* **Matplotlib:** The foundational plotting library in Python. It's powerful and highly customizable, but can sometimes be complex for standard plots.
-* **Seaborn:** Built on top of Matplotlib, Seaborn provides a high-level interface for drawing attractive and informative statistical graphics. It makes creating common chart types much easier.
-
-We will primarily use Seaborn for its simplicity and aesthetic appeal, but it's important to know that Matplotlib is working under the hood.
-
-## The Grammar of a Plot
-
-Most plots you create will have a few key components:
-
-* The **Figure**: The overall window or page that everything is drawn on.
-* The **Axes**: The actual plot or chart area.
-* The **Title**: A title for your chart.
-* **X-axis and Y-axis labels**: Descriptions for what the axes represent.
-* The **Data**: The actual bars, lines, or points on the chart.
-
-## Common Business Charts
-
-### 1. Bar Chart
-
-**Use Case:** Comparing a numerical value across different categories.
-*Example: Comparing total sales revenue across different regions.*
-
-```python
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-# Assuming 'df' is a DataFrame with 'Region' and 'Revenue'
-sns.barplot(x='Region', y='Revenue', data=df)
-plt.title('Total Revenue by Region')
-plt.show() # This command displays the plot
+## Run the Script
+Generate the four lesson visuals from the command line:
+```bash
+python Day_27_Visualization/visualization.py
 ```
+Each call loads the shared plotting helpers, displays a chart, and waits for you to close the window before moving on.
 
-### 2. Line Chart
-
-**Use Case:** Showing a trend over a continuous interval, usually time.
-*Example: Tracking monthly sales over the course of a year.*
-
-```python
-# Assuming 'df' has a 'Date' column and 'Sales' column
-sns.lineplot(x='Date', y='Sales', data=df)
-plt.title('Monthly Sales Trend')
-plt.xticks(rotation=45) # Rotate x-axis labels for readability
-plt.show()
+## Explore the Notebook
+Open the companion notebook to iterate on the visuals and review interpretation guidance:
+```bash
+jupyter notebook Day_27_Visualization/visualization.ipynb
 ```
+The notebook reuses the same plotting functions so you can experiment without duplicating logic.
 
-### 3. Histogram
-
-**Use Case:** Understanding the distribution of a single numerical variable.
-*Example: Analyzing the distribution of product prices to understand price points.*
-
-```python
-# Assuming 'df' has a 'Price' column
-sns.histplot(df['Price'], bins=10) # 'bins' controls the number of bars
-plt.title('Distribution of Product Prices')
-plt.show()
+## Run Tests
+A pytest suite validates the chart configuration (titles, labels, legends) using a headless Matplotlib backend:
+```bash
+pytest tests/test_day_27.py
 ```
-
-### 4. Scatter Plot
-
-**Use Case:** Investigating the relationship between two numerical variables.
-*Example: Seeing if there's a correlation between marketing spend and sales revenue.*
-
-```python
-# Assuming 'df' has 'Marketing_Spend' and 'Sales'
-sns.scatterplot(x='Marketing_Spend', y='Sales', data=df)
-plt.title('Marketing Spend vs. Sales')
-plt.show()
+Running the full repository test suite is also supported:
+```bash
+pytest
 ```
-
-## 💻 Exercises: Day 27
-
-For these exercises, you will use the cleaned `sales_data.csv` from Day 24.
-
-1. **Sales by Product:**
-    * Load the cleaned sales data.
-    * Create a bar chart that shows the total `Units Sold` for each `Product`.
-    * Give your chart a descriptive title.
-
-2. **Revenue Over Time:**
-    * Load the cleaned sales data, making sure the 'Date' column is converted to datetime objects (`parse_dates=['Date']` in `read_csv`).
-    * Group the data by date and sum the revenue for each day. (Hint: `daily_revenue = df.groupby('Date')['Revenue'].sum().reset_index()`).
-    * Create a line chart that shows the `Revenue` over `Date`.
-    * Give your chart a title and rotate the x-axis labels for better readability.
-
-3. **Price Distribution:**
-    * Load the cleaned sales data.
-    * Create a histogram to show the distribution of the `Price` column.
-    * Give your chart a title.
-
-🎉 **Excellent!** You can now turn raw data into insightful charts. Visualization is a crucial skill for any analyst, allowing you to not only understand your data better but also to share your findings with others in a clear and compelling way.
