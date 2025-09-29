@@ -89,3 +89,34 @@ Now you can go to `/api/products/1` to get the laptop, or `/api/products/2` to g
     * If no employee with that ID is found, return a JSON error message with a 404 status code.
 
 🎉 **Incredible!** You've just learned how to build a web API. This is a massive step. It bridges the gap between performing analysis for yourself and providing data and services to others, forming the backbone of modern data applications and microservices.
+
+## Running the Development Server
+
+The lesson's reference implementation exposes a `create_app()` factory in `api_server.py`. You can start the local development server with:
+
+```bash
+export FLASK_APP=Day_34_Building_an_API.api_server:create_app
+flask run --debug
+```
+
+The `--debug` flag enables auto-reload and better error messages while you iterate on your API. Flask will serve the application on `http://127.0.0.1:5000/` by default.
+
+## Running the Tests
+
+Pytest is configured to exercise the API endpoints. From the repository root, run:
+
+```bash
+pytest tests/test_day_34.py
+```
+
+The tests use Flask's test client to verify that the root page and JSON endpoints respond with the expected payloads and HTTP status codes.
+
+## Why Use an Application Factory?
+
+The application factory pattern encapsulates all app configuration inside a function. This makes it easy to:
+
+- Create multiple instances of the app with different settings (e.g., testing versus production).
+- Avoid running application code at import time, which keeps tools like the Flask CLI and pytest fast.
+- Improve modularity by cleanly separating data configuration from route registration.
+
+Because `create_app()` returns a fully configured Flask instance, you can reuse it for development, testing, or even deployment without duplicating setup code.
