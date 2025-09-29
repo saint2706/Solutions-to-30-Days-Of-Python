@@ -103,30 +103,38 @@ python -m Day_37_Conclusion.conclusion --section next-steps
 
 ## ✅ Testing the curriculum
 
-
 Automated tests live under `tests/` and cover representative helpers from the
 lessons, including the Day 37 recap.
+
+Install the optional development dependencies to enable the coverage tooling:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+Running `pytest` now enables coverage reporting and enforces a 40% minimum
+across the Day 24–26 analytics modules via `pytest.ini`:
 
 ```bash
 pytest
 ```
 
-Run a single test module with:
+- `tests/test_data_pipeline.py` chains the refactored functions from Days 24–26
+  to ensure messy CSV extracts can be cleaned, aggregated, and transformed into
+  plot-ready tables for the Day 27 visualisations.
+- Individual lessons can still be executed directly, for example:
 
-```bash
-
-pytest tests/test_day_31.py
-pytest tests/test_day_32.py
-pytest tests/test_day_50.py
-```
+  ```bash
+  pytest tests/test_day_31.py
+  pytest tests/test_day_32.py
+  pytest tests/test_day_37.py
+  pytest tests/test_day_50.py
+  ```
 
 The Day 32 tests rely solely on dependency-injected stubs, so they can run
 without provisioning database services. The Day 50 test trains a seeded subset
 of the Iris dataset, persists the model to a temporary location, reloads it, and
 verifies that predictions remain consistent.
-
-pytest tests/test_day_37.py
-```
 
 ## 🗺️ Repository overview
 
