@@ -1,91 +1,76 @@
-# 📘 Day 33: APIs - Accessing Live Data from the Web
+# 📘 Day 33: Accessing Web APIs with `requests`
 
-So far, we've worked with data from static files (CSVs) and databases. But what if you need live, up-to-the-minute data? Or what if you need to programmatically interact with another software service, like a CRM or a social media platform? For this, we use **APIs (Application Programming Interfaces)**.
+## Overview
+This lesson introduces a lightweight wrapper around the
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) demo API. The module
+exports three helpers—`fetch_users`, `fetch_post`, and `fetch_posts_by_user`—that
+return structured data for analytics workflows while keeping the HTTP layer easy
+to mock during tests.
 
-## What is an API?
+## Learning goals
+- Understand how to issue HTTP GET requests with `requests`.
+- Convert JSON payloads into `pandas.DataFrame` objects for analysis.
+- Inject custom HTTP clients (for example, `requests.Session` objects or call
+  stubs) to make networked code testable.
 
-An API is a set of rules and protocols that allows one software application to talk to another. It's like a contract that says, "If you send me a request in this specific format, I will send you back data in this specific format."
+## Requirements
+Install the core and testing dependencies into your environment:
 
-For a business analyst, APIs are a gateway to a vast world of live data:
-
-* Financial APIs provide real-time stock prices.
-* Weather APIs provide current forecasts.
-* Social media APIs provide data on trends and user posts.
-* Your company's own internal services (like a CRM or ERP) likely have APIs that allow you to access customer and product data programmatically.
-
-## REST APIs and JSON
-
-The most common type of web API is a **REST API**. The key concept is that you make a request to a specific URL, called an **endpoint**, and the API sends back data.
-
-The most common data format for API responses is **JSON (JavaScript Object Notation)**. JSON is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.
-
-The great news is that JSON's structure maps almost perfectly to Python dictionaries and lists!
-
-## Making API Requests with the `requests` Library
-
-The `requests` library is the standard way to make HTTP requests in Python. The most common type of request is a `GET` request, which is used to retrieve data.
-
-```python
-import requests
-import pandas as pd
-
-# The URL of the API endpoint we want to get data from
-# JSONPlaceholder is a free fake API for testing and prototyping.
-url = 'https://jsonplaceholder.typicode.com/users'
-
-try:
-    # Make the GET request
-    response = requests.get(url)
-    response.raise_for_status() # Raise an error for bad responses (4xx or 5xx)
-
-    # The .json() method parses the JSON response into a Python list of dictionaries
-    users_data = response.json()
-
-    # Now we can load this directly into a Pandas DataFrame!
-    users_df = pd.DataFrame(users_data)
-
-    print(users_df.head())
-
-except requests.exceptions.RequestException as e:
-    print(f"An error occurred: {e}")
+```bash
+pip install -r requirements.txt
+pip install pytest responses
 ```
 
-## Working with API Parameters
+`responses` is only needed when you want to simulate the API locally or run the
+pytest suite.
 
-Sometimes, you need to provide parameters to the API to specify what data you want. For example, you might want to get data for a specific user or product. These are usually passed as **query parameters** in the URL.
+## Running the lesson
+### Live API demo
+Execute the script directly to fetch data from JSONPlaceholder:
 
-The `requests` library lets you provide these as a dictionary.
-
-```python
-# Get data for a specific user (userId = 1)
-base_url = 'https://jsonplaceholder.typicode.com/posts'
-params = {'userId': 1}
-
-response = requests.get(base_url, params=params)
-posts_user1 = response.json()
+```bash
+python Day_33_API/api.py
 ```
 
-This is equivalent to requesting the URL `https://jsonplaceholder.typicode.com/posts?userId=1`.
+The command prints a preview of the user list, details for post `1`, and a table
+of posts authored by user `2`.
 
-## 💻 Exercises: Day 33
+### Mocked endpoints
+The helper functions accept a `requests.Session` or any callable with the same
+signature as `requests.get`. This allows you to supply canned responses when the
+internet is unavailable or you want deterministic examples:
 
-For these exercises, we will use the free and public [**{JSON} Placeholder API**](https://jsonplaceholder.typicode.com/).
+```python
+from Day_33_API.api import fetch_users
 
-1. **Fetch All Posts:**
-    * The endpoint to get all posts is `https://jsonplaceholder.typicode.com/posts`.
-    * Write a script that makes a `GET` request to this endpoint.
-    * Load the JSON response into a Pandas DataFrame.
-    * Print the first 5 rows of the DataFrame.
+class MockClient:
+    def get(self, url, **kwargs):
+        class _Response:
+            def __init__(self, payload):
+                self._payload = payload
 
-2. **Fetch a Specific User's Data:**
-    * The endpoint to get data for a single user is `https://jsonplaceholder.typicode.com/users/USER_ID`, where `USER_ID` is a number from 1 to 10.
-    * Write a script that fetches the data for user with ID `5`.
-    * The response will be a single dictionary. Print the user's `name` and `company` name.
+            def raise_for_status(self):
+                return None
 
-3. **Fetch Comments for a Specific Post:**
-    * The API allows you to fetch comments for a specific post. The endpoint is `https://jsonplaceholder.typicode.com/comments`.
-    * Use the `params` argument in your `requests.get()` call to filter for comments where the `postId` is `3`.
-    * Load the resulting list of comment dictionaries into a Pandas DataFrame.
-    * Print the head of the DataFrame.
+            def json(self):
+                return self._payload
 
-🎉 **Excellent!** Being able to work with APIs is a crucial skill. It unlocks the ability to enrich your analyses with live, external data and allows you to integrate your Python scripts with other critical business systems.
+        return _Response([{"id": 1, "name": "Ada", "username": "ada"}])
+
+mocked_users = fetch_users(client=MockClient())
+print(mocked_users)
+```
+
+The included pytest suite (see below) relies on the `responses` library to
+provide richer, request-aware mocks if you prefer a declarative API.
+
+## Tests
+Run the Day 33 unit tests, which exercise both success and error paths using
+mocked HTTP responses:
+
+```bash
+pytest tests/test_day_33.py
+```
+
+To execute the entire collection of lesson tests, run `pytest` from the project
+root.
