@@ -58,7 +58,10 @@ def execute_sql_query(
         else:
             cursor.execute(query, parameters)
 
-        results = cursor.fetchall()
+        results: Sequence[Any] = []
+        description = getattr(cursor, "description", None)
+        if description:
+            results = cursor.fetchall()
 
         if commit and hasattr(connection, "commit"):
             connection.commit()
