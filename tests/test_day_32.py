@@ -56,6 +56,26 @@ def test_execute_sql_query_commits_when_requested():
     connection.commit.assert_called_once()
 
 
+def test_execute_sql_query_skips_fetch_when_no_result_set_but_commits():
+    credentials = {"host": "localhost"}
+    connection = mock.Mock()
+    cursor = connection.cursor.return_value
+    cursor.description = None
+    cursor.fetchall.side_effect = RuntimeError("fetchall should not be called")
+    client_factory = mock.Mock(return_value=connection)
+
+    rows = execute_sql_query(
+        client_factory,
+        "UPDATE sales SET revenue = revenue + 100",
+        credentials=credentials,
+        commit=True,
+    )
+
+    assert rows == []
+    cursor.fetchall.assert_not_called()
+    connection.commit.assert_called_once()
+
+
 def test_upsert_sales_forecast_executes_all_rows_and_commits():
     credentials = {"host": "db.internal"}
     connection = mock.Mock()

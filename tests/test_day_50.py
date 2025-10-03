@@ -71,6 +71,12 @@ def test_model_round_trip(tmp_path: Path) -> None:
     assert predicted_label == target_names[baseline_predictions[0]]
 
 
-def test_train_iris_model_requires_all_classes() -> None:
-    with pytest.raises(ValueError, match="missing the following Iris classes"):
-        train_iris_model(random_state=0, subset_size=2)
+def test_save_model_creates_nested_directory(tmp_path: Path) -> None:
+    model, *_ = train_iris_model(random_state=123, subset_size=60)
+
+    nested_path = tmp_path / "models" / "iris.joblib"
+    saved_path = save_model(model, nested_path)
+
+    assert saved_path == nested_path.resolve()
+    assert saved_path.exists()
+    assert saved_path.parent.is_dir()

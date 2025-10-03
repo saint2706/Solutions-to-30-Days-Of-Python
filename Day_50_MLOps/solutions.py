@@ -132,7 +132,8 @@ def train_iris_model(
 def save_model(model: LogisticRegression, path: Path | str) -> Path:
     """Persist the trained model to disk and return the resolved path."""
 
-    path = Path(path)
+    path = Path(path).expanduser().resolve()
+    path.parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(model, path)
     return path
 
