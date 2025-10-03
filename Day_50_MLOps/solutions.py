@@ -7,6 +7,8 @@ tests or other projects.
 
 from __future__ import annotations
 
+from collections import Counter
+from math import ceil
 from pathlib import Path
 from typing import Iterable, Optional, Sequence, Tuple
 
@@ -54,6 +56,7 @@ def train_iris_model(
 
     iris = load_iris()
     X, y = iris.data, iris.target
+    full_classes = np.unique(iris.target)
 
     if subset_size is not None:
         if subset_size <= 0:
@@ -65,9 +68,59 @@ def train_iris_model(
         X = X[indices]
         y = y[indices]
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, random_state=random_state
-    )
+    present_classes = np.unique(y)
+    missing_classes = sorted(set(full_classes) - set(present_classes))
+    if missing_classes:
+        raise ValueError(
+            "Sub-sampled dataset is missing the following Iris classes: "
+            f"{missing_classes}. Increase the subset_size to include all classes."
+        )
+
+    class_counts = Counter(int(label) for label in np.asarray(y))
+    y_length = len(y)
+    effective_test_ratio: Optional[float] = None
+    if isinstance(test_size, (float, int)):
+        if isinstance(test_size, float):
+            if not 0 < test_size < 1:
+                raise ValueError("test_size must be between 0 and 1 when provided as a float")
+            effective_test_ratio = test_size
+        else:
+            test_size_int = int(test_size)
+            if test_size_int <= 0 or test_size_int >= y_length:
+                raise ValueError(
+                    "test_size must leave at least one sample in both the train and test sets"
+                )
+            effective_test_ratio = test_size_int / y_length
+
+    for label in full_classes:
+        count = class_counts[int(label)]
+        if count < 2:
+            raise ValueError(
+                "Sub-sampled dataset must contain at least two samples per class to allow a stratified split."
+            )
+        if effective_test_ratio is not None:
+            test_allocation = ceil(count * effective_test_ratio)
+            if test_allocation == 0 or test_allocation >= count:
+                raise ValueError(
+                    "Sub-sampled dataset does not have enough samples of class "
+                    f"{label} to satisfy test_size={test_size}. "
+                    "Increase the subset_size or adjust test_size."
+                )
+
+    try:
+        X_train, X_test, y_train, y_test = train_test_split(
+            X,
+            y,
+            test_size=test_size,
+            random_state=random_state,
+            stratify=y,
+        )
+    except ValueError as exc:
+        raise ValueError(
+            "Unable to perform a stratified train/test split with the requested "
+            "parameters. Ensure each class has sufficient samples for the chosen "
+            "test_size."
+        ) from exc
 
     model = LogisticRegression(max_iter=max_iter)
     model.fit(X_train, y_train)

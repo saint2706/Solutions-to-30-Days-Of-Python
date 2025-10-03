@@ -25,6 +25,35 @@ def test_model_round_trip(tmp_path: Path) -> None:
 
     baseline_predictions = model.predict(X_test)
 
+    expected_y_test = np.array(
+        [0, 0, 0, 0, 0, 0, 2, 1, 1, 2, 2, 2, 2, 1, 0, 1, 1, 2]
+    )
+    expected_X_test = np.array(
+        [
+            [5.0, 3.5, 1.6, 0.6],
+            [5.0, 3.4, 1.6, 0.4],
+            [5.0, 3.2, 1.2, 0.2],
+            [5.4, 3.4, 1.7, 0.2],
+            [4.4, 2.9, 1.4, 0.2],
+            [4.8, 3.0, 1.4, 0.3],
+            [5.8, 2.7, 5.1, 1.9],
+            [5.7, 3.0, 4.2, 1.2],
+            [5.0, 2.3, 3.3, 1.0],
+            [6.5, 3.2, 5.1, 2.0],
+            [7.9, 3.8, 6.4, 2.0],
+            [6.5, 3.0, 5.8, 2.2],
+            [6.3, 3.3, 6.0, 2.5],
+            [5.0, 2.0, 3.5, 1.0],
+            [4.4, 3.0, 1.3, 0.2],
+            [6.7, 3.1, 4.4, 1.4],
+            [5.5, 2.4, 3.8, 1.1],
+            [5.8, 2.7, 5.1, 1.9],
+        ]
+    )
+
+    np.testing.assert_array_equal(y_test, expected_y_test)
+    np.testing.assert_allclose(X_test, expected_X_test)
+
     model_path = save_model(model, tmp_path / "iris_model.joblib")
     assert model_path.exists()
 
@@ -40,3 +69,8 @@ def test_model_round_trip(tmp_path: Path) -> None:
     )
     assert predicted_index == baseline_predictions[0]
     assert predicted_label == target_names[baseline_predictions[0]]
+
+
+def test_train_iris_model_requires_all_classes() -> None:
+    with pytest.raises(ValueError, match="missing the following Iris classes"):
+        train_iris_model(random_state=0, subset_size=2)
