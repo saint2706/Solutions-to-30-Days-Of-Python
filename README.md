@@ -27,21 +27,20 @@ Optional extras for database-focused lessons:
 
 ## 📖 Documentation site
 
-A Jekyll site styled with the **Just the Docs** theme is published automatically from `main` at
+An MkDocs site styled with the **Material** theme (including a light/dark mode toggle) is published automatically from `main` at
 [`https://saint2706.github.io/Coding-For-MBA/`](https://saint2706.github.io/Coding-For-MBA/).
 
 ### Preview the docs locally
 
 ```bash
 pip install -r docs/requirements.txt
-bundle install --gemfile docs/Gemfile
 python tools/build_docs.py
-bundle exec jekyll serve --source docs --livereload
+mkdocs serve
 ```
 
 The build script ingests every `Day_*` README, rewrites internal links so they
-point back to GitHub, appends quick links to the lesson's notebooks or Python
-scripts, and writes Jekyll front matter so the lessons slot into the Just the Docs navigation automatically.
+point back to GitHub, and appends quick links to each lesson's notebooks or
+Python scripts before the MkDocs build runs.
 
 ## 📚 Navigating the lessons
 
@@ -70,14 +69,14 @@ in an interactive notebook environment.
 
 ## 🤝 Contributing to the docs
 
-1. Install the documentation dependencies with `pip install -r docs/requirements.txt` and `bundle install --gemfile docs/Gemfile`.
+1. Install the documentation dependencies with `pip install -r docs/requirements.txt`.
 2. Run `python tools/build_docs.py` to regenerate the lesson pages from the
    latest READMEs.
-3. Preview locally with `bundle exec jekyll serve --source docs --livereload` and open `http://127.0.0.1:4000/`.
+3. Preview locally with `mkdocs serve` and open `http://127.0.0.1:8000/`.
 4. Commit changes to source files (`README.md`, lesson READMEs, notebooks, etc.)
    rather than the generated `docs/lessons/day-*.md` pages.
 
-The GitHub Actions workflow builds the Jekyll site on every push to `main` and deploys
+The GitHub Actions workflow builds the MkDocs site on every push to `main` and deploys
 it to GitHub Pages.
 
 ## Featured lessons

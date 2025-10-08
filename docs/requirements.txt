@@ -1,1 +1,1 @@
-# Placeholder for future Python dependencies required by the docs build script.
+mkdocs-material>=9.5.16

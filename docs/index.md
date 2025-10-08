@@ -1,17 +1,13 @@
----
-layout: home
-title: Coding for MBA Documentation
-nav_order: 1
-permalink: /
----
+# Coding for MBA Documentation
 
-Welcome to the official documentation hub for the **Coding for MBA** curriculum. This static site pulls content directly from the repository so you can:
+Welcome to the official documentation hub for the **Coding for MBA** curriculum. This MkDocs-powered site pulls content directly from the repository so you can:
 
 - Navigate the entire 67-day learning path in one place.
 - Read every lesson summary without digging through folders.
 - Jump straight into the companion notebooks or Python scripts for each topic.
 
-Use the navigation menu to explore the machine learning roadmap or drill into the individual day lessons. New content is published automatically whenever changes land on the `main` branch.
+!!! tip "Prefer a darker UI?"
+    Use the theme toggle in the header to switch between the light and dark palettes.
 
 ## What's inside
 

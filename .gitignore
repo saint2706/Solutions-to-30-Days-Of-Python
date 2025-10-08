@@ -121,7 +121,8 @@ venv.bak/
 # Documentation build artefacts
 /site
 docs/_site/
-.jekyll-cache/
+# Legacy Jekyll cache directory
+# .jekyll-cache/
 
 # mypy
 .mypy_cache/
