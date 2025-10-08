@@ -16,6 +16,8 @@ from pathlib import Path
 from typing import Iterable, Tuple
 
 import nbformat
+from bs4 import BeautifulSoup
+from nbconvert.exporters import HTMLExporter, MarkdownExporter
 from nbformat.v4 import new_code_cell, new_markdown_cell, new_notebook
 
 CELL_PATTERN = re.compile(
@@ -130,9 +132,140 @@ def convert_file(path: Path) -> Path:
     return target
 
 
+def ensure_accessible_html(html: str, title: str) -> str:
+    """Post-process HTML to inject accessibility affordances."""
+
+    soup = BeautifulSoup(html, "html.parser")
+
+    html_tag = soup.find("html")
+    if html_tag and not html_tag.get("lang"):
+        html_tag["lang"] = "en"
+
+    head = soup.find("head")
+    if head and not head.find("style", attrs={"id": "accessibility-styles"}):
+        style = soup.new_tag("style", id="accessibility-styles")
+        style.string = (
+            ".skip-link{position:absolute;left:-1000px;top:auto;width:1px;height:1px;"
+            "overflow:hidden;}"
+            ".skip-link:focus{position:static;width:auto;height:auto;padding:0.5rem;"
+            "background:#000;color:#fff;z-index:1000;}"
+            "main:focus{outline:3px solid #005fcc;}"
+        )
+        head.append(style)
+
+    body = soup.find("body")
+    if body and not body.find("a", class_="skip-link"):
+        skip_link = soup.new_tag("a", href="#main-content")
+        skip_link["class"] = ["skip-link"]
+        skip_link.string = "Skip to main content"
+        body.insert(0, skip_link)
+
+    main = soup.find(id="main-content")
+    if body and not main:
+        main = soup.new_tag("main", id="main-content", tabindex="-1")
+        for child in list(body.contents):
+            if getattr(child, "name", None) == "a" and "skip-link" in child.get("class", []):
+                continue
+            main.append(child.extract())
+        body.append(main)
+    elif main:
+        main["tabindex"] = "-1"
+
+    if main and not main.find("h1"):
+        heading = soup.new_tag("h1")
+        heading.string = title
+        main.insert(0, heading)
+
+    last_level = 1
+    for heading in soup.find_all(re.compile(r"^h[1-6]$")):
+        current_level = int(heading.name[1])
+        if current_level > last_level + 1:
+            current_level = last_level + 1
+            heading.name = f"h{current_level}"
+        last_level = current_level
+
+    for image in soup.find_all("img"):
+        if not image.get("alt"):
+            image["alt"] = "TODO: Provide descriptive alt text."
+
+    return str(soup)
+
+
+def validate_accessibility(html: str, notebook_name: str) -> list[str]:
+    """Return any basic WCAG compliance issues detected in the HTML."""
+
+    soup = BeautifulSoup(html, "html.parser")
+    warnings: list[str] = []
+
+    if not soup.find("a", class_="skip-link"):
+        warnings.append(f"{notebook_name}: Missing skip navigation link.")
+    if not soup.find(id="main-content"):
+        warnings.append(f"{notebook_name}: Missing identifiable main content region.")
+
+    headings = [int(tag.name[1]) for tag in soup.find_all(re.compile(r"^h[1-6]$"))]
+    if headings:
+        if headings[0] != 1:
+            warnings.append(
+                f"{notebook_name}: First heading should be level 1, found h{headings[0]}."
+            )
+        for previous, current in zip(headings, headings[1:]):
+            if current - previous > 1:
+                warnings.append(
+                    f"{notebook_name}: Heading level jumps from h{previous} to h{current}."
+                )
+
+    for image in soup.find_all("img"):
+        if not image.get("alt"):
+            warnings.append(f"{notebook_name}: Image missing alt text.")
+
+    return warnings
+
+
+def export_static_content(notebook: Path, output_root: Path, template_dir: Path) -> list[Path]:
+    """Render notebook to Markdown and accessible HTML outputs."""
+
+    relative = notebook.relative_to(Path(__file__).resolve().parents[1])
+    output_dir = output_root / relative.parent
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    generated: list[Path] = []
+
+    md_exporter = MarkdownExporter()
+    md_exporter.exclude_input_prompt = True
+    md_exporter.exclude_output_prompt = True
+    markdown_body, _ = md_exporter.from_filename(str(notebook))
+    markdown_path = output_dir / f"{notebook.stem}.md"
+    markdown_path.write_text(markdown_body, encoding="utf-8")
+    generated.append(markdown_path)
+
+    html_exporter = HTMLExporter()
+    html_exporter.extra_template_paths = [str(template_dir)]
+    html_exporter.template_name = "accessible_html"
+    html_exporter.exclude_input_prompt = True
+    html_exporter.exclude_output_prompt = True
+    html_body, _ = html_exporter.from_filename(str(notebook))
+    accessible_html = ensure_accessible_html(html_body, notebook.stem.replace("_", " ").title())
+    warnings = validate_accessibility(accessible_html, notebook.stem)
+    if warnings:
+        formatted = "\n".join(f" - {message}" for message in warnings)
+        raise RuntimeError(
+            "Accessibility validation failed for "
+            f"{notebook}:\n{formatted}\n"
+            "Fix the notebook structure or extend the exporter to resolve these issues."
+        )
+    html_path = output_dir / f"{notebook.stem}.html"
+    html_path.write_text(accessible_html, encoding="utf-8")
+    generated.append(html_path)
+
+    return generated
+
+
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
     converted: list[Path] = []
+    exported: list[Path] = []
+    output_root = root / "docs" / "lessons"
+    template_dir = Path(__file__).resolve().parent / "templates"
 
     for day_dir in sorted(root.glob("Day_*")):
         if not day_dir.is_dir():
@@ -142,6 +275,13 @@ def main() -> None:
                 continue
             target = convert_file(py_file)
             converted.append(target.relative_to(root))
+            try:
+                assets = export_static_content(target, output_root, template_dir)
+            except Exception as exc:  # pragma: no cover - runtime validation
+                print(f"Error exporting {target}: {exc}", file=sys.stderr)
+                raise
+            else:
+                exported.extend(asset.relative_to(root) for asset in assets)
 
     if converted:
         print("Generated notebooks:")
@@ -149,6 +289,13 @@ def main() -> None:
             print(f" - {path}")
     else:
         print("No lesson scripts were converted. Double-check the directory structure.")
+
+    if exported:
+        print("Rendered static content:")
+        for path in exported:
+            print(f" - {path}")
+    else:
+        print("No static lesson content was generated.")
 
 
 if __name__ == "__main__":

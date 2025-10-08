@@ -67,6 +67,16 @@ Navigate to a `Day_*` directory and select the relevant `.ipynb` file—for
 instance, `Day_31_Databases/databases.ipynb` walks through the SQLite example
 in an interactive notebook environment.
 
+## ♿ Accessible lesson exports
+
+Run `python tools/convert_lessons_to_notebooks.py` to regenerate the notebooks
+alongside screen-reader-friendly HTML and Markdown exports. The static
+artifacts are written to `docs/lessons/Day_*/*.html` and
+`docs/lessons/Day_*/*.md`, complete with skip-navigation links, a structured
+heading hierarchy, and placeholder alt text for every figure. These exports are
+perfect for learners who prefer assistive technology or need an offline copy of
+the curriculum.
+
 ## 🤝 Contributing to the docs
 
 1. Install the documentation dependencies with `pip install -r docs/requirements.txt`.
