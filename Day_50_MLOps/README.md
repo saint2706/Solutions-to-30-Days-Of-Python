@@ -1,6 +1,10 @@
 # Day 50: MLOps - Model Deployment
 
-Welcome to our final day, Day 50! Today, we touch upon **MLOps (Machine Learning Operations)**, which focuses on the practical side of deploying, monitoring, and maintaining machine learning models in production environments. Our focus will be on a crucial first step: **saving and loading a trained model**.
+Welcome to our final day, Day 50! Today, we touch upon **MLOps (Machine Learning Operations)**, which focuses on the practical side of deploying, monitoring, and maintaining machine learning models in production environments. Our focus will be on a crucial first step: **saving and loading a trained model**. Later lessons deepen each pillar:
+
+- **Day 65 – MLOps Pipelines and CI/CD** scales persistence into feature stores, model registries, and GitHub Actions workflows.
+- **Day 66 – Model Deployment and Serving** compares REST, gRPC, batch, streaming, and edge endpoints with FastAPI/BentoML-inspired adapters.
+- **Day 67 – Model Monitoring and Reliability** adds drift detection, retraining triggers, and observability instrumentation.
 
 ## Key Concepts
 
@@ -44,4 +48,4 @@ ______________________________________________________________________
   1. Loading the model back from the file and using it to make a new prediction.
   1. (Bonus) A minimal Flask app that loads the model and exposes a `/predict` endpoint.
 
-Review the code to understand the fundamental step of model persistence, which is the gateway to model deployment.
+Review the code to understand the fundamental step of model persistence, which is the gateway to model deployment. When you are ready to automate full pipelines, deploy APIs, and monitor production behaviour, continue into Days 65–67 for the dedicated deep dives.
