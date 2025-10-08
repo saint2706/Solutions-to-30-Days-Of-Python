@@ -4,6 +4,8 @@ ______________________________________________________________________
 
 This roadmap outlines a phased journey from classic machine learning foundations to modern deep learning systems and production operations. Each phase highlights anchor lessons from the Coding for MBA series and recommends follow-on topics so you can keep advancing after Day 57.
 
+> **📐 Looking for mathematical foundations?** Check out the comprehensive [ML Theory & Mathematics](theory.md) guide, which covers linear algebra, calculus, probability, neural networks, deep learning architectures, and all the mathematical concepts underlying this curriculum.
+
 ## Phase 1 – Classic Machine Learning Foundations
 
 > **Start here if you are following the Day 40–53 sequence.**
