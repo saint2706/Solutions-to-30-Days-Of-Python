@@ -42,6 +42,8 @@ Python scripts before the MkDocs build runs.
 
 Lessons are organised chronologically. Start with the [Machine Learning Curriculum Roadmap](docs/ml_curriculum.md) to see how the upper-level ML sequence layers onto the Python and analytics foundations built in Days 01–39.
 
+For a comprehensive mathematical reference covering all ML concepts, see the [ML Theory & Mathematics](docs/theory.md) guide, which provides detailed explanations of linear algebra, calculus, optimization, neural networks, and advanced deep learning topics.
+
 **Phases at a glance**
 
 - **Phase 1 – Python and analytics foundations (Days 01–20):** Core Python syntax, data structures, file handling, and early automation skills.
