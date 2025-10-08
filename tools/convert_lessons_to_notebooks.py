@@ -75,7 +75,8 @@ def iter_cells(source: str) -> Iterable[Tuple[str, str]]:
         yield current_type, tail.rstrip("\n") + "\n"
 
 
-def build_notebook(source: str) -> nbformat.NotebookNode:
+def build_notebook(path: Path) -> nbformat.NotebookNode:
+    source = path.read_text()
     docstring, code_body = extract_module_docstring(source)
     notebook = new_notebook(metadata={
         "kernelspec": {
@@ -88,6 +89,17 @@ def build_notebook(source: str) -> nbformat.NotebookNode:
             "version": f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}",
         },
     })
+
+    readme_path = path.parent / "README.md"
+    if readme_path.is_file():
+        try:
+            readme_text = readme_path.read_text(encoding="utf-8")
+        except OSError as exc:  # pragma: no cover - depends on filesystem errors
+            print(f"Warning: Could not read {readme_path}: {exc}", file=sys.stderr)
+        else:
+            cleaned_readme = readme_text.lstrip("\ufeff").rstrip("\n")
+            if cleaned_readme:
+                notebook.cells.append(new_markdown_cell(cleaned_readme))
 
     if docstring:
         notebook.cells.append(new_markdown_cell(docstring.strip()))
@@ -106,7 +118,7 @@ def build_notebook(source: str) -> nbformat.NotebookNode:
 
 def convert_file(path: Path) -> Path:
     target = path.with_suffix(".ipynb")
-    notebook = build_notebook(path.read_text())
+    notebook = build_notebook(path)
     nbformat.write(notebook, target)
     return target
 
