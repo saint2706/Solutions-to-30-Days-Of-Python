@@ -5,7 +5,7 @@ This script demonstrates common date and time operations using the
 datetime module, refactored into testable functions.
 """
 
-from datetime import datetime, date, timedelta
+from datetime import date, datetime, timedelta
 
 
 def get_current_datetime_components() -> dict:

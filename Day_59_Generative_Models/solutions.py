@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, Iterable, List, Tuple
+from typing import Dict, List
 
 import numpy as np
 
@@ -122,7 +122,10 @@ def train_variational_autoencoder_synthetic(
         grad_hidden = (grad_recon @ W_dec.T) * (1 - np.tanh(z) ** 2)
 
         grad_mu = grad_hidden + kl_weight * (mu / X.shape[0])
-        grad_logvar = grad_hidden * eps * std * 0.5 + kl_weight * 0.5 * (np.exp(logvar) - 1) / X.shape[0]
+        grad_logvar = (
+            grad_hidden * eps * std * 0.5
+            + kl_weight * 0.5 * (np.exp(logvar) - 1) / X.shape[0]
+        )
 
         grad_W_mu = X.T @ grad_mu
         grad_b_mu = grad_mu.sum(axis=0)
@@ -136,7 +139,7 @@ def train_variational_autoencoder_synthetic(
         W_logvar -= lr * grad_W_logvar
         b_logvar -= lr * grad_b_logvar
 
-    final_z = (X @ W_mu + b_mu)
+    final_z = X @ W_mu + b_mu
     final_recon = _tanh(final_z) @ W_dec + b_dec
     return TrainingLog(losses=losses, reconstructions=final_recon)
 
@@ -176,11 +179,13 @@ def train_diffusion_denoiser(
         W -= lr * grad_W
         b -= lr * grad_b
 
-    final_noise = (X @ W + b)
+    final_noise = X @ W + b
     return TrainingLog(losses=losses, reconstructions=final_noise)
 
 
-def gan_training_summary(steps: int = 100, random_state: int = 59) -> List[Dict[str, float]]:
+def gan_training_summary(
+    steps: int = 100, random_state: int = 59
+) -> List[Dict[str, float]]:
     """Simulate GAN training metrics to illustrate convergence heuristics."""
 
     rng = np.random.default_rng(random_state)
@@ -191,7 +196,14 @@ def gan_training_summary(steps: int = 100, random_state: int = 59) -> List[Dict[
         gen_mean += 0.03 * (real_mean - gen_mean)
         discriminator_loss = float(np.exp(-abs(real_mean - gen_mean)))
         generator_loss = float(abs(real_mean - gen_mean))
-        log.append({"step": step, "gen_loss": generator_loss, "disc_loss": discriminator_loss, "gen_mean": gen_mean})
+        log.append(
+            {
+                "step": step,
+                "gen_loss": generator_loss,
+                "disc_loss": discriminator_loss,
+                "gen_mean": gen_mean,
+            }
+        )
     return log
 
 
@@ -225,9 +237,15 @@ def run_all_demos(random_state: int = 59) -> Dict[str, object]:
 
 def _demo() -> None:
     stats = run_all_demos()
-    print(f"Autoencoder start/end loss: {stats['autoencoder'].losses[0]:.4f} -> {stats['autoencoder'].losses[-1]:.4f}")
-    print(f"VAE start/end loss: {stats['vae'].losses[0]:.4f} -> {stats['vae'].losses[-1]:.4f}")
-    print(f"Diffusion start/end loss: {stats['diffusion'].losses[0]:.4f} -> {stats['diffusion'].losses[-1]:.4f}")
+    print(
+        f"Autoencoder start/end loss: {stats['autoencoder'].losses[0]:.4f} -> {stats['autoencoder'].losses[-1]:.4f}"
+    )
+    print(
+        f"VAE start/end loss: {stats['vae'].losses[0]:.4f} -> {stats['vae'].losses[-1]:.4f}"
+    )
+    print(
+        f"Diffusion start/end loss: {stats['diffusion'].losses[0]:.4f} -> {stats['diffusion'].losses[-1]:.4f}"
+    )
     print(f"GAN terminal generator mean: {stats['gan'][-1]['gen_mean']:.3f}")
 
 

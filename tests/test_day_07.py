@@ -1,12 +1,12 @@
-import sys
 import os
+import sys
 
 # Add the parent directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_07_Sets.sets import (
-    get_unique_items,
     analyze_visitor_segments,
+    get_unique_items,
     upgrade_plan_features,
 )
 

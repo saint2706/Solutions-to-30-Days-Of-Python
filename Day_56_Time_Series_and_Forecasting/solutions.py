@@ -34,12 +34,16 @@ def generate_seasonal_series(
     rng = np.random.default_rng(random_state)
     time = np.arange(periods)
     seasonal_pattern = np.sin(2 * np.pi * time / seasonal_period)
-    series = 5 + trend * time + 2.5 * seasonal_pattern + rng.normal(0, noise, size=periods)
+    series = (
+        5 + trend * time + 2.5 * seasonal_pattern + rng.normal(0, noise, size=periods)
+    )
     index = pd.date_range("2020-01-01", periods=periods, freq="MS")
     return pd.Series(series, index=index, name="demand")
 
 
-def train_test_split_series(series: pd.Series, test_size: int = 12) -> Tuple[pd.Series, pd.Series]:
+def train_test_split_series(
+    series: pd.Series, test_size: int = 12
+) -> Tuple[pd.Series, pd.Series]:
     """Split a series into train and test suffixes."""
 
     if test_size <= 0:
@@ -123,7 +127,9 @@ def forecast_metrics(y_true: ArrayLike, y_pred: ArrayLike) -> Dict[str, float]:
     rmse = float(np.sqrt(np.mean((y_true - y_pred) ** 2)))
     with np.errstate(divide="ignore", invalid="ignore"):
         mape = np.mean(np.abs((y_true - y_pred) / y_true)) * 100
-        smape = 100 * np.mean(np.abs(y_true - y_pred) / ((np.abs(y_true) + np.abs(y_pred)) / 2))
+        smape = 100 * np.mean(
+            np.abs(y_true - y_pred) / ((np.abs(y_true) + np.abs(y_pred)) / 2)
+        )
     return {
         "mae": float(mae),
         "rmse": rmse,
@@ -159,7 +165,9 @@ def prophet_style_forecast(train: pd.Series, steps: int = 12) -> ForecastResult:
     """Approximate a Prophet-like decomposition using statsmodels."""
 
     # Prophet combines trend and seasonality; emulate with additive Holt-Winters
-    result = fit_exponential_smoothing(train, seasonal_periods=12, trend="add", seasonal="add", steps=steps)
+    result = fit_exponential_smoothing(
+        train, seasonal_periods=12, trend="add", seasonal="add", steps=steps
+    )
     return result
 
 

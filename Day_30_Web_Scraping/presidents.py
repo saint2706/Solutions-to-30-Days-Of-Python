@@ -5,15 +5,13 @@ to a lightweight mock dataset, and only reaches out to Wikipedia when it needs t
 refresh the snapshot.
 """
 
+import csv
+import json
 from pathlib import Path
 from typing import Optional
 
-import csv
-import json
-
 import pandas as pd
 import requests
-
 
 MOCK_PRESIDENTS_DATA = [
     {

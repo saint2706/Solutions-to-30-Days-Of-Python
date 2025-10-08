@@ -8,8 +8,9 @@ Author: 50 Days of Python Course
 Purpose: Educational solutions for MBA students learning NumPy
 """
 
-import numpy as np
 import warnings
+
+import numpy as np
 
 # Suppress numpy warnings for cleaner output
 warnings.filterwarnings("ignore", category=RuntimeWarning)

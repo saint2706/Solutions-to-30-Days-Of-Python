@@ -13,10 +13,9 @@ from pathlib import Path
 from typing import Iterable, Mapping, MutableMapping
 
 import pandas as pd
+import plotly.graph_objects as go
 from pandas import DataFrame, Series
 from scipy.stats import ttest_ind
-
-import plotly.graph_objects as go
 
 
 def load_sales_data(csv_path: Path | str | None = None) -> DataFrame:

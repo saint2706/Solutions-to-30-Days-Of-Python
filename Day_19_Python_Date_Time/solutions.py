@@ -1,6 +1,6 @@
 # Day 19: Python Date and Time - Solutions
 
-from datetime import datetime, date
+from datetime import date, datetime
 
 ## Exercise 1: Format the current date
 

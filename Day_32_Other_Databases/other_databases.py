@@ -11,7 +11,6 @@ from __future__ import annotations
 
 from typing import Any, Callable, Iterable, Mapping, MutableMapping, Optional, Sequence
 
-
 Credentials = Mapping[str, Any]
 ClientFactory = Callable[[Credentials], Any]
 

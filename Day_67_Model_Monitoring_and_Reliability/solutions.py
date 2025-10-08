@@ -1,9 +1,10 @@
 """Monitoring utilities for production ML systems."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
 from statistics import mean, pstdev
-from typing import Any, Dict, Iterable, List, Mapping, MutableMapping
+from typing import Any, Dict, Iterable, List, Mapping
 
 
 @dataclass
@@ -41,7 +42,9 @@ def compute_mean_drift(
     )
 
 
-def should_trigger_retraining(report: DriftReport, *, accuracy: float, latency: float) -> bool:
+def should_trigger_retraining(
+    report: DriftReport, *, accuracy: float, latency: float
+) -> bool:
     """Decide whether to retrain given drift and live metrics."""
 
     if report.triggered:
@@ -69,16 +72,24 @@ def evaluate_canary(
 ) -> CanaryVerdict:
     """Compare baseline vs candidate metrics and decide promotion."""
 
-    latency_delta = candidate_metrics.get("latency", 0.0) - baseline_metrics.get("latency", 0.0)
+    latency_delta = candidate_metrics.get("latency", 0.0) - baseline_metrics.get(
+        "latency", 0.0
+    )
     accuracy = candidate_metrics.get("accuracy", 0.0)
     error_rate = candidate_metrics.get("error_rate", 0.0)
     if accuracy < min_accuracy:
         return CanaryVerdict(False, "Accuracy below threshold", {"accuracy": accuracy})
     if latency_delta > allowed_latency_delta:
-        return CanaryVerdict(False, "Latency regression", {"latency_delta": round(latency_delta, 4)})
+        return CanaryVerdict(
+            False, "Latency regression", {"latency_delta": round(latency_delta, 4)}
+        )
     if error_rate > baseline_metrics.get("error_rate", 0.0) * 1.2:
         return CanaryVerdict(False, "Error rate increase", {"error_rate": error_rate})
-    return CanaryVerdict(True, "Canary healthy", {"accuracy": accuracy, "latency_delta": round(latency_delta, 4)})
+    return CanaryVerdict(
+        True,
+        "Canary healthy",
+        {"accuracy": accuracy, "latency_delta": round(latency_delta, 4)},
+    )
 
 
 def build_observability_snapshot(
@@ -119,7 +130,9 @@ def detect_drift_across_features(
         current_values = current_frame.get(feature)
         if current_values is None:
             continue
-        reports[feature] = compute_mean_drift(baseline_values, current_values, threshold=threshold)
+        reports[feature] = compute_mean_drift(
+            baseline_values, current_values, threshold=threshold
+        )
     return reports
 
 
@@ -142,7 +155,10 @@ if __name__ == "__main__":
     baseline = [0.1, 0.2, 0.15, 0.18]
     current = [0.35, 0.4, 0.45, 0.38]
     report = compute_mean_drift(baseline, current)
-    verdict = evaluate_canary({"latency": 0.2, "accuracy": 0.83, "error_rate": 0.05}, {"latency": 0.22, "accuracy": 0.85, "error_rate": 0.04})
+    verdict = evaluate_canary(
+        {"latency": 0.2, "accuracy": 0.83, "error_rate": 0.05},
+        {"latency": 0.22, "accuracy": 0.85, "error_rate": 0.04},
+    )
     snapshot = build_observability_snapshot(report, verdict, predictions_served=1200)
     print("Drift report", report)  # noqa: T201
     print("Canary verdict", verdict)  # noqa: T201

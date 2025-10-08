@@ -41,8 +41,11 @@ def build_pipeline(
 
     def pipeline() -> None:
         df = load_sales_data(str(data_path))
-        if df is None:
-            raise FileNotFoundError(f"CSV not found at {data_path}")
+        if df is None or df.empty:
+            raise ValueError(
+                f"Sales data could not be loaded from {data_path}. Ensure the CSV exists"
+                " and contains data."
+            )
 
         filter_by_high_revenue(df, threshold)
         filter_by_product_and_region(df, product, region)

@@ -3,12 +3,12 @@
 This module demonstrates various file handling operations commonly used in business.
 """
 
+import csv
 import os
 import re
-import csv
 import string
 from collections import Counter
-from typing import List, Dict, Tuple, Optional
+from typing import Dict, List, Optional, Tuple
 
 # Import stop words from the local file
 from .stop_words import stop_words as sw

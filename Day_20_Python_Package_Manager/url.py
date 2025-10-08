@@ -1,8 +1,8 @@
 """Day 20: Python Package Manager - Working with Third-Party Libraries (Refactored)."""
 
-from collections import Counter
 import json
 import re
+from collections import Counter
 from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np

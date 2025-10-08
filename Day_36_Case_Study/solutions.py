@@ -2,8 +2,8 @@
 Day 36: Solution to the Capstone Case Study
 """
 
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 
 # --- Step 1 & 2: Load and Clean the Data ---
 print("--- Step 1 & 2: Loading and Cleaning Data ---")

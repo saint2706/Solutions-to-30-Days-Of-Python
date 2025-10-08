@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, Iterable, List, Mapping, Sequence, Tuple
+from typing import Dict, List, Mapping, Sequence, Tuple
 
 import numpy as np
 import pandas as pd
@@ -74,7 +74,9 @@ def load_credit_dataset() -> pd.DataFrame:
     for credit_score in (580, 620, 660, 700, 740):
         for income in (42_000, 58_000, 74_000):
             for gender in ("F", "M"):
-                base_prob = 0.15 + 0.0006 * (credit_score - 600) + 0.000002 * (income - 50_000)
+                base_prob = (
+                    0.15 + 0.0006 * (credit_score - 600) + 0.000002 * (income - 50_000)
+                )
                 shift = -0.04 if gender == "F" else 0.0
                 approval = rng.random() < (base_prob + shift)
                 records.append(
@@ -83,7 +85,10 @@ def load_credit_dataset() -> pd.DataFrame:
                         "income": income,
                         "gender": gender,
                         "approved": float(approval),
-                        "default_risk": 0.35 - 0.0004 * credit_score - 0.0000015 * income + (0.02 if gender == "F" else 0.0),
+                        "default_risk": 0.35
+                        - 0.0004 * credit_score
+                        - 0.0000015 * income
+                        + (0.02 if gender == "F" else 0.0),
                     }
                 )
     return pd.DataFrame.from_records(records)
@@ -106,10 +111,14 @@ def train_default_risk_model() -> LinearModel:
     coefficients, *_ = np.linalg.lstsq(X_design, y, rcond=None)
     intercept = float(coefficients[0])
     weights = np.asarray(coefficients[1:], dtype=float)
-    return LinearModel(coefficients=weights, intercept=intercept, feature_names=feature_names)
+    return LinearModel(
+        coefficients=weights, intercept=intercept, feature_names=feature_names
+    )
 
 
-def _baseline_from_dataset(model: LinearModel, dataset: pd.DataFrame | None = None) -> Tuple[float, np.ndarray]:
+def _baseline_from_dataset(
+    model: LinearModel, dataset: pd.DataFrame | None = None
+) -> Tuple[float, np.ndarray]:
     if dataset is None:
         dataset = load_credit_dataset()
     baseline_features = np.column_stack(
@@ -152,7 +161,9 @@ def lime_explanation(
 
     rng = np.random.default_rng(random_state)
     instance_arr = np.asarray(instance, dtype=float)
-    noise = rng.normal(scale=[20.0, 5_000.0, 0.2], size=(num_samples, instance_arr.size))
+    noise = rng.normal(
+        scale=[20.0, 5_000.0, 0.2], size=(num_samples, instance_arr.size)
+    )
     samples = instance_arr + noise
     predictions = np.apply_along_axis(model.predict, 1, samples)
     distances = np.linalg.norm(samples - instance_arr, axis=1)
@@ -179,7 +190,9 @@ def generate_counterfactual(
     direction = model.coefficients
     scale = (target - original_pred) / (np.dot(direction, direction) + 1e-12)
     raw_cf = features + scale * direction
-    ordered_bounds = np.array([bounds[name] for name in model.feature_names], dtype=float)
+    ordered_bounds = np.array(
+        [bounds[name] for name in model.feature_names], dtype=float
+    )
     clipped_cf = np.clip(raw_cf, ordered_bounds[:, 0], ordered_bounds[:, 1])
     cf_prediction = model.predict(clipped_cf)
     return CounterfactualResult(
@@ -243,7 +256,9 @@ def mitigation_effect(dataset: pd.DataFrame) -> FairnessReport:
     statistical_parity = female_rate - male_rate
     disparate_impact = female_rate / male_rate if male_rate > 0 else np.nan
 
-    low_risk = reweighted[reweighted["default_risk"] < reweighted["default_risk"].median()]
+    low_risk = reweighted[
+        reweighted["default_risk"] < reweighted["default_risk"].median()
+    ]
     eq_weighted = {
         gender: float(np.average(grp["approved"], weights=grp["sample_weight"]))
         for gender, grp in low_risk.groupby("gender")
@@ -265,7 +280,9 @@ def run_interpretability_suite() -> Dict[str, object]:
     model = train_default_risk_model()
     dataset = load_credit_dataset()
     instance = dataset.loc[0, ["credit_score", "income", "gender"]]
-    encoded_instance = np.array([instance["credit_score"], instance["income"], float(instance["gender"] == "F")])
+    encoded_instance = np.array(
+        [instance["credit_score"], instance["income"], float(instance["gender"] == "F")]
+    )
     shap = compute_shap_values(model, encoded_instance, dataset)
     lime = lime_explanation(model, encoded_instance)
     bounds = {
@@ -273,7 +290,9 @@ def run_interpretability_suite() -> Dict[str, object]:
         "income": (30_000, 120_000),
         "is_female": (0.0, 1.0),
     }
-    counterfactual = generate_counterfactual(model, encoded_instance, target=0.05, bounds=bounds)
+    counterfactual = generate_counterfactual(
+        model, encoded_instance, target=0.05, bounds=bounds
+    )
     fairness = fairness_metrics(dataset)
     mitigated = mitigation_effect(dataset)
     return {
@@ -289,7 +308,12 @@ def run_interpretability_suite() -> Dict[str, object]:
 if __name__ == "__main__":
     report = run_interpretability_suite()
     print("Base prediction:", report["shap"].reconstructed_prediction())
-    print("LIME local prediction:", report["lime"].local_prediction(report["counterfactual"].counterfactual_features))
+    print(
+        "LIME local prediction:",
+        report["lime"].local_prediction(
+            report["counterfactual"].counterfactual_features
+        ),
+    )
     print("Counterfactual delta:", report["counterfactual"].delta)
     print("Fairness metrics:", report["fairness"])
     print("After mitigation:", report["mitigated"])

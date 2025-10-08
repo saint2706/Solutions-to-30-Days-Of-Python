@@ -7,8 +7,9 @@ is refactored into testable functions.
 """
 
 from pathlib import Path
-import pandas as pd
 from typing import Optional
+
+import pandas as pd
 
 
 def load_data_from_csv(file_path: str) -> Optional[pd.DataFrame]:

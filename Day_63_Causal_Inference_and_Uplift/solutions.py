@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, Iterable, List, Sequence, Tuple
+from typing import Dict, List, Tuple
 
 import numpy as np
 import pandas as pd
@@ -29,7 +29,9 @@ class PropensityModel:
 
     def _scale(self, features: np.ndarray) -> np.ndarray:
         scaled = features.copy()
-        scaled[:, 1:] = (scaled[:, 1:] - self.feature_mean) / (self.feature_scale + 1e-12)
+        scaled[:, 1:] = (scaled[:, 1:] - self.feature_mean) / (
+            self.feature_scale + 1e-12
+        )
         return scaled
 
     def predict_proba(self, features: np.ndarray) -> np.ndarray:
@@ -54,7 +56,9 @@ class UpliftResult:
     uplift: float
 
 
-def generate_synthetic_treatment_data(n: int = 600, random_state: int = 63) -> pd.DataFrame:
+def generate_synthetic_treatment_data(
+    n: int = 600, random_state: int = 63
+) -> pd.DataFrame:
     """Create observational data with known treatment effect."""
 
     rng = np.random.default_rng(random_state)
@@ -66,7 +70,9 @@ def generate_synthetic_treatment_data(n: int = 600, random_state: int = 63) -> p
     propensity = 1.0 / (1.0 + np.exp(-propensity_logits))
     treatment = rng.binomial(1, propensity)
     true_effect = 0.15
-    outcome = np.clip(baseline + true_effect * treatment + 0.005 * (browsing_time - 4), 0, 1)
+    outcome = np.clip(
+        baseline + true_effect * treatment + 0.005 * (browsing_time - 4), 0, 1
+    )
     return pd.DataFrame(
         {
             "age": age,
@@ -86,20 +92,31 @@ def difference_in_means(data: pd.DataFrame) -> ABTestResult:
     treated = data[data["treatment"] == 1]["outcome"].to_numpy(dtype=float)
     control = data[data["treatment"] == 0]["outcome"].to_numpy(dtype=float)
     lift = treated.mean() - control.mean()
-    stderr = np.sqrt(treated.var(ddof=1) / treated.size + control.var(ddof=1) / control.size)
+    stderr = np.sqrt(
+        treated.var(ddof=1) / treated.size + control.var(ddof=1) / control.size
+    )
     ci_low = lift - 1.96 * stderr
     ci_high = lift + 1.96 * stderr
-    return ABTestResult(lift=float(lift), stderr=float(stderr), ci_low=float(ci_low), ci_high=float(ci_high))
+    return ABTestResult(
+        lift=float(lift),
+        stderr=float(stderr),
+        ci_low=float(ci_low),
+        ci_high=float(ci_high),
+    )
 
 
-def _prepare_design_matrix(data: pd.DataFrame, include_intercept: bool = True) -> np.ndarray:
+def _prepare_design_matrix(
+    data: pd.DataFrame, include_intercept: bool = True
+) -> np.ndarray:
     features = data[["age", "browsing_time", "income"]].to_numpy(dtype=float)
     if include_intercept:
         return np.column_stack([np.ones(len(data)), features])
     return features
 
 
-def fit_propensity_model(data: pd.DataFrame, lr: float = 0.05, epochs: int = 800) -> PropensityModel:
+def fit_propensity_model(
+    data: pd.DataFrame, lr: float = 0.05, epochs: int = 800
+) -> PropensityModel:
     """Fit logistic regression via gradient descent for propensity scores."""
 
     X = _prepare_design_matrix(data)
@@ -114,7 +131,9 @@ def fit_propensity_model(data: pd.DataFrame, lr: float = 0.05, epochs: int = 800
         preds = 1.0 / (1.0 + np.exp(-logits))
         gradient = X_scaled.T @ (preds - y) / len(y)
         weights -= lr * gradient
-    return PropensityModel(weights=weights, feature_mean=feature_mean, feature_scale=feature_scale)
+    return PropensityModel(
+        weights=weights, feature_mean=feature_mean, feature_scale=feature_scale
+    )
 
 
 def estimate_ipw_ate(data: pd.DataFrame, propensity_model: PropensityModel) -> float:
@@ -126,7 +145,9 @@ def estimate_ipw_ate(data: pd.DataFrame, propensity_model: PropensityModel) -> f
     outcome = data["outcome"].to_numpy(dtype=float)
     weights_treated = treated / (propensities + 1e-12)
     weights_control = (1 - treated) / (1 - propensities + 1e-12)
-    ate = (weights_treated @ outcome) / weights_treated.sum() - (weights_control @ outcome) / weights_control.sum()
+    ate = (weights_treated @ outcome) / weights_treated.sum() - (
+        weights_control @ outcome
+    ) / weights_control.sum()
     return float(ate)
 
 
@@ -148,7 +169,10 @@ def double_machine_learning(data: pd.DataFrame) -> DoubleMLResult:
     residuals_t = np.zeros_like(T)
     r2_y: List[float] = []  # type: ignore[name-defined]
     r2_t: List[float] = []  # type: ignore[name-defined]
-    for train_idx, test_idx in ((indices[:fold], indices[fold:]), (indices[fold:], indices[:fold])):
+    for train_idx, test_idx in (
+        (indices[:fold], indices[fold:]),
+        (indices[fold:], indices[:fold]),
+    ):
         X_train = X[train_idx]
         X_test = X[test_idx]
         Y_train = Y[train_idx]
@@ -167,8 +191,12 @@ def double_machine_learning(data: pd.DataFrame) -> DoubleMLResult:
         ss_res_t = np.sum((T_train - X_design_train @ beta_t) ** 2)
         r2_y.append(1 - ss_res_y / (ss_tot_y + 1e-12))
         r2_t.append(1 - ss_res_t / (ss_tot_t + 1e-12))
-    ate = float(np.dot(residuals_t, residuals_y) / (np.dot(residuals_t, residuals_t) + 1e-12))
-    return DoubleMLResult(ate=ate, nuisance_r2=(float(np.mean(r2_y)), float(np.mean(r2_t))))
+    ate = float(
+        np.dot(residuals_t, residuals_y) / (np.dot(residuals_t, residuals_t) + 1e-12)
+    )
+    return DoubleMLResult(
+        ate=ate, nuisance_r2=(float(np.mean(r2_y)), float(np.mean(r2_t)))
+    )
 
 
 def two_model_uplift(data: pd.DataFrame) -> UpliftResult:
@@ -177,13 +205,23 @@ def two_model_uplift(data: pd.DataFrame) -> UpliftResult:
     treated = data[data["treatment"] == 1]
     control = data[data["treatment"] == 0]
     features_treated = np.column_stack(
-        [np.ones(len(treated)), treated[["age", "browsing_time", "income"]].to_numpy(dtype=float)]
+        [
+            np.ones(len(treated)),
+            treated[["age", "browsing_time", "income"]].to_numpy(dtype=float),
+        ]
     )
     features_control = np.column_stack(
-        [np.ones(len(control)), control[["age", "browsing_time", "income"]].to_numpy(dtype=float)]
+        [
+            np.ones(len(control)),
+            control[["age", "browsing_time", "income"]].to_numpy(dtype=float),
+        ]
     )
-    beta_treated = _linear_regression(features_treated, treated["outcome"].to_numpy(dtype=float))
-    beta_control = _linear_regression(features_control, control["outcome"].to_numpy(dtype=float))
+    beta_treated = _linear_regression(
+        features_treated, treated["outcome"].to_numpy(dtype=float)
+    )
+    beta_control = _linear_regression(
+        features_control, control["outcome"].to_numpy(dtype=float)
+    )
     cohort = data[["age", "browsing_time", "income"]].to_numpy(dtype=float)
     cohort_design = np.column_stack([np.ones(len(cohort)), cohort])
     treatment_pred = float(np.mean(cohort_design @ beta_treated))

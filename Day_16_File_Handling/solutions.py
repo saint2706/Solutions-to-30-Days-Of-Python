@@ -8,15 +8,16 @@ Author: 50 Days of Python Course
 Purpose: Educational solutions for MBA students
 """
 
-import os
 import csv
 import glob
-from typing import List, Dict
+import os
+from typing import Dict, List
+
 from fh import (
-    counter,
-    find_most_common_words,
-    extract_emails,
     check_email,
+    counter,
+    extract_emails,
+    find_most_common_words,
 )
 
 

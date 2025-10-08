@@ -1,5 +1,5 @@
 import joblib
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
 
 # NOTE: To run this script, you need to install Flask:
 # pip install Flask

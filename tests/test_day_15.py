@@ -1,12 +1,12 @@
-import sys
 import os
+import sys
 
 # Add the parent directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_15_Exception_Handling.exception import (
-    unpack_country_list,
     calculate_profit_margin,
+    unpack_country_list,
 )
 
 

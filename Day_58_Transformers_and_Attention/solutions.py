@@ -61,7 +61,9 @@ class TinyTransformerClassifier:
         self.config = config or TransformerConfig(vocab_size=len(DEFAULT_VOCAB))
         self.vocab_tokens = tuple(vocab) if vocab is not None else DEFAULT_VOCAB
         self.labels = tuple(labels) if labels is not None else DEFAULT_LABELS
-        self.token_to_id: Dict[str, int] = {token: idx for idx, token in enumerate(self.vocab_tokens)}
+        self.token_to_id: Dict[str, int] = {
+            token: idx for idx, token in enumerate(self.vocab_tokens)
+        }
         if "<unk>" not in self.token_to_id:
             self.token_to_id["<unk>"] = len(self.token_to_id)
         rng = np.random.default_rng(random_state)
@@ -138,7 +140,9 @@ class TinyTransformerClassifier:
         combined = np.transpose(array, (1, 0, 2)).reshape(seq_len, num_heads * head_dim)
         return combined
 
-    def _scaled_dot_product(self, q: np.ndarray, k: np.ndarray, v: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+    def _scaled_dot_product(
+        self, q: np.ndarray, k: np.ndarray, v: np.ndarray
+    ) -> Tuple[np.ndarray, np.ndarray]:
         """Compute scaled dot-product attention for a single head."""
 
         scale = np.sqrt(q.shape[-1]).astype(float)
@@ -163,7 +167,9 @@ class TinyTransformerClassifier:
         outputs = []
         attn_scores = []
         for head in range(self.config.num_heads):
-            attended, weights = self._scaled_dot_product(q_heads[head], k_heads[head], v_heads[head])
+            attended, weights = self._scaled_dot_product(
+                q_heads[head], k_heads[head], v_heads[head]
+            )
             outputs.append(attended)
             attn_scores.append(weights)
         concat = self._combine_heads(np.stack(outputs, axis=0))
@@ -233,7 +239,9 @@ def build_encoder_decoder_stack(
     d_model = cfg.d_model
     num_heads = cfg.num_heads
 
-    def multi_head(x: np.ndarray, W_q: np.ndarray, W_k: np.ndarray, W_v: np.ndarray) -> np.ndarray:
+    def multi_head(
+        x: np.ndarray, W_q: np.ndarray, W_k: np.ndarray, W_v: np.ndarray
+    ) -> np.ndarray:
         seq_len = x.shape[0]
         q = x @ W_q
         k = x @ W_k
@@ -271,9 +279,21 @@ def build_encoder_decoder_stack(
 
     decoder_self = multi_head(decoder_inp, W_q, W_k, W_v)
     seq_len_t = decoder_inp.shape[0]
-    q = (decoder_self @ cross_W_q).reshape(seq_len_t, num_heads, d_model // num_heads).transpose(1, 0, 2)
-    k = (encoder_hidden @ cross_W_k).reshape(encoder_hidden.shape[0], num_heads, d_model // num_heads).transpose(1, 0, 2)
-    v = (encoder_hidden @ cross_W_v).reshape(encoder_hidden.shape[0], num_heads, d_model // num_heads).transpose(1, 0, 2)
+    q = (
+        (decoder_self @ cross_W_q)
+        .reshape(seq_len_t, num_heads, d_model // num_heads)
+        .transpose(1, 0, 2)
+    )
+    k = (
+        (encoder_hidden @ cross_W_k)
+        .reshape(encoder_hidden.shape[0], num_heads, d_model // num_heads)
+        .transpose(1, 0, 2)
+    )
+    v = (
+        (encoder_hidden @ cross_W_v)
+        .reshape(encoder_hidden.shape[0], num_heads, d_model // num_heads)
+        .transpose(1, 0, 2)
+    )
 
     cross_outputs = []
     for head in range(num_heads):
@@ -286,7 +306,11 @@ def build_encoder_decoder_stack(
     cross_attention = np.stack(cross_outputs, axis=0)
     decoder_hidden = cross_attention.transpose(1, 0, 2).reshape(seq_len_t, d_model)
 
-    return EncoderDecoderStates(encoder_hidden=encoder_hidden, decoder_hidden=decoder_hidden, cross_attention=cross_attention)
+    return EncoderDecoderStates(
+        encoder_hidden=encoder_hidden,
+        decoder_hidden=decoder_hidden,
+        cross_attention=cross_attention,
+    )
 
 
 def fine_tuning_playbook(
@@ -298,7 +322,11 @@ def fine_tuning_playbook(
     """Return a Hugging Face style fine-tuning recipe for documentation."""
 
     schedule = [
-        {"phase": 1, "frozen_layers": "embeddings+encoder[:2]", "learning_rate": lr / 10},
+        {
+            "phase": 1,
+            "frozen_layers": "embeddings+encoder[:2]",
+            "learning_rate": lr / 10,
+        },
         {"phase": 2, "frozen_layers": "encoder[:1]", "learning_rate": lr},
         {"phase": 3, "adapter": "LoRA rank=4", "learning_rate": lr * 1.5},
     ]
@@ -312,17 +340,24 @@ def fine_tuning_playbook(
     }
 
 
-def demo_attention_visualisation(text: str, classifier: TinyTransformerClassifier | None = None) -> Dict[str, object]:
+def demo_attention_visualisation(
+    text: str, classifier: TinyTransformerClassifier | None = None
+) -> Dict[str, object]:
     """Return attention weights and tokens for plotting."""
 
     clf = classifier or TinyTransformerClassifier()
     token_ids = clf.tokenize(text)
     heatmap = clf.attention_heatmap(text)
-    tokens = [clf.vocab_tokens[idx] if idx < len(clf.vocab_tokens) else "<extra>" for idx in token_ids]
+    tokens = [
+        clf.vocab_tokens[idx] if idx < len(clf.vocab_tokens) else "<extra>"
+        for idx in token_ids
+    ]
     return {"tokens": tokens, "attention": heatmap}
 
 
-def run_demo_classification(texts: Iterable[str], classifier: TinyTransformerClassifier | None = None) -> List[Dict[str, object]]:
+def run_demo_classification(
+    texts: Iterable[str], classifier: TinyTransformerClassifier | None = None
+) -> List[Dict[str, object]]:
     """Score a batch of texts with deterministic predictions and attention."""
 
     clf = classifier or TinyTransformerClassifier()
@@ -330,7 +365,14 @@ def run_demo_classification(texts: Iterable[str], classifier: TinyTransformerCla
     for text in texts:
         probs = clf.predict_proba(text)
         heatmap = clf.attention_heatmap(text)
-        outputs.append({"text": text, "prediction": clf.classify(text), "probs": probs, "attention": heatmap})
+        outputs.append(
+            {
+                "text": text,
+                "prediction": clf.classify(text),
+                "probs": probs,
+                "attention": heatmap,
+            }
+        )
     return outputs
 
 
