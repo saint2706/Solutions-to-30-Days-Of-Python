@@ -1,10 +1,10 @@
 # Machine Learning Curriculum Roadmap
 
-This roadmap outlines a phased journey from classic machine learning foundations to modern deep learning systems and production operations. Each phase highlights anchor lessons from the Coding for MBA series and recommends follow-on topics so you can keep advancing after Day 50.
+This roadmap outlines a phased journey from classic machine learning foundations to modern deep learning systems and production operations. Each phase highlights anchor lessons from the Coding for MBA series and recommends follow-on topics so you can keep advancing after Day 53.
 
 ## Phase 1 – Classic Machine Learning Foundations
 
-> **Start here if you are following the Day 40–50 sequence.**
+> **Start here if you are following the Day 40–53 sequence.**
 >
 > The goal of Phase 1 is to master supervised learning workflows, evaluation techniques, and model selection before layering on deep learning.
 
@@ -21,6 +21,9 @@ This roadmap outlines a phased journey from classic machine learning foundations
 | Day 48 | [Recurrent Neural Networks](../Day_48_Recurrent_Neural_Networks/README.md) | Model sequential data with RNNs, LSTMs, and GRUs. |
 | Day 49 | [Natural Language Processing](../Day_49_NLP/README.md) | Build text classification pipelines with tokenisation and embeddings. |
 | Day 50 | [MLOps](../Day_50_MLOps/README.md) | Package, persist, and monitor models for reliable deployment. |
+| Day 51 | [Regularised Models](../Day_51_Regularized_Models/README.md) | Contrast ridge, lasso, elastic net, and Poisson GLMs while measuring coefficient shrinkage. |
+| Day 52 | [Ensemble Methods](../Day_52_Ensemble_Methods/README.md) | Blend bagging, boosting, and stacking ensembles with calibrated probability estimates. |
+| Day 53 | [Model Tuning & Feature Selection](../Day_53_Model_Tuning_and_Feature_Selection/README.md) | Optimise hyperparameters with grid/Bayesian search and validate feature subsets via permutation importance and RFE. |
 
 ### Recommended next steps after Phase 1
 
@@ -58,4 +61,4 @@ Turn prototypes into production systems by investing in reliable infrastructure 
 
 ## Putting it all together
 
-Progressing through these phases transforms the Day 40–50 lessons into a comprehensive ML competency path. Loop back to earlier phases whenever you encounter new domains or stakeholders—revisiting the fundamentals will keep each new system grounded in sound methodology.
+Progressing through these phases transforms the Day 40–53 lessons into a comprehensive ML competency path. Loop back to earlier phases whenever you encounter new domains or stakeholders—revisiting the fundamentals will keep each new system grounded in sound methodology.

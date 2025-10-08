@@ -11,6 +11,7 @@ plotly==6.3.0
 psycopg2-binary==2.9.10
 requests==2.32.5
 scikit-learn==1.7.2
+scikit-optimize==0.10.2
 seaborn==0.13.2
 sympy==1.14.0
 tensorflow==2.20.0
