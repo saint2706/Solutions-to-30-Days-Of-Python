@@ -1,6 +1,6 @@
 # Coding for MBA
 
-A 53-day applied Python and analytics curriculum designed for business
+A 57-day applied Python and analytics curriculum designed for business
 professionals. Each `Day_XX_*` directory contains a self-contained lesson that
 walks through practical data skills, from programming fundamentals to
 introductory machine learning.
@@ -23,11 +23,11 @@ Optional extras for database-focused lessons:
 
 ## 📚 Navigating the lessons
 
-Lessons are organised chronologically. Start with the [Machine Learning Curriculum Roadmap](docs/ml_curriculum.md) if you want to understand how the Day 40–53 sequence grows into an end-to-end ML capability.
+Lessons are organised chronologically. Start with the [Machine Learning Curriculum Roadmap](docs/ml_curriculum.md) if you want to understand how the Day 40–57 sequence grows into an end-to-end ML capability.
 
 **Phases at a glance**
 
-- **Phase 1 – Classic ML foundations:** Day 40–53 walk through supervised/unsupervised learning, neural networks, NLP, and an MLOps primer.
+- **Phase 1 – Classic ML foundations:** Day 40–57 walk through supervised/unsupervised learning, neural networks, probabilistic modelling, time series, recommenders, NLP, and an MLOps primer.
 - **Phase 2 – Modern deep learning:** Continue into transformers, transfer learning, and representation learning.
 - **Phase 3 – Responsible AI:** Build governance, fairness, and explainability practices into every deployment.
 - **Phase 4 – MLOps & lifecycle:** Automate experimentation, deployment, and monitoring for production systems.
@@ -65,6 +65,22 @@ in an interactive notebook environment.
   (`Day_53_Model_Tuning_and_Feature_Selection/solutions.py`): demonstrates grid
   search, Bayesian optimisation (via `skopt`), permutation importance, and
   recursive feature elimination on a reproducible dataset.
+- **Day 54 – Probabilistic Modeling** (`Day_54_Probabilistic_Modeling/solutions.py`):
+  provides Gaussian mixtures, expectation-maximisation, Bayesian classifiers,
+  and hidden Markov model log-likelihood utilities for reasoning under
+  uncertainty.
+- **Day 55 – Advanced Unsupervised Learning**
+  (`Day_55_Advanced_Unsupervised_Learning/solutions.py`): explores DBSCAN,
+  agglomerative clustering, t-SNE embeddings, autoencoders, and anomaly
+  detection baselines.
+- **Day 56 – Time Series & Forecasting**
+  (`Day_56_Time_Series_and_Forecasting/solutions.py`): fits ARIMA/SARIMAX,
+  Holt-Winters, and Prophet-style models with rolling-origin evaluation
+  helpers.
+- **Day 57 – Recommender Systems**
+  (`Day_57_Recommender_Systems/solutions.py`): implements collaborative
+  filtering, matrix factorisation, and ranking metrics for implicit-feedback
+  aware recommenders.
 - **Day 50 – MLOps** (`Day_50_MLOps/solutions.py`): exposes reusable helpers for
   training, saving, loading, and predicting with a Logistic Regression Iris
   classifier.
