@@ -23,8 +23,16 @@ Optional extras for database-focused lessons:
 
 ## 📚 Navigating the lessons
 
-Lessons are organised chronologically. Jump to any topic by running the
-corresponding script:
+Lessons are organised chronologically. Start with the [Machine Learning Curriculum Roadmap](docs/ml_curriculum.md) if you want to understand how the Day 40–50 sequence grows into an end-to-end ML capability.
+
+**Phases at a glance**
+
+- **Phase 1 – Classic ML foundations:** Day 40–50 walk through supervised/unsupervised learning, neural networks, NLP, and an MLOps primer.
+- **Phase 2 – Modern deep learning:** Continue into transformers, transfer learning, and representation learning.
+- **Phase 3 – Responsible AI:** Build governance, fairness, and explainability practices into every deployment.
+- **Phase 4 – MLOps & lifecycle:** Automate experimentation, deployment, and monitoring for production systems.
+
+When you are ready to run a specific topic, jump to the lesson and execute the corresponding script:
 
 ## Running the lessons
 
