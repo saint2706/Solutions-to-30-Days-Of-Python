@@ -1,5 +1,0 @@
--r ../requirements.txt
-mysql-connector-python
-psycopg2-binary
-pymongo
-jupyterlab
