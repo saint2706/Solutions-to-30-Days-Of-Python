@@ -48,6 +48,8 @@ The script for this lesson, `pandas_adv.py`, has been refactored to place each a
    ```bash
    python Day_24_Pandas_Advanced/pandas_adv.py
    ```
+   If the CSV file is missing, the refactored `handle_missing_data()` helper now raises
+   a clear `ValueError` explaining how to restore the dataset before continuing.
 1. **Run the Tests:** The tests use a sample DataFrame created in memory, so they don't depend on the external CSV file.
    ```bash
    pytest tests/test_day_24.py
