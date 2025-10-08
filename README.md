@@ -21,6 +21,25 @@ Optional extras for database-focused lessons:
 - PostgreSQL: `pip install psycopg2-binary`
 - MongoDB: `pip install pymongo`
 
+## 📖 Documentation site
+
+A MkDocs-powered site is published automatically from `main` at
+[`https://your-username.github.io/Coding-For-MBA/`](https://your-username.github.io/Coding-For-MBA/).
+Replace `your-username` with your GitHub handle once you enable GitHub Pages for
+your fork.
+
+### Preview the docs locally
+
+```bash
+pip install -r docs/requirements.txt
+python tools/build_docs.py
+mkdocs serve
+```
+
+The build script ingests every `Day_*` README, rewrites internal links so they
+point back to GitHub, appends quick links to the lesson's notebooks or Python
+scripts, and refreshes the MkDocs navigation.
+
 ## 📚 Navigating the lessons
 
 Lessons are organised chronologically. Start with the [Machine Learning Curriculum Roadmap](docs/ml_curriculum.md) if you want to understand how the Day 40–57 sequence grows into an end-to-end ML capability.
@@ -47,6 +66,18 @@ jupyter notebook
 Navigate to a `Day_*` directory and select the relevant `.ipynb` file—for
 instance, `Day_31_Databases/databases.ipynb` walks through the SQLite example
 in an interactive notebook environment.
+
+## 🤝 Contributing to the docs
+
+1. Install the documentation dependencies with `pip install -r docs/requirements.txt`.
+2. Run `python tools/build_docs.py` to regenerate the lesson pages from the
+   latest READMEs.
+3. Preview locally with `mkdocs serve` and open `http://127.0.0.1:8000/`.
+4. Commit changes to source files (`README.md`, lesson READMEs, notebooks, etc.)
+   rather than the generated `docs/lessons/day-*.md` pages.
+
+The GitHub Actions workflow builds the site on every push to `main` and deploys
+it to GitHub Pages.
 
 ## Featured lessons
 
