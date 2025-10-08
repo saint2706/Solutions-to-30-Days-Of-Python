@@ -40,8 +40,7 @@ canary verdicts respect latency/accuracy thresholds.
 
 - Replace the heuristic drift detector with `alibi-detect`, `evidently`,
   or scikit-multiflow to monitor complex multivariate shifts.
-- Export the observability payloads to Prometheus using `prometheus-
-  client` counters, gauges, and histograms.
+- Export the observability payloads to Prometheus using `prometheus- client` counters, gauges, and histograms.
 - Emit OpenTelemetry traces that attach prediction metadata and user
   identifiers for distributed tracing across microservices.
 - Integrate human-in-the-loop acknowledgement by forwarding alerts to an

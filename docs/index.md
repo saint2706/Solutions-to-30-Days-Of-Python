@@ -6,8 +6,8 @@ Welcome to the official documentation hub for the **Coding for MBA** curriculum.
 - Read every lesson summary without digging through folders.
 - Jump straight into the companion notebooks or Python scripts for each topic.
 
-!!! info "Accessibility & Theme"
-    This site defaults to dark mode for comfortable reading. Use the theme toggle in the header to switch between dark and light modes. The site includes enhanced accessibility features including keyboard navigation, screen reader support, and high contrast mode compatibility.
+!!! tip "Prefer a darker UI?"
+Use the theme toggle in the header to switch between the light and dark palettes.
 
 ## What's inside
 

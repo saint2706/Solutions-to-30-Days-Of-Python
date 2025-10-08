@@ -164,7 +164,9 @@ def ensure_accessible_html(html: str, title: str) -> str:
     if body and not main:
         main = soup.new_tag("main", id="main-content", tabindex="-1")
         for child in list(body.contents):
-            if getattr(child, "name", None) == "a" and "skip-link" in child.get("class", []):
+            if getattr(child, "name", None) == "a" and "skip-link" in child.get(
+                "class", []
+            ):
                 continue
             main.append(child.extract())
         body.append(main)
@@ -221,7 +223,9 @@ def validate_accessibility(html: str, notebook_name: str) -> list[str]:
     return warnings
 
 
-def export_static_content(notebook: Path, output_root: Path, template_dir: Path) -> list[Path]:
+def export_static_content(
+    notebook: Path, output_root: Path, template_dir: Path
+) -> list[Path]:
     """Render notebook to Markdown and accessible HTML outputs."""
 
     relative = notebook.relative_to(Path(__file__).resolve().parents[1])
@@ -244,7 +248,9 @@ def export_static_content(notebook: Path, output_root: Path, template_dir: Path)
     html_exporter.exclude_input_prompt = True
     html_exporter.exclude_output_prompt = True
     html_body, _ = html_exporter.from_filename(str(notebook))
-    accessible_html = ensure_accessible_html(html_body, notebook.stem.replace("_", " ").title())
+    accessible_html = ensure_accessible_html(
+        html_body, notebook.stem.replace("_", " ").title()
+    )
     warnings = validate_accessibility(accessible_html, notebook.stem)
     if warnings:
         formatted = "\n".join(f" - {message}" for message in warnings)

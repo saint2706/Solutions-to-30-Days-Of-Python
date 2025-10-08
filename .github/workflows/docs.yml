@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Day_*/README.md'
+      - 'docs/**'
+      - 'tools/build_docs.py'
+      - 'mkdocs.yml'
+      - '.github/workflows/docs.yml'
   workflow_dispatch:
 
 permissions:
@@ -29,11 +35,20 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: 'pip'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-docs-pip-${{ hashFiles('docs/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-docs-pip-
 
       - name: Install documentation dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
+          pip install -r docs/requirements.txt
 
       - name: Generate lesson pages
         run: python tools/build_docs.py
