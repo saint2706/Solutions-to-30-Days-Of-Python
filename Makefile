@@ -4,7 +4,7 @@ NB_FILES := $(shell git ls-files '*.ipynb')
 MD_FILES := $(shell git ls-files '*.md')
 
 lint:
-	ruff check .
+	ruff check --fix .
 	ruff format --check .
 	@if [ -n "$(NB_FILES)" ]; then \
 		nbqa black --check $(NB_FILES); \
