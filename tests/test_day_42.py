@@ -1,27 +1,10 @@
-import importlib.util
-import sys
-from pathlib import Path
-
 import pytest
+from importlib import import_module
 
 
-def _load_module():
-    module_path = (
-        Path(__file__).resolve().parents[1]
-        / "Day_42_Supervised_Learning_Classification_Part_1"
-        / "solutions.py"
-    )
-    spec = importlib.util.spec_from_file_location(
-        "day_42_part_1_solutions", module_path
-    )
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-
-sol = _load_module()
+sol = import_module(
+    "Day_42_Supervised_Learning_Classification_Part_1.solutions"
+)
 
 
 def test_load_and_prepare_iris_shapes():

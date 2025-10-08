@@ -1,25 +1,8 @@
-import importlib.util
-from pathlib import Path
-import sys
-
 import numpy as np
+from importlib import import_module
 
 
-def _load_day47_module():
-    module_path = (
-        Path(__file__).resolve().parents[1]
-        / "Day_47_Convolutional_Neural_Networks"
-        / "solutions.py"
-    )
-    spec = importlib.util.spec_from_file_location("day47_solutions", module_path)
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-
-day47 = _load_day47_module()
+day47 = import_module("Day_47_Convolutional_Neural_Networks.solutions")
 
 
 def _fake_mnist_load_data():

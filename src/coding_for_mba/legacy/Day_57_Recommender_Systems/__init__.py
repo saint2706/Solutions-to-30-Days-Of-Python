@@ -1,0 +1,4 @@
+"""Legacy import path for Day_57_Recommender_Systems."""
+
+from coding_for_mba.curriculum.phase03_machine_learning.day57_recommender_systems import *  # noqa: F401,F403
+

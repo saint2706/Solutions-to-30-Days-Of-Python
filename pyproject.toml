@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coding-for-mba"
+version = "0.1.0"
+description = "Modularized Coding for MBA curriculum"
+readme = "README.md"
+authors = [{name = "Coding for MBA"}]
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["coding_for_mba*", "Day_*", "mypackage*"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov"]

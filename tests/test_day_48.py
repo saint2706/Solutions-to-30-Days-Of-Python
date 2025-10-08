@@ -1,25 +1,8 @@
-import importlib.util
-from pathlib import Path
-import sys
-
 import numpy as np
+from importlib import import_module
 
 
-def _load_day48_module():
-    module_path = (
-        Path(__file__).resolve().parents[1]
-        / "Day_48_Recurrent_Neural_Networks"
-        / "solutions.py"
-    )
-    spec = importlib.util.spec_from_file_location("day48_solutions", module_path)
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-
-day48 = _load_day48_module()
+day48 = import_module("Day_48_Recurrent_Neural_Networks.solutions")
 
 
 def _fake_imdb_load_data(num_words=None):
