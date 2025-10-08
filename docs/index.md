@@ -6,14 +6,18 @@ Welcome to the official documentation hub for the **Coding for MBA** curriculum.
 - Read every lesson summary without digging through folders.
 - Jump straight into the companion notebooks or Python scripts for each topic.
 
-!!! tip "Prefer a darker UI?"
-    Use the theme toggle in the header to switch between the light and dark palettes.
+!!! info "Accessibility & Theme"
+    This site defaults to dark mode for comfortable reading. Use the theme toggle in the header to switch between dark and light modes. The site includes enhanced accessibility features including keyboard navigation, screen reader support, and high contrast mode compatibility.
 
 ## What's inside
 
 - **Machine Learning Curriculum** – Phased roadmap that explains how the Day 40–67 sequence ladders into an end-to-end ML capability.
 - **Lessons** – Direct access to every `Day_*` lesson README, enhanced with quick links to the supporting notebooks and scripts.
-- **Accessible lesson exports** – Screen-reader-ready HTML and Markdown versions of every notebook live under [`docs/lessons/`](./lessons/) for offline or assistive-technology-first study.
+- **Repository Roadmap** – Future development plans and enhancement priorities for the curriculum.
+- **Automation Commands** – Custom commands for CI/CD workflows and automated testing.
+- **Dependency Review** – Analysis of project dependencies and their purposes.
+- **License** – Complete Apache 2.0 license information for the project.
+- **Accessible lesson exports** – Screen-reader-ready HTML and Markdown versions of every notebook live under [`docs/lessons/`](lessons/index.md) for offline or assistive-technology-first study.
 
 ## Lessons
 
