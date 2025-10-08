@@ -1,4 +1,9 @@
-# Dependency review — 2025-09-29
+---
+layout: default
+title: Dependency review — 2025-09-29
+nav_order: 90
+permalink: /dependency-review/
+---
 
 ## Summary
 
