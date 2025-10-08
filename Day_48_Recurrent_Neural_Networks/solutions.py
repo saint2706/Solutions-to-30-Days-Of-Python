@@ -9,7 +9,6 @@ import tensorflow as tf
 from tensorflow.keras import datasets, layers, models
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-
 DEFAULT_SEED = 42
 
 

@@ -9,7 +9,6 @@ from typing import Iterator, List, Sequence, Tuple, Union
 
 import pandas as pd
 
-
 DB_FILE = "company_data.db"
 
 EmployeeRecord = Tuple[int, str, str, float]

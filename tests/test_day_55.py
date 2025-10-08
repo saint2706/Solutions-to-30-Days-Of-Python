@@ -42,7 +42,9 @@ def test_autoencoder_flags_outliers_via_reconstruction_error() -> None:
     anomalies = np.array([[7.5, 7.5], [-7.0, 2.0], [0.0, 8.0]])
     anomaly_errors = day55.reconstruction_errors(auto, scaler.transform(anomalies))
     assert float(anomaly_errors.mean()) > threshold * 10
-    mask = day55.detect_anomalies_with_autoencoder(auto, scaler.transform(anomalies), threshold)
+    mask = day55.detect_anomalies_with_autoencoder(
+        auto, scaler.transform(anomalies), threshold
+    )
     assert mask.tolist() == [0, 1, 1]
 
 
@@ -53,6 +55,8 @@ def test_density_based_anomaly_scores_rank_inserted_points() -> None:
     lof_scores, lof_labels = day55.lof_anomaly_scores(combined)
     assert lof_labels[-3:].tolist() == [-1, -1, -1]
 
-    iso_scores = day55.isolation_forest_scores(combined, contamination=0.05, random_state=13)
+    iso_scores = day55.isolation_forest_scores(
+        combined, contamination=0.05, random_state=13
+    )
     top_indices = np.argsort(iso_scores)[-3:]
     assert set(top_indices.tolist()) == {450, 451, 452}

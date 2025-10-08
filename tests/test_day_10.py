@@ -1,13 +1,13 @@
-import sys
 import os
+import sys
 
 # Add the parent directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_10_Loops.loops import (
     calculate_total_from_list,
-    filter_high_value_customers,
     check_inventory_levels,
+    filter_high_value_customers,
     simulate_investment_growth,
 )
 

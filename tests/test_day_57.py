@@ -25,14 +25,21 @@ def test_svd_factorisation_produces_masked_recommendations() -> None:
 def test_ranking_metrics_align_across_methods() -> None:
     ratings = day57.build_demo_user_item_matrix(random_state=57)
     target_user = "A"
-    user_scores = day57.rank_items(day57.user_based_scores(ratings, target_user, k_neighbors=2), top_n=3)
+    user_scores = day57.rank_items(
+        day57.user_based_scores(ratings, target_user, k_neighbors=2), top_n=3
+    )
     svd_scores = day57.rank_items(
-        day57.mask_known_items(day57.svd_matrix_factorisation(ratings, 2).loc[target_user], ratings.loc[target_user]),
+        day57.mask_known_items(
+            day57.svd_matrix_factorisation(ratings, 2).loc[target_user],
+            ratings.loc[target_user],
+        ),
         top_n=3,
     )
     implicit_scores = day57.rank_items(
         day57.mask_known_items(
-            day57.implicit_confidence_matrix((ratings > 3).astype(int)).loc[target_user],
+            day57.implicit_confidence_matrix((ratings > 3).astype(int)).loc[
+                target_user
+            ],
             ratings.loc[target_user],
         ),
         top_n=3,
@@ -41,7 +48,11 @@ def test_ranking_metrics_align_across_methods() -> None:
     precision = day57.precision_at_k(user_scores.ranked_items, relevant, k=3)
     recall = day57.recall_at_k(user_scores.ranked_items, relevant, k=3)
     map_score = day57.mean_average_precision(
-        [user_scores.ranked_items, svd_scores.ranked_items, implicit_scores.ranked_items],
+        [
+            user_scores.ranked_items,
+            svd_scores.ranked_items,
+            implicit_scores.ranked_items,
+        ],
         [relevant, relevant, relevant],
         k=3,
     )

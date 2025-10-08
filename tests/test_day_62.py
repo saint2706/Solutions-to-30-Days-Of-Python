@@ -10,7 +10,9 @@ from Day_62_Model_Interpretability_and_Fairness import solutions as day62
 
 
 def _encode_row(row):
-    return np.array([row["credit_score"], row["income"], float(row["gender"] == "F")], dtype=float)
+    return np.array(
+        [row["credit_score"], row["income"], float(row["gender"] == "F")], dtype=float
+    )
 
 
 def test_shap_values_sum_to_prediction():
@@ -45,8 +47,12 @@ def test_counterfactual_moves_prediction_towards_target():
         "income": (35_000, 110_000),
         "is_female": (0.0, 1.0),
     }
-    result = day62.generate_counterfactual(model, features, target=target, bounds=bounds)
-    assert abs(result.counterfactual_prediction - target) < abs(result.original_prediction - target)
+    result = day62.generate_counterfactual(
+        model, features, target=target, bounds=bounds
+    )
+    assert abs(result.counterfactual_prediction - target) < abs(
+        result.original_prediction - target
+    )
     assert np.all(result.counterfactual_features >= np.array([520, 35_000, 0.0]))
     assert np.all(result.counterfactual_features <= np.array([800, 110_000, 1.0]))
 

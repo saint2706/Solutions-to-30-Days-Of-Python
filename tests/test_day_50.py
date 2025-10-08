@@ -25,9 +25,7 @@ def test_model_round_trip(tmp_path: Path) -> None:
 
     baseline_predictions = model.predict(X_test)
 
-    expected_y_test = np.array(
-        [0, 0, 0, 0, 0, 0, 2, 1, 1, 2, 2, 2, 2, 1, 0, 1, 1, 2]
-    )
+    expected_y_test = np.array([0, 0, 0, 0, 0, 0, 2, 1, 1, 2, 2, 2, 2, 1, 0, 1, 1, 2])
     expected_X_test = np.array(
         [
             [5.0, 3.5, 1.6, 0.6],

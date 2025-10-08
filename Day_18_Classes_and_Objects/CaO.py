@@ -6,8 +6,8 @@ real-world business concepts like a statistics calculator and a personal account
 """
 
 import statistics as stat
-from typing import Sequence, List, Dict, Union, Tuple, Any
 from collections import Counter
+from typing import Any, Dict, List, Sequence, Tuple, Union
 
 
 class Statistics:

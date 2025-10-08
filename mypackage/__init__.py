@@ -22,7 +22,7 @@ __version__ = "1.0.0"
 __author__ = "50 Days of Python Course"
 
 # Import key functions for easy access
-from .arithmetics import add_numbers, subtract, multiply, divide, remainder, power
+from .arithmetics import add_numbers, divide, multiply, power, remainder, subtract
 from .greet import greet_person
 
 __all__ = [

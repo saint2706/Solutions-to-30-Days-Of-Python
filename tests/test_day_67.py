@@ -18,7 +18,9 @@ def test_compute_mean_drift_triggers_on_shift():
 def test_canary_verdict_blocks_high_latency():
     baseline_metrics = {"latency": 0.2, "accuracy": 0.85, "error_rate": 0.05}
     candidate_metrics = {"latency": 0.4, "accuracy": 0.86, "error_rate": 0.05}
-    verdict = solutions.evaluate_canary(baseline_metrics, candidate_metrics, allowed_latency_delta=0.15)
+    verdict = solutions.evaluate_canary(
+        baseline_metrics, candidate_metrics, allowed_latency_delta=0.15
+    )
     assert verdict.promote is False
     assert verdict.reason == "Latency regression"
 
@@ -35,8 +37,12 @@ def test_enqueue_retraining_respects_accuracy_drop():
 
 def test_observability_snapshot_contains_metrics():
     report = solutions.DriftReport("feat_a", 0.1, 0.3, 1.2, True)
-    verdict = solutions.CanaryVerdict(False, "Accuracy below threshold", {"accuracy": 0.7})
-    snapshot = solutions.build_observability_snapshot(report, verdict, predictions_served=42)
+    verdict = solutions.CanaryVerdict(
+        False, "Accuracy below threshold", {"accuracy": 0.7}
+    )
+    snapshot = solutions.build_observability_snapshot(
+        report, verdict, predictions_served=42
+    )
     assert snapshot["drift"]["triggered"] is True
     assert snapshot["canary"]["promote"] is False
     assert snapshot["counters"]["predictions_served_total"] == 42

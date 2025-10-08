@@ -1,14 +1,15 @@
-import sys
 import os
-import pytest
+import sys
+
 import numpy as np
+import pytest
 
 # Add the parent directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_22_NumPy.numpy_examples import (
-    calculate_revenue_vectorized,
     analyze_sales_data,
+    calculate_revenue_vectorized,
     filter_above_average,
 )
 

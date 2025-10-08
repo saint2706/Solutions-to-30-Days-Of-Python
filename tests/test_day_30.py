@@ -9,7 +9,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 
 from Day_30_Web_Scraping.web_scraping import process_book_data, scrape_books
 
-
 HTML_FIXTURE = (
     (
         """
