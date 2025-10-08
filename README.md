@@ -158,16 +158,18 @@ pytest
 ## 🧹 Code formatting
 
 The repository standardises formatting across Python modules, notebooks, and
-Markdown documents. After installing `requirements-dev.txt`, run the following
-commands from the project root before opening a pull request:
+Markdown documents. After installing `requirements-dev.txt`, run the unified
+command from the project root before opening a pull request:
 
 ```bash
-ruff check --fix .
-ruff format .
-nbqa black $(git ls-files '*.ipynb')
-nbqa ruff --fix $(git ls-files '*.ipynb')
-mdformat $(git ls-files '*.md')
+make format
 ```
+
+This wraps the standard sequence—`ruff check --fix`, `ruff format`, notebook
+formatting via `nbqa`, and `mdformat` for Markdown—so that Python modules,
+Jupyter notebooks, and documentation stay in sync with the shared
+configuration defined in `pyproject.toml`. To check formatting without making
+changes (the command used in CI), run `make lint` instead.
 
 ## 🔄 Dependency reviews
 
