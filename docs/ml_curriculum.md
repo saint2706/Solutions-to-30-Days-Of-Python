@@ -39,6 +39,13 @@ This roadmap outlines a phased journey from classic machine learning foundations
 
 Deep learning expands the model families available in Phase 1. Focus on building intuition for architectures, transfer learning, and optimisation.
 
+| Day | Lesson | Key takeaway |
+| --- | ------ | ------------ |
+| Day 58 | [Transformers and Attention](../Day_58_Transformers_and_Attention/README.md) | Assemble encoder–decoder stacks, fine-tune pretrained checkpoints, and interpret attention heatmaps with deterministic demos. |
+| Day 59 | [Generative Models](../Day_59_Generative_Models/README.md) | Compare autoencoders, VAEs, GANs, and diffusion denoisers while monitoring reconstruction loss curves on synthetic data. |
+| Day 60 | [Graph and Geometric Learning](../Day_60_Graph_and_Geometric_Learning/README.md) | Prototype GraphSAGE and GAT-style message passing networks for toy node classification tasks with interpretable attention scores. |
+| Day 61 | [Reinforcement and Offline Learning](../Day_61_Reinforcement_and_Offline_Learning/README.md) | Explore policy/value methods, contextual bandits, and offline evaluation baselines that converge to reproducible reward thresholds. |
+
 - Refresh Python packages for GPU acceleration (PyTorch or TensorFlow) and practice training models on cloud notebooks.
 - Study convolutional network variants (ResNet, EfficientNet) and fine-tune pretrained models for domain-specific images.
 - Learn about transformer architectures for text, vision, and multimodal data, starting with embeddings and attention mechanisms.

@@ -50,6 +50,22 @@ in an interactive notebook environment.
 
 ## Featured lessons
 
+- **Day 58 – Transformers and Attention** (`Day_58_Transformers_and_Attention/solutions.py`):
+  builds encoder–decoder stacks, deterministic transformer text classifiers,
+  Hugging Face fine-tuning playbooks, and attention visualisations for rapid
+  experimentation.
+- **Day 59 – Generative Models** (`Day_59_Generative_Models/solutions.py`):
+  contrasts autoencoders, VAEs, GAN dynamics, and diffusion denoisers with
+  synthetic training loops that log reconstruction improvements.
+- **Day 60 – Graph and Geometric Learning**
+  (`Day_60_Graph_and_Geometric_Learning/solutions.py`): implements GraphSAGE
+  and graph attention message passing for toy node-classification graphs with
+  interpretable attention matrices.
+- **Day 61 – Reinforcement and Offline Learning**
+  (`Day_61_Reinforcement_and_Offline_Learning/solutions.py`): simulates
+  policy-gradient bandits, tabular value iteration, contextual bandits, and
+  offline evaluation with deterministic reward thresholds for regression
+  testing.
 - **Day 31 – Relational Databases** (`Day_31_Databases/databases.py`): builds and
   queries a SQLite database, mirroring production-ready analysis workflows.
 - **Day 32 – Other Databases** (`Day_32_Other_Databases/other_databases.py`):
