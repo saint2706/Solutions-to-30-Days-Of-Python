@@ -8,13 +8,13 @@ from typing import Dict, List, Sequence, Tuple
 
 import numpy as np
 import pandas as pd
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.datasets import make_classification
 from sklearn.ensemble import (
     GradientBoostingClassifier,
     RandomForestClassifier,
     StackingClassifier,
 )
-from sklearn.calibration import CalibratedClassifierCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, brier_score_loss
 from sklearn.model_selection import cross_val_score, train_test_split
@@ -150,7 +150,9 @@ def calibrate_classifier(
     return calibrated
 
 
-def evaluate_classifier(model, X_test: np.ndarray, y_test: np.ndarray) -> Dict[str, float]:
+def evaluate_classifier(
+    model, X_test: np.ndarray, y_test: np.ndarray
+) -> Dict[str, float]:
     """Return accuracy and Brier score for the provided classifier."""
 
     probs = model.predict_proba(X_test)[:, 1]

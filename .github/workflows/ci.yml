@@ -25,6 +25,9 @@ jobs:
         pip install -r requirements-dev.txt
         pip install pytest
 
+    - name: Lint and format checks
+      run: make lint --fix
+
     - name: Test with pytest
       run: |
         pytest

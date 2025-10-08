@@ -1,15 +1,15 @@
-import sys
 import os
+import sys
 
 # Add the parent directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_05_Lists.lists import (
-    get_list_element,
-    get_first_half_sales,
     add_product,
-    remove_product,
     analyze_team_sales,
+    get_first_half_sales,
+    get_list_element,
+    remove_product,
 )
 
 

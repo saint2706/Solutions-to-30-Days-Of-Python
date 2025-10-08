@@ -42,7 +42,9 @@ def run_policy_gradient_bandit(
         grad = (reward - baseline) * (action - prob_action_one)
         theta += lr * grad
         moving_avg.append(float(np.mean(rewards[max(0, episode - 19) : episode + 1])))
-    return EpisodeLog(rewards=rewards, moving_average=moving_avg, policy_parameter=float(theta))
+    return EpisodeLog(
+        rewards=rewards, moving_average=moving_avg, policy_parameter=float(theta)
+    )
 
 
 @dataclass
@@ -167,7 +169,9 @@ def run_rl_suite(random_state: int = 61) -> Dict[str, object]:
 
 def _demo() -> None:
     results = run_rl_suite()
-    print(f"Policy gradient final avg reward: {results['policy_gradient'].moving_average[-1]:.3f}")
+    print(
+        f"Policy gradient final avg reward: {results['policy_gradient'].moving_average[-1]:.3f}"
+    )
     print(f"Q-learning Q-values: {results['q_learning'].q_values}")
     print(f"Bandit average reward: {results['bandit'].average_reward:.3f}")
     print(

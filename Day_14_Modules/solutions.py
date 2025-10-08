@@ -5,7 +5,6 @@ import math
 
 import finance_tools as ft
 
-
 # --- Exercise 1: Create a Finance Module ---
 print("--- Solution to Exercise 1 ---")
 

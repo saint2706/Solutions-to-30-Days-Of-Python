@@ -22,9 +22,11 @@ try:
     from Day_25_Data_Cleaning.data_cleaning import clean_sales_data
     from Day_26_Statistics.stats import (
         compute_correlations,
-        load_sales_data as stats_load_sales_data,
         run_ab_test,
         summarize_revenue,
+    )
+    from Day_26_Statistics.stats import (
+        load_sales_data as stats_load_sales_data,
     )
 except ImportError:
     PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -41,9 +43,11 @@ except ImportError:
     from Day_25_Data_Cleaning.data_cleaning import clean_sales_data
     from Day_26_Statistics.stats import (
         compute_correlations,
-        load_sales_data as stats_load_sales_data,
         run_ab_test,
         summarize_revenue,
+    )
+    from Day_26_Statistics.stats import (
+        load_sales_data as stats_load_sales_data,
     )
 
 

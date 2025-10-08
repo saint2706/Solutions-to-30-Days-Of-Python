@@ -1,15 +1,15 @@
-import sys
 import os
+import sys
 
 # Add the parent directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_03_Operators.operators import (
-    calculate_compound_interest,
     accumulate_sales,
+    calculate_compound_interest,
+    check_bonus_eligibility,
     check_inventory_status,
     check_sales_target,
-    check_bonus_eligibility,
 )
 
 
