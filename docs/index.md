@@ -1,4 +1,9 @@
-# Coding for MBA Documentation
+---
+layout: home
+title: Coding for MBA Documentation
+nav_order: 1
+permalink: /
+---
 
 Welcome to the official documentation hub for the **Coding for MBA** curriculum. This static site pulls content directly from the repository so you can:
 
@@ -15,4 +20,4 @@ Use the navigation menu to explore the machine learning roadmap or drill into th
 
 ## Contributing updates
 
-Contributions are welcome! See the [repository README](https://github.com/your-username/Coding-For-MBA/blob/main/README.md) for setup instructions and the documentation contribution workflow.
+Contributions are welcome! See the [repository README](https://github.com/saint2706/Coding-For-MBA/blob/main/README.md) for setup instructions and the documentation contribution workflow.

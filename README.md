@@ -8,7 +8,7 @@ modern ML operations and monitoring.
 ## 🚀 Quick start
 
 ```bash
-git clone https://github.com/your-username/Coding-For-MBA.git
+git clone https://github.com/saint2706/Coding-For-MBA.git
 cd Coding-For-MBA
 python -m venv .venv
 source .venv/bin/activate  # On Windows use `.venv\\Scripts\\activate`
@@ -23,22 +23,21 @@ Optional extras for database-focused lessons:
 
 ## 📖 Documentation site
 
-A MkDocs-powered site is published automatically from `main` at
-[`https://your-username.github.io/Coding-For-MBA/`](https://your-username.github.io/Coding-For-MBA/).
-Replace `your-username` with your GitHub handle once you enable GitHub Pages for
-your fork.
+A Jekyll site styled with the **Just the Docs** theme is published automatically from `main` at
+[`https://saint2706.github.io/Coding-For-MBA/`](https://saint2706.github.io/Coding-For-MBA/).
 
 ### Preview the docs locally
 
 ```bash
 pip install -r docs/requirements.txt
+bundle install --gemfile docs/Gemfile
 python tools/build_docs.py
-mkdocs serve
+bundle exec jekyll serve --source docs --livereload
 ```
 
 The build script ingests every `Day_*` README, rewrites internal links so they
 point back to GitHub, appends quick links to the lesson's notebooks or Python
-scripts, and refreshes the MkDocs navigation.
+scripts, and writes Jekyll front matter so the lessons slot into the Just the Docs navigation automatically.
 
 ## 📚 Navigating the lessons
 
@@ -67,25 +66,15 @@ in an interactive notebook environment.
 
 ## 🤝 Contributing to the docs
 
-1. Install the documentation dependencies with `pip install -r docs/requirements.txt`.
+1. Install the documentation dependencies with `pip install -r docs/requirements.txt` and `bundle install --gemfile docs/Gemfile`.
 2. Run `python tools/build_docs.py` to regenerate the lesson pages from the
    latest READMEs.
-3. Preview locally with `mkdocs serve` and open `http://127.0.0.1:8000/`.
+3. Preview locally with `bundle exec jekyll serve --source docs --livereload` and open `http://127.0.0.1:4000/`.
 4. Commit changes to source files (`README.md`, lesson READMEs, notebooks, etc.)
    rather than the generated `docs/lessons/day-*.md` pages.
 
-The GitHub Actions workflow builds the site on every push to `main` and deploys
+The GitHub Actions workflow builds the Jekyll site on every push to `main` and deploys
 it to GitHub Pages.
-Notebooks are generated from the lesson scripts via
-`tools/convert_lessons_to_notebooks.py`. If you update a `.py` lesson, rerun the
-converter to refresh the paired notebook:
-
-```bash
-python tools/convert_lessons_to_notebooks.py
-```
-
-You can still execute the scripts directly—`python Day_31_Databases/databases.py`
-remains valid—but notebooks are the recommended path for hands-on exploration.
 
 ## Featured lessons
 

@@ -1,8 +1,8 @@
 site_name: Coding for MBA
 site_description: "Applied Python and machine learning curriculum for business leaders"
-site_url: https://your-username.github.io/Coding-For-MBA/
-repo_url: https://github.com/your-username/Coding-For-MBA
-repo_name: your-username/Coding-For-MBA
+site_url: https://saint2706.github.io/Coding-For-MBA/
+repo_url: https://github.com/saint2706/Coding-For-MBA
+repo_name: saint2706/Coding-For-MBA
 theme:
   name: mkdocs
 nav:
