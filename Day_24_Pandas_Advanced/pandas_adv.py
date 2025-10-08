@@ -63,9 +63,15 @@ def filter_by_product_and_region(
 
 
 def handle_missing_data(
-    df: pd.DataFrame, strategy: str = "drop", fill_value=None
+    df: Optional[pd.DataFrame], strategy: str = "drop", fill_value=None
 ) -> pd.DataFrame:
     """Handles missing data by either dropping rows or filling with a value."""
+    if df is None or df.empty:
+        raise ValueError(
+            "No sales data is available. Ensure the CSV exists and contains rows before"
+            " calling handle_missing_data."
+        )
+
     df_copy = df.copy()
     if strategy == "drop":
         return df_copy.dropna()

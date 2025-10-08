@@ -79,6 +79,13 @@ def test_handle_missing_data_fill(sample_dataframe):
     assert df_filled.loc[0, "Revenue"] == 60000
 
 
+def test_handle_missing_data_missing_frame():
+    """Passing None should raise a descriptive error instead of crashing."""
+
+    with pytest.raises(ValueError, match="No sales data is available"):
+        handle_missing_data(None, strategy="drop")
+
+
 def test_build_revenue_by_region_bar_chart_returns_sorted_bars(sample_dataframe):
     df = sample_dataframe.copy()
     df.loc[3, "Revenue"] = 4000
