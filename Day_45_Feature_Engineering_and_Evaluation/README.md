@@ -51,3 +51,7 @@ root.
 - Replace the logistic regression classifier in `build_model_pipeline` with
   another estimator (e.g., RandomForestClassifier) and compare the resulting
   confusion matrix.
+- Continue into the responsible AI deep dive in
+  [`Day_62_Model_Interpretability_and_Fairness`](../Day_62_Model_Interpretability_and_Fairness/README.md)
+  to study post-hoc explanations and mitigation strategies built atop the
+  evaluation workflows from this lesson.

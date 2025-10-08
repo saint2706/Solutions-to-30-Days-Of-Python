@@ -33,3 +33,10 @@ pytest tests/test_day_49.py
 
 All tests expect to be run from the repository root so that imports
 resolve correctly.
+
+## Next steps
+
+- Jump to [`Day_64_Modern_NLP_Pipelines`](../Day_64_Modern_NLP_Pipelines/README.md)
+  for transformer fine-tuning, retrieval-augmented generation, and robust
+  evaluation workflows that build on the vectorization foundations covered
+  here.
