@@ -17,6 +17,7 @@ Use the navigation menu to explore the machine learning roadmap or drill into th
 
 - **Machine Learning Curriculum** – Phased roadmap that explains how the Day 40–67 sequence ladders into an end-to-end ML capability.
 - **Lessons** – Direct access to every `Day_*` lesson README, enhanced with quick links to the supporting notebooks and scripts.
+- **Accessible lesson exports** – Screen-reader-ready HTML and Markdown versions of every notebook live under [`docs/lessons/`](./lessons/) for offline or assistive-technology-first study.
 
 ## Contributing updates
 
