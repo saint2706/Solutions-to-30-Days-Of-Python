@@ -131,5 +131,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-# Generated documentation
-docs/lessons/day-*.md
