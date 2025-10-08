@@ -1,9 +1,9 @@
 # Coding for MBA
 
-A 57-day applied Python and analytics curriculum designed for business
-professionals. Each `Day_XX_*` directory contains a self-contained lesson that
-walks through practical data skills, from programming fundamentals to
-introductory machine learning.
+A 67-day applied Python, analytics, and machine learning curriculum designed
+for business professionals. Each `Day_XX_*` directory is a self-contained
+lesson that builds end-to-end data fluency—from programming fundamentals to
+modern ML operations and monitoring.
 
 ## 🚀 Quick start
 
@@ -23,21 +23,19 @@ Optional extras for database-focused lessons:
 
 ## 📚 Navigating the lessons
 
-Lessons are organised chronologically. Start with the [Machine Learning Curriculum Roadmap](docs/ml_curriculum.md) if you want to understand how the Day 40–57 sequence grows into an end-to-end ML capability.
+Lessons are organised chronologically. Start with the [Machine Learning Curriculum Roadmap](docs/ml_curriculum.md) to see how the upper-level ML sequence layers onto the Python and analytics foundations built in Days 01–39.
 
 **Phases at a glance**
 
-- **Phase 1 – Classic ML foundations:** Day 40–57 walk through supervised/unsupervised learning, neural networks, probabilistic modelling, time series, recommenders, NLP, and an MLOps primer.
-- **Phase 2 – Modern deep learning:** Continue into transformers, transfer learning, and representation learning.
-- **Phase 3 – Responsible AI:** Build governance, fairness, and explainability practices into every deployment.
-- **Phase 4 – MLOps & lifecycle:** Automate experimentation, deployment, and monitoring for production systems.
+- **Phase 1 – Python and analytics foundations (Days 01–20):** Core Python syntax, data structures, file handling, and early automation skills.
+- **Phase 2 – Data workflows and statistics (Days 21–39):** Data ingestion, databases, APIs, statistics, and visualisation for business-ready analysis.
+- **Phase 3 – Machine learning fundamentals (Days 40–54):** Regression, classification, unsupervised learning, feature engineering, and neural networks.
+- **Phase 4 – Advanced ML & operations (Days 55–67):** Time series, recommenders, transformers, generative models, graph learning, reinforcement learning, modern NLP, and production-grade MLOps.
 
-When you are ready to run a specific topic, jump to the lesson and execute the corresponding script:
+## Working with notebooks and scripts
 
-## Running the lessons
-
-Each lesson folder now ships with Jupyter notebooks that mirror the original
-Python scripts. Launch Jupyter from the project root and open the notebook for
+Each lesson folder ships with a Jupyter notebook that mirrors the original
+Python script. Launch Jupyter from the project root and open the notebook for
 the topic you want to explore:
 
 ```bash
@@ -47,6 +45,17 @@ jupyter notebook
 Navigate to a `Day_*` directory and select the relevant `.ipynb` file—for
 instance, `Day_31_Databases/databases.ipynb` walks through the SQLite example
 in an interactive notebook environment.
+
+Notebooks are generated from the lesson scripts via
+`tools/convert_lessons_to_notebooks.py`. If you update a `.py` lesson, rerun the
+converter to refresh the paired notebook:
+
+```bash
+python tools/convert_lessons_to_notebooks.py
+```
+
+You can still execute the scripts directly—`python Day_31_Databases/databases.py`
+remains valid—but notebooks are the recommended path for hands-on exploration.
 
 ## Featured lessons
 
@@ -128,19 +137,6 @@ reloaded = load_model(model_path)
 prediction, label = predict_sample(reloaded, X_test[0], target_names)
 ```
 
-## Working with notebooks and scripts
-
-Notebooks are generated from the original lesson scripts via
-`tools/convert_lessons_to_notebooks.py`. If you update a `.py` lesson, rerun the
-converter to refresh the paired notebook:
-
-```bash
-python tools/convert_lessons_to_notebooks.py
-```
-
-You can still execute the scripts directly—`python Day_31_Databases/databases.py`
-remains valid—but notebooks are the recommended path for hands-on exploration.
-
 ## ✅ Testing the curriculum
 
 Automated tests live under `tests/` and cover representative helpers from the
@@ -198,9 +194,15 @@ verifies that predictions remain consistent.
 
 ## 🗺️ Repository overview
 
-- `Day_01_Introduction` through `Day_50_MLOps`: daily lesson content.
-- `Day_37_Conclusion/conclusion.py`: recap data structures and CLI entry point.
-- `tests/`: unit tests for selected lessons.
+- `Day_01_Introduction` – `Day_20_Python_Package_Manager`: Python foundations, data structures, files, and automation basics.
+- `Day_21_Virtual_Environments` – `Day_39_Calculus`: analytics stack, databases, APIs, statistics, visualisation, and core maths refreshers.
+- `Day_40_Intro_to_ML` – `Day_49_NLP`: supervised and unsupervised ML progression, neural networks, NLP, and evaluation tooling.
+- `Day_50_MLOps` – `Day_57_Recommender_Systems`: production workflows, time series, recommenders, and end-to-end project scaffolds.
+- `Day_58_Transformers_and_Attention` – `Day_64_Modern_NLP_Pipelines`: modern deep learning techniques, generative models, and advanced NLP pipelines.
+- `Day_65_MLOps_Pipelines_and_CI` – `Day_67_Model_Monitoring_and_Reliability`: CI/CD, deployment, monitoring, and reliability engineering for ML systems.
+- `docs/`: curriculum roadmaps, dependency reviews, and additional guidance.
+- `tools/`: utilities such as `convert_lessons_to_notebooks.py` for maintaining dual script/notebook workflows.
+- `tests/`: unit tests for selected lessons and pipelines.
 
 ## 🙌 Contributing
 
