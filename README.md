@@ -28,15 +28,17 @@ corresponding script:
 
 ## Running the lessons
 
-Each lesson folder provides a focused example that can be run directly with
-Python. For instance, execute Day 31's SQLite walkthrough with:
+Each lesson folder now ships with Jupyter notebooks that mirror the original
+Python scripts. Launch Jupyter from the project root and open the notebook for
+the topic you want to explore:
 
 ```bash
-python Day_31_Databases/databases.py
+jupyter notebook
 ```
 
-The pattern applies to every lesson—navigate to the desired directory and run
-its script to explore the material interactively.
+Navigate to a `Day_*` directory and select the relevant `.ipynb` file—for
+instance, `Day_31_Databases/databases.ipynb` walks through the SQLite example
+in an interactive notebook environment.
 
 ## Featured lessons
 
@@ -76,29 +78,18 @@ reloaded = load_model(model_path)
 prediction, label = predict_sample(reloaded, X_test[0], target_names)
 ```
 
-## Running tests
+## Working with notebooks and scripts
+
+Notebooks are generated from the original lesson scripts via
+`tools/convert_lessons_to_notebooks.py`. If you update a `.py` lesson, rerun the
+converter to refresh the paired notebook:
 
 ```bash
-python Day_31_Databases/databases.py
-python Day_34_Building_an_API/api_server.py
+python tools/convert_lessons_to_notebooks.py
 ```
 
-## 🧾 Day 37 recap CLI
-
-Day 37 wraps up the journey with a recap script that generates reusable
-artifacts:
-
-- `get_recap_checklist()` summarises the core program outcomes.
-- `get_next_steps()` recommends actions to continue your learning.
-- The command-line interface renders either section or both.
-
-Run the recap from the project root:
-
-```bash
-python -m Day_37_Conclusion.conclusion
-# or specify a section
-python -m Day_37_Conclusion.conclusion --section next-steps
-```
+You can still execute the scripts directly—`python Day_31_Databases/databases.py`
+remains valid—but notebooks are the recommended path for hands-on exploration.
 
 ## ✅ Testing the curriculum
 
