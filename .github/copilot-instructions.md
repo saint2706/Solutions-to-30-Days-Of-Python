@@ -12,12 +12,14 @@ This is an educational curriculum organized into daily lessons:
 - **Days 55-67**: Advanced ML & MLOps (time series, transformers, deployment, monitoring)
 
 Each `Day_XX_*` directory is a self-contained lesson with:
+
 - `README.md` - Lesson content and explanations
 - Python scripts (`.py`) - Executable lesson code
 - Jupyter notebooks (`.ipynb`) - Interactive versions
 - `solutions.py` - Reference implementations for advanced lessons
 
 Additional directories:
+
 - `docs/` - MkDocs documentation site sources
 - `tools/` - Build scripts for documentation and notebooks
 - `tests/` - Unit tests for key lessons
@@ -83,6 +85,7 @@ pytest tests/test_day_50.py
 ### Coverage Requirements
 
 The project enforces a 40% minimum coverage across:
+
 - `Day_24_Pandas_Advanced.pandas_adv`
 - `Day_25_Data_Cleaning.data_cleaning`
 - `Day_26_Statistics.stats`
@@ -92,10 +95,11 @@ See `pytest.ini` for configuration.
 ### Writing Tests
 
 When adding new lessons or refactoring existing code:
+
 1. Add tests to `tests/` directory following the pattern `test_day_XX.py`
-2. Use dependency injection for database/API tests (see `tests/test_day_32.py`)
-3. Ensure deterministic behavior (fixed random seeds for ML code)
-4. Test edge cases and business-relevant scenarios
+1. Use dependency injection for database/API tests (see `tests/test_day_32.py`)
+1. Ensure deterministic behavior (fixed random seeds for ML code)
+1. Test edge cases and business-relevant scenarios
 
 ## Documentation
 
@@ -121,10 +125,10 @@ mkdocs build --strict
 ### Documentation Guidelines
 
 1. **Lesson READMEs**: Each `Day_XX_*/README.md` is the source of truth
-2. **Generated files**: Don't edit `docs/lessons/day-*.md` directly
-3. **Link rewriting**: The build script rewrites relative links to GitHub
-4. **Material files**: Scripts append download links for `.py` and `.ipynb` files
-5. **Navigation**: Updated automatically in `mkdocs.yml` by build script
+1. **Generated files**: Don't edit `docs/lessons/day-*.md` directly
+1. **Link rewriting**: The build script rewrites relative links to GitHub
+1. **Material files**: Scripts append download links for `.py` and `.ipynb` files
+1. **Navigation**: Updated automatically in `mkdocs.yml` by build script
 
 ## AGENTS.md Commands
 
@@ -144,11 +148,11 @@ These commands are primarily for automation and CI/CD workflows.
 When making changes:
 
 1. **Minimal modifications**: Change only what's necessary to address the issue
-2. **Lesson integrity**: Each lesson should remain self-contained
-3. **Backwards compatibility**: Don't break existing lesson code
-4. **Test coverage**: Add tests for new functionality
-5. **Documentation**: Update READMEs when changing lesson behavior
-6. **Formatting**: Run `make format` before committing
+1. **Lesson integrity**: Each lesson should remain self-contained
+1. **Backwards compatibility**: Don't break existing lesson code
+1. **Test coverage**: Add tests for new functionality
+1. **Documentation**: Update READMEs when changing lesson behavior
+1. **Formatting**: Run `make format` before committing
 
 ### Pull Request Checklist
 
@@ -222,6 +226,7 @@ def test_function_edge_case():
 ### ML Code Reproducibility
 
 For machine learning lessons:
+
 - Use fixed random seeds (`np.random.seed(42)`)
 - Document hyperparameters clearly
 - Provide deterministic train/test splits
@@ -230,6 +235,7 @@ For machine learning lessons:
 ## Key Dependencies
 
 Core libraries (see `requirements.txt`):
+
 - **Data**: numpy, pandas, scipy
 - **ML**: scikit-learn, statsmodels
 - **Visualization**: matplotlib, seaborn, plotly
@@ -237,6 +243,7 @@ Core libraries (see `requirements.txt`):
 - **Databases**: pymongo, psycopg2-binary, mysql-connector-python
 
 Development tools (see `requirements-dev.txt`):
+
 - **Testing**: pytest, pytest-cov
 - **Formatting**: black, ruff, nbqa, mdformat
 - **Docs**: mkdocs, mkdocs-material
@@ -246,11 +253,13 @@ Development tools (see `requirements-dev.txt`):
 Two GitHub Actions workflows:
 
 1. **Python CI** (`.github/workflows/ci.yml`):
+
    - Runs on push/PR to main
    - Checks formatting with `make format`
    - Runs pytest suite
 
-2. **Documentation** (`.github/workflows/docs.yml`):
+1. **Documentation** (`.github/workflows/docs.yml`):
+
    - Runs on push to main
    - Generates lesson pages with `tools/build_docs.py`
    - Builds and deploys MkDocs site to GitHub Pages
@@ -266,6 +275,7 @@ Two GitHub Actions workflows:
 ## Educational Context
 
 Remember that this is a teaching repository:
+
 - Code should be clear and educational, not just efficient
 - Comments should explain "why," not just "what"
 - Examples should be business-relevant when possible
