@@ -8,7 +8,7 @@ introductory machine learning.
 ## 🚀 Quick start
 
 ```bash
-git clone https://github.com/your-username/Coding-For-MBA.git
+git clone https://github.com/saint2706/Coding-For-MBA.git
 cd Coding-For-MBA
 python -m venv .venv
 source .venv/bin/activate  # On Windows use `.venv\\Scripts\\activate`
@@ -20,6 +20,23 @@ Optional extras for database-focused lessons:
 - MySQL: `pip install mysql-connector-python`
 - PostgreSQL: `pip install psycopg2-binary`
 - MongoDB: `pip install pymongo`
+
+## 📖 Documentation site
+
+An MkDocs site styled with the **Material** theme (including a light/dark mode toggle) is published automatically from `main` at
+[`https://saint2706.github.io/Coding-For-MBA/`](https://saint2706.github.io/Coding-For-MBA/).
+
+### Preview the docs locally
+
+```bash
+pip install -r docs/requirements.txt
+python tools/build_docs.py
+mkdocs serve
+```
+
+The build script ingests every `Day_*` README, rewrites internal links so they
+point back to GitHub, and appends quick links to each lesson's notebooks or
+Python scripts before the MkDocs build runs.
 
 ## 📚 Navigating the lessons
 
@@ -47,6 +64,18 @@ jupyter notebook
 Navigate to a `Day_*` directory and select the relevant `.ipynb` file—for
 instance, `Day_31_Databases/databases.ipynb` walks through the SQLite example
 in an interactive notebook environment.
+
+## 🤝 Contributing to the docs
+
+1. Install the documentation dependencies with `pip install -r docs/requirements.txt`.
+2. Run `python tools/build_docs.py` to regenerate the lesson pages from the
+   latest READMEs.
+3. Preview locally with `mkdocs serve` and open `http://127.0.0.1:8000/`.
+4. Commit changes to source files (`README.md`, lesson READMEs, notebooks, etc.)
+   rather than the generated `docs/lessons/day-*.md` pages.
+
+The GitHub Actions workflow builds the MkDocs site on every push to `main` and deploys
+it to GitHub Pages.
 
 ## Featured lessons
 

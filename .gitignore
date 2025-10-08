@@ -118,8 +118,11 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# mkdocs documentation
+# Documentation build artefacts
 /site
+docs/_site/
+# Legacy Jekyll cache directory
+# .jekyll-cache/
 
 # mypy
 .mypy_cache/
@@ -128,3 +131,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+# Generated documentation
+docs/lessons/day-*.md
