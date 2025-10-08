@@ -7,6 +7,10 @@ modern ML operations and monitoring.
 
 ## 🚀 Quick start
 
+[![Launch a ready-to-run Binder workspace](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/HEAD?urlpath=lab)
+
+> 💡 **Recommended for learners without install privileges:** The Binder badge launches a hosted JupyterLab session rooted at this repository with all core requirements and database extras pre-installed. You can open any `Day_*` notebook immediately and start executing cells without configuring your local machine.
+
 ```bash
 git clone https://github.com/saint2706/Coding-For-MBA.git
 cd Coding-For-MBA
