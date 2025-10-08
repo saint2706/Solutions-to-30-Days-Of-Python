@@ -15,9 +15,9 @@ We welcome contributions that:
 ## 📝 Contribution Workflow
 
 1. **Fork the repository** and create a new branch
-2. **Make your changes** following our coding standards
-3. **Test your changes** thoroughly
-4. **Submit a pull request** with a clear description
+1. **Make your changes** following our coding standards
+1. **Test your changes** thoroughly
+1. **Submit a pull request** with a clear description
 
 ## 🧪 Testing
 
@@ -40,6 +40,7 @@ pytest tests/test_day_36.py
 ### Coverage Requirements
 
 The project enforces a **40% minimum coverage** across:
+
 - `Day_24_Pandas_Advanced.pandas_adv`
 - `Day_25_Data_Cleaning.data_cleaning`
 - `Day_26_Statistics.stats`
@@ -51,9 +52,9 @@ See `pytest.ini` for configuration.
 When adding new lessons or refactoring code:
 
 1. Add tests to `tests/` directory following the pattern `test_day_XX.py`
-2. Use dependency injection for database/API tests (see `tests/test_day_32.py`)
-3. Ensure deterministic behavior (fixed random seeds for ML code)
-4. Test edge cases and business-relevant scenarios
+1. Use dependency injection for database/API tests (see `tests/test_day_32.py`)
+1. Ensure deterministic behavior (fixed random seeds for ML code)
+1. Test edge cases and business-relevant scenarios
 
 Example test structure:
 
@@ -98,6 +99,7 @@ make lint
 ```
 
 This command formats:
+
 - Python modules with Black and Ruff
 - Jupyter notebooks via `nbqa`
 - Markdown files via `mdformat`
@@ -107,22 +109,26 @@ This command formats:
 ### Building Documentation
 
 1. Install documentation dependencies:
+
    ```bash
    pip install -r docs/requirements.txt
    ```
 
-2. Generate lesson pages from Day_* READMEs:
+1. Generate lesson pages from Day\_\* READMEs:
+
    ```bash
    python tools/build_docs.py
    ```
 
-3. Preview locally:
+1. Preview locally:
+
    ```bash
    mkdocs serve
    # Visit http://127.0.0.1:8000/
    ```
 
-4. Build static site:
+1. Build static site:
+
    ```bash
    mkdocs build --strict
    ```
@@ -148,6 +154,7 @@ python tools/convert_lessons_to_notebooks.py
 ```
 
 This creates:
+
 - HTML exports with skip-navigation links
 - Structured heading hierarchy
 - Placeholder alt text for figures
@@ -223,10 +230,10 @@ if __name__ == "__main__":
 ### Key Principles
 
 1. **Educational clarity**: Code should be clear and educational, not just efficient
-2. **Self-contained lessons**: Each lesson should stand alone while building on previous concepts
-3. **Business relevance**: Examples should be business-relevant when possible
-4. **Progressive complexity**: Complexity should build gradually across lessons
-5. **Comments for context**: Explain "why," not just "what"
+1. **Self-contained lessons**: Each lesson should stand alone while building on previous concepts
+1. **Business relevance**: Examples should be business-relevant when possible
+1. **Progressive complexity**: Complexity should build gradually across lessons
+1. **Comments for context**: Explain "why," not just "what"
 
 ### ML Code Reproducibility
 
@@ -242,6 +249,7 @@ For machine learning lessons:
 ### Python CI (`ci.yml`)
 
 Runs on push/PR to main when Python files or dependencies change:
+
 - Checks formatting with `make format`
 - Runs pytest suite
 - Enforces coverage requirements
@@ -249,16 +257,17 @@ Runs on push/PR to main when Python files or dependencies change:
 ### Documentation (`docs.yml`)
 
 Runs on push to main when docs or READMEs change:
+
 - Generates lesson pages with `tools/build_docs.py`
 - Builds and deploys MkDocs site to GitHub Pages
 
 ## 💡 Tips for Contributors
 
 1. **Minimal changes**: Only modify what's necessary
-2. **Test thoroughly**: Run tests before submitting
-3. **Update docs**: Keep documentation in sync with code changes
-4. **Follow patterns**: Look at existing lessons for guidance
-5. **Ask questions**: Open an issue if you need clarification
+1. **Test thoroughly**: Run tests before submitting
+1. **Update docs**: Keep documentation in sync with code changes
+1. **Follow patterns**: Look at existing lessons for guidance
+1. **Ask questions**: Open an issue if you need clarification
 
 ## 📬 Questions or Issues?
 
