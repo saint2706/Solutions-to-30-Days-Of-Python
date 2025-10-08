@@ -1,6 +1,6 @@
 # Machine Learning Curriculum Roadmap
 
-This roadmap outlines a phased journey from classic machine learning foundations to modern deep learning systems and production operations. Each phase highlights anchor lessons from the Coding for MBA series and recommends follow-on topics so you can keep advancing after Day 53.
+This roadmap outlines a phased journey from classic machine learning foundations to modern deep learning systems and production operations. Each phase highlights anchor lessons from the Coding for MBA series and recommends follow-on topics so you can keep advancing after Day 57.
 
 ## Phase 1 – Classic Machine Learning Foundations
 
@@ -24,6 +24,10 @@ This roadmap outlines a phased journey from classic machine learning foundations
 | Day 51 | [Regularised Models](../Day_51_Regularized_Models/README.md) | Contrast ridge, lasso, elastic net, and Poisson GLMs while measuring coefficient shrinkage. |
 | Day 52 | [Ensemble Methods](../Day_52_Ensemble_Methods/README.md) | Blend bagging, boosting, and stacking ensembles with calibrated probability estimates. |
 | Day 53 | [Model Tuning & Feature Selection](../Day_53_Model_Tuning_and_Feature_Selection/README.md) | Optimise hyperparameters with grid/Bayesian search and validate feature subsets via permutation importance and RFE. |
+| Day 54 | [Probabilistic Modeling](../Day_54_Probabilistic_Modeling/README.md) | Master Gaussian mixtures, Bayesian classifiers, EM, and HMM log-likelihoods to reason about uncertainty. |
+| Day 55 | [Advanced Unsupervised Learning](../Day_55_Advanced_Unsupervised_Learning/README.md) | Deploy DBSCAN, hierarchical clustering, t-SNE/UMAP-style embeddings, and autoencoder-driven anomaly detection. |
+| Day 56 | [Time Series & Forecasting](../Day_56_Time_Series_and_Forecasting/README.md) | Forecast seasonal demand with ARIMA/SARIMAX, Holt-Winters, and Prophet-style decompositions plus robust evaluation. |
+| Day 57 | [Recommender Systems](../Day_57_Recommender_Systems/README.md) | Build collaborative filtering and matrix factorisation recommenders with implicit-feedback aware ranking metrics. |
 
 ### Recommended next steps after Phase 1
 
