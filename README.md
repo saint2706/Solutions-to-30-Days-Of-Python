@@ -1,6 +1,6 @@
 # Coding for MBA
 
-A 50-day applied Python and analytics curriculum designed for business
+A 53-day applied Python and analytics curriculum designed for business
 professionals. Each `Day_XX_*` directory contains a self-contained lesson that
 walks through practical data skills, from programming fundamentals to
 introductory machine learning.
@@ -23,11 +23,11 @@ Optional extras for database-focused lessons:
 
 ## 📚 Navigating the lessons
 
-Lessons are organised chronologically. Start with the [Machine Learning Curriculum Roadmap](docs/ml_curriculum.md) if you want to understand how the Day 40–50 sequence grows into an end-to-end ML capability.
+Lessons are organised chronologically. Start with the [Machine Learning Curriculum Roadmap](docs/ml_curriculum.md) if you want to understand how the Day 40–53 sequence grows into an end-to-end ML capability.
 
 **Phases at a glance**
 
-- **Phase 1 – Classic ML foundations:** Day 40–50 walk through supervised/unsupervised learning, neural networks, NLP, and an MLOps primer.
+- **Phase 1 – Classic ML foundations:** Day 40–53 walk through supervised/unsupervised learning, neural networks, NLP, and an MLOps primer.
 - **Phase 2 – Modern deep learning:** Continue into transformers, transfer learning, and representation learning.
 - **Phase 3 – Responsible AI:** Build governance, fairness, and explainability practices into every deployment.
 - **Phase 4 – MLOps & lifecycle:** Automate experimentation, deployment, and monitoring for production systems.
@@ -55,6 +55,16 @@ in an interactive notebook environment.
 - **Day 32 – Other Databases** (`Day_32_Other_Databases/other_databases.py`):
   demonstrates dependency-injected connection patterns for SQL and MongoDB
   clients so that data access logic remains testable.
+- **Day 51 – Regularised Models** (`Day_51_Regularized_Models/solutions.py`):
+  compares ridge, lasso, and elastic net pipelines while introducing Poisson
+  regression as a generalised linear model.
+- **Day 52 – Ensemble Methods** (`Day_52_Ensemble_Methods/solutions.py`): trains
+  random forests, gradient boosting, and stacking ensembles with calibration
+  utilities for trustworthy probabilities.
+- **Day 53 – Model Tuning & Feature Selection**
+  (`Day_53_Model_Tuning_and_Feature_Selection/solutions.py`): demonstrates grid
+  search, Bayesian optimisation (via `skopt`), permutation importance, and
+  recursive feature elimination on a reproducible dataset.
 - **Day 50 – MLOps** (`Day_50_MLOps/solutions.py`): exposes reusable helpers for
   training, saving, loading, and predicting with a Logistic Regression Iris
   classifier.
