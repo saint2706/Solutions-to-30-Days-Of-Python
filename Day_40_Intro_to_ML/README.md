@@ -22,3 +22,7 @@ This lesson introduces the machine learning workflow and highlights how evaluati
 
 - Run the worked examples: `python Day_40_Intro_to_ML/solutions.py`
 - Execute the automated checks: `pytest tests/test_day_40.py`
+
+### What's next?
+
+Explore the full [Machine Learning Curriculum Roadmap](../docs/ml_curriculum.md) to see how the Day 40 lesson fits into a multi-phase path covering deep learning, responsible AI, and MLOps.
