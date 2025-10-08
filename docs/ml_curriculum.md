@@ -64,6 +64,12 @@ Ensure that your models meet ethical, legal, and organisational standards before
 
 Turn prototypes into production systems by investing in reliable infrastructure and collaboration workflows.
 
+| Day | Lesson | Key takeaway |
+| --- | ------ | ------------ |
+| Day 65 | [MLOps Pipelines and CI/CD](../Day_65_MLOps_Pipelines_and_CI/README.md) | Orchestrate feature stores, registries, and GitHub Actions workflows with DAG-style automation. |
+| Day 66 | [Model Deployment and Serving](../Day_66_Model_Deployment_and_Serving/README.md) | Compare REST, gRPC, batch, streaming, and edge serving patterns with load-tested adapters. |
+| Day 67 | [Model Monitoring and Reliability](../Day_67_Model_Monitoring_and_Reliability/README.md) | Detect data drift, evaluate canaries, and export observability metrics for retraining triggers. |
+
 - Industrialise feature pipelines with tools like Feature Store platforms or workflow orchestrators (Airflow, Prefect).
 - Automate training and evaluation with CI/CD pipelines, integrating unit tests, data quality checks, and model validation gates.
 - Deploy models to scalable serving infrastructure (REST endpoints, batch scoring, or streaming) with containerisation and serverless platforms.
