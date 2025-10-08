@@ -22,7 +22,9 @@ def test_gaussian_mixture_log_likelihood_is_reproducible(gaussian_dataset) -> No
 
 def test_expectation_maximisation_returns_strong_lower_bound(gaussian_dataset) -> None:
     X, _ = gaussian_dataset
-    _, lower_bound = day54.run_expectation_maximisation(X, n_components=2, random_state=7)
+    _, lower_bound = day54.run_expectation_maximisation(
+        X, n_components=2, random_state=7
+    )
     assert lower_bound == pytest.approx(-2.93277, rel=1e-4)
 
 

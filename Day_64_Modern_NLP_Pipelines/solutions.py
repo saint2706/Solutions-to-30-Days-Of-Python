@@ -2,12 +2,11 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import hashlib
-from typing import Dict, Iterable, List, Mapping, Sequence, Tuple
+from dataclasses import dataclass
+from typing import Dict, List, Mapping, Sequence, Tuple
 
 import numpy as np
-
 
 TokenizedCorpus = List[List[str]]
 
@@ -31,7 +30,9 @@ def tokenize_corpus(
     return tokenized
 
 
-def build_embedding_table(tokens: TokenizedCorpus, embedding_dim: int = 8) -> Dict[str, np.ndarray]:
+def build_embedding_table(
+    tokens: TokenizedCorpus, embedding_dim: int = 8
+) -> Dict[str, np.ndarray]:
     """Create deterministic embeddings via hashing."""
 
     vocab = sorted({token for doc in tokens for token in doc})
@@ -44,7 +45,9 @@ def build_embedding_table(tokens: TokenizedCorpus, embedding_dim: int = 8) -> Di
     return table
 
 
-def document_embeddings(tokens: TokenizedCorpus, embeddings: Mapping[str, np.ndarray]) -> np.ndarray:
+def document_embeddings(
+    tokens: TokenizedCorpus, embeddings: Mapping[str, np.ndarray]
+) -> np.ndarray:
     """Average token embeddings for each document."""
 
     doc_vectors: List[np.ndarray] = []
@@ -53,7 +56,9 @@ def document_embeddings(tokens: TokenizedCorpus, embeddings: Mapping[str, np.nda
             vecs = [embeddings[token] for token in doc]
             doc_vectors.append(np.mean(vecs, axis=0))
         else:
-            doc_vectors.append(np.zeros(next(iter(embeddings.values())).shape, dtype=float))
+            doc_vectors.append(
+                np.zeros(next(iter(embeddings.values())).shape, dtype=float)
+            )
     return np.vstack(doc_vectors)
 
 
@@ -111,8 +116,13 @@ def retrieve_documents(
 ) -> List[int]:
     """Return indices of nearest documents by cosine similarity."""
 
-    similarities = doc_embeddings @ query_embedding / (
-        np.linalg.norm(doc_embeddings, axis=1) * (np.linalg.norm(query_embedding) + 1e-12)
+    similarities = (
+        doc_embeddings
+        @ query_embedding
+        / (
+            np.linalg.norm(doc_embeddings, axis=1)
+            * (np.linalg.norm(query_embedding) + 1e-12)
+        )
     )
     ranked = np.argsort(similarities)[::-1]
     return ranked[:top_k].tolist()
@@ -129,12 +139,16 @@ def rag_generate(
 
     tokenized_query = tokenize_corpus([query])[0]
     if tokenized_query:
-        query_vec = np.mean([embeddings_table[token] for token in tokenized_query], axis=0)
+        query_vec = np.mean(
+            [embeddings_table[token] for token in tokenized_query], axis=0
+        )
     else:
         query_vec = np.zeros(next(iter(embeddings_table.values())).shape, dtype=float)
     doc_indices = retrieve_documents(query_vec, doc_embeddings, top_k=top_k)
     retrieved = [corpus[idx] for idx in doc_indices]
-    return " \n".join([f"Answer: {retrieved[0] if retrieved else ''}", "Sources:"] + retrieved)
+    return " \n".join(
+        [f"Answer: {retrieved[0] if retrieved else ''}", "Sources:"] + retrieved
+    )
 
 
 def evaluate_generation(reference: str, prediction: str) -> Dict[str, float]:
@@ -145,7 +159,9 @@ def evaluate_generation(reference: str, prediction: str) -> Dict[str, float]:
     exact = float(reference.strip().lower() == prediction.strip().lower())
     overlap = len(set(ref_tokens) & set(pred_tokens)) / (len(set(ref_tokens)) + 1e-12)
     recall = len(set(ref_tokens) & set(pred_tokens)) / (len(set(ref_tokens)) + 1e-12)
-    precision = len(set(ref_tokens) & set(pred_tokens)) / (len(set(pred_tokens)) + 1e-12)
+    precision = len(set(ref_tokens) & set(pred_tokens)) / (
+        len(set(pred_tokens)) + 1e-12
+    )
     f1 = 2 * precision * recall / (precision + recall + 1e-12)
     return {
         "exact_match": exact,

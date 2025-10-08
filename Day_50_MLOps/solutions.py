@@ -82,7 +82,9 @@ def train_iris_model(
     if isinstance(test_size, (float, int)):
         if isinstance(test_size, float):
             if not 0 < test_size < 1:
-                raise ValueError("test_size must be between 0 and 1 when provided as a float")
+                raise ValueError(
+                    "test_size must be between 0 and 1 when provided as a float"
+                )
             effective_test_ratio = test_size
         else:
             test_size_int = int(test_size)

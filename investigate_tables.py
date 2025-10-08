@@ -8,9 +8,10 @@ who need to gather competitive intelligence, market data, or industry statistics
 Purpose: Educational tool for MBA students learning data acquisition
 """
 
-import requests
-import pandas as pd
 from typing import List, Optional
+
+import pandas as pd
+import requests
 
 
 def investigate_wiki_tables(url: str) -> Optional[List[pd.DataFrame]]:

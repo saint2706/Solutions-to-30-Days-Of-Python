@@ -7,9 +7,10 @@ both custom-built modules and Python's built-in modules.
 
 # We are importing the functions we created in the 'business_logic.py' file.
 # We use an alias 'bl' to keep our code clean and concise.
-import business_logic as bl
 import datetime
 import math
+
+import business_logic as bl
 
 
 def demonstrate_custom_module():

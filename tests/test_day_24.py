@@ -1,8 +1,9 @@
-import sys
 import os
-import pytest
-import pandas as pd
+import sys
+
 import numpy as np
+import pandas as pd
+import pytest
 
 # Add the parent directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -10,11 +11,11 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from Day_24_Pandas_Advanced.pandas_adv import (
     build_revenue_by_region_bar_chart,
     build_units_vs_price_scatter,
-    select_by_label,
-    select_by_position,
     filter_by_high_revenue,
     filter_by_product_and_region,
     handle_missing_data,
+    select_by_label,
+    select_by_position,
 )
 
 

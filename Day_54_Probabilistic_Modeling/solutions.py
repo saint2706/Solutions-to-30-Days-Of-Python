@@ -56,7 +56,9 @@ def generate_probabilistic_dataset(
     assignments = rng.choice(len(weights), size=n_samples, p=weights)
     observations = np.vstack(
         [
-            rng.multivariate_normal(means[idx], covariances[idx], size=(assignments == idx).sum())
+            rng.multivariate_normal(
+                means[idx], covariances[idx], size=(assignments == idx).sum()
+            )
             for idx in range(len(weights))
         ]
     )
@@ -129,7 +131,9 @@ def bayesian_log_posterior(model: GaussianNB, X: ArrayLike) -> NDArray[np.float6
     return np.asarray(model.predict_log_proba(np.asarray(X)))
 
 
-def _gaussian_log_pdf(x: NDArray[np.float64], mean: NDArray[np.float64], cov: NDArray[np.float64]) -> float:
+def _gaussian_log_pdf(
+    x: NDArray[np.float64], mean: NDArray[np.float64], cov: NDArray[np.float64]
+) -> float:
     """Log probability density of a multivariate normal distribution."""
 
     x = np.atleast_1d(x)
@@ -146,7 +150,9 @@ def _gaussian_log_pdf(x: NDArray[np.float64], mean: NDArray[np.float64], cov: ND
     return -0.5 * (dim * np.log(2.0 * np.pi) + logdet + exponent)
 
 
-def _logsumexp(arr: NDArray[np.float64], axis: int | None = None) -> NDArray[np.float64]:
+def _logsumexp(
+    arr: NDArray[np.float64], axis: int | None = None
+) -> NDArray[np.float64]:
     """Compute log-sum-exp in a numerically stable fashion."""
 
     arr = np.asarray(arr, dtype=float)
@@ -190,7 +196,9 @@ def build_demo_hmm(random_state: int = 54) -> HiddenMarkovModel:
     means = np.array([[0.0], [3.0]])
     covariances = np.array([[[0.5]], [[0.7]]])
     _ = rng  # Reserved for future extensions; keeps signature consistent.
-    return HiddenMarkovModel(transition=transition, startprob=startprob, means=means, covariances=covariances)
+    return HiddenMarkovModel(
+        transition=transition, startprob=startprob, means=means, covariances=covariances
+    )
 
 
 def demo_log_likelihoods() -> dict[str, float]:
@@ -201,7 +209,9 @@ def demo_log_likelihoods() -> dict[str, float]:
     total_log_like = mixture_log_likelihood(gmm, X)
 
     bayes = train_bayesian_classifier(X, labels)
-    avg_bayes_log_like = float(np.mean(bayesian_log_posterior(bayes, X)[np.arange(len(labels)), labels]))
+    avg_bayes_log_like = float(
+        np.mean(bayesian_log_posterior(bayes, X)[np.arange(len(labels)), labels])
+    )
 
     hmm = build_demo_hmm()
     demo_sequence = np.array([[0.2], [-0.1], [2.8], [3.4], [2.5]])

@@ -1,16 +1,17 @@
-import sys
 import os
+import sys
+from unittest.mock import MagicMock, patch
+
 import pytest
 import requests
-from unittest.mock import patch, MagicMock
 
 # Add the parent directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_20_Python_Package_Manager.url import (
-    fetch_api_data,
     analyze_breed_metrics,
     analyze_breed_origins,
+    fetch_api_data,
     parse_metric_range,
 )
 

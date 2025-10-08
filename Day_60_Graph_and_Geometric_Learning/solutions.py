@@ -57,7 +57,9 @@ def _softmax(logits: np.ndarray) -> np.ndarray:
 class GraphSAGEClassifier:
     """Mean-aggregator GraphSAGE classifier with manual gradients."""
 
-    def __init__(self, hidden_dim: int = 6, num_classes: int = 2, random_state: int = 60) -> None:
+    def __init__(
+        self, hidden_dim: int = 6, num_classes: int = 2, random_state: int = 60
+    ) -> None:
         self.hidden_dim = hidden_dim
         self.num_classes = num_classes
         self.random_state = random_state
@@ -79,7 +81,11 @@ class GraphSAGEClassifier:
 
     def forward(self, data: GraphData) -> Dict[str, np.ndarray]:
         assert self.W_self is not None and self.W_neigh is not None
-        assert self.b_hidden is not None and self.W_out is not None and self.b_out is not None
+        assert (
+            self.b_hidden is not None
+            and self.W_out is not None
+            and self.b_out is not None
+        )
         features = data.features
         adjacency = data.adjacency
         degrees = adjacency.sum(axis=1, keepdims=True)
@@ -89,12 +95,22 @@ class GraphSAGEClassifier:
         hidden = np.maximum(0.0, hidden_pre)
         logits = hidden @ self.W_out + self.b_out
         probs = _softmax(logits)
-        return {"logits": logits, "hidden": hidden, "hidden_pre": hidden_pre, "neigh": neigh_mean, "probs": probs}
+        return {
+            "logits": logits,
+            "hidden": hidden,
+            "hidden_pre": hidden_pre,
+            "neigh": neigh_mean,
+            "probs": probs,
+        }
 
     def train(self, data: GraphData, epochs: int = 200, lr: float = 0.1) -> List[float]:
         self._ensure_params(data.features.shape[1])
         assert self.W_self is not None and self.W_neigh is not None
-        assert self.b_hidden is not None and self.W_out is not None and self.b_out is not None
+        assert (
+            self.b_hidden is not None
+            and self.W_out is not None
+            and self.b_out is not None
+        )
         y = data.labels
         y_onehot = np.eye(self.num_classes)[y]
         losses: List[float] = []
@@ -133,7 +149,9 @@ class GraphSAGEClassifier:
 class GraphAttentionClassifier:
     """Attention-based aggregator with trainable linear head."""
 
-    def __init__(self, temperature: float = 0.5, num_classes: int = 2, random_state: int = 60) -> None:
+    def __init__(
+        self, temperature: float = 0.5, num_classes: int = 2, random_state: int = 60
+    ) -> None:
         self.temperature = temperature
         self.num_classes = num_classes
         self.random_state = random_state
@@ -142,7 +160,9 @@ class GraphAttentionClassifier:
         self._embeddings: np.ndarray | None = None
         self._attention: np.ndarray | None = None
 
-    def _attention_matrix(self, features: np.ndarray, adjacency: np.ndarray) -> np.ndarray:
+    def _attention_matrix(
+        self, features: np.ndarray, adjacency: np.ndarray
+    ) -> np.ndarray:
         sim = (features @ features.T) / self.temperature
         sim -= sim.max(axis=1, keepdims=True)
         weights = np.exp(sim)
@@ -164,7 +184,9 @@ class GraphAttentionClassifier:
         embeddings = self.encode(data)
         if self.W_out is None or self.b_out is None:
             rng = np.random.default_rng(self.random_state)
-            self.W_out = rng.normal(0.0, 0.4, size=(embeddings.shape[1], self.num_classes))
+            self.W_out = rng.normal(
+                0.0, 0.4, size=(embeddings.shape[1], self.num_classes)
+            )
             self.b_out = np.zeros(self.num_classes)
         assert self.W_out is not None and self.b_out is not None
         y = data.labels

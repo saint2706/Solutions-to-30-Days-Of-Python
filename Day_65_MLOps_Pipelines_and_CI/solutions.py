@@ -10,12 +10,21 @@ Airflow or Prefect DAG locally. Each task receives a consolidated
 context dictionary (similar to Airflow's XCom or Prefect's task result)
 and may add new keys for downstream tasks.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
-from typing import Any, Callable, Dict, Iterable, List, Mapping, MutableMapping, Optional
-
+from typing import (
+    Any,
+    Callable,
+    Dict,
+    Iterable,
+    List,
+    Mapping,
+    MutableMapping,
+    Optional,
+)
 
 FeatureRow = Mapping[str, Any]
 
@@ -88,7 +97,9 @@ class PipelineDAG:
                 visit(name)
         return ordered
 
-    def execute(self, base_context: Optional[MutableMapping[str, Any]] = None) -> Dict[str, Any]:
+    def execute(
+        self, base_context: Optional[MutableMapping[str, Any]] = None
+    ) -> Dict[str, Any]:
         """Execute tasks respecting dependencies.
 
         Parameters
@@ -146,7 +157,9 @@ def train_model_from_store(store: Mapping[str, FeatureRow]) -> Dict[str, Any]:
     return model_artifact
 
 
-def register_model(model: Mapping[str, Any], *, name: str, stage: str) -> Dict[str, Any]:
+def register_model(
+    model: Mapping[str, Any], *, name: str, stage: str
+) -> Dict[str, Any]:
     """Record model metadata as if interacting with an MLflow-style registry."""
 
     if "metrics" not in model:
@@ -165,7 +178,10 @@ def github_actions_deploy(entry: Mapping[str, Any]) -> Dict[str, Any]:
     """Simulate a GitHub Actions job that deploys a registered model."""
 
     if entry.get("stage") != "Staging":
-        return {"status": "skipped", "reason": "Only staging models deploy automatically"}
+        return {
+            "status": "skipped",
+            "reason": "Only staging models deploy automatically",
+        }
     if entry.get("metrics", {}).get("validation_accuracy", 0.0) < 0.85:
         return {
             "status": "failed",
@@ -192,7 +208,9 @@ def build_mlops_pipeline(raw_rows: Iterable[FeatureRow]) -> PipelineDAG:
         return train_model_from_store(context["feature_store"])
 
     def registry_task(context: MutableMapping[str, Any]) -> Dict[str, Any]:
-        return register_model(context["model_training"], name="churn_model", stage="Staging")
+        return register_model(
+            context["model_training"], name="churn_model", stage="Staging"
+        )
 
     def deployment_task(context: MutableMapping[str, Any]) -> Dict[str, Any]:
         return github_actions_deploy(context["model_registry"])

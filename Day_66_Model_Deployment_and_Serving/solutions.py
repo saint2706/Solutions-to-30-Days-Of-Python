@@ -4,6 +4,7 @@ The code intentionally avoids heavyweight dependencies so it can run
 inside unit tests, yet the abstractions mirror FastAPI/BentoML service
 interfaces, gRPC handlers, and streaming/batch processors.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -33,7 +34,9 @@ def _coerce_predictions(raw: Iterable[Any]) -> List[float]:
     return values
 
 
-def fastapi_rest_adapter(model: Callable[[Sequence[float]], Sequence[float]]) -> Callable[[Mapping[str, Any]], Dict[str, Any]]:
+def fastapi_rest_adapter(
+    model: Callable[[Sequence[float]], Sequence[float]],
+) -> Callable[[Mapping[str, Any]], Dict[str, Any]]:
     """Create a FastAPI-style callable that accepts JSON payloads."""
 
     def predict(payload: Mapping[str, Any]) -> Dict[str, Any]:
@@ -50,10 +53,14 @@ def fastapi_rest_adapter(model: Callable[[Sequence[float]], Sequence[float]]) ->
     return predict
 
 
-def grpc_streaming_adapter(model: Callable[[Sequence[float]], Sequence[float]]) -> Callable[[Iterable[Mapping[str, Any]]], Iterable[Dict[str, Any]]]:
+def grpc_streaming_adapter(
+    model: Callable[[Sequence[float]], Sequence[float]],
+) -> Callable[[Iterable[Mapping[str, Any]]], Iterable[Dict[str, Any]]]:
     """Return a generator-like gRPC handler that yields streaming responses."""
 
-    def handler(request_iterator: Iterable[Mapping[str, Any]]) -> Iterable[Dict[str, Any]]:
+    def handler(
+        request_iterator: Iterable[Mapping[str, Any]],
+    ) -> Iterable[Dict[str, Any]]:
         for payload in request_iterator:
             instances = payload.get("instances", [])
             predictions = model(instances)
@@ -66,7 +73,10 @@ def grpc_streaming_adapter(model: Callable[[Sequence[float]], Sequence[float]]) 
     return handler
 
 
-def batch_scoring_runner(model: Callable[[Sequence[float]], Sequence[float]], batches: Iterable[Sequence[float]]) -> List[Dict[str, Any]]:
+def batch_scoring_runner(
+    model: Callable[[Sequence[float]], Sequence[float]],
+    batches: Iterable[Sequence[float]],
+) -> List[Dict[str, Any]]:
     """Process offline batches while preserving response structure."""
 
     outputs: List[Dict[str, Any]] = []
@@ -80,7 +90,9 @@ def batch_scoring_runner(model: Callable[[Sequence[float]], Sequence[float]], ba
     return outputs
 
 
-def edge_inference_adapter(model: Callable[[Sequence[float]], Sequence[float]], *, quantise: bool = True) -> Callable[[Sequence[float]], Dict[str, Any]]:
+def edge_inference_adapter(
+    model: Callable[[Sequence[float]], Sequence[float]], *, quantise: bool = True
+) -> Callable[[Sequence[float]], Dict[str, Any]]:
     """Wrap a model for offline/edge execution with optional quantisation."""
 
     def run(features: Sequence[float]) -> Dict[str, Any]:
@@ -143,7 +155,9 @@ def run_synthetic_load_test(
     avg_latency = total_latency / len(payloads)
     throughput = len(payloads) / max(total_latency, 1e-6)
     success_rate = successes / len(payloads)
-    return LoadTestResult(avg_latency=avg_latency, throughput=throughput, success_rate=success_rate)
+    return LoadTestResult(
+        avg_latency=avg_latency, throughput=throughput, success_rate=success_rate
+    )
 
 
 def averaged_ensembled_model(instances: Sequence[float]) -> List[float]:

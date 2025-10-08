@@ -7,8 +7,6 @@ from typing import Dict, Iterable, Tuple
 
 import numpy as np
 import pandas as pd
-from skopt import BayesSearchCV
-from skopt.space import Categorical, Real
 from sklearn.datasets import make_classification
 from sklearn.feature_selection import RFE
 from sklearn.inspection import permutation_importance
@@ -16,6 +14,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV, StratifiedKFold, cross_val_score
 from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.preprocessing import StandardScaler
+from skopt import BayesSearchCV
+from skopt.space import Categorical, Real
 
 
 @dataclass
@@ -164,7 +164,9 @@ def run_recursive_feature_elimination(
 ) -> Tuple[RFE, np.ndarray]:
     """Perform recursive feature elimination with logistic regression."""
 
-    estimator = LogisticRegression(max_iter=2000, solver="lbfgs", random_state=random_state)
+    estimator = LogisticRegression(
+        max_iter=2000, solver="lbfgs", random_state=random_state
+    )
     selector = RFE(estimator, n_features_to_select=n_features_to_select)
     selector.fit(X, y)
     support = selector.support_

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, Iterable, List, Sequence, Tuple
+from typing import Dict, Iterable, List, Sequence
 
 import numpy as np
 import pandas as pd
@@ -83,7 +83,9 @@ def svd_matrix_factorisation(
     """Approximate the ratings matrix with truncated SVD."""
 
     matrix = ratings.values.astype(float)
-    user_means = np.where(matrix.sum(axis=1) > 0, matrix.sum(axis=1) / np.count_nonzero(matrix, axis=1), 0)
+    user_means = np.where(
+        matrix.sum(axis=1) > 0, matrix.sum(axis=1) / np.count_nonzero(matrix, axis=1), 0
+    )
     demeaned = matrix - user_means[:, np.newaxis]
     demeaned[np.isnan(demeaned)] = 0
     U, s, Vt = np.linalg.svd(demeaned, full_matrices=False)
@@ -97,7 +99,9 @@ def svd_matrix_factorisation(
     return pd.DataFrame(recon, index=ratings.index, columns=ratings.columns)
 
 
-def implicit_confidence_matrix(interactions: pd.DataFrame, alpha: float = 20.0) -> pd.DataFrame:
+def implicit_confidence_matrix(
+    interactions: pd.DataFrame, alpha: float = 20.0
+) -> pd.DataFrame:
     """Convert implicit interactions into confidence scores."""
 
     confidence = 1 + alpha * interactions
@@ -111,7 +115,9 @@ def rank_items(scores: pd.Series, top_n: int = 3) -> Recommendation:
     sorted_items = scores.sort_values(ascending=False)
     filtered = sorted_items[sorted_items > -np.inf]
     top_items = filtered.head(top_n)
-    return Recommendation(user=user, ranked_items=list(top_items.index), scores=list(top_items.values))
+    return Recommendation(
+        user=user, ranked_items=list(top_items.index), scores=list(top_items.values)
+    )
 
 
 def mask_known_items(predictions: pd.Series, original_ratings: pd.Series) -> pd.Series:
@@ -120,7 +126,9 @@ def mask_known_items(predictions: pd.Series, original_ratings: pd.Series) -> pd.
     return predictions.mask(original_ratings > 0, other=-np.inf)
 
 
-def precision_at_k(recommended: Sequence[str], relevant: Iterable[str], k: int) -> float:
+def precision_at_k(
+    recommended: Sequence[str], relevant: Iterable[str], k: int
+) -> float:
     """Compute precision@k for the provided recommendation list."""
 
     if k <= 0:
@@ -142,7 +150,9 @@ def recall_at_k(recommended: Sequence[str], relevant: Iterable[str], k: int) -> 
     return hits / len(relevant_list)
 
 
-def average_precision(recommended: Sequence[str], relevant: Iterable[str], k: int) -> float:
+def average_precision(
+    recommended: Sequence[str], relevant: Iterable[str], k: int
+) -> float:
     """Compute average precision for a single user."""
 
     relevant_set = set(relevant)
@@ -157,10 +167,14 @@ def average_precision(recommended: Sequence[str], relevant: Iterable[str], k: in
     return score / len(relevant_set)
 
 
-def mean_average_precision(recommendations: Iterable[Sequence[str]], relevants: Iterable[Iterable[str]], k: int) -> float:
+def mean_average_precision(
+    recommendations: Iterable[Sequence[str]], relevants: Iterable[Iterable[str]], k: int
+) -> float:
     """Compute MAP@k across multiple users."""
 
-    ap_scores = [average_precision(rec, rel, k) for rec, rel in zip(recommendations, relevants)]
+    ap_scores = [
+        average_precision(rec, rel, k) for rec, rel in zip(recommendations, relevants)
+    ]
     if not ap_scores:
         return 0.0
     return float(np.mean(ap_scores))
@@ -180,7 +194,9 @@ def demo_recommender_workflow(random_state: int = 57) -> Dict[str, float]:
 
     implicit = (ratings > 3).astype(int)
     confidence = implicit_confidence_matrix(implicit)
-    implicit_scores = mask_known_items(confidence.loc[target_user], ratings.loc[target_user])
+    implicit_scores = mask_known_items(
+        confidence.loc[target_user], ratings.loc[target_user]
+    )
     implicit_rec = rank_items(implicit_scores, top_n=3)
 
     relevant = {"Item3", "Item5"}
