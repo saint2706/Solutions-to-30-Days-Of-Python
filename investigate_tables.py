@@ -34,7 +34,7 @@ def investigate_wiki_tables(url: str) -> Optional[List[pd.DataFrame]]:
         ValueError: If no tables are found on the page
 
     Example:
-        >>> url = 'https://en.wikipedia.org/wiki/Fortune_500'
+        >>> url = "https://en.wikipedia.org/wiki/Fortune_500"
         >>> tables = investigate_wiki_tables(url)
         >>> if tables:
         ...     print(f"Found {len(tables)} tables with business data")

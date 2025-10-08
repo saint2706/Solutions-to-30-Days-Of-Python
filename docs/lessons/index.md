@@ -1,4 +1,3 @@
-
 # Coding for MBA Documentation
 
 Welcome to the official documentation hub for the **Coding for MBA** curriculum. This MkDocs-powered site pulls content directly from the repository so you can:
@@ -8,7 +7,7 @@ Welcome to the official documentation hub for the **Coding for MBA** curriculum.
 - Jump straight into the companion notebooks or Python scripts for each topic.
 
 !!! tip "Prefer a darker UI?"
-    Use the theme toggle in the header to switch between the light and dark palettes.
+Use the theme toggle in the header to switch between the light and dark palettes.
 
 ## What's inside
 
