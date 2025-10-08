@@ -1,15 +1,16 @@
-import sys
 import os
+import sys
+
 import pytest
 
 # Add the parent directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from Day_16_File_Handling.fh import (
-    count_words_and_lines,
-    find_most_common_words,
-    extract_emails_from_file,
     analyze_sales_csv,
+    count_words_and_lines,
+    extract_emails_from_file,
+    find_most_common_words,
 )
 
 

@@ -1,8 +1,8 @@
 # Day 17: Regular Expressions - Solutions
 
 import re
-from collections import Counter
 import string
+from collections import Counter
 
 ## Exercise 1: Find all numbers in a string
 

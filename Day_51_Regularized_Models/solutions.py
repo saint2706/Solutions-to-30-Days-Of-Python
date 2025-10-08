@@ -7,7 +7,13 @@ from typing import Dict, Tuple
 
 import numpy as np
 from sklearn.datasets import make_regression
-from sklearn.linear_model import ElasticNet, Lasso, LinearRegression, PoissonRegressor, Ridge
+from sklearn.linear_model import (
+    ElasticNet,
+    Lasso,
+    LinearRegression,
+    PoissonRegressor,
+    Ridge,
+)
 from sklearn.metrics import mean_poisson_deviance
 from sklearn.model_selection import KFold, cross_val_score
 from sklearn.pipeline import Pipeline, make_pipeline
@@ -80,11 +86,15 @@ def evaluate_models_with_cv(
     for name, pipeline in pipelines.items():
         scores = cross_val_score(pipeline, X, y, scoring=scoring, cv=splitter)
         pipeline.fit(X, y)
-        results[name] = RegularisedModelResult(name=name, pipeline=pipeline, cv_score=float(np.mean(scores)))
+        results[name] = RegularisedModelResult(
+            name=name, pipeline=pipeline, cv_score=float(np.mean(scores))
+        )
     return results
 
 
-def summarise_coefficients(results: Dict[str, RegularisedModelResult]) -> Dict[str, Dict[str, float]]:
+def summarise_coefficients(
+    results: Dict[str, RegularisedModelResult],
+) -> Dict[str, Dict[str, float]]:
     """Report coefficient shrinkage statistics for fitted regularised models."""
 
     summary: Dict[str, Dict[str, float]] = {}
@@ -128,7 +138,9 @@ def run_day51_demo() -> Dict[str, RegularisedModelResult]:
         "linear": build_regularised_pipeline("linear"),
         "ridge": build_regularised_pipeline("ridge", alpha=1.0),
         "lasso": build_regularised_pipeline("lasso", alpha=0.05),
-        "elastic_net": build_regularised_pipeline("elastic_net", alpha=0.08, l1_ratio=0.5),
+        "elastic_net": build_regularised_pipeline(
+            "elastic_net", alpha=0.08, l1_ratio=0.5
+        ),
     }
     results = evaluate_models_with_cv(models, X, y)
     return results
@@ -142,4 +154,6 @@ if __name__ == "__main__":
         print(f"- {name}: CV score (neg MSE) = {result.cv_score:.3f}")
     print("\nCoefficient summary:")
     for name, stats in coefficient_summary.items():
-        print(f"- {name}: L1 {stats['l1_norm']:.2f}, L2 {stats['l2_norm']:.2f}, non-zero {stats['non_zero']}")
+        print(
+            f"- {name}: L1 {stats['l1_norm']:.2f}, L2 {stats['l2_norm']:.2f}, non-zero {stats['non_zero']}"
+        )

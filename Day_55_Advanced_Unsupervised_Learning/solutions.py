@@ -6,15 +6,15 @@ from dataclasses import dataclass
 from typing import Dict, Tuple
 
 import numpy as np
+import tensorflow as tf
 from numpy.typing import ArrayLike, NDArray
-from sklearn.cluster import AgglomerativeClustering, DBSCAN
+from sklearn.cluster import DBSCAN, AgglomerativeClustering
 from sklearn.datasets import make_blobs
 from sklearn.ensemble import IsolationForest
 from sklearn.manifold import TSNE
 from sklearn.metrics import pairwise_distances
 from sklearn.neighbors import LocalOutlierFactor
 from sklearn.preprocessing import StandardScaler
-import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
@@ -212,7 +212,9 @@ def demo_unsupervised_pipeline(random_state: int = 55) -> Dict[str, float]:
     if_scores = isolation_forest_scores(X)
 
     return {
-        "dbscan_clusters": float(len(set(dbscan_result.labels)) - (1 if -1 in dbscan_result.labels else 0)),
+        "dbscan_clusters": float(
+            len(set(dbscan_result.labels)) - (1 if -1 in dbscan_result.labels else 0)
+        ),
         "agglomerative_clusters": float(len(np.unique(agg_result.labels))),
         "tsne_distance_corr": distance_corr,
         "autoencoder_threshold": threshold,

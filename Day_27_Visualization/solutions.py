@@ -4,9 +4,9 @@ Day 27: Solutions to Exercises
 
 from pathlib import Path
 
+import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
 
 # --- Load and Prepare Data ---
 # We use the cleaned data from Day 24 for reliable plotting.

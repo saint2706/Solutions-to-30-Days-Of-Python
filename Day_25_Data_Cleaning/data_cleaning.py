@@ -6,8 +6,9 @@ messy, real-world-style dataset using Pandas. This version includes
 performance optimizations.
 """
 
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
 
 
 def clean_sales_data(df: pd.DataFrame) -> pd.DataFrame:

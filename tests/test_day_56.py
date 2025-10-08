@@ -18,7 +18,9 @@ def test_arima_and_sarimax_forecasts_are_reasonable() -> None:
     assert len(sarimax_result.forecast) == len(test)
 
     arima_metrics = day56.forecast_metrics(test.values, arima_result.forecast.values)
-    sarimax_metrics = day56.forecast_metrics(test.values, sarimax_result.forecast.values)
+    sarimax_metrics = day56.forecast_metrics(
+        test.values, sarimax_result.forecast.values
+    )
 
     assert arima_metrics["rmse"] < 3.5
     assert sarimax_metrics["mae"] < 0.8
@@ -38,7 +40,9 @@ def test_rolling_origin_backtest_runs_without_error() -> None:
         series,
         initial_train_size=72,
         horizon=6,
-        model_builder=lambda train_series, steps: day56.fit_sarimax_forecast(train_series, steps=steps),
+        model_builder=lambda train_series, steps: day56.fit_sarimax_forecast(
+            train_series, steps=steps
+        ),
     )
     assert {"mae", "rmse", "mape", "smape", "start"}.issubset(backtest.columns)
     assert float(np.mean(backtest["mae"])) < 1.5

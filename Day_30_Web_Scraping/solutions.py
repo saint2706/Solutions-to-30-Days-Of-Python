@@ -2,10 +2,10 @@
 Day 30: Solutions to Exercises
 """
 
-import requests
-from bs4 import BeautifulSoup
 import bs4  # Add this import for type checking
 import pandas as pd
+import requests
+from bs4 import BeautifulSoup
 
 URL = "http://books.toscrape.com/"
 headers = {"User-Agent": "Mozilla/5.0"}

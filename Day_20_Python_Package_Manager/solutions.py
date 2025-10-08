@@ -8,9 +8,9 @@ for business analytics and data processing.
 Author: 50 Days of Python Course
 """
 
-import requests
 import json
 
+import requests
 
 ## Exercise 1: Install a package
 

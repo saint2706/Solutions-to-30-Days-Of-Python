@@ -8,7 +8,6 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models
 
-
 DEFAULT_SEED = 42
 
 

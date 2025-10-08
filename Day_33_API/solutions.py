@@ -2,8 +2,8 @@
 Day 33: Solutions to Exercises
 """
 
-import requests
 import pandas as pd
+import requests
 
 # --- Exercise 1: Fetch All Posts ---
 print("--- Solution to Exercise 1 ---")

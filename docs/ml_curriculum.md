@@ -1,4 +1,9 @@
-# Machine Learning Curriculum Roadmap
+---
+layout: default
+title: Machine Learning Curriculum Roadmap
+nav_order: 2
+permalink: /ml-curriculum/
+---
 
 This roadmap outlines a phased journey from classic machine learning foundations to modern deep learning systems and production operations. Each phase highlights anchor lessons from the Coding for MBA series and recommends follow-on topics so you can keep advancing after Day 57.
 

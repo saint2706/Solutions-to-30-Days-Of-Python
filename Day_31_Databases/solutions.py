@@ -2,9 +2,10 @@
 Day 31: Solutions to Exercises
 """
 
-import sqlite3
-import pandas as pd
 import os
+import sqlite3
+
+import pandas as pd
 
 DB_FILE = "company.db"
 

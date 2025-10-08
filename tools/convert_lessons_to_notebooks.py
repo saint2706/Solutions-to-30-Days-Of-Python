@@ -6,6 +6,7 @@ matching ``.ipynb`` that mirrors the original source.  The conversion keeps
 module docstrings as a leading Markdown cell and respects ``# %%`` cell markers
 for people who edited lessons in IDE notebook modes.
 """
+
 from __future__ import annotations
 
 import ast
@@ -17,7 +18,9 @@ from typing import Iterable, Tuple
 import nbformat
 from nbformat.v4 import new_code_cell, new_markdown_cell, new_notebook
 
-CELL_PATTERN = re.compile(r"(?m)^#\s*%%(?:\s*\[(?P<kind>markdown)\])?(?:\s*(?P<title>.*))?$")
+CELL_PATTERN = re.compile(
+    r"(?m)^#\s*%%(?:\s*\[(?P<kind>markdown)\])?(?:\s*(?P<title>.*))?$"
+)
 
 
 def extract_module_docstring(source: str) -> Tuple[str | None, str]:
@@ -63,7 +66,7 @@ def iter_cells(source: str) -> Iterable[Tuple[str, str]]:
     position = 0
     current_type = "code"
     for match in CELL_PATTERN.finditer(source):
-        segment = source[position:match.start()]
+        segment = source[position : match.start()]
         if segment.strip():
             yield current_type, segment.rstrip("\n") + "\n"
         marker_type = match.group("kind")
@@ -78,17 +81,19 @@ def iter_cells(source: str) -> Iterable[Tuple[str, str]]:
 def build_notebook(path: Path) -> nbformat.NotebookNode:
     source = path.read_text()
     docstring, code_body = extract_module_docstring(source)
-    notebook = new_notebook(metadata={
-        "kernelspec": {
-            "display_name": "Python 3",
-            "language": "python",
-            "name": "python3",
-        },
-        "language_info": {
-            "name": "python",
-            "version": f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}",
-        },
-    })
+    notebook = new_notebook(
+        metadata={
+            "kernelspec": {
+                "display_name": "Python 3",
+                "language": "python",
+                "name": "python3",
+            },
+            "language_info": {
+                "name": "python",
+                "version": f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}",
+            },
+        }
+    )
 
     readme_path = path.parent / "README.md"
     if readme_path.is_file():
@@ -111,7 +116,9 @@ def build_notebook(path: Path) -> nbformat.NotebookNode:
             notebook.cells.append(new_code_cell(cell_source))
 
     if not notebook.cells:
-        notebook.cells.append(new_markdown_cell("_This lesson does not contain executable code._"))
+        notebook.cells.append(
+            new_markdown_cell("_This lesson does not contain executable code._")
+        )
 
     return notebook
 
