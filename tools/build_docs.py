@@ -7,8 +7,8 @@ import json
 import os
 import re
 import subprocess
+import textwrap
 from pathlib import Path, PurePosixPath
-from typing import Iterable
 from urllib.parse import quote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -160,8 +160,11 @@ def _rewrite_relative_links(markdown: str, base_dir: Path, repo_slug: str) -> st
     return LINK_PATTERN.sub(replace, markdown)
 
 
-def _material_links(day_dir: Path, repo_slug: str) -> Iterable[str]:
+def _material_links(day_dir: Path, repo_slug: str) -> tuple[list[str], list[str]]:
+    other_materials: list[str] = []
+    python_embeds: list[str] = []
     base_blob = f"https://github.com/{repo_slug}/blob/main/"
+
     for candidate in sorted(day_dir.glob("*")):
         if not candidate.is_file():
             continue
@@ -171,9 +174,31 @@ def _material_links(day_dir: Path, repo_slug: str) -> Iterable[str]:
             continue
         if candidate.name == "__init__.py":
             continue
+
         relative = candidate.relative_to(ROOT).as_posix()
         url = base_blob + quote(relative, safe="/")
-        yield f"- [{candidate.name}]({url})"
+
+        if candidate.suffix.lower() == ".py":
+            python_embeds.append(_python_embed(candidate, url))
+        else:
+            other_materials.append(f"- [{candidate.name}]({url})")
+
+    return other_materials, python_embeds
+
+
+def _python_embed(candidate: Path, url: str) -> str:
+    code = candidate.read_text(encoding="utf-8").rstrip()
+    if not code:
+        indented_body = "    ```python\n    ```"
+    else:
+        indented_code = textwrap.indent(code, " " * 4)
+        indented_body = f"    ```python title=\"{candidate.name}\"\n{indented_code}\n    ```"
+
+    return (
+        f"???+ example \"{candidate.name}\"\n"
+        f"    [View on GitHub]({url})\n\n"
+        f"{indented_body}"
+    )
 
 
 def _nav_entry(label: str, output_name: str) -> str:
@@ -203,10 +228,18 @@ def build() -> None:
         content = _rewrite_relative_links(content, day_dir, repo_slug)
         content = _strip_first_heading(content)
 
-        materials = list(_material_links(day_dir, repo_slug))
-        if materials:
+        other_materials, python_embeds = _material_links(day_dir, repo_slug)
+        material_sections: list[str] = []
+        if other_materials:
+            material_sections.append("\n".join(other_materials))
+        if python_embeds:
+            material_sections.append("\n\n".join(python_embeds))
+
+        if material_sections:
             materials_section = (
-                "\n\n## Additional Materials\n\n" + "\n".join(materials) + "\n"
+                "\n\n## Additional Materials\n\n"
+                + "\n\n".join(material_sections)
+                + "\n"
             )
         else:
             materials_section = ""
