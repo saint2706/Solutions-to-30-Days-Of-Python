@@ -6,6 +6,7 @@ and operations, designed specifically for MBA students learning Python.
 Modules:
     - arithmetics: Basic mathematical operations for business calculations
     - greet: Business greeting and messaging functions
+    - bar_system: Tools for managing bar inventory and sales
 
 Example Usage:
     from mypackage.arithmetics import add_numbers, multiply
@@ -23,6 +24,7 @@ __author__ = "50 Days of Python Course"
 
 # Import key functions for easy access
 from .arithmetics import add_numbers, divide, multiply, power, remainder, subtract
+from .bar_system import BarSystem, InventoryItem, SaleRecord
 from .greet import greet_person
 
 __all__ = [
@@ -33,4 +35,7 @@ __all__ = [
     "remainder",
     "power",
     "greet_person",
+    "BarSystem",
+    "InventoryItem",
+    "SaleRecord",
 ]
