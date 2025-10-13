@@ -47,171 +47,175 @@ For these exercises, you will use the provided `messy_sales_data.csv` file.
 ## Additional Materials
 
 ???+ example "data_cleaning.py"
-    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_25_Data_Cleaning/data_cleaning.py)
+[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_25_Data_Cleaning/data_cleaning.py)
 
-    ```python title="data_cleaning.py"
+````
+```python title="data_cleaning.py"
+"""
+Day 25: Data Cleaning in Practice (Optimized)
+
+This script demonstrates common data cleaning techniques on a
+messy, real-world-style dataset using Pandas. This version includes
+performance optimizations.
+"""
+
+from pathlib import Path
+
+import pandas as pd
+
+
+def clean_sales_data(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Day 25: Data Cleaning in Practice (Optimized)
-
-    This script demonstrates common data cleaning techniques on a
-    messy, real-world-style dataset using Pandas. This version includes
-    performance optimizations.
+    Cleans the sales data by correcting data types, standardizing text,
+    and removing duplicates.
     """
+    # --- 1. Correcting Data Types ---
+    df["Order Date"] = pd.to_datetime(df["Order Date"])
 
-    from pathlib import Path
+    # Optimized price cleaning using a single regex
+    df["Price"] = df["Price"].str.replace(r"[$,]", "", regex=True).astype(float)
 
-    import pandas as pd
+    # --- 2. Cleaning and Standardizing Text Data ---
+    df["Region"] = df["Region"].str.strip().str.lower()
+    df["Product"] = df["Product"].str.lower()
+    df["Region"] = df["Region"].replace({"usa": "united states"})
 
+    # --- 3. Handling Duplicates ---
+    df.drop_duplicates(inplace=True)
+    df.drop_duplicates(subset=["Order ID"], keep="first", inplace=True)
 
-    def clean_sales_data(df: pd.DataFrame) -> pd.DataFrame:
-        """
-        Cleans the sales data by correcting data types, standardizing text,
-        and removing duplicates.
-        """
-        # --- 1. Correcting Data Types ---
-        df["Order Date"] = pd.to_datetime(df["Order Date"])
-
-        # Optimized price cleaning using a single regex
-        df["Price"] = df["Price"].str.replace(r"[$,]", "", regex=True).astype(float)
-
-        # --- 2. Cleaning and Standardizing Text Data ---
-        df["Region"] = df["Region"].str.strip().str.lower()
-        df["Product"] = df["Product"].str.lower()
-        df["Region"] = df["Region"].replace({"usa": "united states"})
-
-        # --- 3. Handling Duplicates ---
-        df.drop_duplicates(inplace=True)
-        df.drop_duplicates(subset=["Order ID"], keep="first", inplace=True)
-
-        return df
+    return df
 
 
-    def main():
-        """
-        Main function to load, clean, and inspect the data.
-        """
-        # --- Load the Messy Data ---
-        resource_dir = Path(__file__).resolve().parent
-        data_path = resource_dir / "messy_sales_data.csv"
-
-        print("--- Loading and Inspecting Messy Data ---")
-        try:
-            df = pd.read_csv(data_path)
-            print("Original data types (df.info()):")
-            df.info()
-            print("\nOriginal data head:")
-            print(df.head())
-        except FileNotFoundError:
-            print(
-                "Error: messy_sales_data.csv not found in the Day_25_Data_Cleaning folder."
-            )
-            return
-
-        # --- Clean the Data ---
-        df_cleaned = clean_sales_data(
-            df.copy()
-        )  # Use a copy to avoid SettingWithCopyWarning
-
-        # --- Inspect Cleaned Data ---
-        print("\n--- Inspecting Cleaned Data ---")
-        print("\nCleaned data types (df.info()):")
-        df_cleaned.info()
-        print("\nCleaned data head:")
-        print(df_cleaned.head())
-        print("\nUnique values in 'Region' column:", df_cleaned["Region"].unique())
-
-
-    if __name__ == "__main__":
-        main()
-    ```
-
-???+ example "solutions.py"
-    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_25_Data_Cleaning/solutions.py)
-
-    ```python title="solutions.py"
+def main():
     """
-    Day 25: Solutions to Exercises
+    Main function to load, clean, and inspect the data.
     """
-
-    from pathlib import Path
-
-    import pandas as pd
-
-    # --- Exercise 1: Load and Initial Clean ---
-    print("--- Solution to Exercise 1 ---")
+    # --- Load the Messy Data ---
     resource_dir = Path(__file__).resolve().parent
     data_path = resource_dir / "messy_sales_data.csv"
 
+    print("--- Loading and Inspecting Messy Data ---")
     try:
-        # Load the data
         df = pd.read_csv(data_path)
-        print("Original DataFrame info:")
+        print("Original data types (df.info()):")
         df.info()
-
-        # Convert 'Order Date' to datetime
-        df["Order Date"] = pd.to_datetime(df["Order Date"])
-        print("\n'Order Date' column converted to datetime.")
-
-        # Clean and convert 'Price' to float
-        df["Price"] = df["Price"].str.replace("$", "").str.replace(",", "").astype(float)
-        print("'Price' column cleaned and converted to float.")
-
-        # Clean 'Region' column whitespace
-        df["Region"] = df["Region"].str.strip()
-        print("'Region' column whitespace stripped.")
-
-        print("\nDataFrame info after initial cleaning:")
-        df.info()
-
+        print("\nOriginal data head:")
+        print(df.head())
     except FileNotFoundError:
         print(
             "Error: messy_sales_data.csv not found in the Day_25_Data_Cleaning folder."
-            " Keep the CSV beside this script."
         )
-        df = pd.DataFrame()
-    print("-" * 20)
+        return
+
+    # --- Clean the Data ---
+    df_cleaned = clean_sales_data(
+        df.copy()
+    )  # Use a copy to avoid SettingWithCopyWarning
+
+    # --- Inspect Cleaned Data ---
+    print("\n--- Inspecting Cleaned Data ---")
+    print("\nCleaned data types (df.info()):")
+    df_cleaned.info()
+    print("\nCleaned data head:")
+    print(df_cleaned.head())
+    print("\nUnique values in 'Region' column:", df_cleaned["Region"].unique())
 
 
-    # --- Exercise 2: Standardize Categories ---
-    print("--- Solution to Exercise 2 ---")
-    if not df.empty:
-        # Standardize 'Product' column to lowercase
-        df["Product"] = df["Product"].str.lower()
-        print("'Product' column standardized to lowercase.")
-        print(f"Unique product values: {df['Product'].unique()}")
+if __name__ == "__main__":
+    main()
+```
+````
 
-        # Standardize 'Region' column to 'USA'
-        df["Region"] = df["Region"].replace({"United States": "USA"})
-        print("'Region' column standardized to 'USA'.")
-        print(f"Unique region values: {df['Region'].unique()}")
-    else:
-        print("DataFrame not available for this exercise.")
-    print("-" * 20)
+???+ example "solutions.py"
+[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_25_Data_Cleaning/solutions.py)
+
+````
+```python title="solutions.py"
+"""
+Day 25: Solutions to Exercises
+"""
+
+from pathlib import Path
+
+import pandas as pd
+
+# --- Exercise 1: Load and Initial Clean ---
+print("--- Solution to Exercise 1 ---")
+resource_dir = Path(__file__).resolve().parent
+data_path = resource_dir / "messy_sales_data.csv"
+
+try:
+    # Load the data
+    df = pd.read_csv(data_path)
+    print("Original DataFrame info:")
+    df.info()
+
+    # Convert 'Order Date' to datetime
+    df["Order Date"] = pd.to_datetime(df["Order Date"])
+    print("\n'Order Date' column converted to datetime.")
+
+    # Clean and convert 'Price' to float
+    df["Price"] = df["Price"].str.replace("$", "").str.replace(",", "").astype(float)
+    print("'Price' column cleaned and converted to float.")
+
+    # Clean 'Region' column whitespace
+    df["Region"] = df["Region"].str.strip()
+    print("'Region' column whitespace stripped.")
+
+    print("\nDataFrame info after initial cleaning:")
+    df.info()
+
+except FileNotFoundError:
+    print(
+        "Error: messy_sales_data.csv not found in the Day_25_Data_Cleaning folder."
+        " Keep the CSV beside this script."
+    )
+    df = pd.DataFrame()
+print("-" * 20)
 
 
-    # --- Exercise 3: Handle Duplicates ---
-    print("--- Solution to Exercise 3 ---")
-    if not df.empty:
-        # Check for and count fully duplicate rows
-        num_duplicates = df.duplicated().sum()
-        print(f"Number of fully duplicate rows found: {num_duplicates}")
+# --- Exercise 2: Standardize Categories ---
+print("--- Solution to Exercise 2 ---")
+if not df.empty:
+    # Standardize 'Product' column to lowercase
+    df["Product"] = df["Product"].str.lower()
+    print("'Product' column standardized to lowercase.")
+    print(f"Unique product values: {df['Product'].unique()}")
 
-        # Create df_cleaned by removing full duplicates
-        df_cleaned = df.drop_duplicates()
-        print(f"Shape of original df: {df.shape}")
-        print(f"Shape after dropping duplicates (df_cleaned): {df_cleaned.shape}")
+    # Standardize 'Region' column to 'USA'
+    df["Region"] = df["Region"].replace({"United States": "USA"})
+    print("'Region' column standardized to 'USA'.")
+    print(f"Unique region values: {df['Region'].unique()}")
+else:
+    print("DataFrame not available for this exercise.")
+print("-" * 20)
 
-        # Check for duplicate Order IDs
-        num_duplicate_ids = df_cleaned.duplicated(subset=["Order ID"]).sum()
-        print(f"\nNumber of duplicate Order IDs found: {num_duplicate_ids}")
 
-        # Create df_final by removing duplicate Order IDs
-        df_final = df_cleaned.drop_duplicates(subset=["Order ID"], keep="first")
-        print(f"Shape after dropping duplicate Order IDs (df_final): {df_final.shape}")
+# --- Exercise 3: Handle Duplicates ---
+print("--- Solution to Exercise 3 ---")
+if not df.empty:
+    # Check for and count fully duplicate rows
+    num_duplicates = df.duplicated().sum()
+    print(f"Number of fully duplicate rows found: {num_duplicates}")
 
-        print("\nFinal cleaned DataFrame head:")
-        print(df_final.head())
-    else:
-        print("DataFrame not available for this exercise.")
-    print("-" * 20)
-    ```
+    # Create df_cleaned by removing full duplicates
+    df_cleaned = df.drop_duplicates()
+    print(f"Shape of original df: {df.shape}")
+    print(f"Shape after dropping duplicates (df_cleaned): {df_cleaned.shape}")
+
+    # Check for duplicate Order IDs
+    num_duplicate_ids = df_cleaned.duplicated(subset=["Order ID"]).sum()
+    print(f"\nNumber of duplicate Order IDs found: {num_duplicate_ids}")
+
+    # Create df_final by removing duplicate Order IDs
+    df_final = df_cleaned.drop_duplicates(subset=["Order ID"], keep="first")
+    print(f"Shape after dropping duplicate Order IDs (df_final): {df_final.shape}")
+
+    print("\nFinal cleaned DataFrame head:")
+    print(df_final.head())
+else:
+    print("DataFrame not available for this exercise.")
+print("-" * 20)
+```
+````

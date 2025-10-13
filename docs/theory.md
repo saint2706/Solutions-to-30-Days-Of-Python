@@ -2,24 +2,24 @@
 
 This document provides a comprehensive reference for the mathematical and theoretical concepts underlying the machine learning curriculum (Days 38-67). Each section builds from first principles to practical applications in modern ML systems.
 
----
+______________________________________________________________________
 
 ## Table of Contents
 
 1. [Linear Algebra Foundations](#1-linear-algebra-foundations)
-2. [Calculus and Optimization](#2-calculus-and-optimization)
-3. [Probability and Statistics](#3-probability-and-statistics)
-4. [Supervised Learning Theory](#4-supervised-learning-theory)
-5. [Neural Networks and Deep Learning](#5-neural-networks-and-deep-learning)
-6. [Regularization Techniques](#6-regularization-techniques)
-7. [Ensemble Methods](#7-ensemble-methods)
-8. [Unsupervised Learning](#8-unsupervised-learning)
-9. [Probabilistic Modeling](#9-probabilistic-modeling)
-10. [Time Series Analysis](#10-time-series-analysis)
-11. [Advanced Deep Learning](#11-advanced-deep-learning)
-12. [Model Evaluation and Selection](#12-model-evaluation-and-selection)
+1. [Calculus and Optimization](#2-calculus-and-optimization)
+1. [Probability and Statistics](#3-probability-and-statistics)
+1. [Supervised Learning Theory](#4-supervised-learning-theory)
+1. [Neural Networks and Deep Learning](#5-neural-networks-and-deep-learning)
+1. [Regularization Techniques](#6-regularization-techniques)
+1. [Ensemble Methods](#7-ensemble-methods)
+1. [Unsupervised Learning](#8-unsupervised-learning)
+1. [Probabilistic Modeling](#9-probabilistic-modeling)
+1. [Time Series Analysis](#10-time-series-analysis)
+1. [Advanced Deep Learning](#11-advanced-deep-learning)
+1. [Model Evaluation and Selection](#12-model-evaluation-and-selection)
 
----
+______________________________________________________________________
 
 ## 1. Linear Algebra Foundations
 
@@ -28,6 +28,7 @@ Linear algebra provides the mathematical language for representing and manipulat
 ### 1.1 Vectors
 
 A **vector** is an ordered collection of numbers that can represent:
+
 - A data point with multiple features
 - A direction and magnitude in space
 - A point in n-dimensional space
@@ -85,6 +86,7 @@ A = QΛQᵀ
 where Q contains eigenvectors and Λ is a diagonal matrix of eigenvalues.
 
 **ML Application:**
+
 - **Principal Component Analysis (PCA):** Uses eigenvectors of the covariance matrix to find directions of maximum variance
 - **Dimensionality Reduction:** Project data onto top-k eigenvectors to reduce dimensions while preserving variance
 - **Spectral Clustering:** Uses eigenvectors of graph Laplacian matrices
@@ -98,16 +100,18 @@ A = UΣVᵀ
 ```
 
 where:
+
 - U (m × m): Left singular vectors
 - Σ (m × n): Diagonal matrix of singular values
 - V (n × n): Right singular vectors
 
 **ML Application:**
+
 - Generalization of eigendecomposition to non-square matrices
 - Used in recommender systems (matrix factorization)
 - Basis for PCA and low-rank approximations
 
----
+______________________________________________________________________
 
 ## 2. Calculus and Optimization
 
@@ -122,6 +126,7 @@ f'(x) = lim(h→0) [f(x + h) - f(x)] / h
 ```
 
 **Common Derivatives:**
+
 - d/dx [xⁿ] = nxⁿ⁻¹
 - d/dx [eˣ] = eˣ
 - d/dx [ln(x)] = 1/x
@@ -144,6 +149,7 @@ The **gradient** is the vector of all partial derivatives:
 ```
 
 **Properties:**
+
 - Gradient points in the direction of steepest ascent
 - Negative gradient points toward steepest descent
 - Gradient is zero at local minima, maxima, and saddle points
@@ -175,6 +181,7 @@ For multivariate compositions:
 ```
 
 where:
+
 - θₜ: Parameters at iteration t
 - α: Learning rate (step size)
 - ∇L(θₜ): Gradient of loss function at θₜ
@@ -182,16 +189,19 @@ where:
 **Variants:**
 
 1. **Batch Gradient Descent:** Uses entire dataset to compute gradient
+
    ```
    ∇L(θ) = (1/n)Σᵢ ∇Lᵢ(θ)
    ```
 
-2. **Stochastic Gradient Descent (SGD):** Uses single random example
+1. **Stochastic Gradient Descent (SGD):** Uses single random example
+
    ```
    θₜ₊₁ = θₜ - α∇Lᵢ(θₜ)
    ```
 
-3. **Mini-batch Gradient Descent:** Uses small batch of examples
+1. **Mini-batch Gradient Descent:** Uses small batch of examples
+
    ```
    ∇L(θ) = (1/|B|)Σᵢ∈B ∇Lᵢ(θ)
    ```
@@ -199,12 +209,14 @@ where:
 **Advanced Optimizers:**
 
 - **Momentum:** Accumulates velocity to smooth updates
+
   ```
   vₜ = βvₜ₋₁ + ∇L(θₜ)
   θₜ₊₁ = θₜ - αvₜ
   ```
 
 - **Adam:** Adaptive learning rates with momentum
+
   ```
   mₜ = β₁mₜ₋₁ + (1-β₁)∇L(θₜ)
   vₜ = β₂vₜ₋₁ + (1-β₂)(∇L(θₜ))²
@@ -220,13 +232,14 @@ f(λx + (1-λ)y) ≤ λf(x) + (1-λ)f(y) for all λ ∈ [0,1]
 ```
 
 **Properties:**
+
 - Local minimum is also global minimum
 - Gradient descent converges to global optimum
 - Examples: Linear regression, logistic regression (with convex regularization)
 
 **ML Application:** Many ML loss functions are convex, guaranteeing convergence to optimal solutions.
 
----
+______________________________________________________________________
 
 ## 3. Probability and Statistics
 
@@ -235,9 +248,10 @@ Probability theory provides the foundation for reasoning about uncertainty in da
 ### 3.1 Probability Fundamentals
 
 **Probability Axioms:**
+
 1. P(A) ≥ 0 for any event A
-2. P(Ω) = 1 (total probability)
-3. P(A ∪ B) = P(A) + P(B) if A and B are disjoint
+1. P(Ω) = 1 (total probability)
+1. P(A ∪ B) = P(A) + P(B) if A and B are disjoint
 
 **Conditional Probability:**
 
@@ -273,27 +287,35 @@ Var(X) = E[(X - E[X])²] = E[X²] - (E[X])²
 **Common Distributions:**
 
 1. **Normal (Gaussian):**
+
    ```
    f(x) = (1/√(2πσ²))exp(-(x-μ)²/(2σ²))
    ```
+
    - Used in: Linear regression errors, Gaussian processes
 
-2. **Bernoulli:**
+1. **Bernoulli:**
+
    ```
    P(X = 1) = p, P(X = 0) = 1-p
    ```
+
    - Used in: Binary classification
 
-3. **Multinomial:**
+1. **Multinomial:**
+
    ```
    P(X = k) = pₖ where Σₖ pₖ = 1
    ```
+
    - Used in: Multi-class classification
 
-4. **Poisson:**
+1. **Poisson:**
+
    ```
    P(X = k) = (λᵏe⁻ᵏ) / k!
    ```
+
    - Used in: Count data (arrivals, events)
 
 ### 3.3 Maximum Likelihood Estimation (MLE)
@@ -315,6 +337,7 @@ Often use **log-likelihood** for convenience:
 ### 3.4 Statistical Inference
 
 **Hypothesis Testing:**
+
 - Null hypothesis H₀ vs. alternative H₁
 - p-value: Probability of observing data at least as extreme as observed, given H₀
 - Significance level α (typically 0.05)
@@ -330,7 +353,7 @@ where SE is the standard error.
 
 **ML Application:** Evaluating model significance, A/B testing, feature selection.
 
----
+______________________________________________________________________
 
 ## 4. Supervised Learning Theory
 
@@ -343,6 +366,7 @@ Supervised learning involves learning a mapping from inputs X to outputs Y given
 **Goal:** Learn function f: X → Y such that f(x) ≈ y
 
 **Types:**
+
 - **Regression:** Y is continuous (e.g., price, temperature)
 - **Classification:** Y is discrete (e.g., spam/not spam, digit 0-9)
 
@@ -373,12 +397,14 @@ L(θ) = (1/n)Σᵢ (yᵢ - θᵀxᵢ)²
 ```
 
 **Assumptions:**
+
 1. Linearity: True relationship is linear
-2. Independence: Observations are independent
-3. Homoscedasticity: Constant variance of errors
-4. Normality: Errors follow normal distribution
+1. Independence: Observations are independent
+1. Homoscedasticity: Constant variance of errors
+1. Normality: Errors follow normal distribution
 
 **Coefficient Interpretation:**
+
 - θⱼ represents the change in y for a unit change in xⱼ, holding other features constant
 
 ### 4.3 Logistic Regression
@@ -435,6 +461,7 @@ subject to yᵢ(wᵀxᵢ + b) ≥ 1 - ξᵢ, ξᵢ ≥ 0
 ```
 
 **Kernel Trick:** Map data to higher dimensions using kernel functions:
+
 - Linear: K(x, x') = xᵀx'
 - Polynomial: K(x, x') = (xᵀx' + c)ᵈ
 - RBF (Gaussian): K(x, x') = exp(-γ||x - x'||²)
@@ -465,21 +492,24 @@ IG = H(parent) - Σ(|child|/|parent|)H(child)
 ```
 
 **Algorithm:**
+
 1. Start with all data at root
-2. For each feature, find best split that maximizes information gain
-3. Recursively split until stopping criterion met
-4. Assign leaf prediction (majority class or mean value)
+1. For each feature, find best split that maximizes information gain
+1. Recursively split until stopping criterion met
+1. Assign leaf prediction (majority class or mean value)
 
 **Advantages:**
+
 - Interpretable
 - Handles non-linear relationships
 - No feature scaling needed
 
 **Disadvantages:**
+
 - Prone to overfitting
 - Unstable (small data changes cause different trees)
 
----
+______________________________________________________________________
 
 ## 5. Neural Networks and Deep Learning
 
@@ -495,6 +525,7 @@ a = g(z)
 ```
 
 where:
+
 - w: weights
 - b: bias
 - g: activation function
@@ -507,37 +538,46 @@ where:
 **Common Activations:**
 
 1. **Sigmoid:**
+
    ```
    σ(z) = 1 / (1 + e⁻ᶻ)
    σ'(z) = σ(z)(1 - σ(z))
    ```
+
    - Range: (0, 1)
    - Issues: Vanishing gradients, not zero-centered
 
-2. **Tanh:**
+1. **Tanh:**
+
    ```
    tanh(z) = (eᶻ - e⁻ᶻ) / (eᶻ + e⁻ᶻ)
    tanh'(z) = 1 - tanh²(z)
    ```
+
    - Range: (-1, 1)
    - Zero-centered, but still vanishing gradients
 
-3. **ReLU (Rectified Linear Unit):**
+1. **ReLU (Rectified Linear Unit):**
+
    ```
    ReLU(z) = max(0, z)
    ReLU'(z) = 1 if z > 0, else 0
    ```
+
    - Most popular for hidden layers
    - Computationally efficient
    - Issues: "Dying ReLU" (neurons can permanently output 0)
 
-4. **Leaky ReLU:**
+1. **Leaky ReLU:**
+
    ```
    LeakyReLU(z) = max(αz, z) where α ≈ 0.01
    ```
+
    - Prevents dying ReLU problem
 
-5. **Softmax (Output Layer for Multi-class):**
+1. **Softmax (Output Layer for Multi-class):**
+
    ```
    softmax(zᵢ) = exp(zᵢ) / Σⱼ exp(zⱼ)
    ```
@@ -593,11 +633,13 @@ b⁽ˡ⁾ ← b⁽ˡ⁾ - α(∂L/∂b⁽ˡ⁾)
 **Regression:**
 
 1. **Mean Squared Error (MSE):**
+
    ```
    L = (1/n)Σᵢ (yᵢ - ŷᵢ)²
    ```
 
-2. **Mean Absolute Error (MAE):**
+1. **Mean Absolute Error (MAE):**
+
    ```
    L = (1/n)Σᵢ |yᵢ - ŷᵢ|
    ```
@@ -605,11 +647,13 @@ b⁽ˡ⁾ ← b⁽ˡ⁾ - α(∂L/∂b⁽ˡ⁾)
 **Classification:**
 
 1. **Binary Cross-Entropy:**
+
    ```
    L = -(1/n)Σᵢ [yᵢ log(ŷᵢ) + (1-yᵢ)log(1-ŷᵢ)]
    ```
 
-2. **Categorical Cross-Entropy:**
+1. **Categorical Cross-Entropy:**
+
    ```
    L = -(1/n)Σᵢ Σₖ yᵢₖ log(ŷᵢₖ)
    ```
@@ -640,12 +684,13 @@ yᵢ = γx̂ᵢ + β
 ```
 
 **Benefits:**
+
 - Faster training
 - Higher learning rates possible
 - Reduces sensitivity to initialization
 - Acts as regularization
 
----
+______________________________________________________________________
 
 ## 6. Regularization Techniques
 
@@ -660,6 +705,7 @@ L_ridge(θ) = L(θ) + λ||θ||₂² = L(θ) + λΣⱼ θⱼ²
 ```
 
 **Effect:**
+
 - Shrinks coefficients toward zero
 - Never exactly zero (all features retained)
 - Closed-form solution exists for linear regression:
@@ -678,6 +724,7 @@ L_lasso(θ) = L(θ) + λ||θ||₁ = L(θ) + λΣⱼ |θⱼ|
 ```
 
 **Effect:**
+
 - Produces sparse solutions (many coefficients exactly zero)
 - Automatic feature selection
 - No closed-form solution (requires iterative methods)
@@ -693,6 +740,7 @@ L_elastic(θ) = L(θ) + λ₁||θ||₁ + λ₂||θ||₂²
 ```
 
 **Advantages:**
+
 - Sparse solutions like Lasso
 - Better than Lasso when features are correlated
 - More stable than Lasso
@@ -702,6 +750,7 @@ L_elastic(θ) = L(θ) + λ₁||θ||₁ + λ₂||θ||₂²
 **Training:** Randomly set a fraction p of neurons to zero in each iteration.
 
 **Effect:**
+
 - Prevents co-adaptation of neurons
 - Approximates ensemble of exponentially many networks
 - Acts as strong regularizer
@@ -717,13 +766,14 @@ L_elastic(θ) = L(θ) + λ₁||θ||₁ + λ₂||θ||₂²
 ### 6.6 Data Augmentation
 
 **Increase effective dataset size** by applying transformations:
+
 - Images: rotation, flipping, cropping, color jitter
 - Text: synonym replacement, back-translation
 - Time series: jittering, scaling, window slicing
 
 **Effect:** Regularizes by exposing model to variations.
 
----
+______________________________________________________________________
 
 ## 7. Ensemble Methods
 
@@ -732,9 +782,10 @@ Ensemble methods combine multiple models to achieve better performance than indi
 ### 7.1 Bagging (Bootstrap Aggregating)
 
 **Algorithm:**
+
 1. Create m bootstrap samples (sample with replacement)
-2. Train model on each bootstrap sample
-3. Aggregate predictions (vote for classification, average for regression)
+1. Train model on each bootstrap sample
+1. Aggregate predictions (vote for classification, average for regression)
 
 **Prediction:**
 
@@ -752,6 +803,7 @@ Importance(xⱼ) = Σ_trees Σ_splits ΔImpurity(xⱼ)
 ```
 
 **Out-of-Bag (OOB) Error:**
+
 - Each tree uses ~63% of data for training
 - Remaining ~37% used for validation (OOB samples)
 - OOB error provides unbiased performance estimate
@@ -763,20 +815,20 @@ Importance(xⱼ) = Σ_trees Σ_splits ΔImpurity(xⱼ)
 **AdaBoost (Adaptive Boosting):**
 
 1. Initialize weights: wᵢ = 1/n for all i
-2. For t = 1 to T:
+1. For t = 1 to T:
    - Train classifier fₜ on weighted data
    - Compute error: εₜ = Σᵢ wᵢ · I(yᵢ ≠ fₜ(xᵢ))
    - Compute weight: αₜ = (1/2)log((1-εₜ)/εₜ)
    - Update weights: wᵢ ← wᵢ · exp(-αₜyᵢfₜ(xᵢ))
    - Normalize weights
-3. Final prediction: F(x) = sign(Σₜ αₜfₜ(x))
+1. Final prediction: F(x) = sign(Σₜ αₜfₜ(x))
 
 **Gradient Boosting:**
 
 General framework for boosting any differentiable loss function.
 
 1. Initialize: F₀(x) = argmin_γ Σᵢ L(yᵢ, γ)
-2. For t = 1 to T:
+1. For t = 1 to T:
    - Compute pseudo-residuals:
      ```
      rᵢₜ = -∂L(yᵢ, F(xᵢ))/∂F(xᵢ) |_(F=Fₜ₋₁)
@@ -803,22 +855,25 @@ where Ω(f) = γT + (1/2)λ||w||² (T = number of leaves)
 **Two-Level Architecture:**
 
 **Level 0 (Base Models):**
+
 - Train diverse models (e.g., random forest, SVM, neural network)
 - Generate out-of-fold predictions on training set
 
 **Level 1 (Meta-Model):**
+
 - Train on base model predictions as features
 - Learn optimal way to combine base model predictions
 
 **Algorithm:**
+
 1. Split data into K folds
-2. For each base model:
+1. For each base model:
    - Train on K-1 folds, predict on held-out fold (repeat K times)
    - Train on full training set, predict on test set
-3. Train meta-model on out-of-fold predictions
-4. Meta-model predicts on base model test predictions
+1. Train meta-model on out-of-fold predictions
+1. Meta-model predicts on base model test predictions
 
----
+______________________________________________________________________
 
 ## 8. Unsupervised Learning
 
@@ -833,8 +888,9 @@ minimize Σₖ Σ_{xᵢ∈Cₖ} ||xᵢ - μₖ||²
 ```
 
 **Algorithm (Lloyd's Algorithm):**
+
 1. Initialize k centroids randomly
-2. Repeat until convergence:
+1. Repeat until convergence:
    - **Assignment:** Assign each point to nearest centroid
      ```
      Cₖ = {xᵢ : ||xᵢ - μₖ|| ≤ ||xᵢ - μⱼ|| for all j}
@@ -845,11 +901,13 @@ minimize Σₖ Σ_{xᵢ∈Cₖ} ||xᵢ - μₖ||²
      ```
 
 **Choosing k:**
+
 - Elbow method: Plot inertia vs k, look for "elbow"
 - Silhouette score: Measures cluster cohesion and separation
 - Domain knowledge
 
 **Limitations:**
+
 - Assumes spherical clusters
 - Sensitive to initialization
 - Must specify k in advance
@@ -857,11 +915,13 @@ minimize Σₖ Σ_{xᵢ∈Cₖ} ||xᵢ - μₖ||²
 ### 8.2 Hierarchical Clustering
 
 **Agglomerative (Bottom-Up):**
+
 1. Start with each point as its own cluster
-2. Repeatedly merge closest clusters
-3. Stop when all points in one cluster
+1. Repeatedly merge closest clusters
+1. Stop when all points in one cluster
 
 **Linkage Criteria:**
+
 - **Single:** min distance between any pair
 - **Complete:** max distance between any pair
 - **Average:** average distance between all pairs
@@ -872,15 +932,18 @@ minimize Σₖ Σ_{xᵢ∈Cₖ} ||xᵢ - μₖ||²
 ### 8.3 DBSCAN (Density-Based Spatial Clustering)
 
 **Parameters:**
+
 - ε: Maximum radius of neighborhood
 - MinPts: Minimum points to form dense region
 
 **Point Types:**
+
 - **Core Point:** Has ≥ MinPts neighbors within ε
 - **Border Point:** In neighborhood of core point but not core itself
 - **Noise Point:** Neither core nor border
 
 **Advantages:**
+
 - Discovers clusters of arbitrary shape
 - Robust to outliers
 - No need to specify number of clusters
@@ -892,16 +955,16 @@ minimize Σₖ Σ_{xᵢ∈Cₖ} ||xᵢ - μₖ||²
 **Mathematical Formulation:**
 
 1. Center data: X_centered = X - X̄
-2. Compute covariance matrix:
+1. Compute covariance matrix:
    ```
    Σ = (1/n)X_centeredᵀX_centered
    ```
-3. Compute eigendecomposition:
+1. Compute eigendecomposition:
    ```
    Σ = QΛQᵀ
    ```
-4. Principal components are eigenvectors (columns of Q)
-5. Project data:
+1. Principal components are eigenvectors (columns of Q)
+1. Project data:
    ```
    Z = X_centered · Q[:, :k]  (keep top k components)
    ```
@@ -913,6 +976,7 @@ Variance explained by PC_j = λⱼ / Σᵢ λᵢ
 ```
 
 **Applications:**
+
 - Dimensionality reduction
 - Data visualization (project to 2D/3D)
 - Noise reduction
@@ -923,27 +987,33 @@ Variance explained by PC_j = λⱼ / Σᵢ λᵢ
 **Goal:** Preserve local structure in low-dimensional embedding.
 
 **Algorithm:**
+
 1. Compute pairwise similarities in high-dimensional space:
+
    ```
    p_{j|i} = exp(-||xᵢ - xⱼ||²/(2σᵢ²)) / Σₖ≠ᵢ exp(-||xᵢ - xₖ||²/(2σᵢ²))
    ```
 
-2. Compute symmetrized similarities:
+1. Compute symmetrized similarities:
+
    ```
    pᵢⱼ = (p_{j|i} + p_{i|j}) / (2n)
    ```
 
-3. Define similarities in low-dimensional space using t-distribution:
+1. Define similarities in low-dimensional space using t-distribution:
+
    ```
    qᵢⱼ = (1 + ||yᵢ - yⱼ||²)⁻¹ / Σₖ≠ˡ (1 + ||yₖ - yˡ||²)⁻¹
    ```
 
-4. Minimize KL divergence using gradient descent:
+1. Minimize KL divergence using gradient descent:
+
    ```
    KL(P||Q) = Σᵢ Σⱼ pᵢⱼ log(pᵢⱼ/qᵢⱼ)
    ```
 
 **Properties:**
+
 - Excellent for visualization
 - Non-parametric (cannot embed new points directly)
 - Stochastic (different runs give different results)
@@ -951,12 +1021,13 @@ Variance explained by PC_j = λⱼ / Σᵢ λᵢ
 ### 8.6 UMAP (Uniform Manifold Approximation and Projection)
 
 Similar to t-SNE but:
+
 - Faster
 - Better preserves global structure
 - Can project new points
 - Based on manifold theory and topological data analysis
 
----
+______________________________________________________________________
 
 ## 9. Probabilistic Modeling
 
@@ -977,11 +1048,13 @@ P(x₁, ..., xₚ | y) = ∏ⱼ P(xⱼ | y)
 ```
 
 **Variants:**
+
 - **Gaussian Naive Bayes:** P(xⱼ|y) ~ N(μⱼᵧ, σ²ⱼᵧ)
 - **Multinomial Naive Bayes:** For count data (e.g., text)
 - **Bernoulli Naive Bayes:** For binary features
 
 **Advantages:**
+
 - Fast training and prediction
 - Works well with high-dimensional data
 - Often surprisingly effective despite strong independence assumption
@@ -1042,6 +1115,7 @@ Nₖ = Σᵢ γᵢₖ
 ### 9.4 Hidden Markov Models (HMM)
 
 **Components:**
+
 - States: S = {s₁, ..., sₙ}
 - Observations: O = {o₁, ..., oₘ}
 - Initial probabilities: π
@@ -1064,6 +1138,7 @@ p(O) = Σᵢ α_T(i)
 ```
 
 **Applications:**
+
 - Speech recognition
 - Part-of-speech tagging
 - Gene prediction
@@ -1077,6 +1152,7 @@ p(θ | D) = p(D | θ)p(θ) / p(D)
 ```
 
 where:
+
 - p(θ): Prior distribution
 - p(D | θ): Likelihood
 - p(θ | D): Posterior distribution
@@ -1097,11 +1173,12 @@ p(x_new | D) = ∫ p(x_new | θ)p(θ | D)dθ
 **Conjugate Priors:** Prior and posterior have same functional form.
 
 Examples:
+
 - Beta prior + Binomial likelihood → Beta posterior
 - Dirichlet prior + Multinomial likelihood → Dirichlet posterior
 - Normal prior + Normal likelihood → Normal posterior
 
----
+______________________________________________________________________
 
 ## 10. Time Series Analysis
 
@@ -1116,6 +1193,7 @@ Y_t = T_t + S_t + R_t
 ```
 
 where:
+
 - T_t: Trend (long-term direction)
 - S_t: Seasonality (periodic patterns)
 - R_t: Residual (irregular component)
@@ -1129,18 +1207,21 @@ Y_t = T_t × S_t × R_t
 ### 10.2 Stationarity
 
 A time series is **stationary** if:
+
 1. Constant mean: E[Y_t] = μ
-2. Constant variance: Var(Y_t) = σ²
-3. Autocovariance depends only on lag: Cov(Y_t, Y_{t+k}) = γ_k
+1. Constant variance: Var(Y_t) = σ²
+1. Autocovariance depends only on lag: Cov(Y_t, Y\_{t+k}) = γ_k
 
 **Tests:**
+
 - **Augmented Dickey-Fuller (ADF):** Tests for unit root
 - **KPSS:** Tests for stationarity
 
 **Making Non-Stationary Data Stationary:**
-- Differencing: ΔY_t = Y_t - Y_{t-1}
+
+- Differencing: ΔY_t = Y_t - Y\_{t-1}
 - Log transformation: log(Y_t)
-- Seasonal differencing: Y_t - Y_{t-s}
+- Seasonal differencing: Y_t - Y\_{t-s}
 
 ### 10.3 Autocorrelation
 
@@ -1152,7 +1233,7 @@ A time series is **stationary** if:
 
 **Partial Autocorrelation Function (PACF):**
 
-Correlation between Y_t and Y_{t-k} after removing linear dependence on Y_{t-1}, ..., Y_{t-k+1}.
+Correlation between Y_t and Y\_{t-k} after removing linear dependence on Y\_{t-1}, ..., Y\_{t-k+1}.
 
 ### 10.4 ARIMA Models
 
@@ -1177,13 +1258,14 @@ Y_t = c + Σᵢ φᵢY_{t-i} + Σⱼ θⱼε_{t-j} + ε_t
 **ARIMA(p,d,q):** ARMA on differenced series (d differences)
 
 **Model Selection:**
+
 - Use ACF/PACF plots
 - Use information criteria (AIC, BIC)
 - Grid search over (p,d,q)
 
 ### 10.5 Seasonal ARIMA (SARIMAX)
 
-**SARIMA(p,d,q)(P,D,Q)_s:**
+**SARIMA(p,d,q)(P,D,Q)\_s:**
 
 Combines non-seasonal and seasonal components:
 
@@ -1192,10 +1274,11 @@ Combines non-seasonal and seasonal components:
 ```
 
 where:
+
 - (p,d,q): Non-seasonal orders
 - (P,D,Q): Seasonal orders
 - s: Seasonal period
-- B: Backshift operator (BY_t = Y_{t-1})
+- B: Backshift operator (BY_t = Y\_{t-1})
 
 **SARIMAX:** SARIMA + exogenous variables
 
@@ -1235,12 +1318,14 @@ y(t) = g(t) + s(t) + h(t) + ε_t
 ```
 
 where:
+
 - g(t): Piecewise linear or logistic growth
 - s(t): Fourier series for seasonality
 - h(t): Holiday effects
 - ε_t: Error term
 
 **Advantages:**
+
 - Handles missing data and outliers
 - Intuitive hyperparameters
 - Automatic seasonality detection
@@ -1272,7 +1357,7 @@ MAPE = (100/n)Σ|y_t - ŷ_t|/|y_t|
 sMAPE = (100/n)Σ 2|y_t - ŷ_t|/(|y_t| + |ŷ_t|)
 ```
 
----
+______________________________________________________________________
 
 ## 11. Advanced Deep Learning
 
@@ -1291,6 +1376,7 @@ Output[i,j,k] = σ(Σₘ Σₙ Σ_c Input[i+m, j+n, c] × Kernel[m,n,c,k] + Bias
 ```
 
 **Key Concepts:**
+
 - **Filters/Kernels:** Small matrices that slide over input
 - **Feature Maps:** Outputs of applying filters
 - **Stride:** Step size for sliding kernel
@@ -1317,6 +1403,7 @@ Input → [Conv → ReLU → Pool]×N → Flatten → [FC → ReLU]×M → Outpu
 ```
 
 **Classic Architectures:**
+
 - **LeNet-5:** Early CNN for digit recognition
 - **AlexNet:** First deep CNN to win ImageNet (2012)
 - **VGGNet:** Very deep with small 3×3 filters
@@ -1333,6 +1420,7 @@ y_t = W_hy h_t + b_y
 ```
 
 **Problems:**
+
 - Vanishing gradients: Gradients shrink exponentially with sequence length
 - Exploding gradients: Gradients grow exponentially
 
@@ -1411,6 +1499,7 @@ Attention(Q, K, V) = softmax(QK^T / √d_k)V
 ```
 
 where:
+
 - Q: Query matrix
 - K: Key matrix
 - V: Value matrix
@@ -1443,11 +1532,13 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
 ```
 
 **Advantages:**
+
 - Parallelizable (unlike RNNs)
 - Captures long-range dependencies
 - State-of-the-art on many tasks
 
 **Popular Models:**
+
 - **BERT:** Bidirectional encoder for understanding
 - **GPT:** Autoregressive decoder for generation
 - **T5:** Encoder-decoder for text-to-text tasks
@@ -1488,6 +1579,7 @@ Allows backpropagation through sampling.
 **Generative Adversarial Networks (GANs):**
 
 **Two Networks:**
+
 - Generator G: Generates fake samples from noise
 - Discriminator D: Distinguishes real from fake
 
@@ -1498,20 +1590,23 @@ min_G max_D E_x[log D(x)] + E_z[log(1 - D(G(z)))]
 ```
 
 **Training:**
+
 1. Train D to maximize discriminator accuracy
-2. Train G to maximize discriminator's mistakes
+1. Train G to maximize discriminator's mistakes
 
 **Challenges:**
+
 - Mode collapse
 - Training instability
 - Vanishing gradients
 
 **Improvements:**
+
 - Wasserstein GAN (WGAN)
 - Spectral normalization
 - Progressive growing
 
----
+______________________________________________________________________
 
 ## 12. Model Evaluation and Selection
 
@@ -1524,10 +1619,12 @@ E[(y - ŷ)²] = Bias² + Variance + Irreducible Error
 ```
 
 **Bias:** Error from approximating complex functions with simple models
+
 - High bias → Underfitting
 - Examples: Linear model for non-linear data
 
 **Variance:** Error from sensitivity to training set fluctuations
+
 - High variance → Overfitting
 - Examples: Deep decision tree, high-degree polynomial
 
@@ -1538,10 +1635,10 @@ E[(y - ŷ)²] = Bias² + Variance + Irreducible Error
 **K-Fold Cross-Validation:**
 
 1. Split data into K folds
-2. For k = 1 to K:
+1. For k = 1 to K:
    - Train on K-1 folds
    - Validate on fold k
-3. Average performance across folds
+1. Average performance across folds
 
 **Stratified K-Fold:** Maintain class proportions in each fold.
 
@@ -1608,6 +1705,7 @@ FPR = FP / (FP + TN)  (x-axis)
 ```
 
 **AUC (Area Under Curve):**
+
 - Perfect classifier: AUC = 1.0
 - Random classifier: AUC = 0.5
 - Interpretation: Probability that model ranks random positive higher than random negative
@@ -1675,16 +1773,19 @@ Stronger penalty for model complexity than AIC.
 ### 12.7 Hyperparameter Tuning
 
 **Grid Search:**
+
 - Define grid of hyperparameter values
 - Evaluate all combinations via cross-validation
 - Select combination with best performance
 
 **Random Search:**
+
 - Sample hyperparameter combinations randomly
 - Often more efficient than grid search
 - Better explores high-dimensional spaces
 
 **Bayesian Optimization:**
+
 - Build probabilistic model of objective function
 - Use model to select promising hyperparameters
 - Update model with new evaluations
@@ -1693,54 +1794,60 @@ Stronger penalty for model complexity than AIC.
 **Learning Curves:**
 
 Plot training and validation performance vs:
+
 - Training set size: Diagnose bias/variance
 - Training iterations: Detect convergence/overfitting
 
----
+______________________________________________________________________
 
 ## Conclusion
 
 This theory document covers the mathematical foundations underlying the ML curriculum from Days 38-67. Each concept builds on previous ones, forming a coherent framework for understanding modern machine learning:
 
 1. **Linear Algebra** provides the language for representing data and transformations
-2. **Calculus** enables optimization through gradient-based methods
-3. **Probability** allows reasoning about uncertainty
-4. **Supervised Learning** applies these foundations to learn mappings from inputs to outputs
-5. **Deep Learning** extends linear models with non-linear compositions
-6. **Regularization** prevents overfitting through various constraint mechanisms
-7. **Ensembles** combine models for robust predictions
-8. **Unsupervised Learning** discovers structure in unlabeled data
-9. **Probabilistic Models** explicitly represent uncertainty
-10. **Time Series** handles temporal dependencies
-11. **Advanced Deep Learning** tackles complex patterns in images, sequences, and text
-12. **Evaluation** ensures models generalize beyond training data
+1. **Calculus** enables optimization through gradient-based methods
+1. **Probability** allows reasoning about uncertainty
+1. **Supervised Learning** applies these foundations to learn mappings from inputs to outputs
+1. **Deep Learning** extends linear models with non-linear compositions
+1. **Regularization** prevents overfitting through various constraint mechanisms
+1. **Ensembles** combine models for robust predictions
+1. **Unsupervised Learning** discovers structure in unlabeled data
+1. **Probabilistic Models** explicitly represent uncertainty
+1. **Time Series** handles temporal dependencies
+1. **Advanced Deep Learning** tackles complex patterns in images, sequences, and text
+1. **Evaluation** ensures models generalize beyond training data
 
 For practical implementations of these concepts, refer to the corresponding lesson days (38-67) in the curriculum. Each lesson provides executable code, worked examples, and exercises to solidify understanding.
 
----
+______________________________________________________________________
 
 ## Further Reading
 
 ### Books
 
 - **Linear Algebra:**
+
   - Gilbert Strang, *Linear Algebra and Its Applications*
   - Sheldon Axler, *Linear Algebra Done Right*
 
 - **Calculus and Optimization:**
+
   - Stephen Boyd & Lieven Vandenberghe, *Convex Optimization*
   - Jorge Nocedal & Stephen Wright, *Numerical Optimization*
 
 - **Probability and Statistics:**
+
   - Larry Wasserman, *All of Statistics*
   - Dimitri Bertsekas & John Tsitsiklis, *Introduction to Probability*
 
 - **Machine Learning:**
+
   - Christopher Bishop, *Pattern Recognition and Machine Learning*
   - Trevor Hastie et al., *The Elements of Statistical Learning*
   - Kevin Murphy, *Probabilistic Machine Learning: An Introduction*
 
 - **Deep Learning:**
+
   - Ian Goodfellow et al., *Deep Learning*
   - François Chollet, *Deep Learning with Python*
 
@@ -1760,6 +1867,6 @@ For practical implementations of these concepts, refer to the corresponding less
 - Kingma & Ba (2014): "Adam: A Method for Stochastic Optimization"
 - He et al. (2015): "Deep Residual Learning for Image Recognition"
 
----
+______________________________________________________________________
 
 *This theory document is maintained as part of the Coding for MBA curriculum. For questions or suggestions, please open an issue on the [GitHub repository](https://github.com/saint2706/Coding-For-MBA).*

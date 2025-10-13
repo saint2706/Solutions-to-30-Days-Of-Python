@@ -14,7 +14,9 @@ from mypackage import BarSystem
 @pytest.fixture
 def sistema_bar() -> BarSystem:
     sistema = BarSystem(mesas=[1, 2], moneda="USD")
-    sistema.agregar_item_inventario("CERV", "Cerveza artesanal", 3.5, 50, tipo="producto")
+    sistema.agregar_item_inventario(
+        "CERV", "Cerveza artesanal", 3.5, 50, tipo="producto"
+    )
     sistema.agregar_item_inventario("EMP", "Empanada", 2.25, 30, tipo="producto")
     sistema.agregar_item_inventario("LIM", "Limones", 0.2, 100, tipo="insumo")
     return sistema
