@@ -60,190 +60,197 @@ The script for this lesson, `conditionals.py`, has been refactored to encapsulat
 
 ## Additional Materials
 
+- **conditionals.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/conditionals.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/conditionals.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/conditionals.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_09_Conditionals/conditionals.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_09_Conditionals/solutions.ipynb){ .md-button }
+
 ???+ example "conditionals.py"
-[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/conditionals.py)
+    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/conditionals.py)
 
-````
-```python title="conditionals.py"
-"""
-Day 9: Implementing Business Logic with Conditionals (Refactored)
+    ```python title="conditionals.py"
+    """
+    Day 9: Implementing Business Logic with Conditionals (Refactored)
 
-This script demonstrates how to use if, elif, and else statements
-to create business rules and make decisions in code. This version is
-refactored into functions for better organization and testability.
-"""
-
-
-def calculate_discount_percent(purchase_amount):
-    """Calculates a discount percentage based on the purchase amount."""
-    if not isinstance(purchase_amount, (int, float)) or purchase_amount < 0:
-        return 0.0
-
-    if purchase_amount > 100.00:
-        return 0.10  # 10% discount
-    elif purchase_amount > 50.00:
-        return 0.05  # 5% discount
-    else:
-        return 0.00  # 0% discount
+    This script demonstrates how to use if, elif, and else statements
+    to create business rules and make decisions in code. This version is
+    refactored into functions for better organization and testability.
+    """
 
 
-def calculate_shipping_cost(country, order_weight_kg):
-    """Calculates shipping cost based on destination and weight."""
-    if country == "USA":
-        if order_weight_kg > 50:
-            return 75
+    def calculate_discount_percent(purchase_amount):
+        """Calculates a discount percentage based on the purchase amount."""
+        if not isinstance(purchase_amount, (int, float)) or purchase_amount < 0:
+            return 0.0
+
+        if purchase_amount > 100.00:
+            return 0.10  # 10% discount
+        elif purchase_amount > 50.00:
+            return 0.05  # 5% discount
         else:
-            return 50
-    elif country == "Canada":
-        if order_weight_kg > 50:
-            return 100
+            return 0.00  # 0% discount
+
+
+    def calculate_shipping_cost(country, order_weight_kg):
+        """Calculates shipping cost based on destination and weight."""
+        if country == "USA":
+            if order_weight_kg > 50:
+                return 75
+            else:
+                return 50
+        elif country == "Canada":
+            if order_weight_kg > 50:
+                return 100
+            else:
+                return 65
         else:
-            return 65
-    else:
-        return -1  # Using -1 to indicate not available
+            return -1  # Using -1 to indicate not available
 
 
-def calculate_employee_bonus(performance_rating, department, salary):
-    """Calculates an employee's bonus based on performance and department."""
-    if performance_rating >= 4:
-        if department == "Sales":
-            return salary * 0.15
+    def calculate_employee_bonus(performance_rating, department, salary):
+        """Calculates an employee's bonus based on performance and department."""
+        if performance_rating >= 4:
+            if department == "Sales":
+                return salary * 0.15
+            else:
+                return salary * 0.10
+        elif performance_rating == 3:
+            return salary * 0.05
         else:
-            return salary * 0.10
-    elif performance_rating == 3:
-        return salary * 0.05
-    else:
-        return 0.0
+            return 0.0
 
 
-if __name__ == "__main__":
-    # --- Example 1: Customer Discount Policy ---
-    print("--- Customer Discount Calculator ---")
-    customer_purchase = 125.50
-    discount_rate = calculate_discount_percent(customer_purchase)
-    discount = customer_purchase * discount_rate
-    final = customer_purchase - discount
+    if __name__ == "__main__":
+        # --- Example 1: Customer Discount Policy ---
+        print("--- Customer Discount Calculator ---")
+        customer_purchase = 125.50
+        discount_rate = calculate_discount_percent(customer_purchase)
+        discount = customer_purchase * discount_rate
+        final = customer_purchase - discount
 
-    print(f"Original Price: ${customer_purchase:.2f}")
-    print(f"Discount ({discount_rate * 100}%): ${discount:.2f}")
-    print(f"Final Price: ${final:.2f}")
-    print("-" * 20)
+        print(f"Original Price: ${customer_purchase:.2f}")
+        print(f"Discount ({discount_rate * 100}%): ${discount:.2f}")
+        print(f"Final Price: ${final:.2f}")
+        print("-" * 20)
 
-    # --- Example 2: Nested Conditionals for Shipping Costs ---
-    print("--- Shipping Cost Calculator ---")
-    shipping_country = "Canada"
-    weight = 60
-    cost = calculate_shipping_cost(shipping_country, weight)
+        # --- Example 2: Nested Conditionals for Shipping Costs ---
+        print("--- Shipping Cost Calculator ---")
+        shipping_country = "Canada"
+        weight = 60
+        cost = calculate_shipping_cost(shipping_country, weight)
 
-    if cost != -1:
-        print(f"Shipping to {shipping_country} for a {weight}kg package costs: ${cost}")
-    else:
-        print(f"Sorry, shipping to {shipping_country} is not available.")
-    print("-" * 20)
+        if cost != -1:
+            print(f"Shipping to {shipping_country} for a {weight}kg package costs: ${cost}")
+        else:
+            print(f"Sorry, shipping to {shipping_country} is not available.")
+        print("-" * 20)
 
-    # --- Example 3: Complex Bonus Calculation ---
-    print("--- Employee Bonus Calculator ---")
-    emp_rating = 5
-    emp_dept = "Sales"
-    emp_salary = 80000
-    bonus_amount = calculate_employee_bonus(emp_rating, emp_dept, emp_salary)
+        # --- Example 3: Complex Bonus Calculation ---
+        print("--- Employee Bonus Calculator ---")
+        emp_rating = 5
+        emp_dept = "Sales"
+        emp_salary = 80000
+        bonus_amount = calculate_employee_bonus(emp_rating, emp_dept, emp_salary)
 
-    print(
-        f"Employee in {emp_dept} with rating {emp_rating} gets a bonus of: ${bonus_amount:.2f}"
-    )
-    print("-" * 20)
-```
-````
+        print(
+            f"Employee in {emp_dept} with rating {emp_rating} gets a bonus of: ${bonus_amount:.2f}"
+        )
+        print("-" * 20)
+    ```
 
 ???+ example "solutions.py"
-[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/solutions.py)
+    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_09_Conditionals/solutions.py)
 
-````
-```python title="solutions.py"
-"""
-Day 9: Solutions to Exercises
-"""
+    ```python title="solutions.py"
+    """
+    Day 9: Solutions to Exercises
+    """
 
-# --- Exercise 1: Discount Policy Automation ---
-print("--- Solution to Exercise 1 ---")
-purchase_amount = 120
+    # --- Exercise 1: Discount Policy Automation ---
+    print("--- Solution to Exercise 1 ---")
+    purchase_amount = 120
 
-if purchase_amount > 100:
-    discount = 0.10
-elif purchase_amount > 50:
-    discount = 0.05
-else:
-    discount = 0.0
-
-final_price = purchase_amount * (1 - discount)
-
-print(f"Original Amount: ${purchase_amount:.2f}")
-print(f"Discount Rate: {discount * 100}%")
-print(f"Final Price: ${final_price:.2f}")
-print("-" * 20)
-
-
-# --- Exercise 2: Shipping Cost Calculator ---
-print("--- Solution to Exercise 2 ---")
-
-
-# We can wrap this in a function to easily test different scenarios
-def get_shipping_cost(country, order_weight_kg):
-    cost = 0
-    if country == "USA":
-        if order_weight_kg > 50:
-            cost = 75
-        else:
-            cost = 50
-    elif country == "Canada":
-        if order_weight_kg > 50:
-            cost = 100
-        else:
-            cost = 65
+    if purchase_amount > 100:
+        discount = 0.10
+    elif purchase_amount > 50:
+        discount = 0.05
     else:
-        return "Shipping not available."
+        discount = 0.0
 
-    return f"Shipping cost: ${cost}"
+    final_price = purchase_amount * (1 - discount)
 
-
-# Test cases
-print(f"USA, 60kg -> {get_shipping_cost('USA', 60)}")
-print(f"Canada, 40kg -> {get_shipping_cost('Canada', 40)}")
-print(f"Mexico, 30kg -> {get_shipping_cost('Mexico', 30)}")
-print("-" * 20)
+    print(f"Original Amount: ${purchase_amount:.2f}")
+    print(f"Discount Rate: {discount * 100}%")
+    print(f"Final Price: ${final_price:.2f}")
+    print("-" * 20)
 
 
-# --- Exercise 3: Employee Bonus Calculation ---
-print("--- Solution to Exercise 3 ---")
+    # --- Exercise 2: Shipping Cost Calculator ---
+    print("--- Solution to Exercise 2 ---")
 
 
-def calculate_bonus(rating, department, salary):
-    bonus_rate = 0
-    if rating >= 4:
-        if department == "Sales":
-            bonus_rate = 0.15
+    # We can wrap this in a function to easily test different scenarios
+    def get_shipping_cost(country, order_weight_kg):
+        cost = 0
+        if country == "USA":
+            if order_weight_kg > 50:
+                cost = 75
+            else:
+                cost = 50
+        elif country == "Canada":
+            if order_weight_kg > 50:
+                cost = 100
+            else:
+                cost = 65
         else:
-            bonus_rate = 0.10
-    elif rating == 3:
-        bonus_rate = 0.05
-    # No need for an else for rating 1 or 2, as bonus_rate is already 0
+            return "Shipping not available."
 
-    bonus_amount = salary * bonus_rate
-    return bonus_amount
+        return f"Shipping cost: ${cost}"
 
 
-# Test cases
-salary = 90000
-print(
-    f"Sales employee with rating 5 gets bonus: ${calculate_bonus(5, 'Sales', salary):,.2f}"
-)
-print(
-    f"Engineering employee with rating 4 gets bonus: ${calculate_bonus(4, 'Engineering', salary):,.2f}"
-)
-print(
-    f"Sales employee with rating 3 gets bonus: ${calculate_bonus(3, 'Sales', salary):,.2f}"
-)
-print(f"HR employee with rating 2 gets bonus: ${calculate_bonus(2, 'HR', salary):,.2f}")
-print("-" * 20)
-```
-````
+    # Test cases
+    print(f"USA, 60kg -> {get_shipping_cost('USA', 60)}")
+    print(f"Canada, 40kg -> {get_shipping_cost('Canada', 40)}")
+    print(f"Mexico, 30kg -> {get_shipping_cost('Mexico', 30)}")
+    print("-" * 20)
+
+
+    # --- Exercise 3: Employee Bonus Calculation ---
+    print("--- Solution to Exercise 3 ---")
+
+
+    def calculate_bonus(rating, department, salary):
+        bonus_rate = 0
+        if rating >= 4:
+            if department == "Sales":
+                bonus_rate = 0.15
+            else:
+                bonus_rate = 0.10
+        elif rating == 3:
+            bonus_rate = 0.05
+        # No need for an else for rating 1 or 2, as bonus_rate is already 0
+
+        bonus_amount = salary * bonus_rate
+        return bonus_amount
+
+
+    # Test cases
+    salary = 90000
+    print(
+        f"Sales employee with rating 5 gets bonus: ${calculate_bonus(5, 'Sales', salary):,.2f}"
+    )
+    print(
+        f"Engineering employee with rating 4 gets bonus: ${calculate_bonus(4, 'Engineering', salary):,.2f}"
+    )
+    print(
+        f"Sales employee with rating 3 gets bonus: ${calculate_bonus(3, 'Sales', salary):,.2f}"
+    )
+    print(f"HR employee with rating 2 gets bonus: ${calculate_bonus(2, 'HR', salary):,.2f}")
+    print("-" * 20)
+    ```

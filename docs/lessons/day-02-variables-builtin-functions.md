@@ -65,157 +65,164 @@ The script for this lesson, `variables.py`, has been refactored into functions t
 
 ## Additional Materials
 
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_02_Variables_Builtin_Functions/solutions.ipynb){ .md-button }
+- **variables.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/variables.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/variables.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/variables.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_02_Variables_Builtin_Functions/variables.ipynb){ .md-button }
+
 ???+ example "solutions.py"
-[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/solutions.py)
+    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/solutions.py)
 
-````
-```python title="solutions.py"
-"""
-Day 2: Solutions to Exercises
-"""
+    ```python title="solutions.py"
+    """
+    Day 2: Solutions to Exercises
+    """
 
-# --- Exercise 1: Company Profile Variables ---
-print("--- Solution to Exercise 1 ---")
-company_name = "InnovateCorp"
-year_founded = 2015
-current_revenue = 2500000.50
-is_publicly_traded = False
+    # --- Exercise 1: Company Profile Variables ---
+    print("--- Solution to Exercise 1 ---")
+    company_name = "InnovateCorp"
+    year_founded = 2015
+    current_revenue = 2500000.50
+    is_publicly_traded = False
 
-print(f"Company Name: {company_name}")
-print(f"Year Founded: {year_founded}")
-print(f"Current Revenue: ${current_revenue}")
-print(f"Is Publicly Traded: {is_publicly_traded}")
-print("-" * 20)
-
-
-# --- Exercise 2: Sales Analysis ---
-print("--- Solution to Exercise 2 ---")
-weekly_sales = [150.50, 200.00, 75.25, 300.75, 120.00]
-print(f"Sales data: {weekly_sales}")
-
-# The total number of sales transactions
-num_transactions = len(weekly_sales)
-print(f"Total number of transactions: {num_transactions}")
-
-# The total revenue for the week
-total_revenue = sum(weekly_sales)
-print(f"Total revenue: ${total_revenue:.2f}")
-
-# The smallest sale
-min_sale = min(weekly_sales)
-print(f"Smallest sale: ${min_sale:.2f}")
-
-# The largest sale
-max_sale = max(weekly_sales)
-print(f"Largest sale: ${max_sale:.2f}")
-
-# The average sale amount
-average_sale = total_revenue / num_transactions
-print(f"Average sale amount: ${average_sale:.2f}")
-print("-" * 20)
+    print(f"Company Name: {company_name}")
+    print(f"Year Founded: {year_founded}")
+    print(f"Current Revenue: ${current_revenue}")
+    print(f"Is Publicly Traded: {is_publicly_traded}")
+    print("-" * 20)
 
 
-# --- Exercise 3: User Input for a Profit Calculator ---
-print("--- Solution to Exercise 3 ---")
-# Note: To run this interactively, you would run the python file
-# in your terminal. The input() function will pause the script
-# and wait for you to type a value and press Enter.
+    # --- Exercise 2: Sales Analysis ---
+    print("--- Solution to Exercise 2 ---")
+    weekly_sales = [150.50, 200.00, 75.25, 300.75, 120.00]
+    print(f"Sales data: {weekly_sales}")
 
-# We wrap the code in a try...except block to handle cases where the user
-# might enter text instead of a number, which would cause a crash.
-try:
-    # float() converts the string from input() into a floating-point number
-    revenue_input = float(input("Enter total revenue: "))
-    expenses_input = float(input("Enter total expenses: "))
+    # The total number of sales transactions
+    num_transactions = len(weekly_sales)
+    print(f"Total number of transactions: {num_transactions}")
 
-    profit = revenue_input - expenses_input
-    print(f"Calculated Profit: ${profit:.2f}")
+    # The total revenue for the week
+    total_revenue = sum(weekly_sales)
+    print(f"Total revenue: ${total_revenue:.2f}")
 
-except ValueError:
-    print("Invalid input. Please make sure to enter numbers only.")
+    # The smallest sale
+    min_sale = min(weekly_sales)
+    print(f"Smallest sale: ${min_sale:.2f}")
 
-print("-" * 20)
-```
-````
+    # The largest sale
+    max_sale = max(weekly_sales)
+    print(f"Largest sale: ${max_sale:.2f}")
+
+    # The average sale amount
+    average_sale = total_revenue / num_transactions
+    print(f"Average sale amount: ${average_sale:.2f}")
+    print("-" * 20)
+
+
+    # --- Exercise 3: User Input for a Profit Calculator ---
+    print("--- Solution to Exercise 3 ---")
+    # Note: To run this interactively, you would run the python file
+    # in your terminal. The input() function will pause the script
+    # and wait for you to type a value and press Enter.
+
+    # We wrap the code in a try...except block to handle cases where the user
+    # might enter text instead of a number, which would cause a crash.
+    try:
+        # float() converts the string from input() into a floating-point number
+        revenue_input = float(input("Enter total revenue: "))
+        expenses_input = float(input("Enter total expenses: "))
+
+        profit = revenue_input - expenses_input
+        print(f"Calculated Profit: ${profit:.2f}")
+
+    except ValueError:
+        print("Invalid input. Please make sure to enter numbers only.")
+
+    print("-" * 20)
+    ```
 
 ???+ example "variables.py"
-[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/variables.py)
+    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_02_Variables_Builtin_Functions/variables.py)
 
-````
-```python title="variables.py"
-"""
-Day 2: Storing and Analyzing Business Data (Refactored)
+    ```python title="variables.py"
+    """
+    Day 2: Storing and Analyzing Business Data (Refactored)
 
-This script demonstrates the use of variables to store business data
-and built-in functions to perform basic analysis. This version is
-refactored into functions for better organization and testability.
-"""
-
-
-def display_company_profile(name, founded, revenue, is_public):
-    """Displays the company's profile information."""
-    print("--- Company Profile ---")
-    print(f"Company Name: {name}")
-    print(f"Year Founded: {founded}")
-    print(f"Current Revenue: ${revenue}")
-    print(f"Is Publicly Traded: {is_public}")
-    print("-" * 20)
+    This script demonstrates the use of variables to store business data
+    and built-in functions to perform basic analysis. This version is
+    refactored into functions for better organization and testability.
+    """
 
 
-def analyze_weekly_sales(sales_data):
-    """Analyzes and prints a summary of weekly sales data."""
-    if not sales_data:
-        print("No sales data to analyze.")
-        return
-
-    print("--- Weekly Sales Analysis ---")
-    num_transactions = len(sales_data)
-    total_revenue = sum(sales_data)
-    smallest_sale = min(sales_data)
-    largest_sale = max(sales_data)
-    average_sale = total_revenue / num_transactions if num_transactions > 0 else 0
-
-    print(f"Number of Transactions: {num_transactions}")
-    print(f"Total Weekly Revenue: ${total_revenue:.2f}")
-    print(f"Smallest Sale: ${smallest_sale:.2f}")
-    print(f"Largest Sale: ${largest_sale:.2f}")
-    print(f"Average Sale Amount: ${round(average_sale, 2)}")
-    print("-" * 20)
-
-    return {
-        "num_transactions": num_transactions,
-        "total_revenue": total_revenue,
-        "smallest_sale": smallest_sale,
-        "largest_sale": largest_sale,
-        "average_sale": average_sale,
-    }
+    def display_company_profile(name, founded, revenue, is_public):
+        """Displays the company's profile information."""
+        print("--- Company Profile ---")
+        print(f"Company Name: {name}")
+        print(f"Year Founded: {founded}")
+        print(f"Current Revenue: ${revenue}")
+        print(f"Is Publicly Traded: {is_public}")
+        print("-" * 20)
 
 
-def interactive_profit_calculator():
-    """Handles user input to calculate and display profit."""
-    print("--- Interactive Profit Calculator ---")
-    try:
-        user_revenue = float(input("Enter your total revenue: "))
-        user_expenses = float(input("Enter your total expenses: "))
-        profit = user_revenue - user_expenses
-        print(f"Your calculated profit is: ${profit:.2f}")
-        return profit
-    except ValueError:
-        print("Invalid input. Please enter numbers only.")
-        return None
+    def analyze_weekly_sales(sales_data):
+        """Analyzes and prints a summary of weekly sales data."""
+        if not sales_data:
+            print("No sales data to analyze.")
+            return
+
+        print("--- Weekly Sales Analysis ---")
+        num_transactions = len(sales_data)
+        total_revenue = sum(sales_data)
+        smallest_sale = min(sales_data)
+        largest_sale = max(sales_data)
+        average_sale = total_revenue / num_transactions if num_transactions > 0 else 0
+
+        print(f"Number of Transactions: {num_transactions}")
+        print(f"Total Weekly Revenue: ${total_revenue:.2f}")
+        print(f"Smallest Sale: ${smallest_sale:.2f}")
+        print(f"Largest Sale: ${largest_sale:.2f}")
+        print(f"Average Sale Amount: ${round(average_sale, 2)}")
+        print("-" * 20)
+
+        return {
+            "num_transactions": num_transactions,
+            "total_revenue": total_revenue,
+            "smallest_sale": smallest_sale,
+            "largest_sale": largest_sale,
+            "average_sale": average_sale,
+        }
 
 
-if __name__ == "__main__":
-    # --- Storing Company Profile in Variables ---
-    display_company_profile("InnovateCorp", 2015, 2500000.50, False)
+    def interactive_profit_calculator():
+        """Handles user input to calculate and display profit."""
+        print("--- Interactive Profit Calculator ---")
+        try:
+            user_revenue = float(input("Enter your total revenue: "))
+            user_expenses = float(input("Enter your total expenses: "))
+            profit = user_revenue - user_expenses
+            print(f"Your calculated profit is: ${profit:.2f}")
+            return profit
+        except ValueError:
+            print("Invalid input. Please enter numbers only.")
+            return None
 
-    # --- Using Built-in Functions for Sales Analysis ---
-    weekly_sales_data = [150.50, 200.00, 75.25, 300.75, 120.00, 450.50, 275.00]
-    analyze_weekly_sales(weekly_sales_data)
 
-    # --- Getting User Input ---
-    # Note: This part is not easily testable in an automated way without mocking input.
-    # The function is separated to keep the core logic testable.
-    # interactive_profit_calculator() # Uncomment to run the interactive part
-```
-````
+    if __name__ == "__main__":
+        # --- Storing Company Profile in Variables ---
+        display_company_profile("InnovateCorp", 2015, 2500000.50, False)
+
+        # --- Using Built-in Functions for Sales Analysis ---
+        weekly_sales_data = [150.50, 200.00, 75.25, 300.75, 120.00, 450.50, 275.00]
+        analyze_weekly_sales(weekly_sales_data)
+
+        # --- Getting User Input ---
+        # Note: This part is not easily testable in an automated way without mocking input.
+        # The function is separated to keep the core logic testable.
+        # interactive_profit_calculator() # Uncomment to run the interactive part
+    ```

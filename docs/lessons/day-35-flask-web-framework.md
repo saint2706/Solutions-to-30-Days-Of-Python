@@ -61,73 +61,77 @@ You can find the solutions to these exercises in the `solutions.py` file in this
 
 ## Additional Materials
 
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_35_Flask_Web_Framework/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_35_Flask_Web_Framework/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_35_Flask_Web_Framework/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_35_Flask_Web_Framework/solutions.ipynb){ .md-button }
+
 ???+ example "solutions.py"
-[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_35_Flask_Web_Framework/solutions.py)
+    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_35_Flask_Web_Framework/solutions.py)
 
-````
-```python title="solutions.py"
-# Day 35: Flask Web Framework - Solutions
+    ```python title="solutions.py"
+    # Day 35: Flask Web Framework - Solutions
 
-from flask import Flask, render_template
+    from flask import Flask, render_template
 
-app = Flask(__name__)
+    app = Flask(__name__)
 
-## Exercise 1: Create a new route
-
-
-@app.route("/about-solution")
-def about_solution():
-    return "This is the about page."
+    ## Exercise 1: Create a new route
 
 
-## Exercise 2: Create a new template
-
-# 1. Create a new HTML file named 'contact.html' in the 'templates' directory.
-#    You can add some simple content to it, like:
-#
-#    <!DOCTYPE html>
-#    <html>
-#    <head>
-#        <title>Contact Us</title>
-#    </head>
-#    <body>
-#        <h1>Contact Us</h1>
-#        <p>You can contact us at contact@example.com</p>
-#    </body>
-#    </html>
-#
-# 2. Add a new route to app.py that renders this template.
+    @app.route("/about-solution")
+    def about_solution():
+        return "This is the about page."
 
 
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
+    ## Exercise 2: Create a new template
+
+    # 1. Create a new HTML file named 'contact.html' in the 'templates' directory.
+    #    You can add some simple content to it, like:
+    #
+    #    <!DOCTYPE html>
+    #    <html>
+    #    <head>
+    #        <title>Contact Us</title>
+    #    </head>
+    #    <body>
+    #        <h1>Contact Us</h1>
+    #        <p>You can contact us at contact@example.com</p>
+    #    </body>
+    #    </html>
+    #
+    # 2. Add a new route to app.py that renders this template.
 
 
-## Exercise 3: Pass data to a template
-
-# 1. Create a new HTML file named 'about.html' in the 'templates' directory.
-#
-#    <!DOCTYPE html>
-#    <html>
-#    <head>
-#        <title>About Me</title>
-#    </head>
-#    <body>
-#        <h1>About {{ name }}</h1>
-#    </body>
-#    </html>
-#
-# 2. Modify the '/about' route to pass your name to the template.
+    @app.route("/contact")
+    def contact():
+        return render_template("contact.html")
 
 
-@app.route("/about-me")
-def about_me():
-    my_name = "Jules"  # You can replace this with your name
-    return render_template("about.html", name=my_name)
+    ## Exercise 3: Pass data to a template
+
+    # 1. Create a new HTML file named 'about.html' in the 'templates' directory.
+    #
+    #    <!DOCTYPE html>
+    #    <html>
+    #    <head>
+    #        <title>About Me</title>
+    #    </head>
+    #    <body>
+    #        <h1>About {{ name }}</h1>
+    #    </body>
+    #    </html>
+    #
+    # 2. Modify the '/about' route to pass your name to the template.
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
-```
-````
+    @app.route("/about-me")
+    def about_me():
+        my_name = "Jules"  # You can replace this with your name
+        return render_template("about.html", name=my_name)
+
+
+    if __name__ == "__main__":
+        app.run(debug=True)
+    ```

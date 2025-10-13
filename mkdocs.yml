@@ -170,5 +170,9 @@ extra:
       link: https://github.com/saint2706/Coding-For-MBA
       name: Coding for MBA on GitHub
   generator: false
+extra_javascript:
+  - https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js
+  - javascripts/pyodide-console.js
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/interactive-widgets.css
