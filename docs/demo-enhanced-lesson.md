@@ -162,12 +162,12 @@ if (typeof createInteractiveWidget !== 'undefined') {
 ## What's Next?
 
 ### Prerequisites for This Lesson
-- [Day 22: NumPy Fundamentals](day-22-numpy.md)
-- [Day 21: Virtual Environments](day-21-virtual-environments.md)
+- [Day 22: NumPy Fundamentals](lessons/day-22-numpy.md)
+- [Day 21: Virtual Environments](lessons/day-21-virtual-environments.md)
 
 ### Continue Your Journey
-- [Day 24: Advanced Pandas](day-24-pandas-advanced.md) 
-- [Day 25: Data Cleaning](day-25-data-cleaning.md)
+- [Day 24: Advanced Pandas](lessons/day-24-pandas-advanced.md) 
+- [Day 25: Data Cleaning](lessons/day-25-data-cleaning.md)
 
 ---
 
