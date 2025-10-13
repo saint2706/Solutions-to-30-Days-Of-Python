@@ -192,10 +192,12 @@ def _python_embed(candidate: Path, url: str) -> str:
         indented_body = "    ```python\n    ```"
     else:
         indented_code = textwrap.indent(code, " " * 4)
-        indented_body = f"    ```python title=\"{candidate.name}\"\n{indented_code}\n    ```"
+        indented_body = (
+            f'    ```python title="{candidate.name}"\n{indented_code}\n    ```'
+        )
 
     return (
-        f"???+ example \"{candidate.name}\"\n"
+        f'???+ example "{candidate.name}"\n'
         f"    [View on GitHub]({url})\n\n"
         f"{indented_body}"
     )

@@ -14,8 +14,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
-from decimal import Decimal, ROUND_HALF_UP
-from typing import Iterable, Iterator, List, Mapping, MutableMapping, Optional, Sequence, Tuple, Union
+from decimal import ROUND_HALF_UP, Decimal
+from typing import (
+    Iterable,
+    Iterator,
+    List,
+    Mapping,
+    MutableMapping,
+    Optional,
+    Sequence,
+    Tuple,
+    Union,
+)
 from uuid import uuid4
 
 DecimalLike = Union[str, int, float, Decimal]
@@ -128,11 +138,14 @@ class BarSystem:
     def __init__(self, mesas: Iterable[Union[str, int]], moneda: str = "USD") -> None:
         mesas_iter = list(mesas)
         if not mesas_iter:
-            raise ValueError("Debe proporcionar al menos una mesa para iniciar el sistema.")
+            raise ValueError(
+                "Debe proporcionar al menos una mesa para iniciar el sistema."
+            )
         self.moneda = moneda
         self._inventario: MutableMapping[str, InventoryItem] = {}
         self._mesas: MutableMapping[str, TableSession] = {
-            str(identificador): TableSession(str(identificador)) for identificador in mesas_iter
+            str(identificador): TableSession(str(identificador))
+            for identificador in mesas_iter
         }
         self._ventas: List[SaleRecord] = []
 
@@ -173,7 +186,11 @@ class BarSystem:
         self._inventario[item.sku] = actualizado
         return actualizado
 
-    def consumir_insumo(self, items: Union[Mapping[str, DecimalLike], Sequence[Tuple[str, DecimalLike]]], nota: Optional[str] = None) -> None:
+    def consumir_insumo(
+        self,
+        items: Union[Mapping[str, DecimalLike], Sequence[Tuple[str, DecimalLike]]],
+        nota: Optional[str] = None,
+    ) -> None:
         """Registra el uso interno de insumos sin generar una venta."""
 
         lineas = list(self._preparar_lineas(items, tipo_requerido="insumo"))
@@ -216,7 +233,9 @@ class BarSystem:
         if not mesa.abierta:
             raise ValueError(f"La mesa {mesa.identificador} no está abierta.")
         if not mesa.lineas:
-            raise ValueError(f"La mesa {mesa.identificador} no tiene consumos registrados.")
+            raise ValueError(
+                f"La mesa {mesa.identificador} no tiene consumos registrados."
+            )
         venta = SaleRecord(
             identificador=str(uuid4()),
             tipo="mesa",
@@ -271,7 +290,10 @@ class BarSystem:
         return list(self._ventas)
 
     def resumen_ventas(self) -> Decimal:
-        monto = sum((venta.total for venta in self._ventas if venta.tipo in {"rapida", "mesa"}), Decimal("0"))
+        monto = sum(
+            (venta.total for venta in self._ventas if venta.tipo in {"rapida", "mesa"}),
+            Decimal("0"),
+        )
         return _quantize_currency(monto)
 
     # ------------------------------------------------------------------
@@ -320,7 +342,7 @@ class BarSystem:
 
 
 def _normalizar_items(
-    items: Union[Mapping[str, DecimalLike], Sequence[Tuple[str, DecimalLike]]]
+    items: Union[Mapping[str, DecimalLike], Sequence[Tuple[str, DecimalLike]]],
 ) -> Iterator[Tuple[str, Decimal]]:
     if isinstance(items, Mapping):
         iterable = items.items()

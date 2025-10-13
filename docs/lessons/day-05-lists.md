@@ -66,170 +66,174 @@ The script for this lesson, `lists.py`, has been refactored into functions to ma
 ## Additional Materials
 
 ???+ example "lists.py"
-    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/lists.py)
+[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/lists.py)
 
-    ```python title="lists.py"
-    """
-    Day 5: Managing and Analyzing Business Data with Lists (Refactored)
+````
+```python title="lists.py"
+"""
+Day 5: Managing and Analyzing Business Data with Lists (Refactored)
 
-    This script demonstrates how to create, access, modify, and analyze
-    lists containing business-related data. This version is refactored
-    into functions for better organization and testability.
-    """
+This script demonstrates how to create, access, modify, and analyze
+lists containing business-related data. This version is refactored
+into functions for better organization and testability.
+"""
 
 
-    def get_list_element(data_list, index):
-        """Safely gets an element from a list by its index."""
-        if -len(data_list) <= index < len(data_list):
-            return data_list[index]
+def get_list_element(data_list, index):
+    """Safely gets an element from a list by its index."""
+    if -len(data_list) <= index < len(data_list):
+        return data_list[index]
+    return None
+
+
+def get_first_half_sales(sales_list):
+    """Returns the first half of a list of sales."""
+    midpoint = len(sales_list) // 2
+    return sales_list[:midpoint]
+
+
+def add_product(product_list, new_product):
+    """Adds a new product to a list of products."""
+    new_list = product_list.copy()
+    new_list.append(new_product)
+    return new_list
+
+
+def remove_product(product_list, product_to_remove):
+    """Removes a product from a list if it exists."""
+    new_list = product_list.copy()
+    if product_to_remove in new_list:
+        new_list.remove(product_to_remove)
+    return new_list
+
+
+def analyze_team_sales(sales_figures):
+    """Sorts sales, finds top performers, and returns an analysis."""
+    if not sales_figures:
         return None
 
+    sorted_sales = sorted(sales_figures, reverse=True)
+    top_3_sales = sorted_sales[:3]
+    total_top_sales = sum(top_3_sales)
 
-    def get_first_half_sales(sales_list):
-        """Returns the first half of a list of sales."""
-        midpoint = len(sales_list) // 2
-        return sales_list[:midpoint]
-
-
-    def add_product(product_list, new_product):
-        """Adds a new product to a list of products."""
-        new_list = product_list.copy()
-        new_list.append(new_product)
-        return new_list
+    return {
+        "sorted_sales": sorted_sales,
+        "top_3_sales": top_3_sales,
+        "total_top_sales": total_top_sales,
+    }
 
 
-    def remove_product(product_list, product_to_remove):
-        """Removes a product from a list if it exists."""
-        new_list = product_list.copy()
-        if product_to_remove in new_list:
-            new_list.remove(product_to_remove)
-        return new_list
+if __name__ == "__main__":
+    # --- Initializing Lists with Business Data ---
+    print("--- Initializing Business Lists ---")
+    departments_list = ["Sales", "Marketing", "Human Resources", "Engineering"]
+    quarterly_sales_figures = [120000.50, 135000.75, 110000.00, 145000.25]
+    print(f"Company Departments: {departments_list}")
+    print(f"Quarterly Sales: {quarterly_sales_figures}")
+    print("-" * 20)
 
+    # --- Accessing and Slicing List Data ---
+    print("--- Accessing Specific Data ---")
+    marketing_department = get_list_element(departments_list, 1)
+    print(f"The second department is: {marketing_department}")
 
-    def analyze_team_sales(sales_figures):
-        """Sorts sales, finds top performers, and returns an analysis."""
-        if not sales_figures:
-            return None
+    last_sales = get_list_element(quarterly_sales_figures, -1)
+    print(f"Sales for the last quarter: ${last_sales}")
 
-        sorted_sales = sorted(sales_figures, reverse=True)
-        top_3_sales = sorted_sales[:3]
-        total_top_sales = sum(top_3_sales)
+    first_half_figures = get_first_half_sales(quarterly_sales_figures)
+    print(f"First half sales: {first_half_figures}")
+    print("-" * 20)
 
-        return {
-            "sorted_sales": sorted_sales,
-            "top_3_sales": top_3_sales,
-            "total_top_sales": total_top_sales,
-        }
+    # --- Modifying Lists ---
+    print("--- Modifying a Product List ---")
+    initial_products = ["Laptop", "Mouse", "Keyboard", "Monitor"]
+    print(f"Original product list: {initial_products}")
 
+    products_after_add = add_product(initial_products, "Webcam")
+    print(f"After adding 'Webcam': {products_after_add}")
 
-    if __name__ == "__main__":
-        # --- Initializing Lists with Business Data ---
-        print("--- Initializing Business Lists ---")
-        departments_list = ["Sales", "Marketing", "Human Resources", "Engineering"]
-        quarterly_sales_figures = [120000.50, 135000.75, 110000.00, 145000.25]
-        print(f"Company Departments: {departments_list}")
-        print(f"Quarterly Sales: {quarterly_sales_figures}")
-        print("-" * 20)
+    products_after_remove = remove_product(products_after_add, "Mouse")
+    print(f"After removing 'Mouse': {products_after_remove}")
+    print("-" * 20)
 
-        # --- Accessing and Slicing List Data ---
-        print("--- Accessing Specific Data ---")
-        marketing_department = get_list_element(departments_list, 1)
-        print(f"The second department is: {marketing_department}")
+    # --- Analyzing List Data ---
+    print("--- Analyzing Sales Performance ---")
+    team_sales_figures = [5000, 8000, 4500, 12000, 6000, 11000]
+    print(f"Sales figures for the team: {team_sales_figures}")
 
-        last_sales = get_list_element(quarterly_sales_figures, -1)
-        print(f"Sales for the last quarter: ${last_sales}")
-
-        first_half_figures = get_first_half_sales(quarterly_sales_figures)
-        print(f"First half sales: {first_half_figures}")
-        print("-" * 20)
-
-        # --- Modifying Lists ---
-        print("--- Modifying a Product List ---")
-        initial_products = ["Laptop", "Mouse", "Keyboard", "Monitor"]
-        print(f"Original product list: {initial_products}")
-
-        products_after_add = add_product(initial_products, "Webcam")
-        print(f"After adding 'Webcam': {products_after_add}")
-
-        products_after_remove = remove_product(products_after_add, "Mouse")
-        print(f"After removing 'Mouse': {products_after_remove}")
-        print("-" * 20)
-
-        # --- Analyzing List Data ---
-        print("--- Analyzing Sales Performance ---")
-        team_sales_figures = [5000, 8000, 4500, 12000, 6000, 11000]
-        print(f"Sales figures for the team: {team_sales_figures}")
-
-        sales_analysis = analyze_team_sales(team_sales_figures)
-        if sales_analysis:
-            print(f"Sales sorted from highest to lowest: {sales_analysis['sorted_sales']}")
-            print(f"Top 3 sales figures: {sales_analysis['top_3_sales']}")
-            print(
-                f"Total sales from top 3 performers: ${sales_analysis['total_top_sales']}"
-            )
-        print("-" * 20)
-    ```
+    sales_analysis = analyze_team_sales(team_sales_figures)
+    if sales_analysis:
+        print(f"Sales sorted from highest to lowest: {sales_analysis['sorted_sales']}")
+        print(f"Top 3 sales figures: {sales_analysis['top_3_sales']}")
+        print(
+            f"Total sales from top 3 performers: ${sales_analysis['total_top_sales']}"
+        )
+    print("-" * 20)
+```
+````
 
 ???+ example "solutions.py"
-    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/solutions.py)
+[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/solutions.py)
 
-    ```python title="solutions.py"
-    """
-    Day 5: Solutions to Exercises
-    """
+````
+```python title="solutions.py"
+"""
+Day 5: Solutions to Exercises
+"""
 
-    # --- Exercise 1: Manage a Product List ---
-    print("--- Solution to Exercise 1 ---")
-    products = ["Laptop", "Mouse", "Keyboard", "Monitor"]
-    print(f"Initial product list: {products}")
+# --- Exercise 1: Manage a Product List ---
+print("--- Solution to Exercise 1 ---")
+products = ["Laptop", "Mouse", "Keyboard", "Monitor"]
+print(f"Initial product list: {products}")
 
-    # Add "Webcam" to the end of the list
-    products.append("Webcam")
-    print(f"After adding 'Webcam': {products}")
+# Add "Webcam" to the end of the list
+products.append("Webcam")
+print(f"After adding 'Webcam': {products}")
 
-    # Remove "Mouse" from the list
-    products.remove("Mouse")
-    print(f"After removing 'Mouse': {products}")
-    print(f"Final available products: {products}")
-    print("-" * 20)
-
-
-    # --- Exercise 2: Analyze Monthly Expenses ---
-    print("--- Solution to Exercise 2 ---")
-    monthly_expenses = [2200, 2350, 2600, 2130, 2190]
-    print(f"Initial monthly expenses: {monthly_expenses}")
-
-    # Find total, min, and max expenses
-    total_expenses = sum(monthly_expenses)
-    highest_expense = max(monthly_expenses)
-    lowest_expense = min(monthly_expenses)
-
-    print(f"Total expenses: ${total_expenses}")
-    print(f"Highest monthly expense: ${highest_expense}")
-    print(f"Lowest monthly expense: ${lowest_expense}")
-
-    # Add a new expense and print the updated total
-    new_expense = 2400
-    monthly_expenses.append(new_expense)
-    updated_total_expenses = sum(monthly_expenses)
-    print(
-        f"After adding a new expense of ${new_expense}, the new total is: ${updated_total_expenses}"
-    )
-    print("-" * 20)
+# Remove "Mouse" from the list
+products.remove("Mouse")
+print(f"After removing 'Mouse': {products}")
+print(f"Final available products: {products}")
+print("-" * 20)
 
 
-    # --- Exercise 3: Select Top Sales Performers ---
-    print("--- Solution to Exercise 3 ---")
-    sales_figures = [5000, 8000, 4500, 12000, 6000, 11000]
-    print(f"Original sales figures: {sales_figures}")
+# --- Exercise 2: Analyze Monthly Expenses ---
+print("--- Solution to Exercise 2 ---")
+monthly_expenses = [2200, 2350, 2600, 2130, 2190]
+print(f"Initial monthly expenses: {monthly_expenses}")
 
-    # Sort the list in descending order (highest to lowest)
-    sales_figures.sort(reverse=True)
-    print(f"Sorted sales figures: {sales_figures}")
+# Find total, min, and max expenses
+total_expenses = sum(monthly_expenses)
+highest_expense = max(monthly_expenses)
+lowest_expense = min(monthly_expenses)
 
-    # "Slice" the list to get the top 3
-    top_3_sales = sales_figures[0:3]
+print(f"Total expenses: ${total_expenses}")
+print(f"Highest monthly expense: ${highest_expense}")
+print(f"Lowest monthly expense: ${lowest_expense}")
 
-    print(f"The top 3 sales figures are: {top_3_sales}")
-    print("-" * 20)
-    ```
+# Add a new expense and print the updated total
+new_expense = 2400
+monthly_expenses.append(new_expense)
+updated_total_expenses = sum(monthly_expenses)
+print(
+    f"After adding a new expense of ${new_expense}, the new total is: ${updated_total_expenses}"
+)
+print("-" * 20)
+
+
+# --- Exercise 3: Select Top Sales Performers ---
+print("--- Solution to Exercise 3 ---")
+sales_figures = [5000, 8000, 4500, 12000, 6000, 11000]
+print(f"Original sales figures: {sales_figures}")
+
+# Sort the list in descending order (highest to lowest)
+sales_figures.sort(reverse=True)
+print(f"Sorted sales figures: {sales_figures}")
+
+# "Slice" the list to get the top 3
+top_3_sales = sales_figures[0:3]
+
+print(f"The top 3 sales figures are: {top_3_sales}")
+print("-" * 20)
+```
+````
