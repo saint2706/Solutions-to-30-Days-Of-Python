@@ -50,6 +50,8 @@
     
       <link rel="stylesheet" href="stylesheets/extra.css">
     
+      <link rel="stylesheet" href="stylesheets/interactive-widgets.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -483,6 +485,39 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Interactive Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Interactive Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-python-in-your-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Python in Your Browser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-jupyter-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Jupyter Notebooks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#whats-inside" class="md-nav__link">
@@ -2423,6 +2458,23 @@
 <p class="admonition-title">Prefer a darker UI?</p>
 </div>
 <p>Use the theme toggle in the header to switch between the light and dark palettes.</p>
+<h2 id="interactive-features">🚀 Interactive Features<a class="headerlink" href="#interactive-features" title="Anchor link to this section for reference">&para;</a></h2>
+<p>This documentation includes powerful interactive capabilities to help you learn by doing:</p>
+<h3 id="run-python-in-your-browser">Run Python in Your Browser<a class="headerlink" href="#run-python-in-your-browser" title="Anchor link to this section for reference">&para;</a></h3>
+<ul>
+<li><strong>Pyodide Console</strong>: Execute Python code directly in your browser without any installation</li>
+<li><strong>WebAssembly-powered</strong>: Full Python runtime with NumPy, Pandas, and more</li>
+<li><strong>Instant feedback</strong>: See results immediately as you experiment with code</li>
+</ul>
+<h3 id="interactive-jupyter-notebooks">Interactive Jupyter Notebooks<a class="headerlink" href="#interactive-jupyter-notebooks" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Each lesson includes Jupyter notebooks with multiple ways to run them:</p>
+<ul>
+<li><strong>🚀 Google Colab</strong>: Run notebooks in Google's free cloud environment (recommended)</li>
+<li><strong>☁️ Binder</strong>: Launch notebooks in a temporary cloud workspace</li>
+<li><strong>📓 NBViewer</strong>: View rendered notebooks with syntax highlighting</li>
+<li><strong>📁 GitHub</strong>: Download notebooks to run locally</li>
+</ul>
+<p>All notebooks are ready to run with zero setup required!</p>
 <h2 id="whats-inside">What's inside<a class="headerlink" href="#whats-inside" title="Anchor link to this section for reference">&para;</a></h2>
 <ul>
 <li><strong>Machine Learning Curriculum</strong> – Phased roadmap that explains how the Day 40–67 sequence ladders into an end-to-end ML capability.</li>
@@ -2805,6 +2857,10 @@
     
     
       <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+      
+        <script src="javascripts/pyodide-console.js"></script>
       
     
   </body>

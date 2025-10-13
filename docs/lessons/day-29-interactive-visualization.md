@@ -84,8 +84,16 @@ For these exercises, you will use the cleaned `sales_data.csv` from Day 24.
 
 ## Additional Materials
 
-- [interactive_visualization.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_29_Interactive_Visualization/interactive_visualization.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_29_Interactive_Visualization/solutions.ipynb)
+- **interactive_visualization.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_29_Interactive_Visualization/interactive_visualization.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_29_Interactive_Visualization/interactive_visualization.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_29_Interactive_Visualization/interactive_visualization.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_29_Interactive_Visualization/interactive_visualization.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_29_Interactive_Visualization/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_29_Interactive_Visualization/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_29_Interactive_Visualization/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_29_Interactive_Visualization/solutions.ipynb){ .md-button }
 
 ???+ example "interactive_visualization.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_29_Interactive_Visualization/interactive_visualization.py)

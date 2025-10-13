@@ -61,9 +61,21 @@ The content for this lesson is split into two main files:
 
 ## Additional Materials
 
-- [pandas_from_csv.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas_from_csv.ipynb)
-- [pandas_intro.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas_intro.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/solutions.ipynb)
+- **pandas_from_csv.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas_from_csv.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas_from_csv.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas_from_csv.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_23_Pandas/pandas_from_csv.ipynb){ .md-button }
+- **pandas_intro.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas_intro.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas_intro.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas_intro.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_23_Pandas/pandas_intro.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_23_Pandas/solutions.ipynb){ .md-button }
 
 ???+ example "pandas_from_csv.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas_from_csv.py)

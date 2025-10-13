@@ -87,7 +87,11 @@ There are no coding exercises for this day. The goal is to understand the concep
 
 ## Additional Materials
 
-- [other_databases.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_32_Other_Databases/other_databases.ipynb)
+- **other_databases.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_32_Other_Databases/other_databases.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_32_Other_Databases/other_databases.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_32_Other_Databases/other_databases.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_32_Other_Databases/other_databases.ipynb){ .md-button }
 
 ???+ example "other_databases.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_32_Other_Databases/other_databases.py)

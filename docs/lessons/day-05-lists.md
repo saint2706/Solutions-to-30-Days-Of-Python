@@ -65,8 +65,16 @@ The script for this lesson, `lists.py`, has been refactored into functions to ma
 
 ## Additional Materials
 
-- [lists.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/lists.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/solutions.ipynb)
+- **lists.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/lists.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/lists.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/lists.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_05_Lists/lists.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_05_Lists/solutions.ipynb){ .md-button }
 
 ???+ example "lists.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_05_Lists/lists.py)

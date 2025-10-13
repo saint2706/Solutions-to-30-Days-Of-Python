@@ -85,11 +85,31 @@ For these exercises, we will scrape the website `http://books.toscrape.com/`, a 
 
 ## Additional Materials
 
-- [presidents.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/presidents.ipynb)
-- [profile_web_scraping.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/profile_web_scraping.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/solutions.ipynb)
-- [web_scraping.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/web_scraping.ipynb)
-- [web_scraping_bu.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/web_scraping_bu.ipynb)
+- **presidents.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/presidents.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/presidents.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/presidents.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_30_Web_Scraping/presidents.ipynb){ .md-button }
+- **profile_web_scraping.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/profile_web_scraping.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/profile_web_scraping.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/profile_web_scraping.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_30_Web_Scraping/profile_web_scraping.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_30_Web_Scraping/solutions.ipynb){ .md-button }
+- **web_scraping.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/web_scraping.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/web_scraping.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/web_scraping.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_30_Web_Scraping/web_scraping.ipynb){ .md-button }
+- **web_scraping_bu.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/web_scraping_bu.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/web_scraping_bu.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/web_scraping_bu.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_30_Web_Scraping/web_scraping_bu.ipynb){ .md-button }
 
 ???+ example "presidents.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_30_Web_Scraping/presidents.py)

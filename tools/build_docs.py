@@ -161,10 +161,26 @@ def _rewrite_relative_links(markdown: str, base_dir: Path, repo_slug: str) -> st
     return LINK_PATTERN.sub(replace, markdown)
 
 
+def _notebook_links(
+    name: str, github_url: str, raw_url: str, relative_path: str, repo_slug: str
+) -> str:
+    """Generate interactive notebook links with multiple viewing/running options."""
+    colab_url = f"https://colab.research.google.com/github/{repo_slug}/blob/main/{quote(relative_path, safe='/')}"
+    nbviewer_url = f"https://nbviewer.org/github/{repo_slug}/blob/main/{quote(relative_path, safe='/')}"
+    binder_url = f"https://mybinder.org/v2/gh/{repo_slug}/main?filepath={quote(relative_path, safe='/')}"
+
+    return f"""- **{name}**  
+  [📁 View on GitHub]({github_url}){{ .md-button }} 
+  [📓 Open in NBViewer]({nbviewer_url}){{ .md-button }} 
+  [🚀 Run in Google Colab]({colab_url}){{ .md-button .md-button--primary }} 
+  [☁️ Run in Binder]({binder_url}){{ .md-button }}"""
+
+
 def _material_links(day_dir: Path, repo_slug: str) -> tuple[list[str], list[str]]:
     other_materials: list[str] = []
     python_embeds: list[str] = []
     base_blob = f"https://github.com/{repo_slug}/blob/main/"
+    base_raw = f"https://raw.githubusercontent.com/{repo_slug}/main/"
 
     for candidate in sorted(day_dir.glob("*")):
         if not candidate.is_file():
@@ -178,9 +194,16 @@ def _material_links(day_dir: Path, repo_slug: str) -> tuple[list[str], list[str]
 
         relative = candidate.relative_to(ROOT).as_posix()
         url = base_blob + quote(relative, safe="/")
+        raw_url = base_raw + quote(relative, safe="/")
 
         if candidate.suffix.lower() == ".py":
             python_embeds.append(_python_embed(candidate, url))
+        elif candidate.suffix.lower() == ".ipynb":
+            # Enhanced notebook links with interactive options
+            notebook_links = _notebook_links(
+                candidate.name, url, raw_url, relative, repo_slug
+            )
+            other_materials.append(notebook_links)
         else:
             other_materials.append(f"- [{candidate.name}]({url})")
 

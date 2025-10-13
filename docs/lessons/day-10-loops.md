@@ -68,8 +68,16 @@ The script for this lesson, `loops.py`, has been refactored to place each loopin
 
 ## Additional Materials
 
-- [loops.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_10_Loops/loops.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_10_Loops/solutions.ipynb)
+- **loops.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_10_Loops/loops.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_10_Loops/loops.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_10_Loops/loops.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_10_Loops/loops.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_10_Loops/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_10_Loops/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_10_Loops/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_10_Loops/solutions.ipynb){ .md-button }
 
 ???+ example "loops.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_10_Loops/loops.py)

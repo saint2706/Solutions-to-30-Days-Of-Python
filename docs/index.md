@@ -9,6 +9,25 @@ Welcome to the official documentation hub for the **Coding for MBA** curriculum.
 !!! tip "Prefer a darker UI?"
 Use the theme toggle in the header to switch between the light and dark palettes.
 
+## 🚀 Interactive Features
+
+This documentation includes powerful interactive capabilities to help you learn by doing:
+
+### Run Python in Your Browser
+- **Pyodide Console**: Execute Python code directly in your browser without any installation
+- **WebAssembly-powered**: Full Python runtime with NumPy, Pandas, and more
+- **Instant feedback**: See results immediately as you experiment with code
+
+### Interactive Jupyter Notebooks
+Each lesson includes Jupyter notebooks with multiple ways to run them:
+
+- **🚀 Google Colab**: Run notebooks in Google's free cloud environment (recommended)
+- **☁️ Binder**: Launch notebooks in a temporary cloud workspace
+- **📓 NBViewer**: View rendered notebooks with syntax highlighting
+- **📁 GitHub**: Download notebooks to run locally
+
+All notebooks are ready to run with zero setup required!
+
 ## What's inside
 
 - **Machine Learning Curriculum** – Phased roadmap that explains how the Day 40–67 sequence ladders into an end-to-end ML capability.

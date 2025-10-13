@@ -49,9 +49,21 @@ The script for this lesson, `fh.py`, has been refactored to provide several powe
 
 ## Additional Materials
 
-- [fh.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/fh.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/solutions.ipynb)
-- [stop_words.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/stop_words.ipynb)
+- **fh.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/fh.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/fh.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/fh.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_16_File_Handling/fh.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_16_File_Handling/solutions.ipynb){ .md-button }
+- **stop_words.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/stop_words.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/stop_words.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/stop_words.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_16_File_Handling/stop_words.ipynb){ .md-button }
 
 ???+ example "fh.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_16_File_Handling/fh.py)

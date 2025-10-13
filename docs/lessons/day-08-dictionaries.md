@@ -66,8 +66,16 @@ The script for this lesson, `dictionaries.py`, has been refactored to encapsulat
 
 ## Additional Materials
 
-- [dictionaries.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_08_Dictionaries/dictionaries.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_08_Dictionaries/solutions.ipynb)
+- **dictionaries.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_08_Dictionaries/dictionaries.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_08_Dictionaries/dictionaries.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_08_Dictionaries/dictionaries.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_08_Dictionaries/dictionaries.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_08_Dictionaries/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_08_Dictionaries/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_08_Dictionaries/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_08_Dictionaries/solutions.ipynb){ .md-button }
 
 ???+ example "dictionaries.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_08_Dictionaries/dictionaries.py)

@@ -108,9 +108,21 @@ The first command prints a truncated `cProfile` report. In our baseline run the 
 
 ## Additional Materials
 
-- [pandas_adv.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/pandas_adv.ipynb)
-- [profile_pandas_adv.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/profile_pandas_adv.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/solutions.ipynb)
+- **pandas_adv.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/pandas_adv.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/pandas_adv.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/pandas_adv.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_24_Pandas_Advanced/pandas_adv.ipynb){ .md-button }
+- **profile_pandas_adv.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/profile_pandas_adv.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/profile_pandas_adv.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/profile_pandas_adv.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_24_Pandas_Advanced/profile_pandas_adv.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_24_Pandas_Advanced/solutions.ipynb){ .md-button }
 
 ???+ example "pandas_adv.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_24_Pandas_Advanced/pandas_adv.py)

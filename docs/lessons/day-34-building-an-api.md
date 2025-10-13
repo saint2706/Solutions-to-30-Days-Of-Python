@@ -124,9 +124,21 @@ Because `create_app()` returns a fully configured Flask instance, you can reuse 
 
 ## Additional Materials
 
-- [api_server.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/api_server.ipynb)
-- [data.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/data.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/solutions.ipynb)
+- **api_server.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/api_server.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/api_server.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/api_server.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_34_Building_an_API/api_server.ipynb){ .md-button }
+- **data.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/data.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/data.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/data.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_34_Building_an_API/data.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_34_Building_an_API/solutions.ipynb){ .md-button }
 
 ???+ example "api_server.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_34_Building_an_API/api_server.py)

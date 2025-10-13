@@ -9,7 +9,11 @@ Run `python Day_58_Transformers_and_Attention/solutions.py` to simulate encoder�
 
 ## Additional Materials
 
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_58_Transformers_and_Attention/solutions.ipynb)
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_58_Transformers_and_Attention/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_58_Transformers_and_Attention/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_58_Transformers_and_Attention/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_58_Transformers_and_Attention/solutions.ipynb){ .md-button }
 
 ???+ example "solutions.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_58_Transformers_and_Attention/solutions.py)

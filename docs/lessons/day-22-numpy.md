@@ -57,8 +57,16 @@ The script for this lesson, `numpy_examples.py`, has been refactored to place ea
 
 ## Additional Materials
 
-- [numpy_examples.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_22_NumPy/numpy_examples.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_22_NumPy/solutions.ipynb)
+- **numpy_examples.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_22_NumPy/numpy_examples.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_22_NumPy/numpy_examples.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_22_NumPy/numpy_examples.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_22_NumPy/numpy_examples.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_22_NumPy/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_22_NumPy/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_22_NumPy/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_22_NumPy/solutions.ipynb){ .md-button }
 
 ???+ example "numpy_examples.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_22_NumPy/numpy_examples.py)

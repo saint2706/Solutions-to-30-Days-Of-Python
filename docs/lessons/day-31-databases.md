@@ -89,9 +89,21 @@ conn.close()
 
 ## Additional Materials
 
-- [databases.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/databases.ipynb)
-- [databases_smoke_test.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/databases_smoke_test.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/solutions.ipynb)
+- **databases.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/databases.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/databases.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/databases.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_31_Databases/databases.ipynb){ .md-button }
+- **databases_smoke_test.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/databases_smoke_test.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/databases_smoke_test.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/databases_smoke_test.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_31_Databases/databases_smoke_test.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_31_Databases/solutions.ipynb){ .md-button }
 
 ???+ example "databases.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_31_Databases/databases.py)

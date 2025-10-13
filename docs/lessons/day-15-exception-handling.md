@@ -70,8 +70,16 @@ The script for this lesson, `exception.py`, has been refactored to place the log
 
 ## Additional Materials
 
-- [exception.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_15_Exception_Handling/exception.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_15_Exception_Handling/solutions.ipynb)
+- **exception.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_15_Exception_Handling/exception.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_15_Exception_Handling/exception.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_15_Exception_Handling/exception.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_15_Exception_Handling/exception.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_15_Exception_Handling/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_15_Exception_Handling/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_15_Exception_Handling/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_15_Exception_Handling/solutions.ipynb){ .md-button }
 
 ???+ example "exception.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_15_Exception_Handling/exception.py)

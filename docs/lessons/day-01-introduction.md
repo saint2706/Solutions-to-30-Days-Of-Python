@@ -60,8 +60,16 @@ The exercises are designed to help you practice the fundamental concepts introdu
 
 ## Additional Materials
 
-- [helloworld.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_01_Introduction/helloworld.ipynb)
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_01_Introduction/solutions.ipynb)
+- **helloworld.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_01_Introduction/helloworld.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_01_Introduction/helloworld.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_01_Introduction/helloworld.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_01_Introduction/helloworld.ipynb){ .md-button }
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_01_Introduction/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_01_Introduction/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_01_Introduction/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_01_Introduction/solutions.ipynb){ .md-button }
 
 ???+ example "helloworld.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_01_Introduction/helloworld.py)

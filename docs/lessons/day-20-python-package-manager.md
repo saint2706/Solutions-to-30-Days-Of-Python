@@ -50,8 +50,16 @@ The script for this lesson, `url.py`, demonstrates how to use `requests` to fetc
 
 ## Additional Materials
 
-- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_20_Python_Package_Manager/solutions.ipynb)
-- [url.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_20_Python_Package_Manager/url.ipynb)
+- **solutions.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_20_Python_Package_Manager/solutions.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_20_Python_Package_Manager/solutions.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_20_Python_Package_Manager/solutions.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_20_Python_Package_Manager/solutions.ipynb){ .md-button }
+- **url.ipynb**  
+  [📁 View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_20_Python_Package_Manager/url.ipynb){ .md-button } 
+  [📓 Open in NBViewer](https://nbviewer.org/github/saint2706/Coding-For-MBA/blob/main/Day_20_Python_Package_Manager/url.ipynb){ .md-button } 
+  [🚀 Run in Google Colab](https://colab.research.google.com/github/saint2706/Coding-For-MBA/blob/main/Day_20_Python_Package_Manager/url.ipynb){ .md-button .md-button--primary } 
+  [☁️ Run in Binder](https://mybinder.org/v2/gh/saint2706/Coding-For-MBA/main?filepath=Day_20_Python_Package_Manager/url.ipynb){ .md-button }
 
 ???+ example "solutions.py"
     [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_20_Python_Package_Manager/solutions.py)
