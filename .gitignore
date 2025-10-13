@@ -118,10 +118,6 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# Documentation build artefacts
-/site
-docs/_site/
-docs/lessons/Day_*/
 # Legacy Jekyll cache directory
 # .jekyll-cache/
 
