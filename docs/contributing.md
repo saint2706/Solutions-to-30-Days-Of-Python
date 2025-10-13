@@ -120,6 +120,12 @@ This command formats:
    python tools/build_docs.py
    ```
 
+   To also build HTML files in one step, use:
+
+   ```bash
+   python tools/build_docs.py --html
+   ```
+
 1. Preview locally:
 
    ```bash
@@ -133,6 +139,13 @@ This command formats:
    mkdocs build --strict
    ```
 
+   This generates HTML files in the `site/` directory, including:
+
+   - `site/index.html` - Main documentation homepage
+   - `site/lessons/day-XX-*/index.html` - Individual lesson pages (67 lessons)
+   - All necessary assets (CSS, JavaScript, images)
+   - Search index and sitemap
+
 ### Documentation Guidelines
 
 - **Lesson READMEs**: Each `Day_XX_*/README.md` is the source of truth
@@ -143,7 +156,7 @@ This command formats:
 
 **Important:** Commit changes to source files (`README.md`, lesson READMEs, notebooks, etc.) rather than the generated `docs/lessons/day-*.md` pages.
 
-The GitHub Actions workflow automatically builds and deploys the MkDocs site on every push to `main`.
+The GitHub Actions workflow automatically builds and deploys the MkDocs site on every push to `main`. The built HTML files in the `site/` directory are committed to the repository to enable direct serving via GitHub Pages if needed.
 
 ## ♿ Accessible Exports
 

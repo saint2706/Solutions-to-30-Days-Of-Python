@@ -7,6 +7,7 @@ import json
 import os
 import re
 import subprocess
+import sys
 import textwrap
 from pathlib import Path, PurePosixPath
 from urllib.parse import quote, urlsplit
@@ -303,3 +304,29 @@ def _update_mkdocs_nav(entries: list[str]) -> None:
 
 if __name__ == "__main__":
     build()
+
+    # Optionally build HTML files if --html flag is provided
+    if "--html" in sys.argv:
+        print("Building HTML files with MkDocs...")
+        try:
+            result = subprocess.run(
+                ["mkdocs", "build", "--strict"],
+                cwd=ROOT,
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+            print("HTML files built successfully in site/ directory")
+            if result.stdout:
+                print(result.stdout)
+        except subprocess.CalledProcessError as e:
+            print(f"Error building HTML files: {e}", file=sys.stderr)
+            if e.stderr:
+                print(e.stderr, file=sys.stderr)
+            sys.exit(1)
+        except FileNotFoundError:
+            print(
+                "mkdocs not found. Install with: pip install -r docs/requirements.txt",
+                file=sys.stderr,
+            )
+            sys.exit(1)
