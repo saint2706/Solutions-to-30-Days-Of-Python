@@ -1,0 +1,4688 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Applied Python and machine learning curriculum for business leaders">
+      
+      
+      
+        <link rel="canonical" href="https://saint2706.github.io/Coding-For-MBA/theory/">
+      
+      
+        <link rel="prev" href="../ml_curriculum/">
+      
+      
+        <link rel="next" href="../dependency-review/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>ML Theory & Mathematics - Coding for MBA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#machine-learning-theory-and-mathematical-foundations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Coding for MBA" class="md-header__button md-logo" aria-label="Coding for MBA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Coding for MBA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ML Theory & Mathematics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/saint2706/Coding-For-MBA" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    saint2706/Coding-For-MBA
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ml_curriculum/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Machine Learning Curriculum
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ML Theory & Mathematics
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../dependency-review/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Dependency Review
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Repository Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../agents/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Automation Commands
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../LICENSE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  License
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../lessons/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Lessons
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Coding for MBA" class="md-nav__button md-logo" aria-label="Coding for MBA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Coding for MBA
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/saint2706/Coding-For-MBA" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    saint2706/Coding-For-MBA
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml_curriculum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Machine Learning Curriculum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ML Theory & Mathematics
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    ML Theory & Mathematics
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-linear-algebra-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Linear Algebra Foundations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Linear Algebra Foundations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Vectors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Matrices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-eigenvalues-and-eigenvectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Eigenvalues and Eigenvectors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-singular-value-decomposition-svd" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Singular Value Decomposition (SVD)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-calculus-and-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Calculus and Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Calculus and Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-derivatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Derivatives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-partial-derivatives-and-gradients" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Partial Derivatives and Gradients
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-chain-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Chain Rule
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-gradient-descent" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Gradient Descent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-convexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Convexity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-probability-and-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Probability and Statistics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Probability and Statistics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-probability-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Probability Fundamentals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-random-variables-and-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Random Variables and Distributions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-maximum-likelihood-estimation-mle" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Maximum Likelihood Estimation (MLE)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-statistical-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Statistical Inference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-supervised-learning-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Supervised Learning Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Supervised Learning Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-problem-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Problem Formulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-linear-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Linear Regression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-logistic-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Logistic Regression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-support-vector-machines-svm" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Support Vector Machines (SVM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-decision-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Decision Trees
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-neural-networks-and-deep-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Neural Networks and Deep Learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Neural Networks and Deep Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-perceptron" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Perceptron
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-activation-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Activation Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-multi-layer-perceptron-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Multi-Layer Perceptron (MLP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-backpropagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Backpropagation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-common-loss-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Common Loss Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-initialization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 Initialization Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-batch-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 Batch Normalization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-regularization-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Regularization Techniques
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Regularization Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-l2-regularization-ridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 L2 Regularization (Ridge)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-l1-regularization-lasso" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 L1 Regularization (Lasso)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-elastic-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Elastic Net
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-dropout" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Dropout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-early-stopping" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Early Stopping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-data-augmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 Data Augmentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-ensemble-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Ensemble Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Ensemble Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-bagging-bootstrap-aggregating" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Bagging (Bootstrap Aggregating)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-boosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Boosting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-stacking-stacked-generalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Stacking (Stacked Generalization)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Unsupervised Learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Unsupervised Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-k-means-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 K-Means Clustering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-hierarchical-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Hierarchical Clustering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-dbscan-density-based-spatial-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 DBSCAN (Density-Based Spatial Clustering)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-principal-component-analysis-pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 Principal Component Analysis (PCA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-t-sne-t-distributed-stochastic-neighbor-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 t-SNE (t-Distributed Stochastic Neighbor Embedding)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86-umap-uniform-manifold-approximation-and-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.6 UMAP (Uniform Manifold Approximation and Projection)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-probabilistic-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Probabilistic Modeling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Probabilistic Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-naive-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Naive Bayes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-gaussian-mixture-models-gmm" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Gaussian Mixture Models (GMM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-expectation-maximization-em-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Expectation-Maximization (EM) Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-hidden-markov-models-hmm" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 Hidden Markov Models (HMM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-bayesian-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5 Bayesian Inference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-time-series-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Time Series Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Time Series Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-time-series-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Time Series Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-stationarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Stationarity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-autocorrelation" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 Autocorrelation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-arima-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.4 ARIMA Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105-seasonal-arima-sarimax" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.5 Seasonal ARIMA (SARIMAX)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106-exponential-smoothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.6 Exponential Smoothing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#107-prophet" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.7 Prophet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#108-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.8 Evaluation Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-advanced-deep-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Advanced Deep Learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Advanced Deep Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-convolutional-neural-networks-cnns" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Convolutional Neural Networks (CNNs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-recurrent-neural-networks-rnns" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Recurrent Neural Networks (RNNs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-long-short-term-memory-lstm" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Long Short-Term Memory (LSTM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-gated-recurrent-unit-gru" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4 Gated Recurrent Unit (GRU)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-attention-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.5 Attention Mechanism
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#116-transformers" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.6 Transformers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#117-generative-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.7 Generative Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-model-evaluation-and-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Model Evaluation and Selection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Model Evaluation and Selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-bias-variance-tradeoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Bias-Variance Tradeoff
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-cross-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.2 Cross-Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-classification-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.3 Classification Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-roc-and-auc" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.4 ROC and AUC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-regression-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.5 Regression Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#126-model-selection-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.6 Model Selection Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#127-hyperparameter-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.7 Hyperparameter Tuning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reading
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Further Reading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#books" class="md-nav__link">
+    <span class="md-ellipsis">
+      Books
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#online-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Online Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#papers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Papers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dependency Review
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Repository Roadmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automation Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LICENSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../lessons/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Lessons
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Lessons
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 1: Python for Business Analytics - First Steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-02-variables-builtin-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 2: Storing and Analyzing Business Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-03-operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 3: Operators - The Tools for Business Calculation and Logic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-04-strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 4: Working with Text Data - Strings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-05-lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 5: Managing Collections of Business Data with Lists
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-06-tuples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 6: Tuples - Storing Immutable Business Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-07-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 7: Sets - Managing Unique Business Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-08-dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 8: Dictionaries - Structuring Complex Business Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-09-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 9: Conditionals - Implementing Business Logic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-10-loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 10: Loops - Automating Repetitive Business Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-11-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 11: Functions - Creating Reusable Business Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-12-list-comprehension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 12: List Comprehension - Elegant Data Manipulation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-13-higher-order-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 13: Higher-Order Functions & Lambda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-14-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 14: Modules - Organizing Your Business Logic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-15-exception-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 15: Exception Handling - Building Robust Business Logic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-16-file-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 16: File Handling for Business Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-17-regular-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 17: Regular Expressions for Text Pattern Matching
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-18-classes-and-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 18: Classes and Objects - Modeling Business Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-19-python-date-time/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 19: Working with Dates and Times
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-20-python-package-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 20: Python Package Manager (pip) & Third-Party Libraries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-21-virtual-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 21: Virtual Environments - Professional Project Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-22-numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 22: NumPy - The Foundation of Numerical Computing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-23-pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 23: Pandas - Your Data Analysis Superpower
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-24-pandas-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 24: Advanced Pandas - Working with Real Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-25-data-cleaning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 25: Data Cleaning - The Most Important Skill in Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-26-statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 26: Practical Statistics for Business Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-27-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 27: Data Visualization - Communicating Insights
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-28-advanced-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 28: Advanced Visualization & Customization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-29-interactive-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 29: Interactive Visualization with Plotly
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-30-web-scraping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 30: Web Scraping - Extracting Data from the Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-31-databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 31: Working with Databases in Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-32-other-databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 32: Connecting to Other Databases (MySQL & MongoDB)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-33-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 33: Accessing Web APIs with `requests`
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-34-building-an-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📘 Day 34: Building a Simple API with Flask
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-35-flask-web-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌐 Day 35: Flask Web Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-36-case-study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📊 Day 36 – Capstone Case Study
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-37-conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🎉 Day 37: Conclusion & Your Journey Forward 🎉
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-38-linear-algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 38: Math Foundations - Linear Algebra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-39-calculus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 39: Math Foundations - Calculus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-40-intro-to-ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 40: Introduction to Machine Learning & Core Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-41-supervised-learning-regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 41 · Supervised Learning – Regression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-42-supervised-learning-classification-part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 42 · Supervised Learning – Classification (Part 1)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-43-supervised-learning-classification-part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 43 · Supervised Learning – Classification (Part 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-44-unsupervised-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 44: Unsupervised Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-45-feature-engineering-and-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 45: Feature Engineering & Model Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-46-intro-to-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 46: Introduction to Neural Networks & Frameworks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-47-convolutional-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 47: Convolutional Neural Networks (CNNs) for Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-48-recurrent-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 48: Recurrent Neural Networks (RNNs) for Sequence Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-49-nlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 49: Natural Language Processing (NLP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-50-mlops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 50: MLOps - Model Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-51-regularized-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 51 – Regularised Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-52-ensemble-methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 52 – Ensemble Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-53-model-tuning-and-feature-selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 53 – Model Tuning and Feature Selection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-54-probabilistic-modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 54 – Probabilistic Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-55-advanced-unsupervised-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 55 – Advanced Unsupervised Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-56-time-series-and-forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 56 – Time Series and Forecasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-57-recommender-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 57 – Recommender Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-58-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 58 – Transformers and Attention
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-59-generative-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 59 – Generative Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-60-graph-and-geometric-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 60 – Graph and Geometric Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-61-reinforcement-and-offline-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 61 – Reinforcement and Offline Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-62-model-interpretability-and-fairness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 62 – Model Interpretability and Fairness
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-63-causal-inference-and-uplift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 63 – Causal Inference and Uplift Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-64-modern-nlp-pipelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 64 – Modern NLP Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-65-mlops-pipelines-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 65 – MLOps Pipelines and CI/CD Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-66-model-deployment-and-serving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 66 – Model Deployment and Serving Patterns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/day-67-model-monitoring-and-reliability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 67 – Model Monitoring and Reliability Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="machine-learning-theory-and-mathematical-foundations">Machine Learning Theory and Mathematical Foundations<a class="headerlink" href="#machine-learning-theory-and-mathematical-foundations" title="Anchor link to this section for reference">&para;</a></h1>
+<p>This document provides a comprehensive reference for the mathematical and theoretical concepts underlying the machine learning curriculum (Days 38-67). Each section builds from first principles to practical applications in modern ML systems.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h2>
+<ol>
+<li><a href="#1-linear-algebra-foundations">Linear Algebra Foundations</a></li>
+<li><a href="#2-calculus-and-optimization">Calculus and Optimization</a></li>
+<li><a href="#3-probability-and-statistics">Probability and Statistics</a></li>
+<li><a href="#4-supervised-learning-theory">Supervised Learning Theory</a></li>
+<li><a href="#5-neural-networks-and-deep-learning">Neural Networks and Deep Learning</a></li>
+<li><a href="#6-regularization-techniques">Regularization Techniques</a></li>
+<li><a href="#7-ensemble-methods">Ensemble Methods</a></li>
+<li><a href="#8-unsupervised-learning">Unsupervised Learning</a></li>
+<li><a href="#9-probabilistic-modeling">Probabilistic Modeling</a></li>
+<li><a href="#10-time-series-analysis">Time Series Analysis</a></li>
+<li><a href="#11-advanced-deep-learning">Advanced Deep Learning</a></li>
+<li><a href="#12-model-evaluation-and-selection">Model Evaluation and Selection</a></li>
+</ol>
+<hr />
+<h2 id="1-linear-algebra-foundations">1. Linear Algebra Foundations<a class="headerlink" href="#1-linear-algebra-foundations" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Linear algebra provides the mathematical language for representing and manipulating data in machine learning.</p>
+<h3 id="11-vectors">1.1 Vectors<a class="headerlink" href="#11-vectors" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A <strong>vector</strong> is an ordered collection of numbers that can represent:</p>
+<ul>
+<li>A data point with multiple features</li>
+<li>A direction and magnitude in space</li>
+<li>A point in n-dimensional space</li>
+</ul>
+<p><strong>Notation:</strong> A vector <strong>v</strong> in ℝⁿ is written as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>v = [v₁, v₂, ..., vₙ]ᵀ
+</span></code></pre></div>
+<p><strong>Key Operations:</strong></p>
+<ul>
+<li><strong>Vector Addition:</strong> (v + w)ᵢ = vᵢ + wᵢ</li>
+<li><strong>Scalar Multiplication:</strong> (αv)ᵢ = αvᵢ</li>
+<li><strong>Dot Product:</strong> v · w = Σᵢ vᵢwᵢ = ||v|| ||w|| cos(θ)</li>
+<li><strong>Norm (Length):</strong> ||v|| = √(Σᵢ vᵢ²)</li>
+</ul>
+<p><strong>ML Application:</strong> Feature vectors represent observations; dot products measure similarity between data points.</p>
+<h3 id="12-matrices">1.2 Matrices<a class="headerlink" href="#12-matrices" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A <strong>matrix</strong> is a rectangular array of numbers with dimensions m × n (m rows, n columns).</p>
+<p><strong>Notation:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>A = [aᵢⱼ] where i ∈ {1,...,m}, j ∈ {1,...,n}
+</span></code></pre></div>
+<p><strong>Key Operations:</strong></p>
+<ul>
+<li><strong>Matrix Addition:</strong> (A + B)ᵢⱼ = aᵢⱼ + bᵢⱼ</li>
+<li><strong>Matrix Multiplication:</strong> (AB)ᵢⱼ = Σₖ aᵢₖbₖⱼ</li>
+<li><strong>Transpose:</strong> (Aᵀ)ᵢⱼ = aⱼᵢ</li>
+<li><strong>Inverse:</strong> AA⁻¹ = A⁻¹A = I (when A is square and non-singular)</li>
+</ul>
+<p><strong>ML Application:</strong> Datasets are stored as matrices where rows are observations and columns are features. Matrix multiplication implements linear transformations and neural network layers.</p>
+<h3 id="13-eigenvalues-and-eigenvectors">1.3 Eigenvalues and Eigenvectors<a class="headerlink" href="#13-eigenvalues-and-eigenvectors" title="Anchor link to this section for reference">&para;</a></h3>
+<p>For a square matrix A, an <strong>eigenvector</strong> v and <strong>eigenvalue</strong> λ satisfy:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Av = λv
+</span></code></pre></div>
+<p>This means A stretches v by a factor of λ without changing its direction.</p>
+<p><strong>Eigendecomposition:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>A = QΛQᵀ
+</span></code></pre></div>
+<p>where Q contains eigenvectors and Λ is a diagonal matrix of eigenvalues.</p>
+<p><strong>ML Application:</strong></p>
+<ul>
+<li><strong>Principal Component Analysis (PCA):</strong> Uses eigenvectors of the covariance matrix to find directions of maximum variance</li>
+<li><strong>Dimensionality Reduction:</strong> Project data onto top-k eigenvectors to reduce dimensions while preserving variance</li>
+<li><strong>Spectral Clustering:</strong> Uses eigenvectors of graph Laplacian matrices</li>
+</ul>
+<h3 id="14-singular-value-decomposition-svd">1.4 Singular Value Decomposition (SVD)<a class="headerlink" href="#14-singular-value-decomposition-svd" title="Anchor link to this section for reference">&para;</a></h3>
+<p>For any m × n matrix A:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>A = UΣVᵀ
+</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li>U (m × m): Left singular vectors</li>
+<li>Σ (m × n): Diagonal matrix of singular values</li>
+<li>V (n × n): Right singular vectors</li>
+</ul>
+<p><strong>ML Application:</strong></p>
+<ul>
+<li>Generalization of eigendecomposition to non-square matrices</li>
+<li>Used in recommender systems (matrix factorization)</li>
+<li>Basis for PCA and low-rank approximations</li>
+</ul>
+<hr />
+<h2 id="2-calculus-and-optimization">2. Calculus and Optimization<a class="headerlink" href="#2-calculus-and-optimization" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Calculus enables us to find optimal model parameters by following gradients of loss functions.</p>
+<h3 id="21-derivatives">2.1 Derivatives<a class="headerlink" href="#21-derivatives" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The <strong>derivative</strong> measures the rate of change of a function:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>f&#39;(x) = lim(h→0) [f(x + h) - f(x)] / h
+</span></code></pre></div>
+<p><strong>Common Derivatives:</strong></p>
+<ul>
+<li>d/dx [xⁿ] = nxⁿ⁻¹</li>
+<li>d/dx [eˣ] = eˣ</li>
+<li>d/dx [ln(x)] = 1/x</li>
+<li>d/dx [sin(x)] = cos(x)</li>
+</ul>
+<p><strong>ML Application:</strong> Derivatives tell us how much the loss changes when we adjust a parameter.</p>
+<h3 id="22-partial-derivatives-and-gradients">2.2 Partial Derivatives and Gradients<a class="headerlink" href="#22-partial-derivatives-and-gradients" title="Anchor link to this section for reference">&para;</a></h3>
+<p>For multivariate functions f(x₁, x₂, ..., xₙ), the <strong>partial derivative</strong> with respect to xᵢ is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>∂f/∂xᵢ = lim(h→0) [f(..., xᵢ + h, ...) - f(..., xᵢ, ...)] / h
+</span></code></pre></div>
+<p>The <strong>gradient</strong> is the vector of all partial derivatives:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>∇f = [∂f/∂x₁, ∂f/∂x₂, ..., ∂f/∂xₙ]ᵀ
+</span></code></pre></div>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>Gradient points in the direction of steepest ascent</li>
+<li>Negative gradient points toward steepest descent</li>
+<li>Gradient is zero at local minima, maxima, and saddle points</li>
+</ul>
+<p><strong>ML Application:</strong> Gradient descent algorithms follow -∇L(θ) to minimize the loss function L with respect to parameters θ.</p>
+<h3 id="23-chain-rule">2.3 Chain Rule<a class="headerlink" href="#23-chain-rule" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The <strong>chain rule</strong> enables differentiation of composite functions:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>d/dx [f(g(x))] = f&#39;(g(x)) · g&#39;(x)
+</span></code></pre></div>
+<p>For multivariate compositions:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>∂z/∂x = (∂z/∂y)(∂y/∂x)
+</span></code></pre></div>
+<p><strong>ML Application:</strong> Backpropagation in neural networks repeatedly applies the chain rule to compute gradients through multiple layers.</p>
+<h3 id="24-gradient-descent">2.4 Gradient Descent<a class="headerlink" href="#24-gradient-descent" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Gradient Descent</strong> is an iterative optimization algorithm:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>θₜ₊₁ = θₜ - α∇L(θₜ)
+</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li>θₜ: Parameters at iteration t</li>
+<li>α: Learning rate (step size)</li>
+<li>∇L(θₜ): Gradient of loss function at θₜ</li>
+</ul>
+<p><strong>Variants:</strong></p>
+<ol>
+<li><strong>Batch Gradient Descent:</strong> Uses entire dataset to compute gradient</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>∇L(θ) = (1/n)Σᵢ ∇Lᵢ(θ)
+</span></code></pre></div>
+<ol>
+<li><strong>Stochastic Gradient Descent (SGD):</strong> Uses single random example</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>θₜ₊₁ = θₜ - α∇Lᵢ(θₜ)
+</span></code></pre></div>
+<ol>
+<li><strong>Mini-batch Gradient Descent:</strong> Uses small batch of examples</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>∇L(θ) = (1/|B|)Σᵢ∈B ∇Lᵢ(θ)
+</span></code></pre></div>
+<p><strong>Advanced Optimizers:</strong></p>
+<ul>
+<li><strong>Momentum:</strong> Accumulates velocity to smooth updates</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>vₜ = βvₜ₋₁ + ∇L(θₜ)
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>θₜ₊₁ = θₜ - αvₜ
+</span></code></pre></div>
+<ul>
+<li><strong>Adam:</strong> Adaptive learning rates with momentum</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>mₜ = β₁mₜ₋₁ + (1-β₁)∇L(θₜ)
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>vₜ = β₂vₜ₋₁ + (1-β₂)(∇L(θₜ))²
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>θₜ₊₁ = θₜ - α·mₜ/(√vₜ + ε)
+</span></code></pre></div>
+<h3 id="25-convexity">2.5 Convexity<a class="headerlink" href="#25-convexity" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A function f is <strong>convex</strong> if:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>f(λx + (1-λ)y) ≤ λf(x) + (1-λ)f(y) for all λ ∈ [0,1]
+</span></code></pre></div>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>Local minimum is also global minimum</li>
+<li>Gradient descent converges to global optimum</li>
+<li>Examples: Linear regression, logistic regression (with convex regularization)</li>
+</ul>
+<p><strong>ML Application:</strong> Many ML loss functions are convex, guaranteeing convergence to optimal solutions.</p>
+<hr />
+<h2 id="3-probability-and-statistics">3. Probability and Statistics<a class="headerlink" href="#3-probability-and-statistics" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Probability theory provides the foundation for reasoning about uncertainty in data and predictions.</p>
+<h3 id="31-probability-fundamentals">3.1 Probability Fundamentals<a class="headerlink" href="#31-probability-fundamentals" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Probability Axioms:</strong></p>
+<ol>
+<li>P(A) ≥ 0 for any event A</li>
+<li>P(Ω) = 1 (total probability)</li>
+<li>P(A ∪ B) = P(A) + P(B) if A and B are disjoint</li>
+</ol>
+<p><strong>Conditional Probability:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>P(A|B) = P(A ∩ B) / P(B)
+</span></code></pre></div>
+<p><strong>Bayes' Theorem:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>P(A|B) = P(B|A)P(A) / P(B)
+</span></code></pre></div>
+<p><strong>ML Application:</strong> Bayesian inference, Naive Bayes classifiers, probabilistic modeling.</p>
+<h3 id="32-random-variables-and-distributions">3.2 Random Variables and Distributions<a class="headerlink" href="#32-random-variables-and-distributions" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A <strong>random variable</strong> X maps outcomes to real numbers.</p>
+<p><strong>Expectation (Mean):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>E[X] = Σᵢ xᵢP(X = xᵢ)  (discrete)
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>E[X] = ∫ xf(x)dx        (continuous)
+</span></code></pre></div>
+<p><strong>Variance:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Var(X) = E[(X - E[X])²] = E[X²] - (E[X])²
+</span></code></pre></div>
+<p><strong>Common Distributions:</strong></p>
+<ol>
+<li><strong>Normal (Gaussian):</strong></li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>f(x) = (1/√(2πσ²))exp(-(x-μ)²/(2σ²))
+</span></code></pre></div>
+<ul>
+<li>
+<p>Used in: Linear regression errors, Gaussian processes</p>
+</li>
+<li>
+<p><strong>Bernoulli:</strong></p>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>P(X = 1) = p, P(X = 0) = 1-p
+</span></code></pre></div>
+<ul>
+<li>
+<p>Used in: Binary classification</p>
+</li>
+<li>
+<p><strong>Multinomial:</strong></p>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>P(X = k) = pₖ where Σₖ pₖ = 1
+</span></code></pre></div>
+<ul>
+<li>
+<p>Used in: Multi-class classification</p>
+</li>
+<li>
+<p><strong>Poisson:</strong></p>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>P(X = k) = (λᵏe⁻ᵏ) / k!
+</span></code></pre></div>
+<ul>
+<li>Used in: Count data (arrivals, events)</li>
+</ul>
+<h3 id="33-maximum-likelihood-estimation-mle">3.3 Maximum Likelihood Estimation (MLE)<a class="headerlink" href="#33-maximum-likelihood-estimation-mle" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Find parameters θ that maximize the likelihood of observed data:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>θ̂_MLE = argmax_θ L(θ|x) = argmax_θ P(x|θ)
+</span></code></pre></div>
+<p>Often use <strong>log-likelihood</strong> for convenience:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>θ̂_MLE = argmax_θ log L(θ|x) = argmax_θ Σᵢ log P(xᵢ|θ)
+</span></code></pre></div>
+<p><strong>ML Application:</strong> Training most ML models is MLE under specific distributional assumptions.</p>
+<h3 id="34-statistical-inference">3.4 Statistical Inference<a class="headerlink" href="#34-statistical-inference" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Hypothesis Testing:</strong></p>
+<ul>
+<li>Null hypothesis H₀ vs. alternative H₁</li>
+<li>p-value: Probability of observing data at least as extreme as observed, given H₀</li>
+<li>Significance level α (typically 0.05)</li>
+<li>Reject H₀ if p-value &lt; α</li>
+</ul>
+<p><strong>Confidence Intervals:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>CI = θ̂ ± z_(α/2) · SE(θ̂)
+</span></code></pre></div>
+<p>where SE is the standard error.</p>
+<p><strong>ML Application:</strong> Evaluating model significance, A/B testing, feature selection.</p>
+<hr />
+<h2 id="4-supervised-learning-theory">4. Supervised Learning Theory<a class="headerlink" href="#4-supervised-learning-theory" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Supervised learning involves learning a mapping from inputs X to outputs Y given labeled training data.</p>
+<h3 id="41-problem-formulation">4.1 Problem Formulation<a class="headerlink" href="#41-problem-formulation" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Training Data:</strong> {(x₁, y₁), (x₂, y₂), ..., (xₙ, yₙ)}</p>
+<p><strong>Goal:</strong> Learn function f: X → Y such that f(x) ≈ y</p>
+<p><strong>Types:</strong></p>
+<ul>
+<li><strong>Regression:</strong> Y is continuous (e.g., price, temperature)</li>
+<li><strong>Classification:</strong> Y is discrete (e.g., spam/not spam, digit 0-9)</li>
+</ul>
+<h3 id="42-linear-regression">4.2 Linear Regression<a class="headerlink" href="#42-linear-regression" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Model:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>ŷ = θ₀ + θ₁x₁ + θ₂x₂ + ... + θₚxₚ = θᵀx
+</span></code></pre></div>
+<p><strong>Loss Function (Mean Squared Error):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>L(θ) = (1/n)Σᵢ (yᵢ - θᵀxᵢ)²
+</span></code></pre></div>
+<p><strong>Normal Equation (Closed Form):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>θ̂ = (XᵀX)⁻¹Xᵀy
+</span></code></pre></div>
+<p><strong>Gradient:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>∇L(θ) = (2/n)Xᵀ(Xθ - y)
+</span></code></pre></div>
+<p><strong>Assumptions:</strong></p>
+<ol>
+<li>Linearity: True relationship is linear</li>
+<li>Independence: Observations are independent</li>
+<li>Homoscedasticity: Constant variance of errors</li>
+<li>Normality: Errors follow normal distribution</li>
+</ol>
+<p><strong>Coefficient Interpretation:</strong></p>
+<ul>
+<li>θⱼ represents the change in y for a unit change in xⱼ, holding other features constant</li>
+</ul>
+<h3 id="43-logistic-regression">4.3 Logistic Regression<a class="headerlink" href="#43-logistic-regression" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Model (Binary Classification):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>P(y = 1|x) = σ(θᵀx) = 1 / (1 + e⁻ᶿᵀˣ)
+</span></code></pre></div>
+<p>where σ is the <strong>sigmoid function</strong>.</p>
+<p><strong>Decision Boundary:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Predict y = 1 if P(y = 1|x) ≥ 0.5
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>⟺ θᵀx ≥ 0
+</span></code></pre></div>
+<p><strong>Loss Function (Binary Cross-Entropy):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>L(θ) = -(1/n)Σᵢ [yᵢ log(ŷᵢ) + (1-yᵢ)log(1-ŷᵢ)]
+</span></code></pre></div>
+<p><strong>Gradient:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>∇L(θ) = (1/n)Xᵀ(σ(Xθ) - y)
+</span></code></pre></div>
+<p><strong>Multi-class Extension (Softmax):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>P(y = k|x) = exp(θₖᵀx) / Σⱼ exp(θⱼᵀx)
+</span></code></pre></div>
+<h3 id="44-support-vector-machines-svm">4.4 Support Vector Machines (SVM)<a class="headerlink" href="#44-support-vector-machines-svm" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Goal:</strong> Find hyperplane that maximally separates classes with largest margin.</p>
+<p><strong>Hard Margin SVM:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>minimize (1/2)||w||²
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>subject to yᵢ(wᵀxᵢ + b) ≥ 1 for all i
+</span></code></pre></div>
+<p><strong>Soft Margin SVM (with slack variables ξᵢ):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>minimize (1/2)||w||² + C·Σᵢ ξᵢ
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>subject to yᵢ(wᵀxᵢ + b) ≥ 1 - ξᵢ, ξᵢ ≥ 0
+</span></code></pre></div>
+<p><strong>Kernel Trick:</strong> Map data to higher dimensions using kernel functions:</p>
+<ul>
+<li>Linear: K(x, x') = xᵀx'</li>
+<li>Polynomial: K(x, x') = (xᵀx' + c)ᵈ</li>
+<li>RBF (Gaussian): K(x, x') = exp(-γ||x - x'||²)</li>
+</ul>
+<p><strong>ML Application:</strong> Effective for high-dimensional spaces, memory-efficient (uses support vectors only).</p>
+<h3 id="45-decision-trees">4.5 Decision Trees<a class="headerlink" href="#45-decision-trees" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Splitting Criterion:</strong></p>
+<p>For regression, use <strong>Mean Squared Error</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>MSE = (1/n)Σᵢ (yᵢ - ȳ)²
+</span></code></pre></div>
+<p>For classification, use <strong>Gini Impurity</strong> or <strong>Entropy</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Gini = 1 - Σₖ pₖ²
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>Entropy = -Σₖ pₖ log(pₖ)
+</span></code></pre></div>
+<p><strong>Information Gain:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>IG = H(parent) - Σ(|child|/|parent|)H(child)
+</span></code></pre></div>
+<p><strong>Algorithm:</strong></p>
+<ol>
+<li>Start with all data at root</li>
+<li>For each feature, find best split that maximizes information gain</li>
+<li>Recursively split until stopping criterion met</li>
+<li>Assign leaf prediction (majority class or mean value)</li>
+</ol>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Interpretable</li>
+<li>Handles non-linear relationships</li>
+<li>No feature scaling needed</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Prone to overfitting</li>
+<li>Unstable (small data changes cause different trees)</li>
+</ul>
+<hr />
+<h2 id="5-neural-networks-and-deep-learning">5. Neural Networks and Deep Learning<a class="headerlink" href="#5-neural-networks-and-deep-learning" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Neural networks are compositions of simple non-linear functions that can approximate complex mappings.</p>
+<h3 id="51-perceptron">5.1 Perceptron<a class="headerlink" href="#51-perceptron" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The basic building block:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>z = Σᵢ wᵢxᵢ + b = wᵀx + b
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>a = g(z)
+</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li>w: weights</li>
+<li>b: bias</li>
+<li>g: activation function</li>
+<li>a: output activation</li>
+</ul>
+<h3 id="52-activation-functions">5.2 Activation Functions<a class="headerlink" href="#52-activation-functions" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Purpose:</strong> Introduce non-linearity (without them, deep networks collapse to linear models).</p>
+<p><strong>Common Activations:</strong></p>
+<ol>
+<li><strong>Sigmoid:</strong></li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>σ(z) = 1 / (1 + e⁻ᶻ)
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>σ&#39;(z) = σ(z)(1 - σ(z))
+</span></code></pre></div>
+<ul>
+<li>Range: (0, 1)</li>
+<li>
+<p>Issues: Vanishing gradients, not zero-centered</p>
+</li>
+<li>
+<p><strong>Tanh:</strong></p>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>tanh(z) = (eᶻ - e⁻ᶻ) / (eᶻ + e⁻ᶻ)
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>tanh&#39;(z) = 1 - tanh²(z)
+</span></code></pre></div>
+<ul>
+<li>Range: (-1, 1)</li>
+<li>
+<p>Zero-centered, but still vanishing gradients</p>
+</li>
+<li>
+<p><strong>ReLU (Rectified Linear Unit):</strong></p>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>ReLU(z) = max(0, z)
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>ReLU&#39;(z) = 1 if z &gt; 0, else 0
+</span></code></pre></div>
+<ul>
+<li>Most popular for hidden layers</li>
+<li>Computationally efficient</li>
+<li>
+<p>Issues: "Dying ReLU" (neurons can permanently output 0)</p>
+</li>
+<li>
+<p><strong>Leaky ReLU:</strong></p>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>LeakyReLU(z) = max(αz, z) where α ≈ 0.01
+</span></code></pre></div>
+<ul>
+<li>
+<p>Prevents dying ReLU problem</p>
+</li>
+<li>
+<p><strong>Softmax (Output Layer for Multi-class):</strong></p>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>softmax(zᵢ) = exp(zᵢ) / Σⱼ exp(zⱼ)
+</span></code></pre></div>
+<h3 id="53-multi-layer-perceptron-mlp">5.3 Multi-Layer Perceptron (MLP)<a class="headerlink" href="#53-multi-layer-perceptron-mlp" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Architecture:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>Layer 1: a⁽¹⁾ = g⁽¹⁾(W⁽¹⁾x + b⁽¹⁾)
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>Layer 2: a⁽²⁾ = g⁽²⁾(W⁽²⁾a⁽¹⁾ + b⁽²⁾)
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>...
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>Output: ŷ = a⁽ᴸ⁾
+</span></code></pre></div>
+<p><strong>Universal Approximation Theorem:</strong>
+A neural network with a single hidden layer and enough neurons can approximate any continuous function arbitrarily well.</p>
+<h3 id="54-backpropagation">5.4 Backpropagation<a class="headerlink" href="#54-backpropagation" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Forward Pass:</strong> Compute predictions layer by layer.</p>
+<p><strong>Backward Pass:</strong> Compute gradients using chain rule.</p>
+<p><strong>Output Layer Gradient:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>δ⁽ᴸ⁾ = ∂L/∂z⁽ᴸ⁾ = (a⁽ᴸ⁾ - y) ⊙ g&#39;(z⁽ᴸ⁾)
+</span></code></pre></div>
+<p><strong>Hidden Layer Gradient:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>δ⁽ˡ⁾ = (W⁽ˡ⁺¹⁾ᵀδ⁽ˡ⁺¹⁾) ⊙ g&#39;(z⁽ˡ⁾)
+</span></code></pre></div>
+<p><strong>Parameter Gradients:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>∂L/∂W⁽ˡ⁾ = δ⁽ˡ⁾a⁽ˡ⁻¹⁾ᵀ
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>∂L/∂b⁽ˡ⁾ = δ⁽ˡ⁾
+</span></code></pre></div>
+<p><strong>Update Rule:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>W⁽ˡ⁾ ← W⁽ˡ⁾ - α(∂L/∂W⁽ˡ⁾)
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>b⁽ˡ⁾ ← b⁽ˡ⁾ - α(∂L/∂b⁽ˡ⁾)
+</span></code></pre></div>
+<h3 id="55-common-loss-functions">5.5 Common Loss Functions<a class="headerlink" href="#55-common-loss-functions" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Regression:</strong></p>
+<ol>
+<li><strong>Mean Squared Error (MSE):</strong></li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>L = (1/n)Σᵢ (yᵢ - ŷᵢ)²
+</span></code></pre></div>
+<ol>
+<li><strong>Mean Absolute Error (MAE):</strong></li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>L = (1/n)Σᵢ |yᵢ - ŷᵢ|
+</span></code></pre></div>
+<p><strong>Classification:</strong></p>
+<ol>
+<li><strong>Binary Cross-Entropy:</strong></li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>L = -(1/n)Σᵢ [yᵢ log(ŷᵢ) + (1-yᵢ)log(1-ŷᵢ)]
+</span></code></pre></div>
+<ol>
+<li><strong>Categorical Cross-Entropy:</strong></li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>L = -(1/n)Σᵢ Σₖ yᵢₖ log(ŷᵢₖ)
+</span></code></pre></div>
+<h3 id="56-initialization-strategies">5.6 Initialization Strategies<a class="headerlink" href="#56-initialization-strategies" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Problem:</strong> Poor initialization can cause vanishing/exploding gradients.</p>
+<p><strong>Xavier/Glorot Initialization:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>W ~ U[-√(6/(nᵢₙ + nₒᵤₜ)), √(6/(nᵢₙ + nₒᵤₜ))]
+</span></code></pre></div>
+<p><strong>He Initialization (for ReLU):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>W ~ N(0, 2/nᵢₙ)
+</span></code></pre></div>
+<h3 id="57-batch-normalization">5.7 Batch Normalization<a class="headerlink" href="#57-batch-normalization" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Normalize activations within each mini-batch:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>x̂ᵢ = (xᵢ - μ_B) / √(σ²_B + ε)
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>yᵢ = γx̂ᵢ + β
+</span></code></pre></div>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Faster training</li>
+<li>Higher learning rates possible</li>
+<li>Reduces sensitivity to initialization</li>
+<li>Acts as regularization</li>
+</ul>
+<hr />
+<h2 id="6-regularization-techniques">6. Regularization Techniques<a class="headerlink" href="#6-regularization-techniques" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Regularization prevents overfitting by constraining model complexity.</p>
+<h3 id="61-l2-regularization-ridge">6.1 L2 Regularization (Ridge)<a class="headerlink" href="#61-l2-regularization-ridge" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Modified Loss:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>L_ridge(θ) = L(θ) + λ||θ||₂² = L(θ) + λΣⱼ θⱼ²
+</span></code></pre></div>
+<p><strong>Effect:</strong></p>
+<ul>
+<li>Shrinks coefficients toward zero</li>
+<li>Never exactly zero (all features retained)</li>
+<li>Closed-form solution exists for linear regression:
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>θ̂ = (XᵀX + λI)⁻¹Xᵀy
+</span></code></pre></div></li>
+</ul>
+<p><strong>Bayesian Interpretation:</strong> Equivalent to placing Gaussian prior on parameters.</p>
+<h3 id="62-l1-regularization-lasso">6.2 L1 Regularization (Lasso)<a class="headerlink" href="#62-l1-regularization-lasso" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Modified Loss:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>L_lasso(θ) = L(θ) + λ||θ||₁ = L(θ) + λΣⱼ |θⱼ|
+</span></code></pre></div>
+<p><strong>Effect:</strong></p>
+<ul>
+<li>Produces sparse solutions (many coefficients exactly zero)</li>
+<li>Automatic feature selection</li>
+<li>No closed-form solution (requires iterative methods)</li>
+</ul>
+<p><strong>Bayesian Interpretation:</strong> Equivalent to placing Laplace prior on parameters.</p>
+<h3 id="63-elastic-net">6.3 Elastic Net<a class="headerlink" href="#63-elastic-net" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Combines L1 and L2:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>L_elastic(θ) = L(θ) + λ₁||θ||₁ + λ₂||θ||₂²
+</span></code></pre></div>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Sparse solutions like Lasso</li>
+<li>Better than Lasso when features are correlated</li>
+<li>More stable than Lasso</li>
+</ul>
+<h3 id="64-dropout">6.4 Dropout<a class="headerlink" href="#64-dropout" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Training:</strong> Randomly set a fraction p of neurons to zero in each iteration.</p>
+<p><strong>Effect:</strong></p>
+<ul>
+<li>Prevents co-adaptation of neurons</li>
+<li>Approximates ensemble of exponentially many networks</li>
+<li>Acts as strong regularizer</li>
+</ul>
+<p><strong>Inference:</strong> Scale activations by (1-p) or train with inverted dropout.</p>
+<h3 id="65-early-stopping">6.5 Early Stopping<a class="headerlink" href="#65-early-stopping" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Method:</strong> Monitor validation loss during training; stop when it starts increasing.</p>
+<p><strong>Equivalent to:</strong> Implicit regularization by limiting model capacity to fit training data.</p>
+<h3 id="66-data-augmentation">6.6 Data Augmentation<a class="headerlink" href="#66-data-augmentation" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Increase effective dataset size</strong> by applying transformations:</p>
+<ul>
+<li>Images: rotation, flipping, cropping, color jitter</li>
+<li>Text: synonym replacement, back-translation</li>
+<li>Time series: jittering, scaling, window slicing</li>
+</ul>
+<p><strong>Effect:</strong> Regularizes by exposing model to variations.</p>
+<hr />
+<h2 id="7-ensemble-methods">7. Ensemble Methods<a class="headerlink" href="#7-ensemble-methods" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Ensemble methods combine multiple models to achieve better performance than individual models.</p>
+<h3 id="71-bagging-bootstrap-aggregating">7.1 Bagging (Bootstrap Aggregating)<a class="headerlink" href="#71-bagging-bootstrap-aggregating" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Algorithm:</strong></p>
+<ol>
+<li>Create m bootstrap samples (sample with replacement)</li>
+<li>Train model on each bootstrap sample</li>
+<li>Aggregate predictions (vote for classification, average for regression)</li>
+</ol>
+<p><strong>Prediction:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>ŷ = (1/m)Σᵢ fᵢ(x)  (regression)
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>ŷ = mode{f₁(x), ..., fₘ(x)}  (classification)
+</span></code></pre></div>
+<p><strong>Random Forest:</strong> Bagging with decision trees + random feature selection at each split.</p>
+<p><strong>Feature Importance:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>Importance(xⱼ) = Σ_trees Σ_splits ΔImpurity(xⱼ)
+</span></code></pre></div>
+<p><strong>Out-of-Bag (OOB) Error:</strong></p>
+<ul>
+<li>Each tree uses ~63% of data for training</li>
+<li>Remaining ~37% used for validation (OOB samples)</li>
+<li>OOB error provides unbiased performance estimate</li>
+</ul>
+<h3 id="72-boosting">7.2 Boosting<a class="headerlink" href="#72-boosting" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Idea:</strong> Train models sequentially, each correcting errors of previous ones.</p>
+<p><strong>AdaBoost (Adaptive Boosting):</strong></p>
+<ol>
+<li>Initialize weights: wᵢ = 1/n for all i</li>
+<li>For t = 1 to T:</li>
+<li>Train classifier fₜ on weighted data</li>
+<li>Compute error: εₜ = Σᵢ wᵢ · I(yᵢ ≠ fₜ(xᵢ))</li>
+<li>Compute weight: αₜ = (&frac12;)log((1-εₜ)/εₜ)</li>
+<li>Update weights: wᵢ ← wᵢ · exp(-αₜyᵢfₜ(xᵢ))</li>
+<li>Normalize weights</li>
+<li>Final prediction: F(x) = sign(Σₜ αₜfₜ(x))</li>
+</ol>
+<p><strong>Gradient Boosting:</strong></p>
+<p>General framework for boosting any differentiable loss function.</p>
+<ol>
+<li>Initialize: F₀(x) = argmin_γ Σᵢ L(yᵢ, γ)</li>
+<li>For t = 1 to T:</li>
+<li>Compute pseudo-residuals:
+     <div class="language-text highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>rᵢₜ = -∂L(yᵢ, F(xᵢ))/∂F(xᵢ) |_(F=Fₜ₋₁)
+</span></code></pre></div></li>
+<li>Fit base learner hₜ to residuals</li>
+<li>Find optimal step size:
+     <div class="language-text highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>γₜ = argmin_γ Σᵢ L(yᵢ, Fₜ₋₁(xᵢ) + γhₜ(xᵢ))
+</span></code></pre></div></li>
+<li>Update: Fₜ(x) = Fₜ₋₁(x) + γₜhₜ(x)</li>
+</ol>
+<p><strong>XGBoost (Extreme Gradient Boosting):</strong></p>
+<p>Adds regularization to gradient boosting:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>Obj = Σᵢ L(yᵢ, ŷᵢ) + Σₜ Ω(fₜ)
+</span></code></pre></div>
+<p>where Ω(f) = γT + (&frac12;)λ||w||² (T = number of leaves)</p>
+<h3 id="73-stacking-stacked-generalization">7.3 Stacking (Stacked Generalization)<a class="headerlink" href="#73-stacking-stacked-generalization" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Two-Level Architecture:</strong></p>
+<p><strong>Level 0 (Base Models):</strong></p>
+<ul>
+<li>Train diverse models (e.g., random forest, SVM, neural network)</li>
+<li>Generate out-of-fold predictions on training set</li>
+</ul>
+<p><strong>Level 1 (Meta-Model):</strong></p>
+<ul>
+<li>Train on base model predictions as features</li>
+<li>Learn optimal way to combine base model predictions</li>
+</ul>
+<p><strong>Algorithm:</strong></p>
+<ol>
+<li>Split data into K folds</li>
+<li>For each base model:</li>
+<li>Train on K-1 folds, predict on held-out fold (repeat K times)</li>
+<li>Train on full training set, predict on test set</li>
+<li>Train meta-model on out-of-fold predictions</li>
+<li>Meta-model predicts on base model test predictions</li>
+</ol>
+<hr />
+<h2 id="8-unsupervised-learning">8. Unsupervised Learning<a class="headerlink" href="#8-unsupervised-learning" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Unsupervised learning discovers patterns in unlabeled data.</p>
+<h3 id="81-k-means-clustering">8.1 K-Means Clustering<a class="headerlink" href="#81-k-means-clustering" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Objective:</strong> Minimize within-cluster variance:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>minimize Σₖ Σ_{xᵢ∈Cₖ} ||xᵢ - μₖ||²
+</span></code></pre></div>
+<p><strong>Algorithm (Lloyd's Algorithm):</strong></p>
+<ol>
+<li>Initialize k centroids randomly</li>
+<li>Repeat until convergence:</li>
+<li><strong>Assignment:</strong> Assign each point to nearest centroid
+     <div class="language-text highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>Cₖ = {xᵢ : ||xᵢ - μₖ|| ≤ ||xᵢ - μⱼ|| for all j}
+</span></code></pre></div></li>
+<li><strong>Update:</strong> Recompute centroids
+     <div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>μₖ = (1/|Cₖ|)Σ_{xᵢ∈Cₖ} xᵢ
+</span></code></pre></div></li>
+</ol>
+<p><strong>Choosing k:</strong></p>
+<ul>
+<li>Elbow method: Plot inertia vs k, look for "elbow"</li>
+<li>Silhouette score: Measures cluster cohesion and separation</li>
+<li>Domain knowledge</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Assumes spherical clusters</li>
+<li>Sensitive to initialization</li>
+<li>Must specify k in advance</li>
+</ul>
+<h3 id="82-hierarchical-clustering">8.2 Hierarchical Clustering<a class="headerlink" href="#82-hierarchical-clustering" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Agglomerative (Bottom-Up):</strong></p>
+<ol>
+<li>Start with each point as its own cluster</li>
+<li>Repeatedly merge closest clusters</li>
+<li>Stop when all points in one cluster</li>
+</ol>
+<p><strong>Linkage Criteria:</strong></p>
+<ul>
+<li><strong>Single:</strong> min distance between any pair</li>
+<li><strong>Complete:</strong> max distance between any pair</li>
+<li><strong>Average:</strong> average distance between all pairs</li>
+<li><strong>Ward:</strong> minimize within-cluster variance</li>
+</ul>
+<p><strong>Dendrogram:</strong> Tree diagram showing merge sequence.</p>
+<h3 id="83-dbscan-density-based-spatial-clustering">8.3 DBSCAN (Density-Based Spatial Clustering)<a class="headerlink" href="#83-dbscan-density-based-spatial-clustering" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>ε: Maximum radius of neighborhood</li>
+<li>MinPts: Minimum points to form dense region</li>
+</ul>
+<p><strong>Point Types:</strong></p>
+<ul>
+<li><strong>Core Point:</strong> Has ≥ MinPts neighbors within ε</li>
+<li><strong>Border Point:</strong> In neighborhood of core point but not core itself</li>
+<li><strong>Noise Point:</strong> Neither core nor border</li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Discovers clusters of arbitrary shape</li>
+<li>Robust to outliers</li>
+<li>No need to specify number of clusters</li>
+</ul>
+<h3 id="84-principal-component-analysis-pca">8.4 Principal Component Analysis (PCA)<a class="headerlink" href="#84-principal-component-analysis-pca" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Goal:</strong> Find orthogonal directions of maximum variance.</p>
+<p><strong>Mathematical Formulation:</strong></p>
+<ol>
+<li>Center data: X_centered = X - X̄</li>
+<li>Compute covariance matrix:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>Σ = (1/n)X_centeredᵀX_centered
+</span></code></pre></div></li>
+<li>Compute eigendecomposition:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>Σ = QΛQᵀ
+</span></code></pre></div></li>
+<li>Principal components are eigenvectors (columns of Q)</li>
+<li>Project data:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>Z = X_centered · Q[:, :k]  (keep top k components)
+</span></code></pre></div></li>
+</ol>
+<p><strong>Variance Explained:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>Variance explained by PC_j = λⱼ / Σᵢ λᵢ
+</span></code></pre></div>
+<p><strong>Applications:</strong></p>
+<ul>
+<li>Dimensionality reduction</li>
+<li>Data visualization (project to 2D/3D)</li>
+<li>Noise reduction</li>
+<li>Feature extraction</li>
+</ul>
+<h3 id="85-t-sne-t-distributed-stochastic-neighbor-embedding">8.5 t-SNE (t-Distributed Stochastic Neighbor Embedding)<a class="headerlink" href="#85-t-sne-t-distributed-stochastic-neighbor-embedding" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Goal:</strong> Preserve local structure in low-dimensional embedding.</p>
+<p><strong>Algorithm:</strong></p>
+<ol>
+<li>Compute pairwise similarities in high-dimensional space:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>p_{j|i} = exp(-||xᵢ - xⱼ||²/(2σᵢ²)) / Σₖ≠ᵢ exp(-||xᵢ - xₖ||²/(2σᵢ²))
+</span></code></pre></div>
+<ol>
+<li>Compute symmetrized similarities:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>pᵢⱼ = (p_{j|i} + p_{i|j}) / (2n)
+</span></code></pre></div>
+<ol>
+<li>Define similarities in low-dimensional space using t-distribution:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>qᵢⱼ = (1 + ||yᵢ - yⱼ||²)⁻¹ / Σₖ≠ˡ (1 + ||yₖ - yˡ||²)⁻¹
+</span></code></pre></div>
+<ol>
+<li>Minimize KL divergence using gradient descent:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>KL(P||Q) = Σᵢ Σⱼ pᵢⱼ log(pᵢⱼ/qᵢⱼ)
+</span></code></pre></div>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>Excellent for visualization</li>
+<li>Non-parametric (cannot embed new points directly)</li>
+<li>Stochastic (different runs give different results)</li>
+</ul>
+<h3 id="86-umap-uniform-manifold-approximation-and-projection">8.6 UMAP (Uniform Manifold Approximation and Projection)<a class="headerlink" href="#86-umap-uniform-manifold-approximation-and-projection" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Similar to t-SNE but:</p>
+<ul>
+<li>Faster</li>
+<li>Better preserves global structure</li>
+<li>Can project new points</li>
+<li>Based on manifold theory and topological data analysis</li>
+</ul>
+<hr />
+<h2 id="9-probabilistic-modeling">9. Probabilistic Modeling<a class="headerlink" href="#9-probabilistic-modeling" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Probabilistic models explicitly represent uncertainty using probability distributions.</p>
+<h3 id="91-naive-bayes">9.1 Naive Bayes<a class="headerlink" href="#91-naive-bayes" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Assumption:</strong> Features are conditionally independent given class:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>P(x₁, ..., xₚ | y) = ∏ⱼ P(xⱼ | y)
+</span></code></pre></div>
+<p><strong>Classification Rule:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>ŷ = argmax_y P(y) ∏ⱼ P(xⱼ | y)
+</span></code></pre></div>
+<p><strong>Variants:</strong></p>
+<ul>
+<li><strong>Gaussian Naive Bayes:</strong> P(xⱼ|y) ~ N(μⱼᵧ, σ²ⱼᵧ)</li>
+<li><strong>Multinomial Naive Bayes:</strong> For count data (e.g., text)</li>
+<li><strong>Bernoulli Naive Bayes:</strong> For binary features</li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Fast training and prediction</li>
+<li>Works well with high-dimensional data</li>
+<li>Often surprisingly effective despite strong independence assumption</li>
+</ul>
+<h3 id="92-gaussian-mixture-models-gmm">9.2 Gaussian Mixture Models (GMM)<a class="headerlink" href="#92-gaussian-mixture-models-gmm" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Model:</strong> Data generated from mixture of k Gaussian distributions:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>p(x) = Σₖ πₖ N(x | μₖ, Σₖ)
+</span></code></pre></div>
+<p>where πₖ are mixing coefficients (Σₖ πₖ = 1).</p>
+<p><strong>Latent Variable:</strong> zᵢ indicates which Gaussian generated xᵢ.</p>
+<p><strong>Complete-Data Likelihood:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>p(x, z | θ) = ∏ᵢ ∏ₖ [πₖ N(xᵢ | μₖ, Σₖ)]^{zᵢₖ}
+</span></code></pre></div>
+<h3 id="93-expectation-maximization-em-algorithm">9.3 Expectation-Maximization (EM) Algorithm<a class="headerlink" href="#93-expectation-maximization-em-algorithm" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>General Framework for Latent Variable Models:</strong></p>
+<p>Maximize: p(x | θ) = Σ_z p(x, z | θ)</p>
+<p><strong>E-Step:</strong> Compute posterior over latents:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>Q(θ | θ⁽ᵗ⁾) = E_{z|x,θ⁽ᵗ⁾}[log p(x, z | θ)]
+</span></code></pre></div>
+<p><strong>M-Step:</strong> Maximize expected complete-data log-likelihood:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>θ⁽ᵗ⁺¹⁾ = argmax_θ Q(θ | θ⁽ᵗ⁾)
+</span></code></pre></div>
+<p><strong>For GMM:</strong></p>
+<p><strong>E-Step (Responsibility):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>γᵢₖ = πₖ N(xᵢ | μₖ, Σₖ) / Σⱼ πⱼ N(xᵢ | μⱼ, Σⱼ)
+</span></code></pre></div>
+<p><strong>M-Step:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>Nₖ = Σᵢ γᵢₖ
+</span><span id="__span-87-2"><a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>πₖ = Nₖ / n
+</span><span id="__span-87-3"><a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a>μₖ = (1/Nₖ)Σᵢ γᵢₖxᵢ
+</span><span id="__span-87-4"><a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a>Σₖ = (1/Nₖ)Σᵢ γᵢₖ(xᵢ - μₖ)(xᵢ - μₖ)ᵀ
+</span></code></pre></div>
+<h3 id="94-hidden-markov-models-hmm">9.4 Hidden Markov Models (HMM)<a class="headerlink" href="#94-hidden-markov-models-hmm" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Components:</strong></p>
+<ul>
+<li>States: S = {s₁, ..., sₙ}</li>
+<li>Observations: O = {o₁, ..., oₘ}</li>
+<li>Initial probabilities: π</li>
+<li>Transition probabilities: A (aᵢⱼ = P(sₜ₊₁=j | sₜ=i))</li>
+<li>Emission probabilities: B (bⱼ(oₜ) = P(oₜ | sₜ=j))</li>
+</ul>
+<p><strong>Forward Algorithm (Compute Likelihood):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>α_t(i) = P(o₁, ..., oₜ, sₜ=i)
+</span><span id="__span-88-2"><a id="__codelineno-88-2" name="__codelineno-88-2" href="#__codelineno-88-2"></a>α_t(j) = [Σᵢ α_{t-1}(i)aᵢⱼ]bⱼ(oₜ)
+</span><span id="__span-88-3"><a id="__codelineno-88-3" name="__codelineno-88-3" href="#__codelineno-88-3"></a>p(O) = Σᵢ α_T(i)
+</span></code></pre></div>
+<p><strong>Viterbi Algorithm (Most Likely State Sequence):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>δ_t(i) = max_{s₁,...,s_{t-1}} P(s₁,...,s_{t-1},sₜ=i,o₁,...,oₜ)
+</span><span id="__span-89-2"><a id="__codelineno-89-2" name="__codelineno-89-2" href="#__codelineno-89-2"></a>δ_t(j) = [maxᵢ δ_{t-1}(i)aᵢⱼ]bⱼ(oₜ)
+</span></code></pre></div>
+<p><strong>Applications:</strong></p>
+<ul>
+<li>Speech recognition</li>
+<li>Part-of-speech tagging</li>
+<li>Gene prediction</li>
+</ul>
+<h3 id="95-bayesian-inference">9.5 Bayesian Inference<a class="headerlink" href="#95-bayesian-inference" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Bayes' Theorem for Parameters:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-90-1"><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>p(θ | D) = p(D | θ)p(θ) / p(D)
+</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li>p(θ): Prior distribution</li>
+<li>p(D | θ): Likelihood</li>
+<li>p(θ | D): Posterior distribution</li>
+<li>p(D): Marginal likelihood (evidence)</li>
+</ul>
+<p><strong>Posterior Predictive Distribution:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>p(x_new | D) = ∫ p(x_new | θ)p(θ | D)dθ
+</span></code></pre></div>
+<p><strong>Maximum A Posteriori (MAP) Estimation:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-92-1"><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>θ̂_MAP = argmax_θ p(θ | D) = argmax_θ [p(D | θ)p(θ)]
+</span></code></pre></div>
+<p><strong>Conjugate Priors:</strong> Prior and posterior have same functional form.</p>
+<p>Examples:</p>
+<ul>
+<li>Beta prior + Binomial likelihood → Beta posterior</li>
+<li>Dirichlet prior + Multinomial likelihood → Dirichlet posterior</li>
+<li>Normal prior + Normal likelihood → Normal posterior</li>
+</ul>
+<hr />
+<h2 id="10-time-series-analysis">10. Time Series Analysis<a class="headerlink" href="#10-time-series-analysis" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Time series data consists of observations ordered in time, exhibiting temporal dependencies.</p>
+<h3 id="101-time-series-components">10.1 Time Series Components<a class="headerlink" href="#101-time-series-components" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Decomposition:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-93-1"><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a>Y_t = T_t + S_t + R_t
+</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li>T_t: Trend (long-term direction)</li>
+<li>S_t: Seasonality (periodic patterns)</li>
+<li>R_t: Residual (irregular component)</li>
+</ul>
+<p><strong>Multiplicative Model:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-94-1"><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a>Y_t = T_t × S_t × R_t
+</span></code></pre></div>
+<h3 id="102-stationarity">10.2 Stationarity<a class="headerlink" href="#102-stationarity" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A time series is <strong>stationary</strong> if:</p>
+<ol>
+<li>Constant mean: E[Y_t] = μ</li>
+<li>Constant variance: Var(Y_t) = σ²</li>
+<li>Autocovariance depends only on lag: Cov(Y_t, Y_{t+k}) = γ_k</li>
+</ol>
+<p><strong>Tests:</strong></p>
+<ul>
+<li><strong>Augmented Dickey-Fuller (ADF):</strong> Tests for unit root</li>
+<li><strong>KPSS:</strong> Tests for stationarity</li>
+</ul>
+<p><strong>Making Non-Stationary Data Stationary:</strong></p>
+<ul>
+<li>Differencing: ΔY_t = Y_t - Y_{t-1}</li>
+<li>Log transformation: log(Y_t)</li>
+<li>Seasonal differencing: Y_t - Y_{t-s}</li>
+</ul>
+<h3 id="103-autocorrelation">10.3 Autocorrelation<a class="headerlink" href="#103-autocorrelation" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Autocorrelation Function (ACF):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-95-1"><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a>ρ_k = Cov(Y_t, Y_{t-k}) / Var(Y_t)
+</span></code></pre></div>
+<p><strong>Partial Autocorrelation Function (PACF):</strong></p>
+<p>Correlation between Y_t and Y_{t-k} after removing linear dependence on Y_{t-1}, ..., Y_{t-k+1}.</p>
+<h3 id="104-arima-models">10.4 ARIMA Models<a class="headerlink" href="#104-arima-models" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>AR(p) - Autoregressive:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-96-1"><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a>Y_t = c + Σᵢ φᵢY_{t-i} + ε_t
+</span></code></pre></div>
+<p><strong>MA(q) - Moving Average:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-97-1"><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a>Y_t = μ + ε_t + Σᵢ θᵢε_{t-i}
+</span></code></pre></div>
+<p><strong>ARMA(p,q):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-98-1"><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a>Y_t = c + Σᵢ φᵢY_{t-i} + Σⱼ θⱼε_{t-j} + ε_t
+</span></code></pre></div>
+<p><strong>ARIMA(p,d,q):</strong> ARMA on differenced series (d differences)</p>
+<p><strong>Model Selection:</strong></p>
+<ul>
+<li>Use ACF/PACF plots</li>
+<li>Use information criteria (AIC, BIC)</li>
+<li>Grid search over (p,d,q)</li>
+</ul>
+<h3 id="105-seasonal-arima-sarimax">10.5 Seasonal ARIMA (SARIMAX)<a class="headerlink" href="#105-seasonal-arima-sarimax" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>SARIMA(p,d,q)(P,D,Q)_s:</strong></p>
+<p>Combines non-seasonal and seasonal components:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-99-1"><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a>φ(B)Φ(Bˢ)(1-B)ᵈ(1-Bˢ)ᴰY_t = θ(B)Θ(Bˢ)ε_t
+</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li>(p,d,q): Non-seasonal orders</li>
+<li>(P,D,Q): Seasonal orders</li>
+<li>s: Seasonal period</li>
+<li>B: Backshift operator (BY_t = Y_{t-1})</li>
+</ul>
+<p><strong>SARIMAX:</strong> SARIMA + exogenous variables</p>
+<h3 id="106-exponential-smoothing">10.6 Exponential Smoothing<a class="headerlink" href="#106-exponential-smoothing" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Simple Exponential Smoothing:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-100-1"><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a>ŷ_{t+1} = αy_t + (1-α)ŷ_t
+</span></code></pre></div>
+<p><strong>Holt's Linear Trend:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-101-1"><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a>Level: ℓ_t = αy_t + (1-α)(ℓ_{t-1} + b_{t-1})
+</span><span id="__span-101-2"><a id="__codelineno-101-2" name="__codelineno-101-2" href="#__codelineno-101-2"></a>Trend: b_t = β(ℓ_t - ℓ_{t-1}) + (1-β)b_{t-1}
+</span><span id="__span-101-3"><a id="__codelineno-101-3" name="__codelineno-101-3" href="#__codelineno-101-3"></a>Forecast: ŷ_{t+h} = ℓ_t + hb_t
+</span></code></pre></div>
+<p><strong>Holt-Winters (Seasonal):</strong></p>
+<p>Adds seasonal component:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-102-1"><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a>Level: ℓ_t = α(y_t - s_{t-m}) + (1-α)(ℓ_{t-1} + b_{t-1})
+</span><span id="__span-102-2"><a id="__codelineno-102-2" name="__codelineno-102-2" href="#__codelineno-102-2"></a>Trend: b_t = β(ℓ_t - ℓ_{t-1}) + (1-β)b_{t-1}
+</span><span id="__span-102-3"><a id="__codelineno-102-3" name="__codelineno-102-3" href="#__codelineno-102-3"></a>Season: s_t = γ(y_t - ℓ_t) + (1-γ)s_{t-m}
+</span><span id="__span-102-4"><a id="__codelineno-102-4" name="__codelineno-102-4" href="#__codelineno-102-4"></a>Forecast: ŷ_{t+h} = ℓ_t + hb_t + s_{t+h-m}
+</span></code></pre></div>
+<h3 id="107-prophet">10.7 Prophet<a class="headerlink" href="#107-prophet" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Additive Model:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-103-1"><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a>y(t) = g(t) + s(t) + h(t) + ε_t
+</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li>g(t): Piecewise linear or logistic growth</li>
+<li>s(t): Fourier series for seasonality</li>
+<li>h(t): Holiday effects</li>
+<li>ε_t: Error term</li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Handles missing data and outliers</li>
+<li>Intuitive hyperparameters</li>
+<li>Automatic seasonality detection</li>
+<li>Works well with irregular data</li>
+</ul>
+<h3 id="108-evaluation-metrics">10.8 Evaluation Metrics<a class="headerlink" href="#108-evaluation-metrics" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Mean Absolute Error (MAE):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-104-1"><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a>MAE = (1/n)Σ|y_t - ŷ_t|
+</span></code></pre></div>
+<p><strong>Root Mean Squared Error (RMSE):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-105-1"><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a>RMSE = √[(1/n)Σ(y_t - ŷ_t)²]
+</span></code></pre></div>
+<p><strong>Mean Absolute Percentage Error (MAPE):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-106-1"><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a>MAPE = (100/n)Σ|y_t - ŷ_t|/|y_t|
+</span></code></pre></div>
+<p><strong>Symmetric MAPE (sMAPE):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-107-1"><a id="__codelineno-107-1" name="__codelineno-107-1" href="#__codelineno-107-1"></a>sMAPE = (100/n)Σ 2|y_t - ŷ_t|/(|y_t| + |ŷ_t|)
+</span></code></pre></div>
+<hr />
+<h2 id="11-advanced-deep-learning">11. Advanced Deep Learning<a class="headerlink" href="#11-advanced-deep-learning" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="111-convolutional-neural-networks-cnns">11.1 Convolutional Neural Networks (CNNs)<a class="headerlink" href="#111-convolutional-neural-networks-cnns" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Convolution Operation:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-108-1"><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a>(f * g)[i,j] = ΣₘΣₙ f[m,n]g[i-m, j-n]
+</span></code></pre></div>
+<p><strong>Convolutional Layer:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-109-1"><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a>Output[i,j,k] = σ(Σₘ Σₙ Σ_c Input[i+m, j+n, c] × Kernel[m,n,c,k] + Bias[k])
+</span></code></pre></div>
+<p><strong>Key Concepts:</strong></p>
+<ul>
+<li><strong>Filters/Kernels:</strong> Small matrices that slide over input</li>
+<li><strong>Feature Maps:</strong> Outputs of applying filters</li>
+<li><strong>Stride:</strong> Step size for sliding kernel</li>
+<li><strong>Padding:</strong> Adding zeros around input to control output size</li>
+</ul>
+<p><strong>Pooling Layers:</strong></p>
+<p><strong>Max Pooling:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-110-1"><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a>Output[i,j] = max_{m,n ∈ window} Input[i×s+m, j×s+n]
+</span></code></pre></div>
+<p><strong>Average Pooling:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-111-1"><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a>Output[i,j] = mean_{m,n ∈ window} Input[i×s+m, j×s+n]
+</span></code></pre></div>
+<p><strong>Architecture Patterns:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-112-1"><a id="__codelineno-112-1" name="__codelineno-112-1" href="#__codelineno-112-1"></a>Input → [Conv → ReLU → Pool]×N → Flatten → [FC → ReLU]×M → Output
+</span></code></pre></div>
+<p><strong>Classic Architectures:</strong></p>
+<ul>
+<li><strong>LeNet-5:</strong> Early CNN for digit recognition</li>
+<li><strong>AlexNet:</strong> First deep CNN to win ImageNet (2012)</li>
+<li><strong>VGGNet:</strong> Very deep with small 3×3 filters</li>
+<li><strong>ResNet:</strong> Skip connections enable training very deep networks</li>
+<li><strong>Inception:</strong> Multi-scale processing with parallel paths</li>
+</ul>
+<h3 id="112-recurrent-neural-networks-rnns">11.2 Recurrent Neural Networks (RNNs)<a class="headerlink" href="#112-recurrent-neural-networks-rnns" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Vanilla RNN:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-113-1"><a id="__codelineno-113-1" name="__codelineno-113-1" href="#__codelineno-113-1"></a>h_t = tanh(W_hh h_{t-1} + W_xh x_t + b_h)
+</span><span id="__span-113-2"><a id="__codelineno-113-2" name="__codelineno-113-2" href="#__codelineno-113-2"></a>y_t = W_hy h_t + b_y
+</span></code></pre></div>
+<p><strong>Problems:</strong></p>
+<ul>
+<li>Vanishing gradients: Gradients shrink exponentially with sequence length</li>
+<li>Exploding gradients: Gradients grow exponentially</li>
+</ul>
+<p><strong>Gradient Flow:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-114-1"><a id="__codelineno-114-1" name="__codelineno-114-1" href="#__codelineno-114-1"></a>∂L/∂h_0 = ∂L/∂h_T × ∏_{t=1}^T ∂h_t/∂h_{t-1}
+</span></code></pre></div>
+<h3 id="113-long-short-term-memory-lstm">11.3 Long Short-Term Memory (LSTM)<a class="headerlink" href="#113-long-short-term-memory-lstm" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Gates:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-115-1"><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a>Forget gate: f_t = σ(W_f[h_{t-1}, x_t] + b_f)
+</span><span id="__span-115-2"><a id="__codelineno-115-2" name="__codelineno-115-2" href="#__codelineno-115-2"></a>Input gate:  i_t = σ(W_i[h_{t-1}, x_t] + b_i)
+</span><span id="__span-115-3"><a id="__codelineno-115-3" name="__codelineno-115-3" href="#__codelineno-115-3"></a>Output gate: o_t = σ(W_o[h_{t-1}, x_t] + b_o)
+</span><span id="__span-115-4"><a id="__codelineno-115-4" name="__codelineno-115-4" href="#__codelineno-115-4"></a>
+</span><span id="__span-115-5"><a id="__codelineno-115-5" name="__codelineno-115-5" href="#__codelineno-115-5"></a>Cell candidate: C̃_t = tanh(W_C[h_{t-1}, x_t] + b_C)
+</span><span id="__span-115-6"><a id="__codelineno-115-6" name="__codelineno-115-6" href="#__codelineno-115-6"></a>Cell state: C_t = f_t ⊙ C_{t-1} + i_t ⊙ C̃_t
+</span><span id="__span-115-7"><a id="__codelineno-115-7" name="__codelineno-115-7" href="#__codelineno-115-7"></a>Hidden state: h_t = o_t ⊙ tanh(C_t)
+</span></code></pre></div>
+<p><strong>Key Innovation:</strong> Cell state C_t provides uninterrupted gradient flow.</p>
+<h3 id="114-gated-recurrent-unit-gru">11.4 Gated Recurrent Unit (GRU)<a class="headerlink" href="#114-gated-recurrent-unit-gru" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Simplified LSTM with fewer parameters:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-116-1"><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a>Reset gate: r_t = σ(W_r[h_{t-1}, x_t])
+</span><span id="__span-116-2"><a id="__codelineno-116-2" name="__codelineno-116-2" href="#__codelineno-116-2"></a>Update gate: z_t = σ(W_z[h_{t-1}, x_t])
+</span><span id="__span-116-3"><a id="__codelineno-116-3" name="__codelineno-116-3" href="#__codelineno-116-3"></a>
+</span><span id="__span-116-4"><a id="__codelineno-116-4" name="__codelineno-116-4" href="#__codelineno-116-4"></a>Candidate: h̃_t = tanh(W[r_t ⊙ h_{t-1}, x_t])
+</span><span id="__span-116-5"><a id="__codelineno-116-5" name="__codelineno-116-5" href="#__codelineno-116-5"></a>Hidden state: h_t = (1 - z_t) ⊙ h_{t-1} + z_t ⊙ h̃_t
+</span></code></pre></div>
+<h3 id="115-attention-mechanism">11.5 Attention Mechanism<a class="headerlink" href="#115-attention-mechanism" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Problem:</strong> Fixed-length context vector is information bottleneck.</p>
+<p><strong>Solution:</strong> Allow decoder to "attend" to different parts of input.</p>
+<p><strong>Attention Scores:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-117-1"><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a>e_{t,i} = score(h_t, h̄_i) = h_t^T W h̄_i  (or dot product, or MLP)
+</span></code></pre></div>
+<p><strong>Attention Weights (via softmax):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-118-1"><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a>α_{t,i} = exp(e_{t,i}) / Σⱼ exp(e_{t,j})
+</span></code></pre></div>
+<p><strong>Context Vector:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-119-1"><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a>c_t = Σᵢ α_{t,i} h̄_i
+</span></code></pre></div>
+<p><strong>Decoder with Attention:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-120-1"><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a>h_t = RNN(h_{t-1}, [y_{t-1}; c_t])
+</span></code></pre></div>
+<h3 id="116-transformers">11.6 Transformers<a class="headerlink" href="#116-transformers" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Core Idea:</strong> Replace recurrence with self-attention.</p>
+<p><strong>Scaled Dot-Product Attention:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-121-1"><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a>Attention(Q, K, V) = softmax(QK^T / √d_k)V
+</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li>Q: Query matrix</li>
+<li>K: Key matrix</li>
+<li>V: Value matrix</li>
+<li>d_k: Key dimension (for scaling)</li>
+</ul>
+<p><strong>Multi-Head Attention:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-122-1"><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a>MultiHead(Q,K,V) = Concat(head₁, ..., head_h)W^O
+</span><span id="__span-122-2"><a id="__codelineno-122-2" name="__codelineno-122-2" href="#__codelineno-122-2"></a>
+</span><span id="__span-122-3"><a id="__codelineno-122-3" name="__codelineno-122-3" href="#__codelineno-122-3"></a>where head_i = Attention(QW^Q_i, KW^K_i, VW^V_i)
+</span></code></pre></div>
+<p><strong>Transformer Block:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-123-1"><a id="__codelineno-123-1" name="__codelineno-123-1" href="#__codelineno-123-1"></a>1. Multi-head self-attention
+</span><span id="__span-123-2"><a id="__codelineno-123-2" name="__codelineno-123-2" href="#__codelineno-123-2"></a>2. Add &amp; Normalize (residual connection)
+</span><span id="__span-123-3"><a id="__codelineno-123-3" name="__codelineno-123-3" href="#__codelineno-123-3"></a>3. Feed-forward network (2-layer MLP)
+</span><span id="__span-123-4"><a id="__codelineno-123-4" name="__codelineno-123-4" href="#__codelineno-123-4"></a>4. Add &amp; Normalize
+</span></code></pre></div>
+<p><strong>Positional Encoding:</strong></p>
+<p>Since no recurrence, inject position information:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-124-1"><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a>PE(pos, 2i) = sin(pos / 10000^(2i/d_model))
+</span><span id="__span-124-2"><a id="__codelineno-124-2" name="__codelineno-124-2" href="#__codelineno-124-2"></a>PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
+</span></code></pre></div>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Parallelizable (unlike RNNs)</li>
+<li>Captures long-range dependencies</li>
+<li>State-of-the-art on many tasks</li>
+</ul>
+<p><strong>Popular Models:</strong></p>
+<ul>
+<li><strong>BERT:</strong> Bidirectional encoder for understanding</li>
+<li><strong>GPT:</strong> Autoregressive decoder for generation</li>
+<li><strong>T5:</strong> Encoder-decoder for text-to-text tasks</li>
+<li><strong>Vision Transformer (ViT):</strong> Applies transformers to images</li>
+</ul>
+<h3 id="117-generative-models">11.7 Generative Models<a class="headerlink" href="#117-generative-models" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Variational Autoencoders (VAE):</strong></p>
+<p><strong>Encoder (Recognition Model):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-125-1"><a id="__codelineno-125-1" name="__codelineno-125-1" href="#__codelineno-125-1"></a>q_φ(z|x) ≈ p(z|x)
+</span></code></pre></div>
+<p><strong>Decoder (Generative Model):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-126-1"><a id="__codelineno-126-1" name="__codelineno-126-1" href="#__codelineno-126-1"></a>p_θ(x|z)
+</span></code></pre></div>
+<p><strong>Loss (ELBO - Evidence Lower Bound):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-127-1"><a id="__codelineno-127-1" name="__codelineno-127-1" href="#__codelineno-127-1"></a>L = E_q[log p_θ(x|z)] - KL(q_φ(z|x) || p(z))
+</span></code></pre></div>
+<p>Reconstruction loss + Regularization term</p>
+<p><strong>Reparameterization Trick:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-128-1"><a id="__codelineno-128-1" name="__codelineno-128-1" href="#__codelineno-128-1"></a>z = μ + σ ⊙ ε where ε ~ N(0, I)
+</span></code></pre></div>
+<p>Allows backpropagation through sampling.</p>
+<p><strong>Generative Adversarial Networks (GANs):</strong></p>
+<p><strong>Two Networks:</strong></p>
+<ul>
+<li>Generator G: Generates fake samples from noise</li>
+<li>Discriminator D: Distinguishes real from fake</li>
+</ul>
+<p><strong>Minimax Game:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-129-1"><a id="__codelineno-129-1" name="__codelineno-129-1" href="#__codelineno-129-1"></a>min_G max_D E_x[log D(x)] + E_z[log(1 - D(G(z)))]
+</span></code></pre></div>
+<p><strong>Training:</strong></p>
+<ol>
+<li>Train D to maximize discriminator accuracy</li>
+<li>Train G to maximize discriminator's mistakes</li>
+</ol>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Mode collapse</li>
+<li>Training instability</li>
+<li>Vanishing gradients</li>
+</ul>
+<p><strong>Improvements:</strong></p>
+<ul>
+<li>Wasserstein GAN (WGAN)</li>
+<li>Spectral normalization</li>
+<li>Progressive growing</li>
+</ul>
+<hr />
+<h2 id="12-model-evaluation-and-selection">12. Model Evaluation and Selection<a class="headerlink" href="#12-model-evaluation-and-selection" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="121-bias-variance-tradeoff">12.1 Bias-Variance Tradeoff<a class="headerlink" href="#121-bias-variance-tradeoff" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Prediction Error Decomposition:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-130-1"><a id="__codelineno-130-1" name="__codelineno-130-1" href="#__codelineno-130-1"></a>E[(y - ŷ)²] = Bias² + Variance + Irreducible Error
+</span></code></pre></div>
+<p><strong>Bias:</strong> Error from approximating complex functions with simple models</p>
+<ul>
+<li>High bias → Underfitting</li>
+<li>Examples: Linear model for non-linear data</li>
+</ul>
+<p><strong>Variance:</strong> Error from sensitivity to training set fluctuations</p>
+<ul>
+<li>High variance → Overfitting</li>
+<li>Examples: Deep decision tree, high-degree polynomial</li>
+</ul>
+<p><strong>Tradeoff:</strong> Increasing model complexity reduces bias but increases variance.</p>
+<h3 id="122-cross-validation">12.2 Cross-Validation<a class="headerlink" href="#122-cross-validation" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>K-Fold Cross-Validation:</strong></p>
+<ol>
+<li>Split data into K folds</li>
+<li>For k = 1 to K:</li>
+<li>Train on K-1 folds</li>
+<li>Validate on fold k</li>
+<li>Average performance across folds</li>
+</ol>
+<p><strong>Stratified K-Fold:</strong> Maintain class proportions in each fold.</p>
+<p><strong>Leave-One-Out (LOO):</strong> K = n (expensive but low-bias estimate)</p>
+<p><strong>Time Series Split:</strong> Respect temporal ordering</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-131-1"><a id="__codelineno-131-1" name="__codelineno-131-1" href="#__codelineno-131-1"></a>Fold 1: Train[1:100], Test[101:150]
+</span><span id="__span-131-2"><a id="__codelineno-131-2" name="__codelineno-131-2" href="#__codelineno-131-2"></a>Fold 2: Train[1:150], Test[151:200]
+</span><span id="__span-131-3"><a id="__codelineno-131-3" name="__codelineno-131-3" href="#__codelineno-131-3"></a>...
+</span></code></pre></div>
+<h3 id="123-classification-metrics">12.3 Classification Metrics<a class="headerlink" href="#123-classification-metrics" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Confusion Matrix:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-132-1"><a id="__codelineno-132-1" name="__codelineno-132-1" href="#__codelineno-132-1"></a>                Predicted
+</span><span id="__span-132-2"><a id="__codelineno-132-2" name="__codelineno-132-2" href="#__codelineno-132-2"></a>              Pos    Neg
+</span><span id="__span-132-3"><a id="__codelineno-132-3" name="__codelineno-132-3" href="#__codelineno-132-3"></a>Actual  Pos   TP     FN
+</span><span id="__span-132-4"><a id="__codelineno-132-4" name="__codelineno-132-4" href="#__codelineno-132-4"></a>        Neg   FP     TN
+</span></code></pre></div>
+<p><strong>Metrics:</strong></p>
+<p><strong>Accuracy:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-133-1"><a id="__codelineno-133-1" name="__codelineno-133-1" href="#__codelineno-133-1"></a>Accuracy = (TP + TN) / (TP + TN + FP + FN)
+</span></code></pre></div>
+<p><strong>Precision (Positive Predictive Value):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-134-1"><a id="__codelineno-134-1" name="__codelineno-134-1" href="#__codelineno-134-1"></a>Precision = TP / (TP + FP)
+</span></code></pre></div>
+<p><strong>Recall (Sensitivity, True Positive Rate):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-135-1"><a id="__codelineno-135-1" name="__codelineno-135-1" href="#__codelineno-135-1"></a>Recall = TP / (TP + FN)
+</span></code></pre></div>
+<p><strong>F1 Score (Harmonic Mean of Precision and Recall):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-136-1"><a id="__codelineno-136-1" name="__codelineno-136-1" href="#__codelineno-136-1"></a>F1 = 2 × (Precision × Recall) / (Precision + Recall)
+</span></code></pre></div>
+<p><strong>Specificity (True Negative Rate):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-137-1"><a id="__codelineno-137-1" name="__codelineno-137-1" href="#__codelineno-137-1"></a>Specificity = TN / (TN + FP)
+</span></code></pre></div>
+<h3 id="124-roc-and-auc">12.4 ROC and AUC<a class="headerlink" href="#124-roc-and-auc" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>ROC Curve:</strong> Plot TPR vs FPR at various thresholds</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-138-1"><a id="__codelineno-138-1" name="__codelineno-138-1" href="#__codelineno-138-1"></a>TPR = TP / (TP + FN)  (y-axis)
+</span><span id="__span-138-2"><a id="__codelineno-138-2" name="__codelineno-138-2" href="#__codelineno-138-2"></a>FPR = FP / (FP + TN)  (x-axis)
+</span></code></pre></div>
+<p><strong>AUC (Area Under Curve):</strong></p>
+<ul>
+<li>Perfect classifier: AUC = 1.0</li>
+<li>Random classifier: AUC = 0.5</li>
+<li>Interpretation: Probability that model ranks random positive higher than random negative</li>
+</ul>
+<p><strong>Precision-Recall Curve:</strong> Better for imbalanced datasets</p>
+<h3 id="125-regression-metrics">12.5 Regression Metrics<a class="headerlink" href="#125-regression-metrics" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Mean Squared Error (MSE):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-139-1"><a id="__codelineno-139-1" name="__codelineno-139-1" href="#__codelineno-139-1"></a>MSE = (1/n)Σ(yᵢ - ŷᵢ)²
+</span></code></pre></div>
+<p><strong>Root Mean Squared Error (RMSE):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-140-1"><a id="__codelineno-140-1" name="__codelineno-140-1" href="#__codelineno-140-1"></a>RMSE = √MSE
+</span></code></pre></div>
+<p><strong>Mean Absolute Error (MAE):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-141-1"><a id="__codelineno-141-1" name="__codelineno-141-1" href="#__codelineno-141-1"></a>MAE = (1/n)Σ|yᵢ - ŷᵢ|
+</span></code></pre></div>
+<p><strong>R² Score (Coefficient of Determination):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-142-1"><a id="__codelineno-142-1" name="__codelineno-142-1" href="#__codelineno-142-1"></a>R² = 1 - SS_res/SS_tot = 1 - Σ(yᵢ - ŷᵢ)²/Σ(yᵢ - ȳ)²
+</span></code></pre></div>
+<ul>
+<li>R² = 1: Perfect predictions</li>
+<li>R² = 0: Model as good as mean baseline</li>
+<li>R² &lt; 0: Model worse than mean baseline</li>
+</ul>
+<p><strong>Adjusted R²:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-143-1"><a id="__codelineno-143-1" name="__codelineno-143-1" href="#__codelineno-143-1"></a>R²_adj = 1 - (1 - R²)(n - 1)/(n - p - 1)
+</span></code></pre></div>
+<p>Penalizes adding features that don't improve fit.</p>
+<h3 id="126-model-selection-criteria">12.6 Model Selection Criteria<a class="headerlink" href="#126-model-selection-criteria" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Akaike Information Criterion (AIC):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-144-1"><a id="__codelineno-144-1" name="__codelineno-144-1" href="#__codelineno-144-1"></a>AIC = 2k - 2log(L̂)
+</span></code></pre></div>
+<p>where k = number of parameters, L̂ = maximum likelihood</p>
+<p><strong>Bayesian Information Criterion (BIC):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-145-1"><a id="__codelineno-145-1" name="__codelineno-145-1" href="#__codelineno-145-1"></a>BIC = k·log(n) - 2log(L̂)
+</span></code></pre></div>
+<p>Stronger penalty for model complexity than AIC.</p>
+<p><strong>Principle:</strong> Lower is better. Balance fit quality with model simplicity.</p>
+<h3 id="127-hyperparameter-tuning">12.7 Hyperparameter Tuning<a class="headerlink" href="#127-hyperparameter-tuning" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Grid Search:</strong></p>
+<ul>
+<li>Define grid of hyperparameter values</li>
+<li>Evaluate all combinations via cross-validation</li>
+<li>Select combination with best performance</li>
+</ul>
+<p><strong>Random Search:</strong></p>
+<ul>
+<li>Sample hyperparameter combinations randomly</li>
+<li>Often more efficient than grid search</li>
+<li>Better explores high-dimensional spaces</li>
+</ul>
+<p><strong>Bayesian Optimization:</strong></p>
+<ul>
+<li>Build probabilistic model of objective function</li>
+<li>Use model to select promising hyperparameters</li>
+<li>Update model with new evaluations</li>
+<li>More sample-efficient than grid/random search</li>
+</ul>
+<p><strong>Learning Curves:</strong></p>
+<p>Plot training and validation performance vs:</p>
+<ul>
+<li>Training set size: Diagnose bias/variance</li>
+<li>Training iterations: Detect convergence/overfitting</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Anchor link to this section for reference">&para;</a></h2>
+<p>This theory document covers the mathematical foundations underlying the ML curriculum from Days 38-67. Each concept builds on previous ones, forming a coherent framework for understanding modern machine learning:</p>
+<ol>
+<li><strong>Linear Algebra</strong> provides the language for representing data and transformations</li>
+<li><strong>Calculus</strong> enables optimization through gradient-based methods</li>
+<li><strong>Probability</strong> allows reasoning about uncertainty</li>
+<li><strong>Supervised Learning</strong> applies these foundations to learn mappings from inputs to outputs</li>
+<li><strong>Deep Learning</strong> extends linear models with non-linear compositions</li>
+<li><strong>Regularization</strong> prevents overfitting through various constraint mechanisms</li>
+<li><strong>Ensembles</strong> combine models for robust predictions</li>
+<li><strong>Unsupervised Learning</strong> discovers structure in unlabeled data</li>
+<li><strong>Probabilistic Models</strong> explicitly represent uncertainty</li>
+<li><strong>Time Series</strong> handles temporal dependencies</li>
+<li><strong>Advanced Deep Learning</strong> tackles complex patterns in images, sequences, and text</li>
+<li><strong>Evaluation</strong> ensures models generalize beyond training data</li>
+</ol>
+<p>For practical implementations of these concepts, refer to the corresponding lesson days (38-67) in the curriculum. Each lesson provides executable code, worked examples, and exercises to solidify understanding.</p>
+<hr />
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="books">Books<a class="headerlink" href="#books" title="Anchor link to this section for reference">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Linear Algebra:</strong></p>
+</li>
+<li>
+<p>Gilbert Strang, <em>Linear Algebra and Its Applications</em></p>
+</li>
+<li>
+<p>Sheldon Axler, <em>Linear Algebra Done Right</em></p>
+</li>
+<li>
+<p><strong>Calculus and Optimization:</strong></p>
+</li>
+<li>
+<p>Stephen Boyd &amp; Lieven Vandenberghe, <em>Convex Optimization</em></p>
+</li>
+<li>
+<p>Jorge Nocedal &amp; Stephen Wright, <em>Numerical Optimization</em></p>
+</li>
+<li>
+<p><strong>Probability and Statistics:</strong></p>
+</li>
+<li>
+<p>Larry Wasserman, <em>All of Statistics</em></p>
+</li>
+<li>
+<p>Dimitri Bertsekas &amp; John Tsitsiklis, <em>Introduction to Probability</em></p>
+</li>
+<li>
+<p><strong>Machine Learning:</strong></p>
+</li>
+<li>
+<p>Christopher Bishop, <em>Pattern Recognition and Machine Learning</em></p>
+</li>
+<li>Trevor Hastie et al., <em>The Elements of Statistical Learning</em></li>
+<li>
+<p>Kevin Murphy, <em>Probabilistic Machine Learning: An Introduction</em></p>
+</li>
+<li>
+<p><strong>Deep Learning:</strong></p>
+</li>
+<li>
+<p>Ian Goodfellow et al., <em>Deep Learning</em></p>
+</li>
+<li>François Chollet, <em>Deep Learning with Python</em></li>
+</ul>
+<h3 id="online-resources">Online Resources<a class="headerlink" href="#online-resources" title="Anchor link to this section for reference">&para;</a></h3>
+<ul>
+<li><strong>Stanford CS229:</strong> Machine Learning (Andrew Ng)</li>
+<li><strong>Stanford CS231n:</strong> Convolutional Neural Networks</li>
+<li><strong>Stanford CS224n:</strong> Natural Language Processing with Deep Learning</li>
+<li><strong>Fast.ai:</strong> Practical Deep Learning for Coders</li>
+<li><strong>Distill.pub:</strong> Interactive visual explanations</li>
+</ul>
+<h3 id="papers">Papers<a class="headerlink" href="#papers" title="Anchor link to this section for reference">&para;</a></h3>
+<ul>
+<li>Rumelhart et al. (1986): "Learning representations by back-propagating errors"</li>
+<li>Hochreiter &amp; Schmidhuber (1997): "Long Short-Term Memory"</li>
+<li>Vaswani et al. (2017): "Attention Is All You Need"</li>
+<li>Kingma &amp; Ba (2014): "Adam: A Method for Stochastic Optimization"</li>
+<li>He et al. (2015): "Deep Residual Learning for Image Recognition"</li>
+</ul>
+<hr />
+<p><em>This theory document is maintained as part of the Coding for MBA curriculum. For questions or suggestions, please open an issue on the <a href="https://github.com/saint2706/Coding-For-MBA">GitHub repository</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ml_curriculum/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Machine Learning Curriculum">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Machine Learning Curriculum
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../dependency-review/" class="md-footer__link md-footer__link--next" aria-label="Next: Dependency Review">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Dependency Review
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/saint2706/Coding-For-MBA" target="_blank" rel="noopener" title="Coding for MBA on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.footer", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

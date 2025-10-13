@@ -74,146 +74,145 @@ The script for this lesson, `list_comprehension.py`, has been refactored to plac
 
 ## Additional Materials
 
+- [list_comprehension.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_12_List_Comprehension/list_comprehension.ipynb)
+- [solutions.ipynb](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_12_List_Comprehension/solutions.ipynb)
+
 ???+ example "list_comprehension.py"
-[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_12_List_Comprehension/list_comprehension.py)
+    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_12_List_Comprehension/list_comprehension.py)
 
-````
-```python title="list_comprehension.py"
-"""
-Day 12: Elegant Data Manipulation with List Comprehensions (Refactored)
-
-This script demonstrates how to use list comprehensions to
-efficiently transform and filter lists of business data. This version
-is refactored into functions for better organization and testability.
-"""
-
-
-def apply_price_increase(prices, increase_percentage):
+    ```python title="list_comprehension.py"
     """
-    Applies a percentage price increase to a list of prices
-    using a list comprehension.
+    Day 12: Elegant Data Manipulation with List Comprehensions (Refactored)
+
+    This script demonstrates how to use list comprehensions to
+    efficiently transform and filter lists of business data. This version
+    is refactored into functions for better organization and testability.
     """
-    increase_multiplier = 1 + increase_percentage
-    # [expression for item in iterable]
-    return [price * increase_multiplier for price in prices]
 
 
-def filter_large_sales(sales, threshold):
-    """
-    Filters a list of sales to find those above a given threshold
-    using a list comprehension.
-    """
-    # [expression for item in iterable if condition]
-    return [sale for sale in sales if sale > threshold]
+    def apply_price_increase(prices, increase_percentage):
+        """
+        Applies a percentage price increase to a list of prices
+        using a list comprehension.
+        """
+        increase_multiplier = 1 + increase_percentage
+        # [expression for item in iterable]
+        return [price * increase_multiplier for price in prices]
 
 
-def get_top_sales_performers(employees, sales_target):
-    """
-    Filters and transforms a list of employee dictionaries to get the
-    names of top-performing sales staff.
-    """
-    # [expression for item in iterable if condition]
-    return [
-        employee["name"]
-        for employee in employees
-        if employee.get("department") == "Sales"
-        and employee.get("quarterly_sales", 0) > sales_target
-    ]
+    def filter_large_sales(sales, threshold):
+        """
+        Filters a list of sales to find those above a given threshold
+        using a list comprehension.
+        """
+        # [expression for item in iterable if condition]
+        return [sale for sale in sales if sale > threshold]
 
 
-def main():
-    """Main function to demonstrate list comprehensions."""
-    # --- Example 1: Transforming Data ---
-    print("--- Applying a Price Increase ---")
-    original_prices = [100.00, 150.50, 200.00, 80.25]
-    print(f"Original prices: {original_prices}")
-
-    increased_prices = apply_price_increase(original_prices, 0.10)  # 10% increase
-    print(f"New prices (from comprehension): {[f'${p:.2f}' for p in increased_prices]}")
-    print("-" * 20)
-
-    # --- Example 2: Filtering Data ---
-    print("--- Filtering for Large Sales Transactions ---")
-    sales_data = [500, 1200, 800, 1500, 300, 2500]
-    print(f"All sales: {sales_data}")
-
-    large_sales_data = filter_large_sales(sales_data, 1000)
-    print(f"Large sales (from comprehension): {large_sales_data}")
-    print("-" * 20)
-
-    # --- Example 3: Filtering and Transforming ---
-    print("--- Extracting Names of High-Performing Sales Staff ---")
-    employee_data = [
-        {"name": "Alice", "department": "Sales", "quarterly_sales": 12000},
-        {"name": "Bob", "department": "Engineering", "quarterly_sales": 0},
-        {"name": "Charlie", "department": "Sales", "quarterly_sales": 8000},
-        {"name": "David", "department": "Sales", "quarterly_sales": 15000},
-    ]
-    target = 10000
-    top_performers_list = get_top_sales_performers(employee_data, target)
-    print(f"Top performing sales staff (sales > ${target}): {top_performers_list}")
-    print("-" * 20)
+    def get_top_sales_performers(employees, sales_target):
+        """
+        Filters and transforms a list of employee dictionaries to get the
+        names of top-performing sales staff.
+        """
+        # [expression for item in iterable if condition]
+        return [
+            employee["name"]
+            for employee in employees
+            if employee.get("department") == "Sales"
+            and employee.get("quarterly_sales", 0) > sales_target
+        ]
 
 
-if __name__ == "__main__":
-    main()
-```
-````
+    def main():
+        """Main function to demonstrate list comprehensions."""
+        # --- Example 1: Transforming Data ---
+        print("--- Applying a Price Increase ---")
+        original_prices = [100.00, 150.50, 200.00, 80.25]
+        print(f"Original prices: {original_prices}")
+
+        increased_prices = apply_price_increase(original_prices, 0.10)  # 10% increase
+        print(f"New prices (from comprehension): {[f'${p:.2f}' for p in increased_prices]}")
+        print("-" * 20)
+
+        # --- Example 2: Filtering Data ---
+        print("--- Filtering for Large Sales Transactions ---")
+        sales_data = [500, 1200, 800, 1500, 300, 2500]
+        print(f"All sales: {sales_data}")
+
+        large_sales_data = filter_large_sales(sales_data, 1000)
+        print(f"Large sales (from comprehension): {large_sales_data}")
+        print("-" * 20)
+
+        # --- Example 3: Filtering and Transforming ---
+        print("--- Extracting Names of High-Performing Sales Staff ---")
+        employee_data = [
+            {"name": "Alice", "department": "Sales", "quarterly_sales": 12000},
+            {"name": "Bob", "department": "Engineering", "quarterly_sales": 0},
+            {"name": "Charlie", "department": "Sales", "quarterly_sales": 8000},
+            {"name": "David", "department": "Sales", "quarterly_sales": 15000},
+        ]
+        target = 10000
+        top_performers_list = get_top_sales_performers(employee_data, target)
+        print(f"Top performing sales staff (sales > ${target}): {top_performers_list}")
+        print("-" * 20)
+
+
+    if __name__ == "__main__":
+        main()
+    ```
 
 ???+ example "solutions.py"
-[View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_12_List_Comprehension/solutions.py)
+    [View on GitHub](https://github.com/saint2706/Coding-For-MBA/blob/main/Day_12_List_Comprehension/solutions.py)
 
-````
-```python title="solutions.py"
-"""
-Day 12: Solutions to Exercises
-"""
+    ```python title="solutions.py"
+    """
+    Day 12: Solutions to Exercises
+    """
 
-# --- Exercise 1: Calculate Sales Commissions ---
-print("--- Solution to Exercise 1 ---")
-sales = [2500, 8000, 12000, 5500]
-commission_rate = 0.10
+    # --- Exercise 1: Calculate Sales Commissions ---
+    print("--- Solution to Exercise 1 ---")
+    sales = [2500, 8000, 12000, 5500]
+    commission_rate = 0.10
 
-# [expression for item in iterable]
-# The expression is the calculation for each sale.
-commissions = [sale * commission_rate for sale in sales]
+    # [expression for item in iterable]
+    # The expression is the calculation for each sale.
+    commissions = [sale * commission_rate for sale in sales]
 
-print(f"Original sales: {sales}")
-print(f"Calculated commissions (10%): {commissions}")
-print("-" * 20)
-
-
-# --- Exercise 2: Filter Products by Category ---
-print("--- Solution to Exercise 2 ---")
-products = [
-    {"name": "Laptop", "category": "electronics"},
-    {"name": "T-Shirt", "category": "apparel"},
-    {"name": "Keyboard", "category": "electronics"},
-    {"name": "Coffee Mug", "category": "homeware"},
-    {"name": "Webcam", "category": "electronics"},
-]
-
-# [expression for item in iterable if condition]
-# The expression is the product's name.
-# The condition checks if the product's category is 'electronics'.
-electronic_products = [
-    product["name"] for product in products if product["category"] == "electronics"
-]
-
-print(f"All products: {products}")
-print(f"Electronic products only: {electronic_products}")
-print("-" * 20)
+    print(f"Original sales: {sales}")
+    print(f"Calculated commissions (10%): {commissions}")
+    print("-" * 20)
 
 
-# --- Exercise 3: Format Prices for Display ---
-print("--- Solution to Exercise 3 ---")
-prices = [49.99, 199.99, 19.95, 24.50, 12.00]
+    # --- Exercise 2: Filter Products by Category ---
+    print("--- Solution to Exercise 2 ---")
+    products = [
+        {"name": "Laptop", "category": "electronics"},
+        {"name": "T-Shirt", "category": "apparel"},
+        {"name": "Keyboard", "category": "electronics"},
+        {"name": "Coffee Mug", "category": "homeware"},
+        {"name": "Webcam", "category": "electronics"},
+    ]
 
-# The expression is an f-string that formats each price.
-display_prices = [f"${price:,.2f}" for price in prices]
+    # [expression for item in iterable if condition]
+    # The expression is the product's name.
+    # The condition checks if the product's category is 'electronics'.
+    electronic_products = [
+        product["name"] for product in products if product["category"] == "electronics"
+    ]
 
-print(f"Original prices (float): {prices}")
-print(f"Display prices (string): {display_prices}")
-print("-" * 20)
-```
-````
+    print(f"All products: {products}")
+    print(f"Electronic products only: {electronic_products}")
+    print("-" * 20)
+
+
+    # --- Exercise 3: Format Prices for Display ---
+    print("--- Solution to Exercise 3 ---")
+    prices = [49.99, 199.99, 19.95, 24.50, 12.00]
+
+    # The expression is an f-string that formats each price.
+    display_prices = [f"${price:,.2f}" for price in prices]
+
+    print(f"Original prices (float): {prices}")
+    print(f"Display prices (string): {display_prices}")
+    print("-" * 20)
+    ```
