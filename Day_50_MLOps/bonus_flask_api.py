@@ -84,4 +84,13 @@ def predict():
 if __name__ == "__main__":
     # The `debug=True` flag allows for auto-reloading when you save changes.
     # Do not use `debug=True` in a production environment.
-    app.run(debug=True)
+    import os
+    
+    # Skip running the server in test/automated environments
+    if os.environ.get("FLASK_RUN_TEST_MODE") != "1":
+        app.run(debug=True)
+    else:
+        print("Flask app created successfully (test mode - not starting server)")
+        print("Model loaded:" if model is not None else "Model not loaded")
+        print("Routes available:")
+        print("  - POST /predict")

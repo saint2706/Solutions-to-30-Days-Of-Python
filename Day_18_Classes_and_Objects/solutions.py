@@ -33,9 +33,13 @@ print(f"The car is {my_car.get_age()} years old.")
 # The PersonAccount class is imported from CaO.py
 
 # Example usage:
-person = PersonAccount(
-    "John", "Doe", {"Salary": 5000, "Bonus": 1000}, {"Rent": 1500, "Food": 500}
-)
+person = PersonAccount("John", "Doe")
+# Add incomes
+person.add_income("Salary", 5000)
+person.add_income("Bonus", 1000)
+# Add expenses
+person.add_expense("Rent", 1500)
+person.add_expense("Food", 500)
 
 
 # Additional methods that could be added to PersonAccount class:
