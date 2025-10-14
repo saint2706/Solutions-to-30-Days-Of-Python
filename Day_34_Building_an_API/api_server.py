@@ -6,7 +6,10 @@ business data in JSON format.
 
 from flask import Flask, jsonify
 
-from Day_34_Building_an_API.data import EMPLOYEES, PRODUCTS
+try:
+    from Day_34_Building_an_API.data import EMPLOYEES, PRODUCTS
+except ImportError:
+    from data import EMPLOYEES, PRODUCTS
 
 
 def create_app() -> Flask:

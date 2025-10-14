@@ -11,7 +11,10 @@ from collections import Counter
 from typing import Dict, List, Optional, Tuple
 
 # Import stop words from the local file
-from .stop_words import stop_words as sw
+try:
+    from .stop_words import stop_words as sw
+except ImportError:
+    from stop_words import stop_words as sw
 
 
 def count_words_and_lines(fname: str) -> Tuple[int, int]:
@@ -74,6 +77,17 @@ def extract_emails_from_file(fname: str) -> List[str]:
     except Exception as e:
         print(f"❌ An unexpected error occurred: {e}")
         return []
+
+
+def check_email(email: str) -> bool:
+    """Validate an email address format."""
+    email_pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
+    return re.match(email_pattern, email) is not None
+
+
+# Aliases for backward compatibility
+counter = count_words_and_lines
+extract_emails = extract_emails_from_file
 
 
 def analyze_sales_csv(fname: str) -> Optional[Dict[str, float]]:

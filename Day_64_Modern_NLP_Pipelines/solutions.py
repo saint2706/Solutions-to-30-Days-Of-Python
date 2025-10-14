@@ -139,9 +139,14 @@ def rag_generate(
 
     tokenized_query = tokenize_corpus([query])[0]
     if tokenized_query:
-        query_vec = np.mean(
-            [embeddings_table[token] for token in tokenized_query], axis=0
-        )
+        # Filter tokens that exist in embeddings_table to avoid KeyError
+        valid_tokens = [token for token in tokenized_query if token in embeddings_table]
+        if valid_tokens:
+            query_vec = np.mean(
+                [embeddings_table[token] for token in valid_tokens], axis=0
+            )
+        else:
+            query_vec = np.zeros(next(iter(embeddings_table.values())).shape, dtype=float)
     else:
         query_vec = np.zeros(next(iter(embeddings_table.values())).shape, dtype=float)
     doc_indices = retrieve_documents(query_vec, doc_embeddings, top_k=top_k)
