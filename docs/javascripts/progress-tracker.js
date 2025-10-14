@@ -7,6 +7,8 @@ class ProgressTracker {
   constructor() {
     this.storageKey = 'coding-mba-progress';
     this.totalLessons = 67;
+    this.storageListenerRegistered = false;
+    this.handleStorageChange = this.handleStorageChange.bind(this);
   }
 
   /**
@@ -190,6 +192,20 @@ class ProgressTracker {
   }
 
   /**
+   * Remove previously injected UI to avoid duplicates
+   */
+  cleanupUI() {
+    document
+      .querySelectorAll('[data-progress-tracker="widget"]')
+      .forEach(el => el.remove());
+
+    const existingButton = document.getElementById('mark-complete-button');
+    if (existingButton) {
+      existingButton.remove();
+    }
+  }
+
+  /**
    * Get current lesson ID from page URL
    * @returns {string|null}
    */
@@ -243,6 +259,8 @@ class ProgressTracker {
    * Initialize progress tracking UI
    */
   init() {
+    this.cleanupUI();
+
     // Add progress widget to page
     this.addProgressWidget();
 
@@ -253,11 +271,20 @@ class ProgressTracker {
     this.updateUI();
 
     // Listen for storage changes (sync across tabs)
-    window.addEventListener('storage', (e) => {
-      if (e.key === this.storageKey) {
-        this.updateUI();
-      }
-    });
+    if (!this.storageListenerRegistered) {
+      window.addEventListener('storage', this.handleStorageChange);
+      this.storageListenerRegistered = true;
+    }
+  }
+
+  /**
+   * Handle updates from storage events
+   * @param {StorageEvent} event
+   */
+  handleStorageChange(event) {
+    if (event.key === this.storageKey) {
+      this.updateUI();
+    }
   }
 
   /**
@@ -265,9 +292,10 @@ class ProgressTracker {
    */
   addProgressWidget() {
     const stats = this.getStats();
-    
+
     const widget = document.createElement('div');
     widget.className = 'progress-widget';
+    widget.setAttribute('data-progress-tracker', 'widget');
     widget.innerHTML = `
       <div class="progress-header">
         <h3>Your Progress</h3>
@@ -307,7 +335,7 @@ class ProgressTracker {
     if (!content) return;
 
     const isComplete = this.isComplete(lessonId);
-    
+
     const button = document.createElement('button');
     button.id = 'mark-complete-button';
     button.className = `lesson-complete-button ${isComplete ? 'completed' : ''}`;
@@ -358,11 +386,27 @@ class ProgressTracker {
 // Global instance
 const progressTracker = new ProgressTracker();
 
+const scheduleProgressTrackerInit = () => {
+  const runInit = () => progressTracker.init();
+
+  if (typeof requestAnimationFrame === 'function') {
+    requestAnimationFrame(runInit);
+  } else {
+    setTimeout(runInit, 0);
+  }
+};
+
 // Initialize on page load
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => progressTracker.init());
+  document.addEventListener('DOMContentLoaded', () => scheduleProgressTrackerInit());
 } else {
-  progressTracker.init();
+  scheduleProgressTrackerInit();
+}
+
+if (window.document$) {
+  window.document$.subscribe(() => {
+    scheduleProgressTrackerInit();
+  });
 }
 
 // Export for use in other scripts
