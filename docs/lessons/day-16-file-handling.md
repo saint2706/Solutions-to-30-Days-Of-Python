@@ -47,6 +47,18 @@ The script for this lesson, `fh.py`, has been refactored to provide several powe
 
 🎉 **Excellent!** You can now programmatically read from and write to the most common file types. This is a fundamental skill for automating data intake, processing reports, and saving your analysis.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_16_File_Handling/solutions.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch stop_words in JupyterLite](../../jupyterlite/lab?path=Day_16_File_Handling/stop_words.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch fh in JupyterLite](../../jupyterlite/lab?path=Day_16_File_Handling/fh.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **fh.ipynb**  

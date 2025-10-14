@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.746054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:56:23.746054Z",
+      "mimetype": null,
+      "name": "images",
+      "path": "site/assets/images",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.759054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:56:23.759054Z",
+      "mimetype": null,
+      "name": "stylesheets",
+      "path": "site/assets/stylesheets",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.757055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:56:23.757055Z",
+      "mimetype": null,
+      "name": "javascripts",
+      "path": "site/assets/javascripts",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.758054Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.758054Z",
+  "mimetype": null,
+  "name": "assets",
+  "path": "site/assets",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

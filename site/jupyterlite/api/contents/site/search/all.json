@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.790055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.053136Z",
+      "mimetype": "application/json",
+      "name": "search_index.json",
+      "path": "site/search/search_index.json",
+      "size": 928597,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.790055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.790055Z",
+  "mimetype": null,
+  "name": "search",
+  "path": "site/search",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

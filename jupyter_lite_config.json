@@ -1,5 +1,4 @@
 {
-  "$schema": "https://jupyterlite.readthedocs.io/en/latest/_static/schema/v0.schema.json",
   "jupyter-config-data": {
     "appName": "Coding for MBA - Interactive Notebooks",
     "appVersion": "1.0.0",

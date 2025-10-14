@@ -63,6 +63,17 @@ The script for this lesson, `variables.py`, has been refactored into functions t
 
 🎉 **Well done!** You've learned how to store data in variables and use Python's built-in functions for analysis—foundational skills for everything that comes next.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch variables in JupyterLite](../../jupyterlite/lab?path=Day_02_Variables_Builtin_Functions/variables.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_02_Variables_Builtin_Functions/solutions.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **solutions.ipynb**  

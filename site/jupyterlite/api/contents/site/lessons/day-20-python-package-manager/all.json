@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.770055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.040136Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-20-python-package-manager/index.html",
+      "size": 142478,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.770055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.770055Z",
+  "mimetype": null,
+  "name": "day-20-python-package-manager",
+  "path": "site/lessons/day-20-python-package-manager",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

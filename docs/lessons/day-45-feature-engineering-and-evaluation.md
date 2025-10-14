@@ -54,6 +54,16 @@ root.
   to study post-hoc explanations and mitigation strategies built atop the
   evaluation workflows from this lesson.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_45_Feature_Engineering_and_Evaluation/solutions.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **solutions.ipynb**  

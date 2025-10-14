@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.670054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.760136Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_65_MLOps_Pipelines_and_CI/solutions.py",
+      "size": 8507,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.670054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.759136Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_65_MLOps_Pipelines_and_CI/solutions.ipynb",
+      "size": 14064,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.669055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.759136Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_65_MLOps_Pipelines_and_CI/README.md",
+      "size": 2163,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.670054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.759136Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_65_MLOps_Pipelines_and_CI/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.670054Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.670054Z",
+  "mimetype": null,
+  "name": "Day_65_MLOps_Pipelines_and_CI",
+  "path": "Day_65_MLOps_Pipelines_and_CI",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

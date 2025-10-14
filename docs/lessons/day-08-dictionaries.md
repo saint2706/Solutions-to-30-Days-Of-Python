@@ -64,6 +64,17 @@ The script for this lesson, `dictionaries.py`, has been refactored to encapsulat
 
 🎉 **Amazing work!** Dictionaries are the cornerstone of handling structured data in Python. Almost every time you get data from an API or a database, it will be in the form of dictionaries. Mastering them is a huge step forward.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch dictionaries in JupyterLite](../../jupyterlite/lab?path=Day_08_Dictionaries/dictionaries.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_08_Dictionaries/solutions.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **dictionaries.ipynb**  

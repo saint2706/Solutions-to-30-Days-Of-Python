@@ -80,6 +80,18 @@ We have refactored `modules.py` to wrap its logic in functions and deleted a red
 
 🎉 **Well done!** You've learned how to organize your code into modules. This is a critical skill for building any project that's more than a few dozen lines long.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch business_logic in JupyterLite](../../jupyterlite/lab?path=Day_14_Modules/business_logic.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_14_Modules/solutions.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch modules in JupyterLite](../../jupyterlite/lab?path=Day_14_Modules/modules.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **business_logic.ipynb**  

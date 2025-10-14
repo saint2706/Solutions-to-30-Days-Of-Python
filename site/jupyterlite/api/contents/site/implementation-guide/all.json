@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.761055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.035136Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/implementation-guide/index.html",
+      "size": 94681,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.761055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.761055Z",
+  "mimetype": null,
+  "name": "implementation-guide",
+  "path": "site/implementation-guide",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

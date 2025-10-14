@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.811054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.057136Z",
+      "mimetype": null,
+      "name": "index.html.j2",
+      "path": "tools/templates/accessible_html/index.html.j2",
+      "size": 254,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.811054Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.811054Z",
+  "mimetype": null,
+  "name": "accessible_html",
+  "path": "tools/templates/accessible_html",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

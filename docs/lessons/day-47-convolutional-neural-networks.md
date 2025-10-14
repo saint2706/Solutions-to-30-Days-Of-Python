@@ -53,6 +53,16 @@ ______________________________________________________________________
 - To verify the pipeline quickly (and without downloading the entire MNIST dataset), use the short smoke test: `pytest tests/test_day_47.py`. The test swaps in a tiny synthetic dataset and trains for a single epoch.
 - CNN training benefits from GPU acceleration. TensorFlow will automatically use your GPU if the drivers and CUDA/cuDNN stack are configured; otherwise the CPU-only run will simply take longer.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_47_Convolutional_Neural_Networks/solutions.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **solutions.ipynb**  

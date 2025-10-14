@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.773055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.041136Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-27-visualization/index.html",
+      "size": 107946,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.773055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.773055Z",
+  "mimetype": null,
+  "name": "day-27-visualization",
+  "path": "site/lessons/day-27-visualization",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

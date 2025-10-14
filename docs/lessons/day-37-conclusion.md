@@ -51,6 +51,16 @@ Thank you for your hard work and dedication throughout this course. You have inv
 
 **Happy analyzing!**
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch conclusion in JupyterLite](../../jupyterlite/lab?path=Day_37_Conclusion/conclusion.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **conclusion.ipynb**  

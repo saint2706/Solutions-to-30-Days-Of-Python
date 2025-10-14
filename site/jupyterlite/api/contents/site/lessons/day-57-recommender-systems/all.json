@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.784055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.047136Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-57-recommender-systems/index.html",
+      "size": 112595,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.784055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.784055Z",
+  "mimetype": null,
+  "name": "day-57-recommender-systems",
+  "path": "site/lessons/day-57-recommender-systems",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

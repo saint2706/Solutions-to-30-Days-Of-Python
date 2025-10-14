@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.761055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.035136Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/featured-lessons/index.html",
+      "size": 57203,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.761055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.761055Z",
+  "mimetype": null,
+  "name": "featured-lessons",
+  "path": "site/featured-lessons",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

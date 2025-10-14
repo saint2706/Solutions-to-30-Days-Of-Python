@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.780055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.045135Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-46-intro-to-neural-networks/index.html",
+      "size": 107558,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.780055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.780055Z",
+  "mimetype": null,
+  "name": "day-46-intro-to-neural-networks",
+  "path": "site/lessons/day-46-intro-to-neural-networks",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

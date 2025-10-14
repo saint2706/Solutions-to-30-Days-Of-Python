@@ -44,6 +44,17 @@ For these exercises, you will use the provided `messy_sales_data.csv` file.
 
 🎉 **Incredible work!** Being able to take a messy, real-world dataset and turn it into a clean, analysis-ready format is arguably the most valuable skill a data analyst can possess.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_25_Data_Cleaning/solutions.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch data_cleaning in JupyterLite](../../jupyterlite/lab?path=Day_25_Data_Cleaning/data_cleaning.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **data_cleaning.ipynb**  

@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.646055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.755136Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_41_Supervised_Learning_Regression/solutions.py",
+      "size": 3975,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.645055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.754136Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_41_Supervised_Learning_Regression/solutions.ipynb",
+      "size": 7245,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.645055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.754136Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_41_Supervised_Learning_Regression/README.md",
+      "size": 1271,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.646055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.646055Z",
+  "mimetype": null,
+  "name": "Day_41_Supervised_Learning_Regression",
+  "path": "Day_41_Supervised_Learning_Regression",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

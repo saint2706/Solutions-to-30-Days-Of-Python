@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.756054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:56:23.756054Z",
+      "mimetype": null,
+      "name": "lunr",
+      "path": "site/assets/javascripts/lunr",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.747055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.025136Z",
+      "mimetype": "text/javascript",
+      "name": "bundle.f55a23d4.min.js",
+      "path": "site/assets/javascripts/bundle.f55a23d4.min.js",
+      "size": 108058,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.747055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.027136Z",
+      "mimetype": null,
+      "name": "bundle.f55a23d4.min.js.map",
+      "path": "site/assets/javascripts/bundle.f55a23d4.min.js.map",
+      "size": 981920,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.757055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:56:23.757055Z",
+      "mimetype": null,
+      "name": "workers",
+      "path": "site/assets/javascripts/workers",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.757055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.757055Z",
+  "mimetype": null,
+  "name": "javascripts",
+  "path": "site/assets/javascripts",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
