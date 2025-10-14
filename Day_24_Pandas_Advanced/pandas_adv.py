@@ -59,7 +59,20 @@ def filter_by_product_and_region(
     """Filters the DataFrame for a specific product and region."""
     if df is None or "Product" not in df.columns or "Region" not in df.columns:
         return pd.DataFrame()
-    return df[(df["Product"] == product) & (df["Region"] == region)]
+    product_normalized = product.strip().casefold()
+    region_normalized = region.strip().casefold()
+
+    normalized_product_series = (
+        df["Product"].astype("string").str.strip().str.casefold()
+    )
+    normalized_region_series = (
+        df["Region"].astype("string").str.strip().str.casefold()
+    )
+
+    mask = (normalized_product_series == product_normalized) & (
+        normalized_region_series == region_normalized
+    )
+    return df[mask]
 
 
 def handle_missing_data(

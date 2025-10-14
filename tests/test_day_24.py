@@ -62,6 +62,24 @@ def test_filter_by_product_and_region(sample_dataframe):
     assert filtered_df.iloc[1]["Date"] == "2023-01-02"
 
 
+def test_filter_by_product_and_region_normalizes_strings():
+    df = pd.DataFrame(
+        {
+            "Product": ["  Laptop", "Mouse", "laptop  "],
+            "Region": ["north ", "South", " NORTH"],
+            "Units Sold": [90, 150, 110],
+        }
+    )
+
+    filtered_df = filter_by_product_and_region(df, " Laptop  ", "  north")
+
+    assert filtered_df.index.tolist() == [0, 2]
+    assert filtered_df["Units Sold"].tolist() == [90, 110]
+    # Original DataFrame should remain unchanged
+    assert df["Product"].tolist() == ["  Laptop", "Mouse", "laptop  "]
+    assert df["Region"].tolist() == ["north ", "South", " NORTH"]
+
+
 def test_handle_missing_data_drop(sample_dataframe):
     """Tests handling missing data by dropping rows."""
     # Row 2 has a NaN value
