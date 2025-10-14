@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.042456Z",
+      "created": "2025-10-14T14:19:33.148997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:54.597400Z",
+      "last_modified": "2025-10-14T14:19:28.678944Z",
       "mimetype": "text/javascript",
       "name": "search.973d3a69.min.js",
       "path": "site/assets/javascripts/workers/search.973d3a69.min.js",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.043456Z",
+      "created": "2025-10-14T14:19:33.148997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:54.597400Z",
+      "last_modified": "2025-10-14T14:19:28.678944Z",
       "mimetype": null,
       "name": "search.973d3a69.min.js.map",
       "path": "site/assets/javascripts/workers/search.973d3a69.min.js.map",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.043456Z",
+  "created": "2025-10-14T14:19:33.148997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.043456Z",
+  "last_modified": "2025-10-14T14:19:33.148997Z",
   "mimetype": null,
   "name": "workers",
   "path": "site/assets/javascripts/workers",

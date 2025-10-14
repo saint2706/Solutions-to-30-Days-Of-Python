@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.096457Z",
+      "created": "2025-10-14T14:19:33.202997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:54.921404Z",
+      "last_modified": "2025-10-14T14:19:29.000948Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/theory/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.095457Z",
+  "created": "2025-10-14T14:19:33.201997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.095457Z",
+  "last_modified": "2025-10-14T14:19:33.201997Z",
   "mimetype": null,
   "name": "theory",
   "path": "site/theory",

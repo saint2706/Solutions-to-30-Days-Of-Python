@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.051456Z",
+      "created": "2025-10-14T14:19:33.156997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:55.027405Z",
+      "last_modified": "2025-10-14T14:19:29.105949Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-03-operators/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.051456Z",
+  "created": "2025-10-14T14:19:33.156997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.051456Z",
+  "last_modified": "2025-10-14T14:19:33.156997Z",
   "mimetype": null,
   "name": "day-03-operators",
   "path": "site/lessons/day-03-operators",

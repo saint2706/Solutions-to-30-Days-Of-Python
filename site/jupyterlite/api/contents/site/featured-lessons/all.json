@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.047456Z",
+      "created": "2025-10-14T14:19:33.153997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:54.846403Z",
+      "last_modified": "2025-10-14T14:19:28.926947Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/featured-lessons/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.047456Z",
+  "created": "2025-10-14T14:19:33.153997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.047456Z",
+  "last_modified": "2025-10-14T14:19:33.153997Z",
   "mimetype": null,
   "name": "featured-lessons",
   "path": "site/featured-lessons",

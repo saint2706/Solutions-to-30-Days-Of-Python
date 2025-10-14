@@ -2,7 +2,7 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.898454Z",
+      "created": "2025-10-14T14:19:32.990995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -16,7 +16,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.899454Z",
+      "created": "2025-10-14T14:19:32.991995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -30,7 +30,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.898454Z",
+      "created": "2025-10-14T14:19:32.990995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -44,7 +44,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.899454Z",
+      "created": "2025-10-14T14:19:32.991995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -58,7 +58,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.897454Z",
+      "created": "2025-10-14T14:19:32.989995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -72,7 +72,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.897454Z",
+      "created": "2025-10-14T14:19:32.990995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -86,7 +86,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.898454Z",
+      "created": "2025-10-14T14:19:32.991995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -100,7 +100,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.898454Z",
+      "created": "2025-10-14T14:19:32.990995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -113,11 +113,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:58.899454Z",
+  "created": "2025-10-14T14:19:32.991995Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:58.899454Z",
+  "last_modified": "2025-10-14T14:19:32.991995Z",
   "mimetype": null,
   "name": "Day_24_Pandas_Advanced",
   "path": "Day_24_Pandas_Advanced",

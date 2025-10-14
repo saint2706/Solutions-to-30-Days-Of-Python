@@ -2,7 +2,7 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.917454Z",
+      "created": "2025-10-14T14:19:33.009995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -16,7 +16,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.917454Z",
+      "created": "2025-10-14T14:19:33.009995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -30,7 +30,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.916454Z",
+      "created": "2025-10-14T14:19:33.009995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -44,7 +44,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.916454Z",
+      "created": "2025-10-14T14:19:33.008995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -58,7 +58,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.916454Z",
+      "created": "2025-10-14T14:19:33.009995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -71,11 +71,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:58.917454Z",
+  "created": "2025-10-14T14:19:33.009995Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:58.917454Z",
+  "last_modified": "2025-10-14T14:19:33.009995Z",
   "mimetype": null,
   "name": "app",
   "path": "Day_35_Flask_Web_Framework/app",

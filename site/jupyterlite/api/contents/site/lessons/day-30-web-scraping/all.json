@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.068456Z",
+      "created": "2025-10-14T14:19:33.173997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:55.879416Z",
+      "last_modified": "2025-10-14T14:19:29.951959Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-30-web-scraping/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.067456Z",
+  "created": "2025-10-14T14:19:33.173997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.067456Z",
+  "last_modified": "2025-10-14T14:19:33.173997Z",
   "mimetype": null,
   "name": "day-30-web-scraping",
   "path": "site/lessons/day-30-web-scraping",

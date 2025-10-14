@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.074456Z",
+      "created": "2025-10-14T14:19:33.180997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:56.088418Z",
+      "last_modified": "2025-10-14T14:19:30.158961Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-41-supervised-learning-regression/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.074456Z",
+  "created": "2025-10-14T14:19:33.180997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.074456Z",
+  "last_modified": "2025-10-14T14:19:33.180997Z",
   "mimetype": null,
   "name": "day-41-supervised-learning-regression",
   "path": "site/lessons/day-41-supervised-learning-regression",

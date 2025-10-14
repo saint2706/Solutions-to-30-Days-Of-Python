@@ -2,7 +2,7 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.883454Z",
+      "created": "2025-10-14T14:19:32.976995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -16,7 +16,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.884454Z",
+      "created": "2025-10-14T14:19:32.976995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -30,7 +30,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.882454Z",
+      "created": "2025-10-14T14:19:32.975995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -44,7 +44,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.883454Z",
+      "created": "2025-10-14T14:19:32.976995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -58,7 +58,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.882454Z",
+      "created": "2025-10-14T14:19:32.975995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -72,7 +72,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.883454Z",
+      "created": "2025-10-14T14:19:32.975995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -86,7 +86,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.883454Z",
+      "created": "2025-10-14T14:19:32.975995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -99,11 +99,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:58.884454Z",
+  "created": "2025-10-14T14:19:32.976995Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:58.884454Z",
+  "last_modified": "2025-10-14T14:19:32.976995Z",
   "mimetype": null,
   "name": "Day_14_Modules",
   "path": "Day_14_Modules",

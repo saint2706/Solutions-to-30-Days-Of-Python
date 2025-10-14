@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.080456Z",
+      "created": "2025-10-14T14:19:33.186997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:56.323421Z",
+      "last_modified": "2025-10-14T14:19:30.391964Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-52-ensemble-methods/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.080456Z",
+  "created": "2025-10-14T14:19:33.186997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.080456Z",
+  "last_modified": "2025-10-14T14:19:33.186997Z",
   "mimetype": null,
   "name": "day-52-ensemble-methods",
   "path": "site/lessons/day-52-ensemble-methods",

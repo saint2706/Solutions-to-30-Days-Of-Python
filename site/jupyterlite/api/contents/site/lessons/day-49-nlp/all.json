@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.078456Z",
+      "created": "2025-10-14T14:19:33.184997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:56.240420Z",
+      "last_modified": "2025-10-14T14:19:30.309963Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-49-nlp/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.078456Z",
+  "created": "2025-10-14T14:19:33.184997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.078456Z",
+  "last_modified": "2025-10-14T14:19:33.184997Z",
   "mimetype": null,
   "name": "day-49-nlp",
   "path": "site/lessons/day-49-nlp",

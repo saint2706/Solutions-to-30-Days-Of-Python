@@ -2,7 +2,7 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.945455Z",
+      "created": "2025-10-14T14:19:33.039995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -16,7 +16,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.945455Z",
+      "created": "2025-10-14T14:19:33.039995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -30,7 +30,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.944455Z",
+      "created": "2025-10-14T14:19:33.038996Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -44,7 +44,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.945455Z",
+      "created": "2025-10-14T14:19:33.038996Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -57,11 +57,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:58.945455Z",
+  "created": "2025-10-14T14:19:33.039995Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:58.945455Z",
+  "last_modified": "2025-10-14T14:19:33.039995Z",
   "mimetype": null,
   "name": "Day_62_Model_Interpretability_and_Fairness",
   "path": "Day_62_Model_Interpretability_and_Fairness",

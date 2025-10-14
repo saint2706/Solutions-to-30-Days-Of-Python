@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.057456Z",
+      "created": "2025-10-14T14:19:33.163997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:55.263408Z",
+      "last_modified": "2025-10-14T14:19:29.337952Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-14-modules/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.057456Z",
+  "created": "2025-10-14T14:19:33.163997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.057456Z",
+  "last_modified": "2025-10-14T14:19:33.163997Z",
   "mimetype": null,
   "name": "day-14-modules",
   "path": "site/lessons/day-14-modules",

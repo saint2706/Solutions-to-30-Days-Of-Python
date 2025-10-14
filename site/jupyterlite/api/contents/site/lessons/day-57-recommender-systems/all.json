@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.083457Z",
+      "created": "2025-10-14T14:19:33.189997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:56.474423Z",
+      "last_modified": "2025-10-14T14:19:30.541966Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-57-recommender-systems/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.083457Z",
+  "created": "2025-10-14T14:19:33.189997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.083457Z",
+  "last_modified": "2025-10-14T14:19:33.189997Z",
   "mimetype": null,
   "name": "day-57-recommender-systems",
   "path": "site/lessons/day-57-recommender-systems",

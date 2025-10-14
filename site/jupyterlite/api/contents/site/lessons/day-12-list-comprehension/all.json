@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.056456Z",
+      "created": "2025-10-14T14:19:33.162997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:55.219408Z",
+      "last_modified": "2025-10-14T14:19:29.293951Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-12-list-comprehension/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.056456Z",
+  "created": "2025-10-14T14:19:33.162997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.056456Z",
+  "last_modified": "2025-10-14T14:19:33.162997Z",
   "mimetype": null,
   "name": "day-12-list-comprehension",
   "path": "site/lessons/day-12-list-comprehension",

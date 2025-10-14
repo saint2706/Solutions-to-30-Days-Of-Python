@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.081456Z",
+      "created": "2025-10-14T14:19:33.187997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:56.382422Z",
+      "last_modified": "2025-10-14T14:19:30.449965Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-54-probabilistic-modeling/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.081456Z",
+  "created": "2025-10-14T14:19:33.187997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.081456Z",
+  "last_modified": "2025-10-14T14:19:33.187997Z",
   "mimetype": null,
   "name": "day-54-probabilistic-modeling",
   "path": "site/lessons/day-54-probabilistic-modeling",

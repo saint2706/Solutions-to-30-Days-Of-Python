@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.071456Z",
+      "created": "2025-10-14T14:19:33.176997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:55.987417Z",
+      "last_modified": "2025-10-14T14:19:30.058960Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-35-flask-web-framework/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.071456Z",
+  "created": "2025-10-14T14:19:33.176997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.071456Z",
+  "last_modified": "2025-10-14T14:19:33.176997Z",
   "mimetype": null,
   "name": "day-35-flask-web-framework",
   "path": "site/lessons/day-35-flask-web-framework",

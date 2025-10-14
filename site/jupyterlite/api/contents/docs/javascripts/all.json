@@ -2,7 +2,7 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.997455Z",
+      "created": "2025-10-14T14:19:33.102996Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -16,7 +16,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.998456Z",
+      "created": "2025-10-14T14:19:33.102996Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:58.998456Z",
+  "created": "2025-10-14T14:19:33.102996Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:58.998456Z",
+  "last_modified": "2025-10-14T14:19:33.102996Z",
   "mimetype": null,
   "name": "javascripts",
   "path": "docs/javascripts",

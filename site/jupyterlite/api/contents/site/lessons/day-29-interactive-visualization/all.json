@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.067456Z",
+      "created": "2025-10-14T14:19:33.172997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:55.793415Z",
+      "last_modified": "2025-10-14T14:19:29.866958Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/lessons/day-29-interactive-visualization/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.067456Z",
+  "created": "2025-10-14T14:19:33.172997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.067456Z",
+  "last_modified": "2025-10-14T14:19:33.172997Z",
   "mimetype": null,
   "name": "day-29-interactive-visualization",
   "path": "site/lessons/day-29-interactive-visualization",

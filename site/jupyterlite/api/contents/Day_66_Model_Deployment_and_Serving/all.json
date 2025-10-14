@@ -2,7 +2,7 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.949455Z",
+      "created": "2025-10-14T14:19:33.043995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -16,7 +16,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.949455Z",
+      "created": "2025-10-14T14:19:33.043995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -30,7 +30,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.949455Z",
+      "created": "2025-10-14T14:19:33.042995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -44,7 +44,7 @@
     },
     {
       "content": null,
-      "created": "2025-10-14T14:15:58.949455Z",
+      "created": "2025-10-14T14:19:33.043995Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -57,11 +57,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:58.949455Z",
+  "created": "2025-10-14T14:19:33.043995Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:58.949455Z",
+  "last_modified": "2025-10-14T14:19:33.043995Z",
   "mimetype": null,
   "name": "Day_66_Model_Deployment_and_Serving",
   "path": "Day_66_Model_Deployment_and_Serving",

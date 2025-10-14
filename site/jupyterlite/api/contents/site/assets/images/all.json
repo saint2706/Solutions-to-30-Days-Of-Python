@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.027456Z",
+      "created": "2025-10-14T14:19:33.132997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:54.591399Z",
+      "last_modified": "2025-10-14T14:19:28.672944Z",
       "mimetype": "image/png",
       "name": "favicon.png",
       "path": "site/assets/images/favicon.png",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.027456Z",
+  "created": "2025-10-14T14:19:33.132997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.027456Z",
+  "last_modified": "2025-10-14T14:19:33.132997Z",
   "mimetype": null,
   "name": "images",
   "path": "site/assets/images",

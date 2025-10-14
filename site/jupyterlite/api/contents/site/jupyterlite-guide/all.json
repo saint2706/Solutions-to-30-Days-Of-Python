@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2025-10-14T14:15:59.049456Z",
+      "created": "2025-10-14T14:19:33.155997Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2025-10-14T14:15:54.871403Z",
+      "last_modified": "2025-10-14T14:19:28.951947Z",
       "mimetype": "text/html",
       "name": "index.html",
       "path": "site/jupyterlite-guide/index.html",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2025-10-14T14:15:59.049456Z",
+  "created": "2025-10-14T14:19:33.155997Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2025-10-14T14:15:59.049456Z",
+  "last_modified": "2025-10-14T14:19:33.155997Z",
   "mimetype": null,
   "name": "jupyterlite-guide",
   "path": "site/jupyterlite-guide",
