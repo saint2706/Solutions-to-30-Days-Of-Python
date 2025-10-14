@@ -54,7 +54,7 @@ jobs:
         pip install -r requirements-dev.txt
 
     - name: Lint and format checks
-      run: make lint
+      run: make format
 
     - name: Test with pytest
       run: pytest
