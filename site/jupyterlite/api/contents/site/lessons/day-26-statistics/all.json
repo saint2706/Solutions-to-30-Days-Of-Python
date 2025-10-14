@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.065456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.703414Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-26-statistics/index.html",
+      "size": 120781,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.065456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.065456Z",
+  "mimetype": null,
+  "name": "day-26-statistics",
+  "path": "site/lessons/day-26-statistics",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

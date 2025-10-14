@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.053456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.109406Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-07-sets/index.html",
+      "size": 90624,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.053456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.053456Z",
+  "mimetype": null,
+  "name": "day-07-sets",
+  "path": "site/lessons/day-07-sets",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

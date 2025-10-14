@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.064456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.649413Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-24-pandas-advanced/index.html",
+      "size": 172788,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.064456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.064456Z",
+  "mimetype": null,
+  "name": "day-24-pandas-advanced",
+  "path": "site/lessons/day-24-pandas-advanced",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.934455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.650424Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_51_Regularized_Models/solutions.py",
+      "size": 5039,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.934455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.650424Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_51_Regularized_Models/solutions.ipynb",
+      "size": 8030,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.933455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.650424Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_51_Regularized_Models/README.md",
+      "size": 784,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.933455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.650424Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_51_Regularized_Models/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:58.934455Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:58.934455Z",
+  "mimetype": null,
+  "name": "Day_51_Regularized_Models",
+  "path": "Day_51_Regularized_Models",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

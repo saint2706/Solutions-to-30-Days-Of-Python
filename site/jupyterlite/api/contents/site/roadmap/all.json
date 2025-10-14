@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.091457Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:54.886403Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/roadmap/index.html",
+      "size": 64920,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.091457Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.091457Z",
+  "mimetype": null,
+  "name": "roadmap",
+  "path": "site/roadmap",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

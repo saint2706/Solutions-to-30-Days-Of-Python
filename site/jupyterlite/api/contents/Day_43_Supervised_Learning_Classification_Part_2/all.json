@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.926455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.648423Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_43_Supervised_Learning_Classification_Part_2/solutions.py",
+      "size": 3115,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.926455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.648423Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_43_Supervised_Learning_Classification_Part_2/solutions.ipynb",
+      "size": 6109,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.926455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.648423Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_43_Supervised_Learning_Classification_Part_2/README.md",
+      "size": 1147,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:58.926455Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:58.926455Z",
+  "mimetype": null,
+  "name": "Day_43_Supervised_Learning_Classification_Part_2",
+  "path": "Day_43_Supervised_Learning_Classification_Part_2",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

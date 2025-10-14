@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.054456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.156407Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-09-conditionals/index.html",
+      "size": 96647,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.054456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.054456Z",
+  "mimetype": null,
+  "name": "day-09-conditionals",
+  "path": "site/lessons/day-09-conditionals",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

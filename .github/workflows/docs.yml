@@ -57,11 +57,14 @@ jobs:
       - name: Generate lesson pages
         run: python tools/build_docs.py
 
-      - name: Build JupyterLite
+      - name: Add JupyterLite buttons to lessons
         run: python tools/integrate_jupyterlite.py
 
       - name: Build MkDocs site
         run: mkdocs build --strict
+
+      - name: Build JupyterLite distribution
+        run: python tools/integrate_jupyterlite.py
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4

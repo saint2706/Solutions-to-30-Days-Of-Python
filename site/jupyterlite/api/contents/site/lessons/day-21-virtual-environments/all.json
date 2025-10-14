@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.062456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.477411Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-21-virtual-environments/index.html",
+      "size": 70246,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.062456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.062456Z",
+  "mimetype": null,
+  "name": "day-21-virtual-environments",
+  "path": "site/lessons/day-21-virtual-environments",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

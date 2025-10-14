@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.060456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.425410Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-19-python-date-time/index.html",
+      "size": 82735,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.060456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.060456Z",
+  "mimetype": null,
+  "name": "day-19-python-date-time",
+  "path": "site/lessons/day-19-python-date-time",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

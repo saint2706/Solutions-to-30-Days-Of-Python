@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.076456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:56.160419Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-45-feature-engineering-and-evaluation/index.html",
+      "size": 91129,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.076456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.076456Z",
+  "mimetype": null,
+  "name": "day-45-feature-engineering-and-evaluation",
+  "path": "site/lessons/day-45-feature-engineering-and-evaluation",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

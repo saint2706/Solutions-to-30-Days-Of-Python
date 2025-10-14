@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.940455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.651424Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_57_Recommender_Systems/solutions.py",
+      "size": 7124,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.940455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.651424Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_57_Recommender_Systems/solutions.ipynb",
+      "size": 10630,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.939455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.651424Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_57_Recommender_Systems/README.md",
+      "size": 739,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.940455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.651424Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_57_Recommender_Systems/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:58.940455Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:58.940455Z",
+  "mimetype": null,
+  "name": "Day_57_Recommender_Systems",
+  "path": "Day_57_Recommender_Systems",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

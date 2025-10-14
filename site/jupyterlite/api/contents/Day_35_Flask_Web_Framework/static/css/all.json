@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.918454Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.647424Z",
+      "mimetype": "text/css",
+      "name": "main.css",
+      "path": "Day_35_Flask_Web_Framework/static/css/main.css",
+      "size": 2962,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:58.918454Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:58.918454Z",
+  "mimetype": null,
+  "name": "css",
+  "path": "Day_35_Flask_Web_Framework/static/css",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

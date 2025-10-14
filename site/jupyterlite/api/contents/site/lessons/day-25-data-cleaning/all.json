@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.064456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.670413Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-25-data-cleaning/index.html",
+      "size": 94708,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.064456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.064456Z",
+  "mimetype": null,
+  "name": "day-25-data-cleaning",
+  "path": "site/lessons/day-25-data-cleaning",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.050456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:54.987405Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-01-introduction/index.html",
+      "size": 76645,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.050456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.050456Z",
+  "mimetype": null,
+  "name": "day-01-introduction",
+  "path": "site/lessons/day-01-introduction",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

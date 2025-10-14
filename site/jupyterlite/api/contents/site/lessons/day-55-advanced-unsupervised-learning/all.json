@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.082457Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:56.412423Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-55-advanced-unsupervised-learning/index.html",
+      "size": 110458,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.082457Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.082457Z",
+  "mimetype": null,
+  "name": "day-55-advanced-unsupervised-learning",
+  "path": "site/lessons/day-55-advanced-unsupervised-learning",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.930454Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.649424Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_47_Convolutional_Neural_Networks/solutions.py",
+      "size": 4390,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.929455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.649424Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_47_Convolutional_Neural_Networks/solutions.ipynb",
+      "size": 10476,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.929455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.649424Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_47_Convolutional_Neural_Networks/README.md",
+      "size": 3599,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:58.930454Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:58.930454Z",
+  "mimetype": null,
+  "name": "Day_47_Convolutional_Neural_Networks",
+  "path": "Day_47_Convolutional_Neural_Networks",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

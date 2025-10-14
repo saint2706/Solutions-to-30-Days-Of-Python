@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.047456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:54.840403Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/dependency-review/index.html",
+      "size": 50444,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.047456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.047456Z",
+  "mimetype": null,
+  "name": "dependency-review",
+  "path": "site/dependency-review",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

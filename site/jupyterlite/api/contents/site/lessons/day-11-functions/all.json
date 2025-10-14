@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.056456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.198407Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-11-functions/index.html",
+      "size": 89797,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.055456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.055456Z",
+  "mimetype": null,
+  "name": "day-11-functions",
+  "path": "site/lessons/day-11-functions",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

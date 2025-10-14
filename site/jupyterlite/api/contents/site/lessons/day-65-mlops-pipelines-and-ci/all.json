@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.088457Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:56.781427Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-65-mlops-pipelines-and-ci/index.html",
+      "size": 114149,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.088457Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.088457Z",
+  "mimetype": null,
+  "name": "day-65-mlops-pipelines-and-ci",
+  "path": "site/lessons/day-65-mlops-pipelines-and-ci",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

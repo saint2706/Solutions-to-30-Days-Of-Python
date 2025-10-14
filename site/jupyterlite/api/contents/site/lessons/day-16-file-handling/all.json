@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.058456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.348409Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-16-file-handling/index.html",
+      "size": 206068,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.058456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.058456Z",
+  "mimetype": null,
+  "name": "day-16-file-handling",
+  "path": "site/lessons/day-16-file-handling",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

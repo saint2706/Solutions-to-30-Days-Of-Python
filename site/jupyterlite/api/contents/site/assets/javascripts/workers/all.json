@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.042456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:54.597400Z",
+      "mimetype": "text/javascript",
+      "name": "search.973d3a69.min.js",
+      "path": "site/assets/javascripts/workers/search.973d3a69.min.js",
+      "size": 39569,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.043456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:54.597400Z",
+      "mimetype": null,
+      "name": "search.973d3a69.min.js.map",
+      "path": "site/assets/javascripts/workers/search.973d3a69.min.js.map",
+      "size": 215926,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.043456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.043456Z",
+  "mimetype": null,
+  "name": "workers",
+  "path": "site/assets/javascripts/workers",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

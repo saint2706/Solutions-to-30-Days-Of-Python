@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.050456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.006405Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-02-variables-builtin-functions/index.html",
+      "size": 89450,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.050456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.050456Z",
+  "mimetype": null,
+  "name": "day-02-variables-builtin-functions",
+  "path": "site/lessons/day-02-variables-builtin-functions",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

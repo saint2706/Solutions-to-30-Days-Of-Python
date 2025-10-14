@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.080456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:56.295421Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-51-regularized-models/index.html",
+      "size": 91559,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.079456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.079456Z",
+  "mimetype": null,
+  "name": "day-51-regularized-models",
+  "path": "site/lessons/day-51-regularized-models",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

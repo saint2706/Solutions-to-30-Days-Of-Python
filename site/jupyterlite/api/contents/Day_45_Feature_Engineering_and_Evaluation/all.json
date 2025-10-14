@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.928455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.649424Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_45_Feature_Engineering_and_Evaluation/solutions.py",
+      "size": 4812,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.928455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.648423Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_45_Feature_Engineering_and_Evaluation/solutions.ipynb",
+      "size": 9201,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.928455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.648423Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_45_Feature_Engineering_and_Evaluation/README.md",
+      "size": 1828,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:58.928455Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:58.928455Z",
+  "mimetype": null,
+  "name": "Day_45_Feature_Engineering_and_Evaluation",
+  "path": "Day_45_Feature_Engineering_and_Evaluation",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

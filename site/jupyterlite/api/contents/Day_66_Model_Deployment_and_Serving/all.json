@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.949455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.653424Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_66_Model_Deployment_and_Serving/solutions.py",
+      "size": 6555,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.949455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.653424Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_66_Model_Deployment_and_Serving/solutions.ipynb",
+      "size": 11729,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.949455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.653424Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_66_Model_Deployment_and_Serving/README.md",
+      "size": 2290,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:58.949455Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.653424Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_66_Model_Deployment_and_Serving/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:58.949455Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:58.949455Z",
+  "mimetype": null,
+  "name": "Day_66_Model_Deployment_and_Serving",
+  "path": "Day_66_Model_Deployment_and_Serving",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

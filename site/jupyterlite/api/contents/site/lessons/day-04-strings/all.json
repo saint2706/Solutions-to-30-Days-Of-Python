@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.052456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.048405Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-04-strings/index.html",
+      "size": 90177,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.052456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.052456Z",
+  "mimetype": null,
+  "name": "day-04-strings",
+  "path": "site/lessons/day-04-strings",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.063456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.595412Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-23-pandas/index.html",
+      "size": 106541,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.063456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.063456Z",
+  "mimetype": null,
+  "name": "day-23-pandas",
+  "path": "site/lessons/day-23-pandas",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

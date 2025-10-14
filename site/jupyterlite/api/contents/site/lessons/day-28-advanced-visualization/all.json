@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.066456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:55.765414Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-28-advanced-visualization/index.html",
+      "size": 118664,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.066456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.066456Z",
+  "mimetype": null,
+  "name": "day-28-advanced-visualization",
+  "path": "site/lessons/day-28-advanced-visualization",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

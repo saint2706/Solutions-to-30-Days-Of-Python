@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.076456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:56.139419Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-44-unsupervised-learning/index.html",
+      "size": 85986,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.075456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.075456Z",
+  "mimetype": null,
+  "name": "day-44-unsupervised-learning",
+  "path": "site/lessons/day-44-unsupervised-learning",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

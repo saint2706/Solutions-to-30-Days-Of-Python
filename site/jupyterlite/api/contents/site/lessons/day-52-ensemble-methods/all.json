@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:15:59.080456Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:15:56.323421Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-52-ensemble-methods/index.html",
+      "size": 104899,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:15:59.080456Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:15:59.080456Z",
+  "mimetype": null,
+  "name": "day-52-ensemble-methods",
+  "path": "site/lessons/day-52-ensemble-methods",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
