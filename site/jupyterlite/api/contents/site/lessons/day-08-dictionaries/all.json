@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.159997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:29.208950Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-08-dictionaries/index.html",
+      "size": 99647,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.159997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.159997Z",
+  "mimetype": null,
+  "name": "day-08-dictionaries",
+  "path": "site/lessons/day-08-dictionaries",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

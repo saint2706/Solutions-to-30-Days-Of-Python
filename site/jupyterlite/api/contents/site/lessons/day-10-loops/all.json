@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.161997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:29.253951Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-10-loops/index.html",
+      "size": 94539,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.160997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.160997Z",
+  "mimetype": null,
+  "name": "day-10-loops",
+  "path": "site/lessons/day-10-loops",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

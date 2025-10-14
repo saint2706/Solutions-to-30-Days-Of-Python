@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.177997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:30.089961Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-36-case-study/index.html",
+      "size": 117096,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.177997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.177997Z",
+  "mimetype": null,
+  "name": "day-36-case-study",
+  "path": "site/lessons/day-36-case-study",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

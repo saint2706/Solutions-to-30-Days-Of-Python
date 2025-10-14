@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.162997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:29.317951Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-13-higher-order-functions/index.html",
+      "size": 99394,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.162997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.162997Z",
+  "mimetype": null,
+  "name": "day-13-higher-order-functions",
+  "path": "site/lessons/day-13-higher-order-functions",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

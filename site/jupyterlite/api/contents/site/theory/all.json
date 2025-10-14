@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.202997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:29.000948Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/theory/index.html",
+      "size": 160454,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.201997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.201997Z",
+  "mimetype": null,
+  "name": "theory",
+  "path": "site/theory",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

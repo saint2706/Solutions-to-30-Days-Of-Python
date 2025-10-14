@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.031995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.651424Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_55_Advanced_Unsupervised_Learning/solutions.py",
+      "size": 7077,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.031995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.651424Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_55_Advanced_Unsupervised_Learning/solutions.ipynb",
+      "size": 10704,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.030995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.650424Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_55_Advanced_Unsupervised_Learning/README.md",
+      "size": 794,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.031995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.650424Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_55_Advanced_Unsupervised_Learning/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.031995Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.031995Z",
+  "mimetype": null,
+  "name": "Day_55_Advanced_Unsupervised_Learning",
+  "path": "Day_55_Advanced_Unsupervised_Learning",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

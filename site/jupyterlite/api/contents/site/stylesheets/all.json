@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.201997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:28.672944Z",
+      "mimetype": "text/css",
+      "name": "extra.css",
+      "path": "site/stylesheets/extra.css",
+      "size": 2973,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.201997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:28.672944Z",
+      "mimetype": "text/css",
+      "name": "interactive-widgets.css",
+      "path": "site/stylesheets/interactive-widgets.css",
+      "size": 9100,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.201997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.201997Z",
+  "mimetype": null,
+  "name": "stylesheets",
+  "path": "site/stylesheets",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

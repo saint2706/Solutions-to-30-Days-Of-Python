@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.175997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:30.002959Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-32-other-databases/index.html",
+      "size": 94699,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.175997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.175997Z",
+  "mimetype": null,
+  "name": "day-32-other-databases",
+  "path": "site/lessons/day-32-other-databases",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

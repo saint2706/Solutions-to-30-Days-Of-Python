@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.039995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.652424Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_62_Model_Interpretability_and_Fairness/solutions.py",
+      "size": 10935,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.039995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.652424Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_62_Model_Interpretability_and_Fairness/solutions.ipynb",
+      "size": 15499,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.038996Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.652424Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_62_Model_Interpretability_and_Fairness/README.md",
+      "size": 806,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.038996Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.652424Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_62_Model_Interpretability_and_Fairness/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.039995Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.039995Z",
+  "mimetype": null,
+  "name": "Day_62_Model_Interpretability_and_Fairness",
+  "path": "Day_62_Model_Interpretability_and_Fairness",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

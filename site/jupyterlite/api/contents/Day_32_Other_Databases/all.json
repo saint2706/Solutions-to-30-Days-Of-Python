@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.003995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.645423Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_32_Other_Databases/README.md",
+      "size": 3795,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.004995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.645423Z",
+      "mimetype": "text/x-python",
+      "name": "other_databases.py",
+      "path": "Day_32_Other_Databases/other_databases.py",
+      "size": 4615,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.004995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.645423Z",
+      "mimetype": null,
+      "name": "other_databases.ipynb",
+      "path": "Day_32_Other_Databases/other_databases.ipynb",
+      "size": 11152,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.004995Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.004995Z",
+  "mimetype": null,
+  "name": "Day_32_Other_Databases",
+  "path": "Day_32_Other_Databases",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

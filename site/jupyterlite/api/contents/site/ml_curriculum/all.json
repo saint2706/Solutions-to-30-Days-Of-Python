@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.196997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:28.957947Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/ml_curriculum/index.html",
+      "size": 59624,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.196997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.196997Z",
+  "mimetype": null,
+  "name": "ml_curriculum",
+  "path": "site/ml_curriculum",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

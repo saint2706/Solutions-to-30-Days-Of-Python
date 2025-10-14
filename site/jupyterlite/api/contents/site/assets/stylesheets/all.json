@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.150997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:28.678944Z",
+      "mimetype": null,
+      "name": "main.2a3383ac.min.css.map",
+      "path": "site/assets/stylesheets/main.2a3383ac.min.css.map",
+      "size": 46114,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.149997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:28.678944Z",
+      "mimetype": "text/css",
+      "name": "main.2a3383ac.min.css",
+      "path": "site/assets/stylesheets/main.2a3383ac.min.css",
+      "size": 131834,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.150997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:28.679944Z",
+      "mimetype": null,
+      "name": "palette.06af60db.min.css.map",
+      "path": "site/assets/stylesheets/palette.06af60db.min.css.map",
+      "size": 3647,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.150997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:28.679944Z",
+      "mimetype": "text/css",
+      "name": "palette.06af60db.min.css",
+      "path": "site/assets/stylesheets/palette.06af60db.min.css",
+      "size": 12522,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.150997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.150997Z",
+  "mimetype": null,
+  "name": "stylesheets",
+  "path": "site/assets/stylesheets",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

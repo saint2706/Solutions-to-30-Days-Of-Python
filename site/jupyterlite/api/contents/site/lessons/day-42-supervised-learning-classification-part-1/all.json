@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.180997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:30.173962Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-42-supervised-learning-classification-part-1/index.html",
+      "size": 78248,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.180997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.180997Z",
+  "mimetype": null,
+  "name": "day-42-supervised-learning-classification-part-1",
+  "path": "site/lessons/day-42-supervised-learning-classification-part-1",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

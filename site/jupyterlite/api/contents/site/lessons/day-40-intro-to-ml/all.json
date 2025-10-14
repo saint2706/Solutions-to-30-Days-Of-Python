@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.179997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:30.140961Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-40-intro-to-ml/index.html",
+      "size": 71544,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.179997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.179997Z",
+  "mimetype": null,
+  "name": "day-40-intro-to-ml",
+  "path": "site/lessons/day-40-intro-to-ml",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

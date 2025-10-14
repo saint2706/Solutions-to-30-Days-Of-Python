@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.152997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:28.915947Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/demo-enhanced-lesson/index.html",
+      "size": 73187,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.152997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.152997Z",
+  "mimetype": null,
+  "name": "demo-enhanced-lesson",
+  "path": "site/demo-enhanced-lesson",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

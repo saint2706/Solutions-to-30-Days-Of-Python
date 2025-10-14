@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.015995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.647424Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_38_Linear_Algebra/solutions.py",
+      "size": 1926,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.015995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.647424Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_38_Linear_Algebra/solutions.ipynb",
+      "size": 4630,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.015995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.647424Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_38_Linear_Algebra/README.md",
+      "size": 1429,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.015995Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.015995Z",
+  "mimetype": null,
+  "name": "Day_38_Linear_Algebra",
+  "path": "Day_38_Linear_Algebra",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

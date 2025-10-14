@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["."]
+extend-exclude = ["data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+docstring-code-format = true
+line-ending = "lf"
+quote-style = "double"
+indent-style = "space"
+
+[tool.nbqa.addopts]
+black = ["--line-length=88"]
+ruff = ["--extend-select=I"]
+
+[tool.nbqa.exclude]
+black = "data"
+ruff = "data"
+
+[tool.mdformat]
+wrap = 88
+number = false

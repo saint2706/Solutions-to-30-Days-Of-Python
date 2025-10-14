@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.163997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:19:29.337952Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-14-modules/index.html",
+      "size": 91626,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.163997Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.163997Z",
+  "mimetype": null,
+  "name": "day-14-modules",
+  "path": "site/lessons/day-14-modules",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

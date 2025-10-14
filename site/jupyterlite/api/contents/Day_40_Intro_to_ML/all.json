@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.017995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.648423Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_40_Intro_to_ML/solutions.py",
+      "size": 2256,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.016995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.648423Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_40_Intro_to_ML/solutions.ipynb",
+      "size": 5368,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.016995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.648423Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_40_Intro_to_ML/README.md",
+      "size": 1663,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.017995Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.017995Z",
+  "mimetype": null,
+  "name": "Day_40_Intro_to_ML",
+  "path": "Day_40_Intro_to_ML",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

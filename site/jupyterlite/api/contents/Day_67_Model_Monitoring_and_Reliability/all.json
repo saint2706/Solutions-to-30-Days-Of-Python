@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.044996Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.653424Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_67_Model_Monitoring_and_Reliability/solutions.py",
+      "size": 4992,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.044996Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.653424Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_67_Model_Monitoring_and_Reliability/solutions.ipynb",
+      "size": 9740,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.043995Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.653424Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_67_Model_Monitoring_and_Reliability/README.md",
+      "size": 2162,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T14:19:33.044996Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T14:01:51.653424Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_67_Model_Monitoring_and_Reliability/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T14:19:33.044996Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T14:19:33.044996Z",
+  "mimetype": null,
+  "name": "Day_67_Model_Monitoring_and_Reliability",
+  "path": "Day_67_Model_Monitoring_and_Reliability",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
