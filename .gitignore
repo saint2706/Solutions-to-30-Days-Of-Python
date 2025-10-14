@@ -131,3 +131,6 @@ dmypy.json
 
 # MkDocs build artifacts
 site/sitemap.xml.gz
+
+# JupyterLite build cache
+.jupyterlite.doit.db
