@@ -61,4 +61,15 @@ if __name__ == "__main__":
     #    - http://127.0.0.1:5000/api/employees
     #    - http://127.0.0.1:5000/api/employees/2
     #    - http://127.0.0.1:5000/api/employees/99 (to see the 404 error)
-    app.run(debug=True)
+    
+    import os
+    
+    # Skip running the server in test/automated environments
+    if os.environ.get("FLASK_RUN_TEST_MODE") != "1":
+        app.run(debug=True)
+    else:
+        print("Flask app created successfully (test mode - not starting server)")
+        print("Routes available:")
+        print("  - GET /")
+        print("  - GET /api/employees")
+        print("  - GET /api/employees/<id>")

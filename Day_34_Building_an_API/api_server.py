@@ -53,4 +53,15 @@ app = create_app()
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    import os
+    
+    # Skip running the server in test/automated environments
+    if os.environ.get("FLASK_RUN_TEST_MODE") != "1":
+        app.run(host="0.0.0.0", port=5000, debug=True)
+    else:
+        print("Flask app created successfully (test mode - not starting server)")
+        print("Routes available:")
+        print("  - GET /")
+        print("  - GET /api/v1/products")
+        print("  - GET /api/v1/products/<id>")
+        print("  - GET /api/v1/employees")

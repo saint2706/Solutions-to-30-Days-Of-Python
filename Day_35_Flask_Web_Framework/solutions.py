@@ -60,4 +60,14 @@ def about_me():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    
+    # Skip running the server in test/automated environments
+    if os.environ.get("FLASK_RUN_TEST_MODE") != "1":
+        app.run(debug=True)
+    else:
+        print("Flask app created successfully (test mode - not starting server)")
+        print("Routes available:")
+        print("  - GET /about-solution")
+        print("  - GET /contact")
+        print("  - GET /about-me")
