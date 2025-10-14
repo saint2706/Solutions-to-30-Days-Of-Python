@@ -93,9 +93,9 @@ conn.close()
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch databases in JupyterLite](../../jupyterlite/lab?path=Day_31_Databases/databases.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch databases_smoke_test in JupyterLite](../../jupyterlite/lab?path=Day_31_Databases/databases_smoke_test.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_31_Databases/solutions.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch databases in JupyterLite](../../jupyterlite/lab?path=Day_31_Databases/databases.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch databases_smoke_test in JupyterLite](../../jupyterlite/lab?path=Day_31_Databases/databases_smoke_test.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_31_Databases/solutions.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

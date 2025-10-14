@@ -112,9 +112,9 @@ The first command prints a truncated `cProfile` report. In our baseline run the 
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch profile_pandas_adv in JupyterLite](../../jupyterlite/lab?path=Day_24_Pandas_Advanced/profile_pandas_adv.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_24_Pandas_Advanced/solutions.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch pandas_adv in JupyterLite](../../jupyterlite/lab?path=Day_24_Pandas_Advanced/pandas_adv.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch profile_pandas_adv in JupyterLite](../../jupyterlite/lab?path=Day_24_Pandas_Advanced/profile_pandas_adv.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_24_Pandas_Advanced/solutions.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch pandas_adv in JupyterLite](../../jupyterlite/lab?path=Day_24_Pandas_Advanced/pandas_adv.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

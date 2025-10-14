@@ -64,8 +64,8 @@ simple summaries to rigorous, testable insights in your analyses.
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_26_Statistics/solutions.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch stats in JupyterLite](../../jupyterlite/lab?path=Day_26_Statistics/stats.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_26_Statistics/solutions.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch stats in JupyterLite](../../jupyterlite/lab?path=Day_26_Statistics/stats.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

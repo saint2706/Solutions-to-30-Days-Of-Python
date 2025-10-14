@@ -72,8 +72,8 @@ The script for this lesson, `loops.py`, has been refactored to place each loopin
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch loops in JupyterLite](../../jupyterlite/lab?path=Day_10_Loops/loops.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_10_Loops/solutions.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch loops in JupyterLite](../../jupyterlite/lab?path=Day_10_Loops/loops.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_10_Loops/solutions.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

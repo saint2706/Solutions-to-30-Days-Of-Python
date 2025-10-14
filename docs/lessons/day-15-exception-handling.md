@@ -74,8 +74,8 @@ The script for this lesson, `exception.py`, has been refactored to place the log
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch exception in JupyterLite](../../jupyterlite/lab?path=Day_15_Exception_Handling/exception.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_15_Exception_Handling/solutions.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch exception in JupyterLite](../../jupyterlite/lab?path=Day_15_Exception_Handling/exception.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_15_Exception_Handling/solutions.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

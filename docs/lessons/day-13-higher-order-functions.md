@@ -82,8 +82,8 @@ The script for this lesson, `HOF.py`, has been refactored to place each higher-o
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch HOF in JupyterLite](../../jupyterlite/lab?path=Day_13_Higher_Order_Functions/HOF.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_13_Higher_Order_Functions/solutions.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch HOF in JupyterLite](../../jupyterlite/lab?path=Day_13_Higher_Order_Functions/HOF.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_13_Higher_Order_Functions/solutions.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

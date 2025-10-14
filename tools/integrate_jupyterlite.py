@@ -11,7 +11,6 @@ This script:
 
 from __future__ import annotations
 
-import json
 import shutil
 import subprocess
 import sys
@@ -121,8 +120,8 @@ def add_jupyterlite_buttons_to_lessons() -> None:
             jupyterlite_url = f"../../jupyterlite/lab?path={relative_path}"
             
             notebook_links.append(
-                f"    - [🚀 Launch {notebook_name} in JupyterLite]({jupyterlite_url})"
-                "{{ .md-button .md-button--primary }}"
+                f"- [🚀 Launch {notebook_name} in JupyterLite]({jupyterlite_url})"
+                "{ .md-button .md-button--primary }"
             )
         
         if not notebook_links:

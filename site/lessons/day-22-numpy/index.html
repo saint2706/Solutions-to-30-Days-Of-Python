@@ -1364,6 +1364,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interactive-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Notebooks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-materials" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Materials
@@ -2504,6 +2513,16 @@
 <li>Print the resulting array.</li>
 </ol>
 <p>🎉 <strong>Fantastic start!</strong> NumPy is the essential first step into the world of high-performance data analysis in Python. Understanding vectorization will make all subsequent topics, especially Pandas, much easier to grasp.</p>
+<h2 id="interactive-notebooks">Interactive Notebooks<a class="headerlink" href="#interactive-notebooks" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Run this lesson's code interactively in your browser:</p>
+<ul>
+<li><a class="md-button md-button--primary" href="../../jupyterlite/lab?path=Day_22_NumPy/solutions.ipynb">🚀 Launch solutions in JupyterLite</a></li>
+<li><a class="md-button md-button--primary" href="../../jupyterlite/lab?path=Day_22_NumPy/numpy_examples.ipynb">🚀 Launch numpy_examples in JupyterLite</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">About JupyterLite</p>
+<p>JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.</p>
+</div>
 <h2 id="additional-materials">Additional Materials<a class="headerlink" href="#additional-materials" title="Anchor link to this section for reference">&para;</a></h2>
 <ul>
 <li><strong>numpy_examples.ipynb</strong><br />
@@ -2528,10 +2547,10 @@
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="sd">refactored into functions for better organization and testability.</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_revenue_vectorized</span><span class="p">(</span><span class="n">prices</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">units</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">def</span> <span class="nf">calculate_revenue_vectorized</span><span class="p">(</span><span class="n">prices</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">units</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="sd">    Calculates revenue by performing a vectorized multiplication of prices and units.</span>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -2540,7 +2559,7 @@
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="k">return</span> <span class="n">prices_array</span> <span class="o">*</span> <span class="n">units_array</span>
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">analyze_sales_data</span><span class="p">(</span><span class="n">sales</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="k">def</span> <span class="nf">analyze_sales_data</span><span class="p">(</span><span class="n">sales</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 </span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="sd">    Analyzes a list of sales data and returns a dictionary of key statistics.</span>
 </span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -2557,7 +2576,7 @@
 </span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>    <span class="p">}</span>
 </span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>
 </span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>
-</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="k">def</span><span class="w"> </span><span class="nf">filter_above_average</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="k">def</span> <span class="nf">filter_above_average</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 </span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="sd">    Filters a NumPy array to return only the elements above its average.</span>
 </span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -2568,7 +2587,7 @@
 </span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span> <span class="o">&gt;</span> <span class="n">average</span><span class="p">]</span>
 </span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>
 </span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>
-</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 </span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function to demonstrate NumPy capabilities.&quot;&quot;&quot;</span>
 </span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>    <span class="c1"># --- Example 1: Vectorized Calculations ---</span>
 </span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Calculating Revenue with Vectorization ---&quot;</span><span class="p">)</span>
@@ -2621,15 +2640,15 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="sd">Purpose: Educational solutions for MBA students learning NumPy</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kn">import</span> <span class="nn">warnings</span>
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
 </span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1"># Suppress numpy warnings for cleaner output</span>
 </span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">RuntimeWarning</span><span class="p">)</span>
 </span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
 </span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">exercise_1_array_creation_and_vectorization</span><span class="p">():</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="k">def</span> <span class="nf">exercise_1_array_creation_and_vectorization</span><span class="p">():</span>
 </span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="sd">    Exercise 1: Array Creation and Vectorization</span>
 </span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
@@ -2690,7 +2709,7 @@
 </span><span id="__span-3-77"><a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>    <span class="p">)</span>
 </span><span id="__span-3-78"><a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>
 </span><span id="__span-3-79"><a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>
-</span><span id="__span-3-80"><a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a><span class="k">def</span><span class="w"> </span><span class="nf">exercise_2_sales_data_analysis</span><span class="p">():</span>
+</span><span id="__span-3-80"><a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a><span class="k">def</span> <span class="nf">exercise_2_sales_data_analysis</span><span class="p">():</span>
 </span><span id="__span-3-81"><a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-82"><a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a><span class="sd">    Exercise 2: Sales Data Analysis</span>
 </span><span id="__span-3-83"><a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>
@@ -2779,7 +2798,7 @@
 </span><span id="__span-3-166"><a id="__codelineno-3-166" name="__codelineno-3-166" href="#__codelineno-3-166"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   ✅ Weekend sales are strong. Current strategy is working well.&quot;</span><span class="p">)</span>
 </span><span id="__span-3-167"><a id="__codelineno-3-167" name="__codelineno-3-167" href="#__codelineno-3-167"></a>
 </span><span id="__span-3-168"><a id="__codelineno-3-168" name="__codelineno-3-168" href="#__codelineno-3-168"></a>
-</span><span id="__span-3-169"><a id="__codelineno-3-169" name="__codelineno-3-169" href="#__codelineno-3-169"></a><span class="k">def</span><span class="w"> </span><span class="nf">exercise_3_conditional_filtering</span><span class="p">():</span>
+</span><span id="__span-3-169"><a id="__codelineno-3-169" name="__codelineno-3-169" href="#__codelineno-3-169"></a><span class="k">def</span> <span class="nf">exercise_3_conditional_filtering</span><span class="p">():</span>
 </span><span id="__span-3-170"><a id="__codelineno-3-170" name="__codelineno-3-170" href="#__codelineno-3-170"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-171"><a id="__codelineno-3-171" name="__codelineno-3-171" href="#__codelineno-3-171"></a><span class="sd">    Exercise 3: Conditional Filtering with Arrays</span>
 </span><span id="__span-3-172"><a id="__codelineno-3-172" name="__codelineno-3-172" href="#__codelineno-3-172"></a>
@@ -2866,7 +2885,7 @@
 </span><span id="__span-3-253"><a id="__codelineno-3-253" name="__codelineno-3-253" href="#__codelineno-3-253"></a>    <span class="p">)</span>
 </span><span id="__span-3-254"><a id="__codelineno-3-254" name="__codelineno-3-254" href="#__codelineno-3-254"></a>
 </span><span id="__span-3-255"><a id="__codelineno-3-255" name="__codelineno-3-255" href="#__codelineno-3-255"></a>
-</span><span id="__span-3-256"><a id="__codelineno-3-256" name="__codelineno-3-256" href="#__codelineno-3-256"></a><span class="k">def</span><span class="w"> </span><span class="nf">bonus_exercise_advanced_numpy</span><span class="p">():</span>
+</span><span id="__span-3-256"><a id="__codelineno-3-256" name="__codelineno-3-256" href="#__codelineno-3-256"></a><span class="k">def</span> <span class="nf">bonus_exercise_advanced_numpy</span><span class="p">():</span>
 </span><span id="__span-3-257"><a id="__codelineno-3-257" name="__codelineno-3-257" href="#__codelineno-3-257"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-258"><a id="__codelineno-3-258" name="__codelineno-3-258" href="#__codelineno-3-258"></a><span class="sd">    Bonus Exercise: Advanced NumPy for Business Analytics</span>
 </span><span id="__span-3-259"><a id="__codelineno-3-259" name="__codelineno-3-259" href="#__codelineno-3-259"></a>
@@ -2961,7 +2980,7 @@
 </span><span id="__span-3-348"><a id="__codelineno-3-348" name="__codelineno-3-348" href="#__codelineno-3-348"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Number of outlier days: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span id="__span-3-349"><a id="__codelineno-3-349" name="__codelineno-3-349" href="#__codelineno-3-349"></a>
 </span><span id="__span-3-350"><a id="__codelineno-3-350" name="__codelineno-3-350" href="#__codelineno-3-350"></a>
-</span><span id="__span-3-351"><a id="__codelineno-3-351" name="__codelineno-3-351" href="#__codelineno-3-351"></a><span class="k">def</span><span class="w"> </span><span class="nf">performance_comparison_demo</span><span class="p">():</span>
+</span><span id="__span-3-351"><a id="__codelineno-3-351" name="__codelineno-3-351" href="#__codelineno-3-351"></a><span class="k">def</span> <span class="nf">performance_comparison_demo</span><span class="p">():</span>
 </span><span id="__span-3-352"><a id="__codelineno-3-352" name="__codelineno-3-352" href="#__codelineno-3-352"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-353"><a id="__codelineno-3-353" name="__codelineno-3-353" href="#__codelineno-3-353"></a><span class="sd">    Demonstration of NumPy performance advantages over pure Python</span>
 </span><span id="__span-3-354"><a id="__codelineno-3-354" name="__codelineno-3-354" href="#__codelineno-3-354"></a><span class="sd">    for business data processing.</span>
@@ -2970,7 +2989,7 @@
 </span><span id="__span-3-357"><a id="__codelineno-3-357" name="__codelineno-3-357" href="#__codelineno-3-357"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚡ PERFORMANCE COMPARISON: NumPy vs Pure Python&quot;</span><span class="p">)</span>
 </span><span id="__span-3-358"><a id="__codelineno-3-358" name="__codelineno-3-358" href="#__codelineno-3-358"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 </span><span id="__span-3-359"><a id="__codelineno-3-359" name="__codelineno-3-359" href="#__codelineno-3-359"></a>
-</span><span id="__span-3-360"><a id="__codelineno-3-360" name="__codelineno-3-360" href="#__codelineno-3-360"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-3-360"><a id="__codelineno-3-360" name="__codelineno-3-360" href="#__codelineno-3-360"></a>    <span class="kn">import</span> <span class="nn">time</span>
 </span><span id="__span-3-361"><a id="__codelineno-3-361" name="__codelineno-3-361" href="#__codelineno-3-361"></a>
 </span><span id="__span-3-362"><a id="__codelineno-3-362" name="__codelineno-3-362" href="#__codelineno-3-362"></a>    <span class="c1"># Create large dataset for performance testing</span>
 </span><span id="__span-3-363"><a id="__codelineno-3-363" name="__codelineno-3-363" href="#__codelineno-3-363"></a>    <span class="n">size</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># 100k data points</span>
@@ -3013,7 +3032,7 @@
 </span><span id="__span-3-400"><a id="__codelineno-3-400" name="__codelineno-3-400" href="#__codelineno-3-400"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   💼 For large-scale business analytics, NumPy is essential!&quot;</span><span class="p">)</span>
 </span><span id="__span-3-401"><a id="__codelineno-3-401" name="__codelineno-3-401" href="#__codelineno-3-401"></a>
 </span><span id="__span-3-402"><a id="__codelineno-3-402" name="__codelineno-3-402" href="#__codelineno-3-402"></a>
-</span><span id="__span-3-403"><a id="__codelineno-3-403" name="__codelineno-3-403" href="#__codelineno-3-403"></a><span class="k">def</span><span class="w"> </span><span class="nf">practical_business_scenarios</span><span class="p">():</span>
+</span><span id="__span-3-403"><a id="__codelineno-3-403" name="__codelineno-3-403" href="#__codelineno-3-403"></a><span class="k">def</span> <span class="nf">practical_business_scenarios</span><span class="p">():</span>
 </span><span id="__span-3-404"><a id="__codelineno-3-404" name="__codelineno-3-404" href="#__codelineno-3-404"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-405"><a id="__codelineno-3-405" name="__codelineno-3-405" href="#__codelineno-3-405"></a><span class="sd">    Practical business scenarios demonstrating real-world NumPy applications.</span>
 </span><span id="__span-3-406"><a id="__codelineno-3-406" name="__codelineno-3-406" href="#__codelineno-3-406"></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -3091,7 +3110,7 @@
 </span><span id="__span-3-478"><a id="__codelineno-3-478" name="__codelineno-3-478" href="#__codelineno-3-478"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;      Low-value: $</span><span class="si">{</span><span class="n">customer_spending</span><span class="p">[</span><span class="n">low_value</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span id="__span-3-479"><a id="__codelineno-3-479" name="__codelineno-3-479" href="#__codelineno-3-479"></a>
 </span><span id="__span-3-480"><a id="__codelineno-3-480" name="__codelineno-3-480" href="#__codelineno-3-480"></a>
-</span><span id="__span-3-481"><a id="__codelineno-3-481" name="__codelineno-3-481" href="#__codelineno-3-481"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-3-481"><a id="__codelineno-3-481" name="__codelineno-3-481" href="#__codelineno-3-481"></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 </span><span id="__span-3-482"><a id="__codelineno-3-482" name="__codelineno-3-482" href="#__codelineno-3-482"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-483"><a id="__codelineno-3-483" name="__codelineno-3-483" href="#__codelineno-3-483"></a><span class="sd">    Main function to run all Day 22 solutions and demonstrations.</span>
 </span><span id="__span-3-484"><a id="__codelineno-3-484" name="__codelineno-3-484" href="#__codelineno-3-484"></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -3129,7 +3148,7 @@
 </span><span id="__span-3-516"><a id="__codelineno-3-516" name="__codelineno-3-516" href="#__codelineno-3-516"></a>
 </span><span id="__span-3-517"><a id="__codelineno-3-517" name="__codelineno-3-517" href="#__codelineno-3-517"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 </span><span id="__span-3-518"><a id="__codelineno-3-518" name="__codelineno-3-518" href="#__codelineno-3-518"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Error in main execution: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-3-519"><a id="__codelineno-3-519" name="__codelineno-3-519" href="#__codelineno-3-519"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">traceback</span>
+</span><span id="__span-3-519"><a id="__codelineno-3-519" name="__codelineno-3-519" href="#__codelineno-3-519"></a>        <span class="kn">import</span> <span class="nn">traceback</span>
 </span><span id="__span-3-520"><a id="__codelineno-3-520" name="__codelineno-3-520" href="#__codelineno-3-520"></a>
 </span><span id="__span-3-521"><a id="__codelineno-3-521" name="__codelineno-3-521" href="#__codelineno-3-521"></a>        <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
 </span><span id="__span-3-522"><a id="__codelineno-3-522" name="__codelineno-3-522" href="#__codelineno-3-522"></a>

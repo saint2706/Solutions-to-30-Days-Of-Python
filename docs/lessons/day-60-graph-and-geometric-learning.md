@@ -13,7 +13,7 @@ Run `python Day_60_Graph_and_Geometric_Learning/solutions.py` to inspect handcra
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_60_Graph_and_Geometric_Learning/solutions.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_60_Graph_and_Geometric_Learning/solutions.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

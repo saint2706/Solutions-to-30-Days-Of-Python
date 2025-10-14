@@ -128,9 +128,9 @@ Because `create_app()` returns a fully configured Flask instance, you can reuse 
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_34_Building_an_API/solutions.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch api_server in JupyterLite](../../jupyterlite/lab?path=Day_34_Building_an_API/api_server.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch data in JupyterLite](../../jupyterlite/lab?path=Day_34_Building_an_API/data.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_34_Building_an_API/solutions.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch api_server in JupyterLite](../../jupyterlite/lab?path=Day_34_Building_an_API/api_server.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch data in JupyterLite](../../jupyterlite/lab?path=Day_34_Building_an_API/data.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

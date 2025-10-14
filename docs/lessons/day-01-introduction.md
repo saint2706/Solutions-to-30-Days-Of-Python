@@ -64,8 +64,8 @@ The exercises are designed to help you practice the fundamental concepts introdu
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_01_Introduction/solutions.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch helloworld in JupyterLite](../../jupyterlite/lab?path=Day_01_Introduction/helloworld.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_01_Introduction/solutions.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch helloworld in JupyterLite](../../jupyterlite/lab?path=Day_01_Introduction/helloworld.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
