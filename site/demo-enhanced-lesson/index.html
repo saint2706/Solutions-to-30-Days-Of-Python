@@ -2419,7 +2419,7 @@ You can also edit the code and try different values.</p>
 
 <h3 id="code-blocks">Code Blocks<a class="headerlink" href="#code-blocks" title="Anchor link to this section for reference">&para;</a></h3>
 <p>Regular code blocks still work as before:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">calculate_roi</span><span class="p">(</span><span class="n">investment</span><span class="p">,</span> <span class="n">return_value</span><span class="p">):</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_roi</span><span class="p">(</span><span class="n">investment</span><span class="p">,</span> <span class="n">return_value</span><span class="p">):</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate Return on Investment.&quot;&quot;&quot;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">roi</span> <span class="o">=</span> <span class="p">((</span><span class="n">return_value</span> <span class="o">-</span> <span class="n">investment</span><span class="p">)</span> <span class="o">/</span> <span class="n">investment</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="k">return</span> <span class="n">roi</span>
@@ -2493,10 +2493,10 @@ if (typeof createInteractiveWidget !== 'undefined') {
 <p><a href="https://github.com/saint2706/Coding-For-MBA/blob/main/Day_23_Pandas/pandas.py">View on GitHub</a></p>
 <div class="language-python highlight"><span class="filename">pandas.py</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="sd">&quot;&quot;&quot;Introduction to Pandas for data analysis.&quot;&quot;&quot;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">def</span> <span class="nf">create_sample_dataframe</span><span class="p">():</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">create_sample_dataframe</span><span class="p">():</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a sample sales DataFrame.&quot;&quot;&quot;</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="s1">&#39;Product&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Laptop&#39;</span><span class="p">,</span> <span class="s1">&#39;Phone&#39;</span><span class="p">,</span> <span class="s1">&#39;Tablet&#39;</span><span class="p">,</span> <span class="s1">&#39;Monitor&#39;</span><span class="p">],</span>
@@ -2506,7 +2506,7 @@ if (typeof createInteractiveWidget !== 'undefined') {
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="p">}</span>
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="k">def</span> <span class="nf">calculate_revenue</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_revenue</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 </span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate total revenue per product.&quot;&quot;&quot;</span>
 </span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Revenue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span>
 </span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="k">return</span> <span class="n">df</span>
@@ -2614,6 +2614,8 @@ if (typeof createInteractiveWidget !== 'undefined') {
         <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
       
         <script src="../javascripts/pyodide-console.js"></script>
+      
+        <script src="../javascripts/progress-tracker.js"></script>
       
     
   </body>
