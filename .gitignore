@@ -131,3 +131,6 @@ dmypy.json
 
 # JupyterLite build cache
 .jupyterlite.doit.db
+
+/site
+site/
