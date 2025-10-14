@@ -54,6 +54,16 @@ ______________________________________________________________________
 - For a very fast check, use `pytest tests/test_day_48.py`. The test stubs out the dataset loader with a handful of synthetic sequences and runs a single epoch so it finishes quickly.
 - LSTM models benefit significantly from GPU acceleration. If you have CUDA/cuDNN configured, TensorFlow will pick it up automatically; otherwise the CPU execution path will still work (just slower).
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_48_Recurrent_Neural_Networks/solutions.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **solutions.ipynb**  

@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.773055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.042136Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-29-interactive-visualization/index.html",
+      "size": 110853,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.773055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.773055Z",
+  "mimetype": null,
+  "name": "day-29-interactive-visualization",
+  "path": "site/lessons/day-29-interactive-visualization",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

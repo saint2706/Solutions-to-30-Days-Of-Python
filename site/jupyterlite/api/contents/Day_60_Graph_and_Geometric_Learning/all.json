@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.665055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.758136Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_60_Graph_and_Geometric_Learning/solutions.py",
+      "size": 9021,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.665055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.758136Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_60_Graph_and_Geometric_Learning/solutions.ipynb",
+      "size": 12756,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.664055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.758136Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_60_Graph_and_Geometric_Learning/README.md",
+      "size": 750,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.664055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.758136Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_60_Graph_and_Geometric_Learning/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.665055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.665055Z",
+  "mimetype": null,
+  "name": "Day_60_Graph_and_Geometric_Learning",
+  "path": "Day_60_Graph_and_Geometric_Learning",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

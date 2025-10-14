@@ -68,6 +68,17 @@ The script for this lesson, `exception.py`, has been refactored to place the log
 
 🎉 **Congratulations!** You've learned how to make your Python scripts more robust and reliable. Exception handling is a critical skill for any data analyst or developer working with real-world data.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch exception in JupyterLite](../../jupyterlite/lab?path=Day_15_Exception_Handling/exception.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_15_Exception_Handling/solutions.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **exception.ipynb**  

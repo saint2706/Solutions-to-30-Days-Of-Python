@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.786055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.049136Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-62-model-interpretability-and-fairness/index.html",
+      "size": 139681,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.786055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.786055Z",
+  "mimetype": null,
+  "name": "day-62-model-interpretability-and-fairness",
+  "path": "site/lessons/day-62-model-interpretability-and-fairness",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

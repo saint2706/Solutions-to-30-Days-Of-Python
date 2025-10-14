@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.658055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.757136Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_54_Probabilistic_Modeling/solutions.py",
+      "size": 7377,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.658055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.757136Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_54_Probabilistic_Modeling/solutions.ipynb",
+      "size": 11043,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.658055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.757136Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_54_Probabilistic_Modeling/README.md",
+      "size": 831,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.658055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.757136Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_54_Probabilistic_Modeling/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.658055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.658055Z",
+  "mimetype": null,
+  "name": "Day_54_Probabilistic_Modeling",
+  "path": "Day_54_Probabilistic_Modeling",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

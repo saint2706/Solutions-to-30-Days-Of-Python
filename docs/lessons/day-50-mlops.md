@@ -48,6 +48,17 @@ ______________________________________________________________________
 
 Review the code to understand the fundamental step of model persistence, which is the gateway to model deployment. When you are ready to automate full pipelines, deploy APIs, and monitor production behaviour, continue into Days 65–67 for the dedicated deep dives.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_50_MLOps/solutions.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch bonus_flask_api in JupyterLite](../../jupyterlite/lab?path=Day_50_MLOps/bonus_flask_api.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **bonus_flask_api.ipynb**  

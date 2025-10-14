@@ -83,6 +83,20 @@ For these exercises, we will scrape the website `http://books.toscrape.com/`, a 
 
 🎉 **Great job!** Web scraping is a powerful skill that opens up a vast new source of data for your analyses. While it can be complex, mastering the basics of `requests` and `BeautifulSoup` is a huge step forward.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch web_scraping in JupyterLite](../../jupyterlite/lab?path=Day_30_Web_Scraping/web_scraping.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_30_Web_Scraping/solutions.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch web_scraping_bu in JupyterLite](../../jupyterlite/lab?path=Day_30_Web_Scraping/web_scraping_bu.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch profile_web_scraping in JupyterLite](../../jupyterlite/lab?path=Day_30_Web_Scraping/profile_web_scraping.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch presidents in JupyterLite](../../jupyterlite/lab?path=Day_30_Web_Scraping/presidents.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **presidents.ipynb**  

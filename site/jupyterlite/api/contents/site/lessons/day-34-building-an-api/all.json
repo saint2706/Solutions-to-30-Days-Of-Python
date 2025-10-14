@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.775054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.043136Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-34-building-an-api/index.html",
+      "size": 97808,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.775054Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.775054Z",
+  "mimetype": null,
+  "name": "day-34-building-an-api",
+  "path": "site/lessons/day-34-building-an-api",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.810055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.057136Z",
+      "mimetype": "text/x-python",
+      "name": "convert_lessons_to_notebooks.py",
+      "path": "tools/convert_lessons_to_notebooks.py",
+      "size": 10734,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.810055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.057136Z",
+      "mimetype": "text/x-python",
+      "name": "integrate_jupyterlite.py",
+      "path": "tools/integrate_jupyterlite.py",
+      "size": 10960,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.810055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.057136Z",
+      "mimetype": "text/x-python",
+      "name": "build_docs.py",
+      "path": "tools/build_docs.py",
+      "size": 11661,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.811054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:56:23.811054Z",
+      "mimetype": null,
+      "name": "templates",
+      "path": "tools/templates",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.811054Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.811054Z",
+  "mimetype": null,
+  "name": "tools",
+  "path": "tools",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

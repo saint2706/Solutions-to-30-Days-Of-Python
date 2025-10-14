@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.783055Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:36.047136Z",
+      "mimetype": "text/html",
+      "name": "index.html",
+      "path": "site/lessons/day-54-probabilistic-modeling/index.html",
+      "size": 113183,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.783055Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.783055Z",
+  "mimetype": null,
+  "name": "day-54-probabilistic-modeling",
+  "path": "site/lessons/day-54-probabilistic-modeling",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

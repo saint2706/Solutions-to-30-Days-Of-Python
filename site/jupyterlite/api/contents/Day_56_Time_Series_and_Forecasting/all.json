@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.660054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.758136Z",
+      "mimetype": "text/x-python",
+      "name": "solutions.py",
+      "path": "Day_56_Time_Series_and_Forecasting/solutions.py",
+      "size": 6428,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.660054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.757136Z",
+      "mimetype": null,
+      "name": "solutions.ipynb",
+      "path": "Day_56_Time_Series_and_Forecasting/solutions.ipynb",
+      "size": 9713,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.660054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.757136Z",
+      "mimetype": "text/markdown",
+      "name": "README.md",
+      "path": "Day_56_Time_Series_and_Forecasting/README.md",
+      "size": 722,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2025-10-14T12:56:23.660054Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2025-10-14T12:52:35.757136Z",
+      "mimetype": "text/x-python",
+      "name": "__init__.py",
+      "path": "Day_56_Time_Series_and_Forecasting/__init__.py",
+      "size": 0,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2025-10-14T12:56:23.660054Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2025-10-14T12:56:23.660054Z",
+  "mimetype": null,
+  "name": "Day_56_Time_Series_and_Forecasting",
+  "path": "Day_56_Time_Series_and_Forecasting",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

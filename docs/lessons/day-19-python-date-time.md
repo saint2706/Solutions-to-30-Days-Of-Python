@@ -50,6 +50,17 @@ The script for this lesson, `date_time.py`, has been refactored to place each da
 
 🎉 **Congratulations!** You've learned how to work with dates and times in Python. You're now ready to tackle time-series analysis and other time-based calculations.
 
+
+
+## Interactive Notebooks
+
+Run this lesson's code interactively in your browser:
+
+    - [🚀 Launch date_time in JupyterLite](../../jupyterlite/lab?path=Day_19_Python_Date_Time/date_time.ipynb){{ .md-button .md-button--primary }}
+    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_19_Python_Date_Time/solutions.ipynb){{ .md-button .md-button--primary }}
+
+!!! tip "About JupyterLite"
+    JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
 ## Additional Materials
 
 - **date_time.ipynb**  
