@@ -1102,6 +1102,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interactive-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Notebooks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-materials" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Materials
@@ -2488,6 +2497,16 @@
 <li>Test your new function by calling it with and without the <code>symbol</code> parameter.</li>
 </ol>
 <p>🎉 <strong>Great work!</strong> Functions are the key to writing clean, organized, and professional code. By packaging your logic into reusable tools, you're moving from a simple scripter to a true programmer.</p>
+<h2 id="interactive-notebooks">Interactive Notebooks<a class="headerlink" href="#interactive-notebooks" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Run this lesson's code interactively in your browser:</p>
+<ul>
+<li><a class="md-button md-button--primary" href="../../jupyterlite/lab?path=Day_11_Functions/functions.ipynb">🚀 Launch functions in JupyterLite</a></li>
+<li><a class="md-button md-button--primary" href="../../jupyterlite/lab?path=Day_11_Functions/solutions.ipynb">🚀 Launch solutions in JupyterLite</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">About JupyterLite</p>
+<p>JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.</p>
+</div>
 <h2 id="additional-materials">Additional Materials<a class="headerlink" href="#additional-materials" title="Anchor link to this section for reference">&para;</a></h2>
 <ul>
 <li><strong>functions.ipynb</strong><br />
@@ -2514,20 +2533,20 @@
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Adding type hints (e.g., revenue: float) makes the function&#39;s expected inputs clear.</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># The &quot;-&gt; float&quot; indicates that the function is expected to return a float value.</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_net_profit</span><span class="p">(</span><span class="n">revenue</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">expenses</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">def</span> <span class="nf">get_net_profit</span><span class="p">(</span><span class="n">revenue</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">expenses</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the net profit from revenue and expenses.&quot;&quot;&quot;</span>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">net_profit</span> <span class="o">=</span> <span class="n">revenue</span> <span class="o">-</span> <span class="n">expenses</span>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="k">return</span> <span class="n">net_profit</span>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_commission</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">def</span> <span class="nf">calculate_commission</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates a 15% commission on a given sales amount.&quot;&quot;&quot;</span>
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="n">commission_rate</span> <span class="o">=</span> <span class="mf">0.15</span>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="n">commission</span> <span class="o">=</span> <span class="n">sales_amount</span> <span class="o">*</span> <span class="n">commission_rate</span>
 </span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="k">return</span> <span class="n">commission</span>
 </span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
 </span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_eligible_for_bonus</span><span class="p">(</span><span class="n">performance_rating</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">years_of_service</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="k">def</span> <span class="nf">is_eligible_for_bonus</span><span class="p">(</span><span class="n">performance_rating</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">years_of_service</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="sd">    Checks if an employee is eligible for a bonus based on performance</span>
 </span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="sd">    and years of service.</span>
@@ -2536,12 +2555,12 @@
 </span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="k">return</span> <span class="n">performance_rating</span> <span class="o">&gt;=</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">years_of_service</span> <span class="o">&gt;</span> <span class="mi">2</span>
 </span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
 </span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
-</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="k">def</span><span class="w"> </span><span class="nf">format_currency</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="k">def</span> <span class="nf">format_currency</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 </span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Formats a number into a currency string (e.g., $1,234.56).&quot;&quot;&quot;</span>
 </span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">amount</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>
 </span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>
-</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 </span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function to demonstrate the use of the business functions.&quot;&quot;&quot;</span>
 </span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>    <span class="c1"># --- Using the Functions ---</span>
 </span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Calculating Company-Wide Profits ---&quot;</span><span class="p">)</span>
@@ -2600,7 +2619,7 @@
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Solution to Exercise 1 ---&quot;</span><span class="p">)</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_commission</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">def</span> <span class="nf">calculate_commission</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="sd">    Calculates a commission of 15% of the sales amount.</span>
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="sd">    Takes sales_amount as a float, returns the commission as a float.</span>
@@ -2620,7 +2639,7 @@
 </span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Solution to Exercise 2 ---&quot;</span><span class="p">)</span>
 </span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
 </span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_eligible_for_bonus</span><span class="p">(</span><span class="n">performance_rating</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">years_of_service</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="k">def</span> <span class="nf">is_eligible_for_bonus</span><span class="p">(</span><span class="n">performance_rating</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">years_of_service</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="sd">    Returns True if rating is 4 or 5 AND service is more than 2 years.</span>
 </span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -2647,7 +2666,7 @@
 </span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Solution to Exercise 3 ---&quot;</span><span class="p">)</span>
 </span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>
 </span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>
-</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="k">def</span><span class="w"> </span><span class="nf">format_currency</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="k">def</span> <span class="nf">format_currency</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 </span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a><span class="sd">    Returns a string formatted as currency with a dollar sign and commas.</span>
 </span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a><span class="sd">    Example: 1250.5 -&gt; &quot;$1,250.50&quot;</span>

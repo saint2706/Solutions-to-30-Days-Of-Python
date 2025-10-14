@@ -53,8 +53,8 @@ The script for this lesson, `functions.py`, is already well-structured, with eac
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch functions in JupyterLite](../../jupyterlite/lab?path=Day_11_Functions/functions.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_11_Functions/solutions.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch functions in JupyterLite](../../jupyterlite/lab?path=Day_11_Functions/functions.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_11_Functions/solutions.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

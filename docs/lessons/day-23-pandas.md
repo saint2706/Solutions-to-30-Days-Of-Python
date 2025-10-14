@@ -65,9 +65,9 @@ The content for this lesson is split into two main files:
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch pandas_intro in JupyterLite](../../jupyterlite/lab?path=Day_23_Pandas/pandas_intro.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_23_Pandas/solutions.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch pandas_from_csv in JupyterLite](../../jupyterlite/lab?path=Day_23_Pandas/pandas_from_csv.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch pandas_intro in JupyterLite](../../jupyterlite/lab?path=Day_23_Pandas/pandas_intro.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_23_Pandas/solutions.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch pandas_from_csv in JupyterLite](../../jupyterlite/lab?path=Day_23_Pandas/pandas_from_csv.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

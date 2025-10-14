@@ -70,8 +70,8 @@ The script for this lesson, `tuples.py`, has been refactored to separate the log
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch tuples in JupyterLite](../../jupyterlite/lab?path=Day_06_Tuples/tuples.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_06_Tuples/solutions.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch tuples in JupyterLite](../../jupyterlite/lab?path=Day_06_Tuples/tuples.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_06_Tuples/solutions.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

@@ -70,8 +70,8 @@ The script for this lesson, `dictionaries.py`, has been refactored to encapsulat
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch dictionaries in JupyterLite](../../jupyterlite/lab?path=Day_08_Dictionaries/dictionaries.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_08_Dictionaries/solutions.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch dictionaries in JupyterLite](../../jupyterlite/lab?path=Day_08_Dictionaries/dictionaries.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_08_Dictionaries/solutions.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

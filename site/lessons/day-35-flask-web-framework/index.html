@@ -1669,6 +1669,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interactive-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Notebooks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-materials" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Materials
@@ -2504,6 +2513,15 @@
 <h3 id="solutions">Solutions<a class="headerlink" href="#solutions" title="Anchor link to this section for reference">&para;</a></h3>
 <p>You can find the solutions to these exercises in the <code>solutions.py</code> file in this directory.</p>
 <p>🎉 <strong>Congratulations!</strong> You've learned the basics of Flask, a powerful tool for building web applications and dashboards with Python.</p>
+<h2 id="interactive-notebooks">Interactive Notebooks<a class="headerlink" href="#interactive-notebooks" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Run this lesson's code interactively in your browser:</p>
+<ul>
+<li><a class="md-button md-button--primary" href="../../jupyterlite/lab?path=Day_35_Flask_Web_Framework/solutions.ipynb">🚀 Launch solutions in JupyterLite</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">About JupyterLite</p>
+<p>JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.</p>
+</div>
 <h2 id="additional-materials">Additional Materials<a class="headerlink" href="#additional-materials" title="Anchor link to this section for reference">&para;</a></h2>
 <ul>
 <li><strong>solutions.ipynb</strong><br />
@@ -2517,7 +2535,7 @@
 <p><a href="https://github.com/saint2706/Coding-For-MBA/blob/main/Day_35_Flask_Web_Framework/solutions.py">View on GitHub</a></p>
 <div class="language-python highlight"><span class="filename">solutions.py</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Day 35: Flask Web Framework - Solutions</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
@@ -2525,7 +2543,7 @@
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/about-solution&quot;</span><span class="p">)</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">about_solution</span><span class="p">():</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">def</span> <span class="nf">about_solution</span><span class="p">():</span>
 </span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="k">return</span> <span class="s2">&quot;This is the about page.&quot;</span>
 </span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
 </span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
@@ -2549,7 +2567,7 @@
 </span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>
 </span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>
 </span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/contact&quot;</span><span class="p">)</span>
-</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="k">def</span><span class="w"> </span><span class="nf">contact</span><span class="p">():</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="k">def</span> <span class="nf">contact</span><span class="p">():</span>
 </span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;contact.html&quot;</span><span class="p">)</span>
 </span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>
 </span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>
@@ -2571,7 +2589,7 @@
 </span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>
 </span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>
 </span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/about-me&quot;</span><span class="p">)</span>
-</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="k">def</span><span class="w"> </span><span class="nf">about_me</span><span class="p">():</span>
+</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="k">def</span> <span class="nf">about_me</span><span class="p">():</span>
 </span><span id="__span-5-58"><a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a>    <span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;Jules&quot;</span>  <span class="c1"># You can replace this with your name</span>
 </span><span id="__span-5-59"><a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a>    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;about.html&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">my_name</span><span class="p">)</span>
 </span><span id="__span-5-60"><a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a>

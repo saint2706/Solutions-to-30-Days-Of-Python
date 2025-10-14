@@ -54,8 +54,8 @@ The script for this lesson, `url.py`, demonstrates how to use `requests` to fetc
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_20_Python_Package_Manager/solutions.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch url in JupyterLite](../../jupyterlite/lab?path=Day_20_Python_Package_Manager/url.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_20_Python_Package_Manager/solutions.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch url in JupyterLite](../../jupyterlite/lab?path=Day_20_Python_Package_Manager/url.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.

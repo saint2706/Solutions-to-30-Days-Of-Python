@@ -50,8 +50,8 @@ For these exercises, you will use the provided `messy_sales_data.csv` file.
 
 Run this lesson's code interactively in your browser:
 
-    - [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_25_Data_Cleaning/solutions.ipynb){{ .md-button .md-button--primary }}
-    - [🚀 Launch data_cleaning in JupyterLite](../../jupyterlite/lab?path=Day_25_Data_Cleaning/data_cleaning.ipynb){{ .md-button .md-button--primary }}
+- [🚀 Launch solutions in JupyterLite](../../jupyterlite/lab?path=Day_25_Data_Cleaning/solutions.ipynb){ .md-button .md-button--primary }
+- [🚀 Launch data_cleaning in JupyterLite](../../jupyterlite/lab?path=Day_25_Data_Cleaning/data_cleaning.ipynb){ .md-button .md-button--primary }
 
 !!! tip "About JupyterLite"
     JupyterLite runs entirely in your browser using WebAssembly. No installation or server required! Note: First launch may take a moment to load.
