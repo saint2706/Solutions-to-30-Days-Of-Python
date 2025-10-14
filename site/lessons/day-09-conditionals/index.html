@@ -2524,7 +2524,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">def</span> <span class="nf">calculate_discount_percent</span><span class="p">(</span><span class="n">purchase_amount</span><span class="p">):</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_discount_percent</span><span class="p">(</span><span class="n">purchase_amount</span><span class="p">):</span>
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates a discount percentage based on the purchase amount.&quot;&quot;&quot;</span>
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">purchase_amount</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="ow">or</span> <span class="n">purchase_amount</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
 </span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="k">return</span> <span class="mf">0.0</span>
@@ -2537,7 +2537,7 @@
 </span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="k">return</span> <span class="mf">0.00</span>  <span class="c1"># 0% discount</span>
 </span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
 </span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="k">def</span> <span class="nf">calculate_shipping_cost</span><span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">order_weight_kg</span><span class="p">):</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_shipping_cost</span><span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">order_weight_kg</span><span class="p">):</span>
 </span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates shipping cost based on destination and weight.&quot;&quot;&quot;</span>
 </span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="k">if</span> <span class="n">country</span> <span class="o">==</span> <span class="s2">&quot;USA&quot;</span><span class="p">:</span>
 </span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        <span class="k">if</span> <span class="n">order_weight_kg</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
@@ -2553,7 +2553,7 @@
 </span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Using -1 to indicate not available</span>
 </span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>
 </span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
-</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="k">def</span> <span class="nf">calculate_employee_bonus</span><span class="p">(</span><span class="n">performance_rating</span><span class="p">,</span> <span class="n">department</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_employee_bonus</span><span class="p">(</span><span class="n">performance_rating</span><span class="p">,</span> <span class="n">department</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
 </span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates an employee&#39;s bonus based on performance and department.&quot;&quot;&quot;</span>
 </span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>    <span class="k">if</span> <span class="n">performance_rating</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
 </span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>        <span class="k">if</span> <span class="n">department</span> <span class="o">==</span> <span class="s2">&quot;Sales&quot;</span><span class="p">:</span>
@@ -2635,7 +2635,7 @@
 </span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>
 </span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
 </span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="c1"># We can wrap this in a function to easily test different scenarios</span>
-</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="k">def</span> <span class="nf">get_shipping_cost</span><span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">order_weight_kg</span><span class="p">):</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_shipping_cost</span><span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">order_weight_kg</span><span class="p">):</span>
 </span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="n">cost</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="k">if</span> <span class="n">country</span> <span class="o">==</span> <span class="s2">&quot;USA&quot;</span><span class="p">:</span>
 </span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>        <span class="k">if</span> <span class="n">order_weight_kg</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
@@ -2664,7 +2664,7 @@
 </span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Solution to Exercise 3 ---&quot;</span><span class="p">)</span>
 </span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>
 </span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>
-</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a><span class="k">def</span> <span class="nf">calculate_bonus</span><span class="p">(</span><span class="n">rating</span><span class="p">,</span> <span class="n">department</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
+</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_bonus</span><span class="p">(</span><span class="n">rating</span><span class="p">,</span> <span class="n">department</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
 </span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>    <span class="n">bonus_rate</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>    <span class="k">if</span> <span class="n">rating</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
 </span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>        <span class="k">if</span> <span class="n">department</span> <span class="o">==</span> <span class="s2">&quot;Sales&quot;</span><span class="p">:</span>
@@ -2804,6 +2804,8 @@
         <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
       
         <script src="../../javascripts/pyodide-console.js"></script>
+      
+        <script src="../../javascripts/progress-tracker.js"></script>
       
     
   </body>
