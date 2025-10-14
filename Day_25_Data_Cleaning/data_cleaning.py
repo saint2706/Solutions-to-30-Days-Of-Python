@@ -16,25 +16,29 @@ def clean_sales_data(df: pd.DataFrame) -> pd.DataFrame:
     Cleans the sales data by correcting data types, standardizing text,
     and removing duplicates.
     """
+    df_clean = df.copy()
+
     # --- 1. Correcting Data Types ---
-    df["Order Date"] = pd.to_datetime(df["Order Date"])
+    df_clean["Order Date"] = pd.to_datetime(df_clean["Order Date"])
 
     # Optimized price cleaning using a single regex
-    df["Price"] = df["Price"].str.replace(r"[$,]", "", regex=True).astype(float)
+    df_clean["Price"] = (
+        df_clean["Price"].str.replace(r"[$,]", "", regex=True).astype(float)
+    )
 
     # --- 2. Cleaning and Standardizing Text Data ---
-    df["Region"] = df["Region"].str.strip().str.lower()
-    df["Product"] = df["Product"].str.lower()
-    df["Region"] = df["Region"].replace({"usa": "united states"})
+    df_clean["Region"] = df_clean["Region"].str.strip().str.lower()
+    df_clean["Product"] = df_clean["Product"].str.lower()
+    df_clean["Region"] = df_clean["Region"].replace({"usa": "united states"})
 
     # --- 3. Handling Duplicates ---
-    df.drop_duplicates(inplace=True)
-    df.drop_duplicates(subset=["Order ID"], keep="first", inplace=True)
+    df_clean.drop_duplicates(inplace=True)
+    df_clean.drop_duplicates(subset=["Order ID"], keep="first", inplace=True)
 
-    return df
+    return df_clean
 
 
-def main():
+def main():  # pragma: no cover
     """
     Main function to load, clean, and inspect the data.
     """
