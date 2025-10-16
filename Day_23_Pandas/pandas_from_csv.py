@@ -32,10 +32,11 @@ def filter_by_title(df: pd.DataFrame, keyword: str) -> pd.DataFrame:
     if df is None or "title" not in df.columns:
         return pd.DataFrame()  # Return empty DataFrame if input is invalid
 
-    # Ensure title column is string type to use .str accessor
-    df["title"] = df["title"].astype(str)
+    # Ensure title column is string type to use .str accessor without mutating the original DataFrame
+    title_series = df["title"].astype(str)
+    mask = title_series.str.contains(keyword, case=False, na=False)
 
-    return df.loc[df["title"].str.contains(keyword, case=False, na=False)]
+    return df.loc[mask]
 
 
 def main():

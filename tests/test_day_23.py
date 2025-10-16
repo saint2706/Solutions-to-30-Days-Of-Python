@@ -78,3 +78,12 @@ def test_filter_by_title_invalid_df():
     empty_df_no_title = filter_by_title(df_no_title, "Python")
     assert isinstance(empty_df_no_title, pd.DataFrame)
     assert empty_df_no_title.empty
+
+
+def test_filter_by_title_preserves_original_dtype(sample_dataframe):
+    """Ensures the helper does not mutate the original DataFrame's dtypes."""
+    original_dtype = sample_dataframe["title"].dtype
+
+    _ = filter_by_title(sample_dataframe, "Python")
+
+    assert sample_dataframe["title"].dtype == original_dtype
