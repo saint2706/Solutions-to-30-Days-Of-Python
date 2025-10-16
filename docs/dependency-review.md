@@ -4,7 +4,7 @@ ______________________________________________________________________
 
 ## Summary
 
-- Upgraded the production requirements to the latest stable releases that support Python 3.12.
+- Upgraded the production requirements to the latest stable releases that support Python 3.13.
 - Realigned TensorFlow with NumPy 2.x compatibility and refreshed ancillary scientific tooling (pandas, scikit-learn, matplotlib, seaborn, sympy).
 - Adjusted the Day 29 interactive visualisation helper to preserve Python `datetime` objects after pandas 2.3's aggregation changes.
 
@@ -21,10 +21,10 @@ ______________________________________________________________________
 | plotly | 5.18.0 | 6.3.0 | No breaking API changes encountered. |
 | psycopg2-binary | 2.9.9 | 2.9.10 | Security/bug-fix release. |
 | requests | 2.31.0 | 2.32.5 | Carries urllib3 security patches. |
-| scikit-learn | 1.3.2 | 1.7.2 | Supports NumPy 2.x and Python 3.12; no API changes affecting lesson utilities. |
+| scikit-learn | 1.3.2 | 1.7.2 | Supports NumPy 2.x and Python 3.13; no API changes affecting lesson utilities. |
 | seaborn | 0.13.0 | 0.13.2 | Minor bug fixes only. |
 | sympy | 1.12 | 1.14.0 | Symbolics lessons continue to run without modification. |
-| tensorflow | 2.16.1 | 2.20.0 | Provides Python 3.12 wheels and compatibility with NumPy 2.x. |
+| tensorflow | 2.16.1 | 2.20.0 | Provides Python 3.13 wheels and compatibility with NumPy 2.x. |
 | responses | 0.25.3 | 0.25.8 | Keeps HTTP mocking utilities current for API lessons. |
 
 ## Smoke test matrix

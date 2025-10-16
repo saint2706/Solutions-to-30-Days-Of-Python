@@ -1,0 +1,38 @@
+name: Lesson Performance Benchmarks
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+          allow-prereleases: true
+          cache: pip
+
+      - name: Install benchmark dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas
+
+      - name: Run lesson benchmarks
+        run: |
+          python tools/benchmark_lessons.py --repeats 5 --output benchmark-results.json
+
+      - name: Upload benchmark report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lesson-benchmarks
+          path: benchmark-results.json
+          if-no-files-found: error
