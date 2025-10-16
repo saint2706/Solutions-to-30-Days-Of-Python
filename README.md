@@ -49,6 +49,12 @@ The curriculum is organized into four progressive phases over 67 days:
 
 📘 **[See full curriculum roadmap →](docs/ml_curriculum.md)**
 
+## 📄 Phase Cheat Sheets
+
+Need the essentials at a glance? Download quick-reference guides for each phase of the journey: **[Phase Cheat Sheets](docs/cheatsheets/index.md)**.
+
+Each cheat sheet highlights core outcomes, business wins, and refresh drills so you can reinforce skills between lessons or share them with your team.
+
 ## 💻 Working with Lessons
 
 Each `Day_XX_*` folder contains:

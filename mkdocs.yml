@@ -44,6 +44,12 @@ theme:
 nav:
   - Home: index.md
   - Machine Learning Curriculum: ml_curriculum.md
+  - Phase Cheat Sheets:
+      - Overview: cheatsheets/index.md
+      - Phase 1 — Python Foundations: cheatsheets/phase-1-cheat-sheet.md
+      - Phase 2 — Data Workflows & Analytics Stack: cheatsheets/phase-2-cheat-sheet.md
+      - Phase 3 — Machine Learning Foundations: cheatsheets/phase-3-cheat-sheet.md
+      - Phase 4 — Advanced ML & MLOps: cheatsheets/phase-4-cheat-sheet.md
   - ML Theory & Mathematics: theory.md
   - Dependency Review: dependency-review.md
   - Repository Roadmap: roadmap.md
