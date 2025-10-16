@@ -2,7 +2,7 @@
 
 Welcome to the official documentation hub for the **Coding for MBA** curriculum. This MkDocs-powered site pulls content directly from the repository so you can:
 
-- Navigate the entire 67-day learning path in one place.
+- Navigate the entire 84-day learning path in one place.
 - Read every lesson summary without digging through folders.
 - Jump straight into the companion notebooks or Python scripts for each topic.
 
@@ -31,6 +31,7 @@ All notebooks are ready to run with zero setup required!
 ## What's inside
 
 - **Machine Learning Curriculum** – Phased roadmap that explains how the Day 40–67 sequence ladders into an end-to-end ML capability.
+- **Business Intelligence Curriculum** – [Phase 5 roadmap](bi-curriculum.md) aligning Days 68–84 with developer-roadmap BI Analyst topics.
 - **Lessons** – Direct access to every `Day_*` lesson README, enhanced with quick links to the supporting notebooks and scripts.
 - **Repository Roadmap** – Future development plans and enhancement priorities for the curriculum.
 - **Automation Commands** – Custom commands for CI/CD workflows and automated testing.
@@ -40,7 +41,7 @@ All notebooks are ready to run with zero setup required!
 
 ## Lessons
 
-Use the table below to jump straight into any lesson in the 67-day journey.
+Use the table below to jump straight into any lesson in the 84-day journey.
 
 | Day | Lesson |
 | --- | --- |
@@ -111,6 +112,23 @@ Use the table below to jump straight into any lesson in the 67-day journey.
 | Day 65 | [Day 65 – MLOps Pipelines and CI/CD Automation](./lessons/day-65-mlops-pipelines-and-ci.md) |
 | Day 66 | [Day 66 – Model Deployment and Serving Patterns](./lessons/day-66-model-deployment-and-serving.md) |
 | Day 67 | [Day 67 – Model Monitoring and Reliability Engineering](./lessons/day-67-model-monitoring-and-reliability.md) |
+| Day 68 | [Day 68 – Business Intelligence Foundations](./lessons/day-68-bi-foundations.md) |
+| Day 69 | [Day 69 – BI Skill Stack & Professional Identity](./lessons/day-69-bi-skill-stack.md) |
+| Day 70 | [Day 70 – Understanding Data for BI](./lessons/day-70-bi-data-fundamentals.md) |
+| Day 71 | [Day 71 – Data Sources & Governance](./lessons/day-71-bi-data-governance.md) |
+| Day 72 | [Day 72 – Data Architecture & Modeling](./lessons/day-72-bi-modeling.md) |
+| Day 73 | [Day 73 – ETL & Data Preparation](./lessons/day-73-bi-etl-preparation.md) |
+| Day 74 | [Day 74 – Descriptive Analytics](./lessons/day-74-bi-descriptive-analytics.md) |
+| Day 75 | [Day 75 – Inferential Analytics](./lessons/day-75-bi-inferential-analytics.md) |
+| Day 76 | [Day 76 – Exploratory Diagnostics](./lessons/day-76-bi-diagnostics.md) |
+| Day 77 | [Day 77 – Experimentation & Predictive Foundations](./lessons/day-77-bi-experimentation.md) |
+| Day 78 | [Day 78 – Analytics Toolchain](./lessons/day-78-bi-toolchain.md) |
+| Day 79 | [Day 79 – Self-Service Dashboards](./lessons/day-79-bi-dashboards.md) |
+| Day 80 | [Day 80 – Visualization Strategy & Storytelling](./lessons/day-80-bi-storytelling.md) |
+| Day 81 | [Day 81 – Operational BI Governance](./lessons/day-81-bi-governance.md) |
+| Day 82 | [Day 82 – Industry Applications](./lessons/day-82-bi-industry-applications.md) |
+| Day 83 | [Day 83 – Career Assets & Credentials](./lessons/day-83-bi-career-assets.md) |
+| Day 84 | [Day 84 – Strategic Roadmapping & Next Steps](./lessons/day-84-bi-roadmapping.md) |
 
 ## Contributing updates
 
