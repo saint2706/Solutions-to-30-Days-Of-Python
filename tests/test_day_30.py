@@ -1,5 +1,7 @@
 """Tests for Day 30 web scraping utilities."""
 
+import importlib
+import json
 import os
 import sys
 
@@ -91,3 +93,93 @@ def test_process_book_data_with_no_books_raises_value_error():
     empty_html = "<html><body></body></html>".encode("utf-8")
     with pytest.raises(ValueError):
         process_book_data(empty_html)
+
+
+def test_fetch_tables_returns_category_only_when_no_pairs(monkeypatch):
+    import Day_30_Web_Scraping.web_scraping_bu as web_scraping_bu
+
+    sample_html = (
+        "<html><body>"
+        '<div class="facts-wrapper"><h5>Category One</h5></div>'
+        '<div class="facts-wrapper"><h5>Category Two</h5></div>'
+        "</body></html>"
+    ).encode("utf-8")
+
+    class DummyResponse:
+        def __init__(self, content: bytes) -> None:
+            self.content = content
+
+    def fake_get(url):  # pragma: no cover - trivial helper
+        return DummyResponse(sample_html)
+
+    monkeypatch.setattr(web_scraping_bu.requests, "get", fake_get)
+
+    tables = web_scraping_bu.fetch_tables("http://example.com")
+
+    assert tables == [
+        {"Category": "Category One"},
+        {"Category": "Category Two"},
+    ]
+
+
+def test_save_tables_writes_json(tmp_path):
+    import Day_30_Web_Scraping.web_scraping_bu as web_scraping_bu
+
+    data = [{"Category": "Category One", "Key": "Value"}]
+    output_file = tmp_path / "output.json"
+
+    path = web_scraping_bu.save_tables(data, output_file)
+
+    assert path == output_file
+    assert json.loads(output_file.read_text(encoding="utf-8")) == data
+
+
+def test_main_orchestrates_scrape(monkeypatch, tmp_path):
+    import Day_30_Web_Scraping.web_scraping_bu as web_scraping_bu
+
+    sample_html = (
+        "<html><body>"
+        '<div class="facts-wrapper"><h5>Category One</h5></div>'
+        '<div class="facts-wrapper"><h5>Category Two</h5></div>'
+        "</body></html>"
+    ).encode("utf-8")
+
+    class DummyResponse:
+        def __init__(self, content: bytes) -> None:
+            self.content = content
+
+    def fake_get(url):  # pragma: no cover - trivial helper
+        return DummyResponse(sample_html)
+
+    monkeypatch.setattr(web_scraping_bu.requests, "get", fake_get)
+
+    output_file = tmp_path / "result.json"
+    result_path = web_scraping_bu.main(
+        url="http://example.com", output_path=output_file
+    )
+
+    assert result_path == output_file
+    assert json.loads(output_file.read_text(encoding="utf-8")) == [
+        {"Category": "Category One"},
+        {"Category": "Category Two"},
+    ]
+
+
+def test_import_has_no_side_effects(monkeypatch):
+    import requests
+
+    module_name = "Day_30_Web_Scraping.web_scraping_bu"
+    sys.modules.pop(module_name, None)
+
+    calls = []
+
+    def fake_get(*args, **kwargs):  # pragma: no cover - trivial helper
+        calls.append((args, kwargs))
+        raise AssertionError("fetch should not occur during import")
+
+    monkeypatch.setattr(requests, "get", fake_get)
+
+    module = importlib.import_module(module_name)
+
+    assert module.__name__ == module_name
+    assert calls == []
