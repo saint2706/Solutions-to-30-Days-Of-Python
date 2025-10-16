@@ -81,7 +81,7 @@ def test_function_edge_case():
 
 The repository uses strict formatting standards defined in `pyproject.toml`:
 
-- **Black**: Line length 88, Python 3.12 target
+- **Black**: Line length 88, Python 3.13 target
 - **Ruff**: Linting and formatting (rules: E, F, I; ignore E501)
 - **Line endings**: LF (Unix-style)
 - **Quote style**: Double quotes
@@ -103,6 +103,22 @@ This command formats:
 - Python modules with Black and Ruff
 - Jupyter notebooks via `nbqa`
 - Markdown files via `mdformat`
+
+### Pre-commit Hooks
+
+The repository ships with a `.pre-commit-config.yaml` that mirrors the CI checks. After installing the development dependencies, enable the hooks:
+
+```bash
+pre-commit install
+```
+
+Run the full suite locally before pushing changes:
+
+```bash
+pre-commit run --all-files
+```
+
+This ensures formatting, linting, and notebook hygiene stay consistent with the automated pipelines.
 
 ## 📖 Contributing to Documentation
 

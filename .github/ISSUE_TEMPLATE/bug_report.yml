@@ -70,7 +70,7 @@ body:
       description: Please provide your environment details
       placeholder: |
         - OS: [e.g., Windows 11, macOS 14, Ubuntu 22.04]
-        - Python Version: [e.g., 3.12.0]
+        - Python Version: [e.g., 3.13.0]
         - How installed: [e.g., pip, conda, poetry]
     validations:
       required: false

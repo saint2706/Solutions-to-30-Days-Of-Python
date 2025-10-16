@@ -16,10 +16,11 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     labels:
       - "dependencies"
       - "python"
+      - "security"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -31,6 +32,7 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    insecure-external-code-execution: deny
     # Allow only security updates for major versions to avoid breaking changes
     open-pull-requests-limit: 5
     reviewers:
