@@ -7,6 +7,7 @@ Modules:
     - arithmetics: Basic mathematical operations for business calculations
     - greet: Business greeting and messaging functions
     - bar_system: Tools for managing bar inventory and sales
+    - bi_curriculum: Phase 5 Business Intelligence roadmap utilities
 
 Example Usage:
     from mypackage.arithmetics import add_numbers, multiply
@@ -25,6 +26,15 @@ __author__ = "50 Days of Python Course"
 # Import key functions for easy access
 from .arithmetics import add_numbers, divide, multiply, power, remainder, subtract
 from .bar_system import BarSystem, InventoryItem, SaleRecord
+from .bi_curriculum import (
+    BiTopic,
+    DEFAULT_DATA_PATH,
+    SUPPORTED_NODE_TYPES,
+    group_topics_by_titles,
+    index_topics_by_title,
+    load_bi_topics,
+    topics_by_titles,
+)
 from .greet import greet_person
 
 __all__ = [
@@ -38,4 +48,11 @@ __all__ = [
     "BarSystem",
     "InventoryItem",
     "SaleRecord",
+    "BiTopic",
+    "DEFAULT_DATA_PATH",
+    "SUPPORTED_NODE_TYPES",
+    "load_bi_topics",
+    "index_topics_by_title",
+    "topics_by_titles",
+    "group_topics_by_titles",
 ]

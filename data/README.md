@@ -23,6 +23,10 @@ This data directory contains curated datasets and utility files specifically des
 - **`weight-height.csv`** - Health and fitness industry demographic data
 - **`result.csv`** - General results dataset for statistical analysis practice
 
+### 🧭 Business Intelligence Curriculum Support
+
+- **`bi_analyst_roadmap.json`** - Phase 5 topic graph sourced from the developer-roadmap BI Analyst track (MIT license) for aligning lessons, cheat sheets, and stakeholder narratives
+
 ### 📰 Text and Social Media Analytics
 
 - **`hacker_news.csv`** - Technology industry discussion data from Hacker News
@@ -134,6 +138,7 @@ These datasets are used throughout the course in various day modules:
 - **Days 25-26**: Data cleaning and statistical analysis
 - **Days 27-29**: Data visualization and reporting
 - **Days 30-33**: Web scraping and API integration
+- **Days 68-84**: Business Intelligence specialization and portfolio strategy using the BI analyst roadmap
 
 ______________________________________________________________________
 
