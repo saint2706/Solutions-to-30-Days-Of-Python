@@ -30,6 +30,12 @@ pip install mysql-connector-python psycopg2-binary pymongo
 
 The documentation includes interactive examples, detailed explanations, and downloadable materials for each lesson.
 
+## 🗣️ Community & Support
+
+- **[Join GitHub Discussions →](https://github.com/saint2706/Coding-For-MBA/discussions)** – Connect with peers, ask questions in the Help Desk, and showcase wins in Show and Tell.
+- **[GitHub Discussions Playbook](docs/community/github-discussions.md)** – Learn how we organize categories, moderate conversations, and track learner engagement.
+- **[Contribution Guidelines](CONTRIBUTING.md)** – Follow the external contributor workflow for proposing changes and submitting pull requests.
+
 ## 🗺️ Curriculum Overview
 
 The curriculum is organized into four progressive phases over 67 days:

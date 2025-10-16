@@ -47,6 +47,9 @@ nav:
   - ML Theory & Mathematics: theory.md
   - Dependency Review: dependency-review.md
   - Repository Roadmap: roadmap.md
+  - Community Hub:
+      - GitHub Discussions Playbook: community/github-discussions.md
+      - Contributor Handbook: contributing.md
   - Automation Commands: agents.md
   - License: LICENSE.md
   - Lessons:
